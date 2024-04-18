@@ -1,18 +1,16 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap"
+
+
 import App from './App.vue'
-import VueRouter from "vue-router"
-import routes from "./services/routes"
+import router from './router'
 
+const app = createApp(App)
 
-Vue.use(VueRouter)
-Vue.config.productionTip = false
+app.use(createPinia())
+app.use(router)
 
-const router= new VueRouter({
-  routes: routes,
-  mode:"history"
-})
-
-new Vue({
-  render: h => h(App),
-  router: router
-}).$mount('#app')
+app.mount('#app')

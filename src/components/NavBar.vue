@@ -2,16 +2,16 @@
 
   <div class="wrapper">
     <header class="header responsive-header-lg ">
-      <b-container class="bv-example-row">
-        <b-row class="align-items-center">
+      <div class="container bv-example-row">
+        <div class="row align-items-center">
 
-          <b-col cols="1">
+          <div class="col-1">
             <figure>
-              <router-link to="/"> <img alt="logo" src=""> </router-link>
+              <router-link to="/"> <img alt="logo" :src="logo"> </router-link>
             </figure>
-          </b-col>
+          </div>
 
-          <b-col cols="8">
+          <div class="col-8">
             <nav class="menu-bar">
               <ul>
                 <li>
@@ -69,7 +69,7 @@
                         <router-link class="active" :to='{ name: "turkiyeMoviePageRoute" }'> سریال ترکی </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "americaMoviePageRoute" }'> سریال خارجی </router-link>
+                        <router-link class="active" :to='{ name: "turkiyeMoviePageRoute" }'> سریال خارجی </router-link>
                       </li>
                       <li>
                         <router-link class="active" :to='{ name: "koreanMoviePageRoute" }'> سریال کره ای </router-link>
@@ -96,10 +96,10 @@
                         <router-link class="active" :to='{ name: "turkiyeMoviePageRoute" }'> 250 فیلم برتر </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "americaMoviePageRoute" }'>  اسکار 2023 </router-link>
+                        <router-link class="active" :to='{ name: "turkiyeMoviePageRoute" }'>  اسکار 2023 </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "americaMoviePageRoute" }'> به زودی </router-link>
+                        <router-link class="active" :to='{ name: "turkiyeMoviePageRoute" }'> به زودی </router-link>
                       </li>
                     </ul>
                   </div>
@@ -113,10 +113,10 @@
 
               </ul>
             </nav>
-          </b-col>
+          </div>
 
 
-          <b-col cols="3">
+          <div class="col-3">
             <div>
                 <form>
                   <div class="search-box">
@@ -129,10 +129,10 @@
                 </form>
 
               </div>
-          </b-col>
+          </div>
 
-        </b-row>
-      </b-container>
+        </div>
+      </div>
     </header>
 
   </div>
@@ -142,43 +142,23 @@
 
 <script>
 
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-import {BContainer,BRow,BCol,BAlert } from 'bootstrap-vue'
 
+
+import logo from '../assets/images/LogoFormatForMovies.png'
 export default {
+  compatConfig: { MODE: 3 },
   name: 'navbar',
-
-  components:{
-    BContainer,
-    BRow,
-    BCol,
-    BAlert
-  }
-
+  data(){
+    return {
+      logo
+    }
+  },
 }
 </script>
 
 
 
 <style scoped>
-* {
-  direction: rtl;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Roboto";
-  font-weight: normal;
-  font-size: 16px;
-  background-color: black;
-}
-
-body {
-  position: relative;
-  height: 100%;
-  
-}
-
 .header {
   margin-top: 35px;
   margin-bottom: 60px;
