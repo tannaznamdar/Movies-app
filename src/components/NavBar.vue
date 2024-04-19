@@ -15,7 +15,7 @@
             <nav class="menu-bar">
               <ul>
                 <li class="menu-has-childern">
-                  <router-link class="active" to="/"> ژانر <span><i class="fas fa-angle-down"></i></span>
+                  <router-link class="active" to="/"> ژانر <font-awesome-icon class="angle-down-icon" icon="angle-down" />
                   </router-link>
                   <div class="dropdown-menu">
                     <ul>
@@ -42,7 +42,7 @@
                 </li>
 
                 <li class="menu-has-childern">
-                  <router-link class="active" to="/"> فیلم <span><i class="fas fa-angle-down"></i></span>
+                  <router-link class="active" to="/"> فیلم <span><font-awesome-icon class="angle-down-icon" icon="angle-down" /></span>
                   </router-link>
                   <div class="dropdown-menu">
                     <ul>
@@ -61,8 +61,7 @@
                 
 
                 <li class="menu-has-childern">
-                  <router-link class="active" to="/" > سریال <span><i
-                        class="fas fa-angle-down"></i></span>
+                  <router-link class="active" to="/" > سریال <span><font-awesome-icon class="angle-down-icon" icon="angle-down" /></span>
                   </router-link>
 
                   <div class="dropdown-menu">
@@ -88,8 +87,7 @@
                 </li>
 
                 <li class="menu-has-childern">
-                  <router-link class="active" to="/" > سایر <span><i
-                        class="fas fa-angle-down"></i></span>
+                  <router-link class="active" to="/" > سایر <span><font-awesome-icon class="angle-down-icon" icon="angle-down" /></span>
                   </router-link>
 
                   <div class="dropdown-menu">
@@ -126,9 +124,7 @@
                         placeholder="کلمه مورد نظر...">
                         <button class="search-btn" type="submit"><a href="#"><font-awesome-icon icon="magnifying-glass" /></a></button>
                   </div>
-
                 </form>
-
               </div>
           </div>
 
@@ -137,7 +133,7 @@
               <button class="login-btn">
                   <router-link :to='{ name: "loginPageRoute" }'> ورود </router-link>
               </button>
-              </div>
+          </div>
 
         </div>
       </div>
@@ -206,6 +202,7 @@ export default {
       position: relative;
       /*in nemizare vaghti hover mishe tekon bokhoran*/
       margin-left: 25px;
+      margin-right: 5px;
 
       a {
         text-decoration: none;
@@ -228,22 +225,17 @@ export default {
 
 .menu-has-childern {
   position: relative;
+}
 
-  i {
-    margin-left: 5px;
+.angle-down-icon {
+    font-size: 12px;
+    margin-right: 3px;
     font-weight: 900;
     transition: .3s;
-  }
 
   &:is(:hover, :focus) {
-    &>a {
-      color: #fff;
-
-      i {
         color: #fff;
         transform: rotatex(180deg);
-      }
-    }
   }
 }
 
@@ -313,13 +305,8 @@ export default {
   border: none;
   
   a {
-    color: #1c1c22;
-    background: transparent;
-
-    i {
-      background: transparent;
-      margin-right: 10px;
-    }
+    color: #8e939b;
+    background: transparent;   
 
     &:is(:hover, :focus) {
       & {
@@ -341,6 +328,7 @@ export default {
     text-decoration: none;
     color: #8e939b;
     transition: .3s;
+    font-size: 14px;
   }
 
   &:is(:hover, :focus) {
