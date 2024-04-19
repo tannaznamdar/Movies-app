@@ -10,20 +10,27 @@ import BaseLayout from "@/layouts/BaseLayout.vue";
 </template>
 
 <style>
+
 * {
   direction: rtl;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Roboto";
-  font-weight: normal;
-  font-size: 16px;
-  background-color: black;
+
 }
 
 body {
   position: relative;
   height: 100%;
-
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.9;
+  background-color: black;
 }
+
+@font-face {
+  font-family: "myFont";
+  src: url("assets/fonts/Iranian Sans.ttf") format('ttf');
+}
+
 </style>

@@ -1,25 +1,25 @@
 <template>
 
   <div class="wrapper">
-    <header class="header responsive-header-lg ">
+    <header class="header">
       <div class="container bv-example-row">
         <div class="row align-items-center">
 
           <div class="col-1">
-            <figure>
-              <router-link to="/"> <img alt="logo" :src="logo"> </router-link>
+            <figure class="logo-img">
+              <router-link to="/"> <img  alt="logo" :src="logo"> </router-link>
             </figure>
           </div>
 
-          <div class="col-8">
+          <div class="col-7">
             <nav class="menu-bar">
               <ul>
                 <li>
-                  <router-link class="active" to="/"> </router-link>
+                  <router-link to="/"> </router-link>
                 </li>
 
                 <li class="menu-has-childern">
-                  <router-link class="active" to="/"> فیلم خارجی <span><i class="fas fa-angle-down"></i></span>
+                  <router-link class="active" to="/"> ژانر <span><i class="fas fa-angle-down"></i></span>
                   </router-link>
                   <div class="dropdown-menu">
                     <ul>
@@ -33,30 +33,39 @@
                         <router-link class="active" :to='{ name: "familyMoviePageRoute" }'> خانوادگی </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "familyMoviePageRoute" }'> ترسناک </router-link>
+                        <router-link class="active" :to='{ name: "singUpPageRoute" }'> ترسناک </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "familyMoviePageRoute" }'> هندی </router-link>
+                        <router-link class="active" :to='{ name: "singUpPageRoute" }'> درام </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "familyMoviePageRoute" }'> خانوادگی </router-link>
-                      </li>
-                      <li>
-                        <router-link class="active" :to='{ name: "familyMoviePageRoute" }'> جنگی </router-link>
-                      </li>
-                      <li>
-                        <router-link class="active" :to='{ name: "familyMoviePageRoute" }'> درام </router-link>
-                      </li>
-                      <li>
-                        <router-link class="active" :to='{ name: "familyMoviePageRoute" }'> جنایی </router-link>
+                        <router-link class="active" :to='{ name: "singUpPageRoute" }'> جنایی </router-link>
                       </li>
                     </ul>
                   </div>
                 </li>
 
-                <li>
-                  <router-link class="active" :to='{ name: "iranianMoviePageRoute" }'> فیلم ایرانی </router-link>
+                <li class="menu-has-childern">
+                  <router-link class="active" to="/"> فیلم <span><i class="fas fa-angle-down"></i></span>
+                  </router-link>
+                  <div class="dropdown-menu">
+                    <ul>
+                      <li>
+                        <router-link class="active" :to='{ name: "iranianMoviePageRoute" }'> فیلم ایرانی </router-link>
+                      </li>
+                      <li>
+                        <router-link class="active" :to='{ name: "turkiyeMoviePageRoute" }'> فیلم ترکی </router-link>
+                      </li>
+                      <li>
+                        <router-link class="active" :to='{ name: "singUpPageRoute" }'> فیلم خارجی </router-link>
+                      </li>
+                     
+                      
+                    </ul>
+                  </div>
                 </li>
+
+                
 
                 <li class="menu-has-childern">
                   <router-link class="active" to="/" > سریال <span><i
@@ -66,13 +75,13 @@
                   <div class="dropdown-menu">
                     <ul>
                       <li>
-                        <router-link class="active" :to='{ name: "turkiyeMoviePageRoute" }'> سریال ترکی </router-link>
+                        <router-link class="active" :to='{ name: "singUpPageRoute" }'> سریال ترکی </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "turkiyeMoviePageRoute" }'> سریال خارجی </router-link>
+                        <router-link class="active" :to='{ name: "singUpPageRoute" }'> سریال کره ای </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "koreanMoviePageRoute" }'> سریال کره ای </router-link>
+                        <router-link class="active" :to='{ name: "singUpPageRoute" }'> سریال خارجی </router-link>
                       </li>
                     </ul>
                   </div>
@@ -93,13 +102,13 @@
                   <div class="dropdown-menu">
                     <ul>
                       <li>
-                        <router-link class="active" :to='{ name: "turkiyeMoviePageRoute" }'> 250 فیلم برتر </router-link>
+                        <router-link class="active" :to='{ name: "singUpPageRoute" }'> 250 فیلم برتر </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "turkiyeMoviePageRoute" }'>  اسکار 2023 </router-link>
+                        <router-link class="active" :to='{ name: "singUpPageRoute" }'>  اسکار 2023 </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "turkiyeMoviePageRoute" }'> به زودی </router-link>
+                        <router-link class="active" :to='{ name: "singUpPageRoute" }'> به زودی </router-link>
                       </li>
                     </ul>
                   </div>
@@ -131,6 +140,13 @@
               </div>
           </div>
 
+          
+          <div class="col-1">   
+              <button class="login-btn">
+                  <router-link :to='{ name: "loginPageRoute" }'> ورود </router-link>
+              </button>
+              </div>
+
         </div>
       </div>
     </header>
@@ -142,12 +158,12 @@
 
 <script>
 
-
-
-import logo from '../assets/images/LogoFormatForMovies.png'
+import logo from '../assets/images/360_F_590754013_CoFRYEcAmLREfB3k8vjzuyStsDbMAnqC.jpg'
 export default {
-  compatConfig: { MODE: 3 },
   name: 'navbar',
+
+  compatConfig: { MODE: 3 },
+  
   data(){
     return {
       logo
@@ -159,9 +175,19 @@ export default {
 
 
 <style scoped>
+
+.logo-img{
+  padding: 0;
+  margin: 0;
+  img{
+    width: 96px;
+    height: 45px;
+  }
+}
+
 .header {
-  margin-top: 35px;
-  margin-bottom: 60px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 
   @media (max-width:820px) {
     margin-bottom: 30px;
@@ -173,7 +199,6 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: row;
-  gap: 18px;
   float: right;
   align-items: center;
   padding: 0;
@@ -182,24 +207,27 @@ export default {
   ul {
     list-style-type: none;
     display: flex;
-    gap: 30px;
     padding: 0;
     margin: 0;
 
     li {
       position: relative;
       /*in nemizare vaghti hover mishe tekon bokhoran*/
+      margin-left: 25px;
 
       a {
         text-decoration: none;
-        color: white;
+        color: #c6c9cc;
         display: block;
         transition: .3s;
+        font-weight: 400;
+        font-size: 14px;
       }
 
       &:is(:hover, :focus) {
         &>a {
-          color: #FF0000;
+          color: #fff;
+          font-family: 400;
         }
       }
     }
@@ -208,7 +236,6 @@ export default {
 
 .menu-has-childern {
   position: relative;
-  /*in nemizare vaghti hover mishe tekon bokhoran*/
 
   i {
     margin-left: 5px;
@@ -218,10 +245,10 @@ export default {
 
   &:is(:hover, :focus) {
     &>a {
-      color: #FF0000;
+      color: #fff;
 
       i {
-        color: #FF0000;
+        color: #fff;
         transform: rotatex(180deg);
       }
     }
@@ -232,21 +259,16 @@ export default {
   display: none;
 
   ul {
-    display: flex;
+    display: block;
     flex-direction: column;
     gap: 15px;
     padding: 10px;
-    background-color: #212121;
     border-radius: 6px;
-    width: 200px;
+    width: 250px;
 
     li {
       padding: 0;
-      margin: 0;
-
-      a {
-        background-color: #212121;
-      }
+      margin-bottom: 10px;
     }
   }
 }
@@ -254,145 +276,36 @@ export default {
 .menu-has-childern:hover .dropdown-menu {
   display: block;
   position: absolute;
-  left: 0;
+  right: 0;
   top: 100%;
-  border: none;
   z-index: 2;
-  background-color: transparent;
-  text-align: left;
-  width: 100%;
+  background-color: #101014de;
+  text-align: right;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, .075);
+  padding: 10px 0;
+  border-radius: 4px;
+  backdrop-filter: blur(10px);
+  transform-origin: top center;
+  transform: rotateY(-10deg);
+  transition: transform .3s, opacity .3s;
 }
 
-
-/*mobile-menu*/
-
-.mobile-menu-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 70%;
-  height: 100%;
-  z-index: 100;
-  padding: 40px;
-  display: none;
-
-  @media (min-width:450px) and (max-width:820px) {
-    width: 50%;
-  }
-}
-
-.mobile-menu {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  margin: 0;
-
-  ul {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 0;
-    margin: 0;
-
-    li {
-      position: relative;
-      /*in nemizare vaghti hover mishe tekon bokhoran*/
-
-      a {
-        text-decoration: none;
-        color: white;
-        display: block;
-      }
-
-      &:is(:hover, :focus) {
-        &>a {
-          color: #FF0000;
-          transition: 0.2s;
-        }
-      }
-    }
-  }
-}
-
-.mobile-menu-has-childern {
-  position: relative;
-
-  i {
-    margin-left: 5px;
-    font-weight: 900;
-  }
-
-  &:is(:hover, :focus) {
-    &>a {
-      color: #FF0000;
-
-      i {
-        color: #FF0000;
-        transform: rotateY(180deg);
-        transition: 0.2s;
-      }
-    }
-  }
-}
-
-.mobile-dropdown-menu {
-  display: none;
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 10px;
-    background-color: #212121;
-    border-radius: 6px;
-
-    li {
-      padding: 0;
-      margin: 0;
-
-      a {
-        background-color: #212121;
-      }
-    }
-  }
-}
-
-.mobile-menu-has-childern:hover .mobile-dropdown-menu {
-  display: block;
-  position: absolute;
-  left: 50%;
-  top: 40%;
-  border: none;
-  z-index: 2;
-  background-color: transparent;
-  text-align: left;
-  width: 100%;
-
-  @media (min-width:450px) and (max-width:820px) {
-    left: 35%;
-  }
-}
-
+/*search-box*/
 
 .search-box {
-  width: 80%;
-  background-color: #ECEFF1;
-  display: flex;
+  color: #8e939b;
   flex-direction: row;
-  border-radius: 30px;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 15px 8px 15px;
+  display: flex;
 
-  @media(max-width:820px) {
     width: 100%;
-  }
-
-  @media (max-width:449px) {
-    padding: 5px 11px 5px 11px;
-  }
+    height: 45px;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #1c1c22;
+    border-radius: 3px;
 }
 
 .search-input {
@@ -406,9 +319,9 @@ export default {
 .search-btn {
   background: transparent;
   border: none;
-
+  
   a {
-    color: black;
+    color: #1c1c22;
     background: transparent;
 
     i {
@@ -418,7 +331,7 @@ export default {
 
     &:is(:hover, :focus) {
       & {
-        color: black;
+        color: #fff;
       }
     }
   }
@@ -426,67 +339,23 @@ export default {
 
 /*login*/
 
-.login {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-
-  a {
+.login-btn{
+  background-color: #1c1c22;
+  padding: 5px 25px;
+  border-radius: 5px;
+  border: none;
+  
+  a{
     text-decoration: none;
-    color: white;
-    display: block;
-    text-align: center;
+    color: #8e939b;
     transition: .3s;
-
-    i {
-      margin-left: 10px;
-      font-weight: 900;
-      transition: .3s;
-    }
-
-    @media (max-width:449px) {
-      font-size: 14px;
-
-      i {
-        font-size: 14px;
-      }
-    }
   }
 
   &:is(:hover, :focus) {
-    &>a {
-      color: #FF0000;
-
-      i {
-        color: #FF0000;
+      a {
+        color: #fff;
       }
     }
-  }
-}
-
-.responsive-header {
-  display: none;
-}
-
-.responsive-header {
-  @media (max-width:820px) {
-    display: block;
-  }
-}
-
-
-.responsive-header-lg {
-  display: block;
-}
-
-.responsive-header-lg {
-  @media (max-width:820px) {
-    display: none;
-  }
-}
-
-.white-color{
-  color: white;
 }
 
 </style>
