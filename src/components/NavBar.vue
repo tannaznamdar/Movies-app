@@ -220,7 +220,6 @@ export default {
       &:is(:hover, :focus) {
         &>a {
           color: #fff;
-          font-family: 400;
         }
       }
     }
