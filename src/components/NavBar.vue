@@ -131,8 +131,7 @@
                   <div class="search-box">
                       <input class="search-input" type="search" name="search" autocomplete="off"
                         placeholder="کلمه مورد نظر...">
-                        <button class="search-btn" type="submit"><a href="#"><i
-                          class="fa-sharp fa-solid fa-magnifying-glass"></i></a></button>
+                        <button class="search-btn" type="submit"><a href="#"><font-awesome-icon icon="magnifying-glass" /></a></button>
                   </div>
 
                 </form>
@@ -158,7 +157,7 @@
 
 <script>
 
-import logo from '../assets/images/360_F_590754013_CoFRYEcAmLREfB3k8vjzuyStsDbMAnqC.jpg'
+import logo from '../assets/images/logo.jpg'
 export default {
   name: 'navbar',
 

@@ -16,7 +16,7 @@ import BaseLayout from "@/layouts/BaseLayout.vue";
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
+  font-family: IRANSansWeb;
 }
 
 body {
