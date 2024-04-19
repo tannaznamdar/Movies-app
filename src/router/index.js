@@ -1,42 +1,30 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import Login from "@/views/LoginPage.vue";
-import SingUp from "@/views/SingUpPage.vue";
-import Genre from "@/views/GenrePage.vue";
+import MoviesGenre from "@/views/MoviesGenrePage.vue";
 import CountryMovies from "@/views/CountryMoviesPage.vue";
-import ActionMovie from "@/views/ActionMoviePage.vue";
-import RomanceMovie from "@/views/RomanceMoviePage.vue";
-import FamilyMovie from "@/views/FamilyMoviePage.vue";
-
-import Movies from "@/views/MoviesPage.vue";
-import Series from "@/views/SeriesPage.vue";
+import CountrySeries from "@/views/CountrySeriesPage.vue";
 import Animation from "@/views/AnimationPage.vue";
 import PersianDub from "@/views/PersianDubPage.vue";
+import Category from "@/views/CategoryPage.vue";
 import Job from "@/views/JobPage.vue";
 import ContactUs from "@/views/ContactUsPage.vue";
+import Login from "@/views/LoginPage.vue";
+
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {path:"/login", name:"loginPageRoute" , component: Login},
-    {path:"/singUp", name:"singUpPageRoute" , component: SingUp},
-    {path:"/genre", name:"genrePageRoute" , component: Genre},
-
-
-    {path: "/country/:country",name: 'countryMovie',component: CountryMovies},
-
-
-
-    {path:"/actionMovie", name:"actionMoviePageRoute" , component: ActionMovie},
-    {path:"/romanceMovie", name:"romanceMoviePageRoute" , component: RomanceMovie},
-    {path:"/familyMovie", name:"familyMoviePageRoute" , component: FamilyMovie},
-
-    {path:"/movies", name:"moviesPageRoute" , component: Movies},
-    {path:"/series", name:"seriesPageRoute" , component: Series},
+   
+    {path: "/genre/:genre",name: 'moviesGenrePageRoute',component: MoviesGenre},
+    {path: "/movie/:country",name: 'countryMoviePageRoute',component: CountryMovies},
+    {path: "/Series/:country",name: 'countrySeriesPageRoute',component: CountrySeries},
     {path:"/animation", name:"animationPageRoute" , component: Animation},
     {path:"/persiandub", name:"PersianDubPageRoute" , component: PersianDub},
+    {path: "/category/:content",name: 'categoryPageRoute',component: Category},
     {path:"/job", name:"JobPageRoute" , component: Job},
     {path:"/contactus", name:"contactUsPageRoute" , component: ContactUs},
+    {path:"/login", name:"loginPageRoute" , component: Login},
   ]
 })
 

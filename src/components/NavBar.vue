@@ -14,32 +14,28 @@
           <div class="col-7">
             <nav class="menu-bar">
               <ul>
-                <li>
-                  <router-link to="/"> </router-link>
-                </li>
-
                 <li class="menu-has-childern">
                   <router-link class="active" to="/"> ژانر <span><i class="fas fa-angle-down"></i></span>
                   </router-link>
                   <div class="dropdown-menu">
                     <ul>
                       <li>
-                        <router-link class="active" :to='{ name: "actionMoviePageRoute" }'> اکشن </router-link>
+                        <router-link class="active" :to='{ name: "moviesGenrePageRoute", params:{genre:"action"} }'> اکشن </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "romanceMoviePageRoute" }'> عاشقانه </router-link>
+                        <router-link class="active" :to='{ name: "moviesGenrePageRoute", params:{genre:"romance"} }'> عاشقانه </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "familyMoviePageRoute" }'> خانوادگی </router-link>
+                        <router-link class="active" :to='{ name: "moviesGenrePageRoute", params:{genre:"family"} }'> خانوادگی </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "singUpPageRoute" }'> ترسناک </router-link>
+                        <router-link class="active" :to='{ name: "moviesGenrePageRoute" , params:{genre:"horror"} }'> ترسناک </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "singUpPageRoute" }'> درام </router-link>
+                        <router-link class="active" :to='{ name: "moviesGenrePageRoute" , params:{genre:"drama"} }'> درام </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "singUpPageRoute" }'> جنایی </router-link>
+                        <router-link class="active" :to='{ name: "moviesGenrePageRoute", params:{genre:"Criminal"} }'> جنایی </router-link>
                       </li>
                     </ul>
                   </div>
@@ -51,20 +47,17 @@
                   <div class="dropdown-menu">
                     <ul>
                       <li>
-                        <router-link class="active" :to='{ name: "countryMovie" ,params:{country:"iran"} }'> فیلم ایرانی </router-link>
+                        <router-link class="active" :to='{ name: "countryMoviePageRoute" ,params:{country:"iran"} }'> فیلم ایرانی </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "countryMovie" ,params:{country:"turkey"}}'> فیلم ترکی </router-link>
+                        <router-link class="active" :to='{ name: "countryMoviePageRoute" ,params:{country:"turkey"}}'> فیلم ترکی </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "countryMovie" ,params:{country:"international"}}'> فیلم خارجی </router-link>
+                        <router-link class="active" :to='{ name: "countryMoviePageRoute" ,params:{country:"international"}}'> فیلم خارجی </router-link>
                       </li>
-                     
-                      
                     </ul>
                   </div>
                 </li>
-
                 
 
                 <li class="menu-has-childern">
@@ -75,13 +68,13 @@
                   <div class="dropdown-menu">
                     <ul>
                       <li>
-                        <router-link class="active" :to='{ name: "singUpPageRoute" }'> سریال ترکی </router-link>
+                        <router-link class="active" :to='{ name: "countrySeriesPageRoute" ,params:{country:"turkey"}}'> سریال ترکی </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "singUpPageRoute" }'> سریال کره ای </router-link>
+                        <router-link class="active" :to='{ name: "countrySeriesPageRoute" ,params:{country:"Korean"}}'> سریال کره ای </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "singUpPageRoute" }'> سریال خارجی </router-link>
+                        <router-link class="active" :to='{ name: "countrySeriesPageRoute" ,params:{country:"international"} }'> سریال خارجی </router-link>
                       </li>
                     </ul>
                   </div>
@@ -102,13 +95,13 @@
                   <div class="dropdown-menu">
                     <ul>
                       <li>
-                        <router-link class="active" :to='{ name: "singUpPageRoute" }'> 250 فیلم برتر </router-link>
+                        <router-link class="active" :to='{ name: "categoryPageRoute" ,params:{content:"imdb-250"} }'> 250 فیلم برتر </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "singUpPageRoute" }'>  اسکار 2023 </router-link>
+                        <router-link class="active" :to='{ name: "categoryPageRoute" ,params:{content:"oscar2023"} }'> 2023 اسکار  </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "singUpPageRoute" }'> به زودی </router-link>
+                        <router-link class="active" :to='{ name: "categoryPageRoute" ,params:{content:"ComingSoon"} }'> به زودی </router-link>
                       </li>
                     </ul>
                   </div>
