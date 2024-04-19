@@ -166,7 +166,7 @@ export default {
 
 
 
-<style scoped>
+<style scoped lang="scss">
 
 .logo-img{
   padding: 0;
