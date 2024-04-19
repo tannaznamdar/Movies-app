@@ -19,23 +19,8 @@
                   </router-link>
                   <div class="dropdown-menu">
                     <ul>
-                      <li>
-                        <router-link class="active" :to='{ name: "moviesGenrePageRoute", params:{genre:"action"} }'> اکشن </router-link>
-                      </li>
-                      <li>
-                        <router-link class="active" :to='{ name: "moviesGenrePageRoute", params:{genre:"romance"} }'> عاشقانه </router-link>
-                      </li>
-                      <li>
-                        <router-link class="active" :to='{ name: "moviesGenrePageRoute", params:{genre:"family"} }'> خانوادگی </router-link>
-                      </li>
-                      <li>
-                        <router-link class="active" :to='{ name: "moviesGenrePageRoute" , params:{genre:"horror"} }'> ترسناک </router-link>
-                      </li>
-                      <li>
-                        <router-link class="active" :to='{ name: "moviesGenrePageRoute" , params:{genre:"drama"} }'> درام </router-link>
-                      </li>
-                      <li>
-                        <router-link class="active" :to='{ name: "moviesGenrePageRoute", params:{genre:"Criminal"} }'> جنایی </router-link>
+                      <li v-for="genre in genres">
+                        <router-link class="active" :to='{ name: "moviesGenrePageRoute", params:{genre:genre.slug} }'> {{genre.title}} </router-link>
                       </li>
                     </ul>
                   </div>
@@ -149,12 +134,31 @@
 import logo from '../assets/images/logo.jpg'
 export default {
   name: 'navbar',
-
   compatConfig: { MODE: 3 },
-  
   data(){
     return {
-      logo
+      logo,
+      genres:[
+        {
+          title:'اکشن',
+          slug:'action'
+        },        {
+          title:'عاشقانه',
+          slug:'romance'
+        },        {
+          title:'خانوادگی',
+          slug:'family'
+        },        {
+          title:'ترسناک',
+          slug:'horror'
+        },        {
+          title:'درام',
+          slug:'drama'
+        },        {
+          title:'جنایی',
+          slug:'criminal'
+        },
+      ]
     }
   },
 }
