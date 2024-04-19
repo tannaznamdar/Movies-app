@@ -5,7 +5,7 @@ import BaseLayout from "@/layouts/BaseLayout.vue";
 
 <template>
   <BaseLayout>
-    <router-view/>
+    <router-view :key="$route.fullPath"/>
   </BaseLayout>
 </template>
 

@@ -51,13 +51,13 @@
                   <div class="dropdown-menu">
                     <ul>
                       <li>
-                        <router-link class="active" :to='{ name: "iranianMoviePageRoute" }'> فیلم ایرانی </router-link>
+                        <router-link class="active" :to='{ name: "countryMovie" ,params:{country:"iran"} }'> فیلم ایرانی </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "turkiyeMoviePageRoute" }'> فیلم ترکی </router-link>
+                        <router-link class="active" :to='{ name: "countryMovie" ,params:{country:"turkey"}}'> فیلم ترکی </router-link>
                       </li>
                       <li>
-                        <router-link class="active" :to='{ name: "singUpPageRoute" }'> فیلم خارجی </router-link>
+                        <router-link class="active" :to='{ name: "countryMovie" ,params:{country:"international"}}'> فیلم خارجی </router-link>
                       </li>
                      
                       
