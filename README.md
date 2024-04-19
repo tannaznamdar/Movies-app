@@ -1,4 +1,5 @@
-# convert2vite
+[![run-tests](https://github.com/tannaznamdar/Movies-app/actions/workflows/node.js.yml/badge.svg)](https://github.com/tannaznamdar/Movies-app/actions/workflows/node.js.yml)
+# moive app
 
 This template should help get you started developing with Vue 3 in Vite.
 
