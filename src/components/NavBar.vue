@@ -7,93 +7,79 @@
 
           <div class="col-1">
             <figure class="logo-img">
-              <router-link to="/"> <img  alt="logo" :src="logo"> </router-link>
+              <router-link to="/"> <img alt="logo" :src="logo"> </router-link>
             </figure>
           </div>
 
           <div class="col-7">
             <nav class="menu-bar">
               <ul>
-                <li class="menu-has-childern">
-                  <router-link class="active" to="/"> ژانر <font-awesome-icon class="angle-down-icon" icon="angle-down" />
-                  </router-link>
+                <li class="menu-has-childern"> ژانر <span><font-awesome-icon class="angle-down-icon"
+                      icon="angle-down" /></span>
+
                   <div class="dropdown-menu">
                     <ul>
                       <li v-for="genre in genres">
-                        <router-link class="active" :to='{ name: "moviesGenrePageRoute", params:{genre:genre.slug} }'> {{genre.title}} </router-link>
+                        <router-link class="active" :to='{ name: "moviesGenrePageRoute", params: { genre: genre.slug }}'>
+                          {{ genre.title }} </router-link>
                       </li>
                     </ul>
                   </div>
                 </li>
 
-                <li class="menu-has-childern">
-                  <router-link class="active" to="/"> فیلم <span><font-awesome-icon class="angle-down-icon" icon="angle-down" /></span>
-                  </router-link>
-                  <div class="dropdown-menu">
-                    <ul>
-                      <li>
-                        <router-link class="active" :to='{ name: "countryMoviePageRoute" ,params:{country:"iran"} }'> فیلم ایرانی </router-link>
-                      </li>
-                      <li>
-                        <router-link class="active" :to='{ name: "countryMoviePageRoute" ,params:{country:"turkey"}}'> فیلم ترکی </router-link>
-                      </li>
-                      <li>
-                        <router-link class="active" :to='{ name: "countryMoviePageRoute" ,params:{country:"international"}}'> فیلم خارجی </router-link>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                
-
-                <li class="menu-has-childern">
-                  <router-link class="active" to="/" > سریال <span><font-awesome-icon class="angle-down-icon" icon="angle-down" /></span>
-                  </router-link>
+                <li class="menu-has-childern"> فیلم <span><font-awesome-icon class="angle-down-icon"
+                      icon="angle-down" /></span>
 
                   <div class="dropdown-menu">
                     <ul>
-                      <li>
-                        <router-link class="active" :to='{ name: "countrySeriesPageRoute" ,params:{country:"turkey"}}'> سریال ترکی </router-link>
-                      </li>
-                      <li>
-                        <router-link class="active" :to='{ name: "countrySeriesPageRoute" ,params:{country:"Korean"}}'> سریال کره ای </router-link>
-                      </li>
-                      <li>
-                        <router-link class="active" :to='{ name: "countrySeriesPageRoute" ,params:{country:"international"} }'> سریال خارجی </router-link>
+                      <li v-for="country in countries">
+                        <router-link class="active"
+                          :to='{ name: "countryMoviePageRoute", params: { country: country.slug }}'>
+                          {{ country.title }}</router-link>
                       </li>
                     </ul>
                   </div>
                 </li>
 
-                <li>
-                    <router-link class="active" :to='{name:"animationPageRoute"}'> انیمیشن </router-link>
-                </li>
-                <li>
-                    <router-link class="active" :to='{name:"PersianDubPageRoute"}'> دوبله فارسی </router-link>
-                </li>
 
-                <li class="menu-has-childern">
-                  <router-link class="active" to="/" > سایر <span><font-awesome-icon class="angle-down-icon" icon="angle-down" /></span>
-                  </router-link>
+                <li class="menu-has-childern"> سریال <span><font-awesome-icon class="angle-down-icon"
+                      icon="angle-down" /></span>
 
                   <div class="dropdown-menu">
                     <ul>
-                      <li>
-                        <router-link class="active" :to='{ name: "categoryPageRoute" ,params:{content:"imdb-250"} }'> 250 فیلم برتر </router-link>
+                      <li v-for="country in countries">
+                        <router-link class="active"
+                          :to='{ name: "countrySeriesPageRoute", params: { country: country.slug }}'>
+                          {{ country.title }}</router-link>
                       </li>
-                      <li>
-                        <router-link class="active" :to='{ name: "categoryPageRoute" ,params:{content:"oscar2023"} }'> 2023 اسکار  </router-link>
-                      </li>
-                      <li>
-                        <router-link class="active" :to='{ name: "categoryPageRoute" ,params:{content:"ComingSoon"} }'> به زودی </router-link>
+                    </ul>
+                  </div>
+                </li>
+
+                <li>
+                  <router-link class="active" :to='{ name: "animationPageRoute" }'> انیمیشن </router-link>
+                </li>
+                <li>
+                  <router-link class="active" :to='{ name: "persianDubPageRoute" }'> دوبله فارسی </router-link>
+                </li>
+
+                <li class="menu-has-childern"> سایر <span><font-awesome-icon class="angle-down-icon"
+                      icon="angle-down" /></span>
+
+                  <div class="dropdown-menu">
+                    <ul>
+                      <li v-for="content in contents">
+                        <router-link class="active" :to='{ name: "otherPageRoute", params: { content: content.slug }}'>
+                          {{ content.title }}</router-link>
                       </li>
                     </ul>
                   </div>
                 </li>
                 <li>
-                    <router-link class="active" :to='{name:"JobPageRoute"}'> استخدام </router-link>
+                  <router-link class="active" :to='{ name: "jobPageRoute" }'> استخدام </router-link>
                 </li>
                 <li>
-                    <router-link class="active" :to='{name:"contactUsPageRoute"}'> ارتباط با ما </router-link>
+                  <router-link class="active" :to='{ name: "contactUsPageRoute" }'> ارتباط با ما </router-link>
                 </li>
 
               </ul>
@@ -103,21 +89,22 @@
 
           <div class="col-3">
             <div>
-                <form>
-                  <div class="search-box">
-                      <input class="search-input" type="search" name="search" autocomplete="off"
-                        placeholder="کلمه مورد نظر...">
-                        <button class="search-btn" type="submit"><a href="#"><font-awesome-icon icon="magnifying-glass" /></a></button>
-                  </div>
-                </form>
-              </div>
+              <form>
+                <div class="search-box">
+                  <input class="search-input" type="search" name="search" autocomplete="off"
+                    placeholder="کلمه مورد نظر...">
+                  <button class="search-btn" type="submit"><a href="#"><font-awesome-icon
+                        icon="magnifying-glass" /></a></button>
+                </div>
+              </form>
+            </div>
           </div>
 
-          
-          <div class="col-1">   
-              <button class="login-btn">
-                  <router-link :to='{ name: "loginPageRoute" }'> ورود </router-link>
-              </button>
+
+          <div class="col-1">
+            <button class="login-btn">
+              <router-link :to='{ name: "loginPageRoute" }'> ورود </router-link>
+            </button>
           </div>
 
         </div>
@@ -135,43 +122,91 @@ import logo from '../assets/images/logo.jpg'
 export default {
   name: 'navbar',
   compatConfig: { MODE: 3 },
-  data(){
+  data() {
     return {
       logo,
-      genres:[
+      genres: [
         {
-          title:'اکشن',
-          slug:'action'
-        },        {
-          title:'عاشقانه',
-          slug:'romance'
-        },        {
-          title:'خانوادگی',
-          slug:'family'
-        },        {
-          title:'ترسناک',
-          slug:'horror'
-        },        {
-          title:'درام',
-          slug:'drama'
-        },        {
-          title:'جنایی',
-          slug:'criminal'
+          title: 'اکشن',
+          slug: 'action'
+        }, {
+          title: 'عاشقانه',
+          slug: 'romance'
+        }, {
+          title: 'خانوادگی',
+          slug: 'family'
+        }, {
+          title: 'ترسناک',
+          slug: 'horror'
+        }, {
+          title: 'درام',
+          slug: 'drama'
+        }, {
+          title: 'جنایی',
+          slug: 'criminal'
         },
+      ],
+
+      countries: [
+        {
+          title: 'فیلم ایرانی ',
+          slug: 'iran'
+        },
+        {
+          title: 'فیلم ترکی ',
+          slug: 'turkey'
+        },
+        {
+          title: 'فیلم خارجی ',
+          slug: 'international'
+        }
+      ],
+
+      countries: [
+        {
+          title: 'سریال ایرانی ',
+          slug: 'iran'
+        },
+        {
+
+          title: 'سریال کره ای ',
+          slug: 'Korean'
+        },
+        {
+          title: 'سریال خارجی ',
+          slug: 'international'
+        }
+      ],
+
+      contents: [
+        {
+          title: '250 فیلم برتر ',
+          slug: 'imdb-250'
+        },
+        {
+
+          title: 'اسکار 2023',
+          slug: 'oscar2023'
+        },
+        {
+          title: ' به زودی  ',
+          slug: 'ComingSoon'
+        }
       ]
     }
-  },
+  }
 }
+
 </script>
 
 
 
 <style scoped lang="scss">
-
-.logo-img{
+.logo-img {
   padding: 0;
   margin: 0;
-  img{
+
+  img {
     width: 96px;
     height: 45px;
   }
@@ -207,13 +242,15 @@ export default {
       /*in nemizare vaghti hover mishe tekon bokhoran*/
       margin-left: 25px;
       margin-right: 5px;
+      color: #c6c9cc;
+      font-weight: 300;
 
       a {
         text-decoration: none;
         color: #c6c9cc;
         display: block;
         transition: .3s;
-        font-weight: 400;
+        font-weight: 300;
         font-size: 14px;
       }
 
@@ -231,14 +268,14 @@ export default {
 }
 
 .angle-down-icon {
-    font-size: 12px;
-    margin-right: 3px;
-    font-weight: 900;
-    transition: .3s;
+  font-size: 12px;
+  margin-right: 3px;
+  font-weight: 900;
+  transition: .3s;
 
   &:is(:hover, :focus) {
-        color: #fff;
-        transform: rotatex(180deg);
+    color: #fff;
+    transform: rotatex(180deg);
   }
 }
 
@@ -286,13 +323,13 @@ export default {
   align-items: center;
   display: flex;
 
-    width: 100%;
-    height: 45px;
-    padding: 8px 15px;
-    font-size: 14px;
-    font-weight: 500;
-    background-color: #1c1c22;
-    border-radius: 3px;
+  width: 100%;
+  height: 45px;
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #1c1c22;
+  border-radius: 3px;
 }
 
 .search-input {
@@ -306,10 +343,10 @@ export default {
 .search-btn {
   background: transparent;
   border: none;
-  
+
   a {
     color: #8e939b;
-    background: transparent;   
+    background: transparent;
 
     &:is(:hover, :focus) {
       & {
@@ -321,13 +358,13 @@ export default {
 
 /*login*/
 
-.login-btn{
+.login-btn {
   background-color: #1c1c22;
   padding: 5px 25px;
   border-radius: 5px;
   border: none;
-  
-  a{
+
+  a {
     text-decoration: none;
     color: #8e939b;
     transition: .3s;
@@ -335,10 +372,9 @@ export default {
   }
 
   &:is(:hover, :focus) {
-      a {
-        color: #fff;
-      }
+    a {
+      color: #fff;
     }
+  }
 }
-
 </style>
