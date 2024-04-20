@@ -102,7 +102,7 @@
 
 
           <div class="col-1">
-            <button class="login-btn">
+            <button class="btn login-btn">
               <router-link :to='{ name: "loginPageRoute" }'> ورود </router-link>
             </button>
           </div>
@@ -215,11 +215,6 @@ export default {
 .header {
   margin-top: 15px;
   margin-bottom: 15px;
-
-  @media (max-width:820px) {
-    margin-bottom: 30px;
-    margin-top: 20px;
-  }
 }
 
 .menu-bar {
@@ -322,7 +317,6 @@ export default {
   justify-content: space-between;
   align-items: center;
   display: flex;
-
   width: 100%;
   height: 45px;
   padding: 8px 15px;
@@ -358,17 +352,31 @@ export default {
 
 /*login*/
 
-.login-btn {
-  background-color: #1c1c22;
-  padding: 5px 25px;
-  border-radius: 5px;
-  border: none;
-
-  a {
-    text-decoration: none;
-    color: #8e939b;
-    transition: .3s;
+.btn{
+    background-color: #1c1c22;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 7px 22px 8px;
     font-size: 14px;
+    line-height: 2;
+    border-radius: 3px;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    a{
+        text-decoration: none;
+        color: #fff;
+        transition: .3s;
+        font-size: 14px;
+    }
+}
+
+.login-btn {
+  a {
+    color: #8e939b;
   }
 
   &:is(:hover, :focus) {
@@ -377,4 +385,5 @@ export default {
     }
   }
 }
+
 </style>

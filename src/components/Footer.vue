@@ -2,6 +2,21 @@
 
 </template>
 
-<style scoped>
 
+<script>
+export default {
+    name: 'footer',
+
+    data() {
+        return {
+
+        }
+    }
+}
+</script>
+
+
+
+
+<style scoped lang="scss">
 </style>

@@ -5,4 +5,6 @@ import { faPhone,faMagnifyingGlass,faAngleDown } from '@fortawesome/free-solid-s
 library.add(faMagnifyingGlass)
 library.add(faAngleDown)
 
+
+
 export default library;
