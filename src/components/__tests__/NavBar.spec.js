@@ -6,6 +6,6 @@ import NavBar from '../NavBar.vue'
 describe('HelloWorld', () => {
   it('renders properly', () => {
     const wrapper = mount(NavBar)
-    expect(wrapper.text()).toContain('فیلم خارجی')
+    expect(wrapper.text()).toContain('ژانر')
   })
 })
