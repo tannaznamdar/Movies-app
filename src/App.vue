@@ -23,9 +23,9 @@ body {
   position: relative;
   height: 100%;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 13px;
   line-height: 1.9;
-  background-color: black;
+  background-color: #101014;
 }
 
 @font-face {

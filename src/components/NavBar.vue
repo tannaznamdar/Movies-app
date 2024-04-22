@@ -90,10 +90,10 @@
           <div class="col-3">
             <div>
               <form>
-                <div class="search-box">
+                <div class="search-box align-items-center">
                   <input class="search-input" type="search" name="search" autocomplete="off"
                     placeholder="کلمه مورد نظر...">
-                  <button class="search-btn" type="submit"><a href="#"><font-awesome-icon
+                  <button class="search-btn" type="submit"><a href="#"><font-awesome-icon class="icon-size"
                         icon="magnifying-glass" /></a></button>
                 </div>
               </form>
@@ -238,7 +238,8 @@ export default {
       margin-left: 25px;
       margin-right: 5px;
       color: #c6c9cc;
-      font-weight: 300;
+      font-weight: 400;
+      cursor: pointer;
 
       a {
         text-decoration: none;
@@ -247,12 +248,14 @@ export default {
         transition: .3s;
         font-weight: 300;
         font-size: 14px;
+        
+        &:is(:hover, :focus) {
+          color: #fff;
+      }
       }
 
       &:is(:hover, :focus) {
-        &>a {
           color: #fff;
-        }
       }
     }
   }
@@ -263,10 +266,12 @@ export default {
 }
 
 .angle-down-icon {
-  font-size: 12px;
+  font-size: 10px;
+  line-height: inherit;
   margin-right: 3px;
   font-weight: 900;
   transition: .3s;
+  color: #999;
 
   &:is(:hover, :focus) {
     color: #fff;
@@ -324,6 +329,7 @@ export default {
   font-weight: 500;
   background-color: #1c1c22;
   border-radius: 3px;
+  backdrop-filter: blur(20px);
 }
 
 .search-input {
@@ -337,6 +343,7 @@ export default {
 .search-btn {
   background: transparent;
   border: none;
+  line-height: 0;
 
   a {
     color: #8e939b;
@@ -348,6 +355,11 @@ export default {
       }
     }
   }
+}
+
+.icon-size{
+  font-size: 17px;
+  font-weight: 700;
 }
 
 /*login*/
