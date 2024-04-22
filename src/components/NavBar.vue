@@ -121,7 +121,7 @@
 import logo from '../assets/images/logo.jpg'
 export default {
   name: 'navbar',
-  compatConfig: { MODE: 3 },
+
   data() {
     return {
       logo,
