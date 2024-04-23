@@ -1,7 +1,6 @@
 <template>
   <div>
     <Navbar/>
-    <card/>
     <slot/>
     <Footer/>
   </div>

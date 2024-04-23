@@ -109,18 +109,32 @@
 
         </div>
       </div>
+      <main class="wrapper">
+        <div class="container bv-example-row">
+          <section>
+            <div class="row mt-4">
+
+              <div class="col-lg-3" v-for="card in cards">
+                <Cards v-bind="card"></Cards>
+              </div>
+            </div>
+            <search-box></search-box>
+          </section>
+        </div>
+      </main>
     </header>
-
   </div>
-
 </template>
 
 
 <script>
 
 import logo from '../assets/images/logo.jpg'
+import Cards from "@/components/Cards.vue";
+import SearchBox from "@/components/SearchBox.vue";
 export default {
   name: 'navbar',
+  components: {SearchBox, Cards},
 
   data() {
     return {
@@ -162,22 +176,6 @@ export default {
         }
       ],
 
-      countries: [
-        {
-          title: 'سریال ایرانی ',
-          slug: 'iran'
-        },
-        {
-
-          title: 'سریال کره ای ',
-          slug: 'Korean'
-        },
-        {
-          title: 'سریال خارجی ',
-          slug: 'international'
-        }
-      ],
-
       contents: [
         {
           title: '250 فیلم برتر ',
@@ -191,6 +189,25 @@ export default {
         {
           title: ' به زودی  ',
           slug: 'ComingSoon'
+        }
+      ],
+      cards:[
+        {
+
+          thumbnail:'https://www.uptvs.com/wp-contents/uploads/2024/04/Heart-of-the-Hunter-2024-Header.jpg',
+          hasTag:true,
+          tag:{
+            title:'دوبله فارسی',
+            color:'green'
+          }
+        },
+        {
+          thumbnail:'https://www.uptvs.com/wp-contents/uploads/2024/04/Ahang-2-Nafare-Header.jpg',
+          hasTag:true,
+          tag:{
+            title:'زیر نویس',
+            color:'orange'
+          }
         }
       ]
     }
