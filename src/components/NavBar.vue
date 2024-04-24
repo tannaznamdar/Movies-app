@@ -108,14 +108,15 @@
           </div>
         </div>
      
-          <section>
+          <section v-if="$route.name !== 'titlePageRoute'">
+
             <div class="row mt-4">
               <div class="col-lg-3 mb-2" v-for="card in cards">
                 <headerCards v-bind="card"></headerCards >
               </div>
             </div>
 
-            <search-box></search-box>
+            <search-box v-if="$route.name === 'homePageRoute'" ></search-box>
 
           </section>
         </div>
@@ -127,7 +128,7 @@
 <script>
 
 import logo from '../assets/images/logo.jpg'
-import headerCards from "@/components/headerCards.vue";
+import headerCards from "@/components/HeaderCards.vue";
 import SearchBox from "@/components/SearchBox.vue";
 export default {
   name: 'navbar',
@@ -191,8 +192,8 @@ export default {
 
       cards:[
         {
+          slug:'immaculate-2024',
           thumbnail:'https://www.uptvs.com/wp-contents/uploads/2024/04/Immaculate-2024-Header.jpg',
-          link:'thumbnail',
           like:70,
           imdb:'6.3',
           title_en:'Immaculate 2024',
@@ -204,8 +205,8 @@ export default {
           }
         },
         {
+          slug:"rebel-moon-2-2024",
           thumbnail:'https://www.uptvs.com/wp-contents/uploads/2024/04/Rebel-Moon-2-2024-Header.jpg',
-          link:'thumbnail',
           like:80,
           imdb:'5.1',
           title_en:'Rebel Moon 2 2024',
@@ -217,6 +218,7 @@ export default {
           }
         },
         {
+          slug:"tehran-viper",
           thumbnail:'https://www.uptvs.com/wp-contents/uploads/2024/04/AfieTehran-7-header.jpg',
           hasTag:true,
           tag:{
@@ -229,6 +231,7 @@ export default {
           title_fa:'سریال افعی تهران '
         },
         {
+          slug:'kung-fu-panda-4-2024',
           thumbnail:'https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-Header.jpg',
           hasTag:true,
           tag:{
