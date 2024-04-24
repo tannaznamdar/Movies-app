@@ -108,7 +108,7 @@
           </div>
         </div>
      
-          <section v-if="$route.name !== 'titlePageRoute'">
+          <section v-if="routeName !== 'titlePageRoute'">
 
             <div class="row mt-4">
               <div class="col-lg-3 mb-2" v-for="card in cards">
@@ -116,7 +116,7 @@
               </div>
             </div>
 
-            <search-box v-if="$route.name === 'homePageRoute'" ></search-box>
+            <search-box v-if="routeName === 'homePageRoute'" ></search-box>
 
           </section>
         </div>
@@ -126,17 +126,22 @@
 
 
 <script>
-
+import { useRoute } from 'vue-router'
 import logo from '../assets/images/logo.jpg'
 import headerCards from "@/components/HeaderCards.vue";
 import SearchBox from "@/components/SearchBox.vue";
 export default {
   name: 'navbar',
   components: {SearchBox, headerCards},
-
+  computed:{
+    routeName(){
+      return location.name;
+    }
+  },
   data() {
     return {
       logo,
+      location:useRoute(),
       genres: [
         {
           title: 'اکشن',
