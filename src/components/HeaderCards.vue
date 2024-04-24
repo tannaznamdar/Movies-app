@@ -1,6 +1,6 @@
 <template>
   <article class="card-container">
-    <router-link :to="link">
+    <router-link :to='{ name: "titlePageRoute", params: { slug }}'>
       <figure class="card-img">
         <img alt="RebelMoon" :src="thumbnail">
       </figure>
@@ -39,6 +39,10 @@ export default {
   name: 'headerCards',
   components: { Tag },
   props: {
+    slug: {
+      type: String,
+      default: ''
+    },
     link: {
       type: String,
       default: ''
