@@ -126,7 +126,7 @@
 
 <script>
 
-import logo from '@/assets/images/logo.jpg'
+import logo from '../assets/images/logo.jpg'
 import headerCards from "@/components/headerCards.vue";
 import SearchBox from "@/components/SearchBox.vue";
 export default {

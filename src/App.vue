@@ -52,6 +52,22 @@ body {
     transition: .3s;
   }
 
+  &--transparent{
+    display: inherit;
+    background: transparent;
+
+    a{
+      color: #b8daff;
+    font-size: 11px;
+    }
+
+    &:is(:hover, :focus) {
+      a {
+        color: #3777f6;
+      }
+    }
+  }
+
   &-transparent-orange {
     background: transparent;
     border-color: #FF7555;
@@ -130,4 +146,13 @@ body {
     }
   }
 }
+
+.title{
+  font-size: 17px;
+  font-family: inherit;
+  line-height: 1.3;
+  font-weight: 500;
+  color: #fff;
+}
+
 </style>

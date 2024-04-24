@@ -1,29 +1,27 @@
 <template>
-  <article class="card-container">
+  <article class=" mb-3">
     <router-link :to="link">
-      <figure class="card-img">
-        <img alt="RebelMoon" :src="thumbnail">
-      </figure>
+      <div class="card-container">
 
-      <div class="card-info-overlay">
-        <div class="card-info">
-          <div class="mb-2 d-flex flex-row">
-            <span class="internal-distance-l">
-              <font-awesome-icon icon="heart" />
-              {{ like }}%
-            </span>
-            <span>
-              <img alt="Imdb" :src="Imdb">
-              10/ {{ imdb }}
-            </span>
+        <figure class="card-img">
+          <img alt="#" :src="thumbnail">
+        </figure>
+
+        <span class="badge">رایگان</span>
+
+        <div class="card-info-overlay">
+          <div class="card-info">
+            <p class="card-font card-font--title-fa"> {{ genre }} </p>
+            <div>
+              <img class="internal-distance-l" alt="Imdb" :src="Imdb">
+              <span class="card-font card-font--title-fa"> {{ imdb }} </span>
+            </div>
           </div>
-
-          <h2 class="card-font card-font--title-fa"> {{ title_fa }} </h2>
-          <p class="card-font card-font--title-en"> {{ title_en }} </p>
-          <tag v-if="hasTag" v-bind="tag"></tag>
         </div>
+
       </div>
     </router-link>
+    <p class="movie-name"> <router-link :to="link"> {{ title_fa }} </router-link>  </p>
   </article>
 </template>
 
@@ -32,12 +30,11 @@
 
 
 import Imdb from '@/assets/images/la--imdb.svg'
-import Tag from "@/components/Tag.vue";
 
 
 export default {
-  name: 'headerCards',
-  components: { Tag },
+  name: 'movieCards',
+
   props: {
     link: {
       type: String,
@@ -47,33 +44,18 @@ export default {
       type: String,
       default: ''
     },
-    like: {
-      type: Number,
-      default: ''
+    genre: {
+      type: String,
+      default: ' '
     },
     imdb: {
       type: String,
       default: ''
     },
-    title_en: {
-      type: String,
-      default: ' '
-    },
     title_fa: {
       type: String,
       default: ''
     },
-    hasTag: {
-      type: Boolean,
-      default: false
-    },
-    tag: {
-      type: Object,
-      default: {
-        title: ' ',
-        color: ' '
-      }
-    }
   },
 
   data() {
@@ -101,7 +83,7 @@ export default {
   display: block;
   border-radius: 4px;
   width: 100%;
-  height: 180px;
+  height: 290px;
   position: relative;
   overflow: hidden;
   margin-bottom: 20px;
@@ -121,21 +103,21 @@ export default {
 .card-info-overlay {
   position: absolute;
   top: 0;
-  bottom: 0;
   left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
   transition: .5s ease;
-  background: rgba(0, 0, 0, .7);
+  opacity: 0;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  background: linear-gradient(to bottom, transparent 0%, transparent 100px, #101014 100%);
+  width: 100%;
   border-radius: 4px;
-  transition: all 400ms;
+  padding-top: calc(100% - -20px);
 }
 
 .card-info {
   position: absolute;
-  top: 50%;
+  top: 85%;
   right: 0;
   -webkit-transform: translate(-20%, -50%);
   -ms-transform: translate(-20%, -50%);
@@ -156,16 +138,45 @@ export default {
   font-family: inherit;
   line-height: 1.3;
   color: #fff;
+  margin: 0;
+  margin-bottom: 5px;
 
   &--title-fa {
     font-weight: 700;
-    font-size: 15px;
-  }
-
-  &--title-en{
-    font-weight: 200;
     font-size: 12px;
   }
+}
+
+.movie-name {
+  line-height: 0;
+  margin-right: 5px;
+  a {
+    text-decoration: none;
+    color: #c6c9cc;
+    font-size: 13px;
+    font-weight: 400;
+
+    &:is(:hover, :focus) {
+      color: #b8daff;
+    }
+  }
+}
+
+.badge {
+  position: absolute;
+    flex-direction: column;
+    background: #f6b828;
+    color: #000;
+    font-size: 10px;
+    left: 10px;
+    bottom: 10px;
+    text-align: center;
+    line-height: 15px;
+    font-weight: 400;
+    display: flex;
+    z-index: 3;
+    border-radius: 5px;
+    padding: 2px;
 }
 
 </style>
