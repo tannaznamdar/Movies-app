@@ -1,42 +1,42 @@
 <template>
 
-   <!-- <h1> Animation Page</h1> -->
+  <!-- <h1> Animation Page</h1> -->
 
-    <div class="container-fluid">
-      <section class="movie-card">
-        <div class="container bv-example-row">
+  <div class="container-fluid">
+    <section class="movie-card">
+      <div class="container bv-example-row">
 
-          <div class="row">
-            <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
-              <h4 class="title">ایرانی رایگان</h4>
-              <button class="button button--transparent"><a href="#"> مشاهده همه </a></button>
-            </div>
+        <div class="row">
+          <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
+            <h4 class="title">ایرانی رایگان</h4>
+            <button class="button button--transparent"><a href="#"> مشاهده همه </a></button>
           </div>
-
-          <div class="row">
-            <div class="col-lg-2" v-for="movieCard in movieCards" >
-              <MovieCards v-bind="movieCard" ></MovieCards>
-            </div>
-          </div>
-
         </div>
-      </section>
 
-    </div>
+        <div class="row">
+          <div class="col-lg-2" v-for="movieCard in movieCards">
+            <MovieCards v-bind="movieCard"></MovieCards>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
 
 </template>
 
-   <script>
+<script>
 
-   import MovieCards from "@/components/MovieCards.vue";
-  
-   export default {
-     name: 'Animation',
-     components: { MovieCards },
+import MovieCards from "@/components/MovieCards.vue";
 
-     data() {
+export default {
+  name: 'Animation',
+  components: {MovieCards},
+
+  data() {
     return {
-      
+
       movieCards: [
         {
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
@@ -83,17 +83,16 @@
       ]
     }
   }
-    
-   }
 
-   </script>
+}
+
+</script>
 
 <style scoped>
 
-.movie-card{
+.movie-card {
   background-color: #16161b;
 }
-
 
 
 </style>
