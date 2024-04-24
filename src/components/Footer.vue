@@ -71,7 +71,7 @@
                     <div class="col-lg-3">
 
                         <button
-                            class="btn btn-lg mb-4 btn-lg--instagram d-flex justify-content-between align-items-center">
+                            class="button button-lg mb-4 button-lg--instagram d-flex justify-content-between align-items-center">
                             <div>
                                 <img class="internal-distance" alt="logo" :src="instagramIcon">
                                 <router-link class="active" to='/'> صفحه اینستاگرام </router-link>
@@ -81,7 +81,7 @@
                             </div>
                         </button>
 
-                        <button class="btn btn-lg btn-lg--telegram d-flex justify-content-between align-items-center">
+                        <button class="button button-lg button-lg--telegram d-flex justify-content-between align-items-center">
                             <div>
                                 <img class="internal-distance" alt="logo" :src="telegramIcon">
                                 <router-link class="active" to='/'> کانال تلگرام </router-link>
@@ -134,7 +134,7 @@
                                 <span> اپلیکیشن آپ تی وی </span>
                             </div>
 
-                            <span class="btn btn--download"> دانلود </span>
+                            <span class="button button--download"> دانلود </span>
                         </a>
                     </div>
                 </div>
@@ -262,60 +262,6 @@ export default {
 
 .icon-size{
     font-size: 22px;
-}
-
-.btn {
-    background-color: #1c1c22;
-    display: inline-block;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    user-select: none;
-    border: 1px solid transparent;
-    padding: 7px 22px 8px;
-    font-size: 14px;
-    line-height: 2;
-    border-radius: 3px;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
-    a {
-        text-decoration: none;
-        color: #fff;
-        transition: .3s;
-        font-size: 14px;
-    }
-
-    &--download {
-        background-color: #89d64f26;
-        padding: 1px 14px;
-        color: #89d64f;
-        text-decoration: none;
-        font-size: 12px;
-    }
-
-    &-lg{
-        width: 100%;
-        font-size: 15px;
-        padding: 8px 22px 8px;
-
-    &--instagram {
-        background: linear-gradient(145deg, #FA9F6F, #FA697C);
-        box-shadow: 0 3px 20px rgba(250, 123, 119, .3);
-
-        i {
-            color: #fff;
-        }
-    }
-
-    &--telegram {
-        background: linear-gradient(145deg, #96D5F5, #5EBAE8);
-        box-shadow: 0 3px 20px rgba(142, 209, 243, .35);
-
-        i {
-            color: #fff;
-        }
-    }
-    }
 }
 
 .logo-img {

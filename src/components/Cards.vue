@@ -8,18 +8,18 @@
       <div class="card-info-overlay">
         <div class="card-info">
           <div class="mb-2 d-flex flex-row">
-                                            <span class="internal-distance-l">
-                                                <font-awesome-icon icon="heart"/>
-                                                {{like}}%
-                                            </span>
+            <span class="internal-distance-l">
+              <font-awesome-icon icon="heart" />
+              {{ like }}%
+            </span>
             <span>
-                                                <img alt="Imdb" :src="Imdb">
-                                                10/ {{imdb}}
-                                            </span>
+              <img alt="Imdb" :src="Imdb">
+              10/ {{ imdb }}
+            </span>
           </div>
 
-          <h2 class="card-font card-font--title"> {{title_fa}} </h2>
-          <p class="card-font card-font--subTitle"> {{title_en}} </p>
+          <h2 class="card-font card-font--title-fa"> {{ title_fa }} </h2>
+          <p class="card-font card-font--title-en"> {{ title_en }} </p>
           <tag v-if="hasTag" v-bind="tag"></tag>
         </div>
       </div>
@@ -31,51 +31,51 @@
 <script>
 
 import RebelMoon from '../assets/images/RebelMoon.jpg'
-
 import Imdb from '@/assets/images/la--imdb.svg'
 import Tag from "@/components/Tag.vue";
 
 
 export default {
   name: 'cards',
-  components: {Tag},
-  props:{
-    link:{
-      type:String,
-      default:RebelMoon
+  components: { Tag },
+  props: {
+    link: {
+      type: String,
+      default: RebelMoon
     },
-    thumbnail:{
-      type:String,
-      default:RebelMoon
+    thumbnail: {
+      type: String,
+      default: RebelMoon
     },
-    like:{
-      type:Number,
-      default:86
+    like: {
+      type: Number,
+      default: 86
     },
-    imdb:{
-      type:String,
-      default:'5.1'
+    imdb: {
+      type: String,
+      default: '5.1'
     },
-    title_en:{
-      type:String,
-      default:'Rebel Moon 2 2024'
+    title_en: {
+      type: String,
+      default: 'Rebel Moon 2 2024'
     },
-    title_fa:{
-      type:String,
-      default:'فیلم ربل مون 2'
+    title_fa: {
+      type: String,
+      default: 'فیلم ربل مون 2'
     },
-    hasTag:{
-      type:Boolean,
-      default:false
+    hasTag: {
+      type: Boolean,
+      default: false
     },
-    tag:{
-      type:Object,
-      default:{
-        title:'زیرنویس چسبیده',
-        color:'orange'
+    tag: {
+      type: Object,
+      default: {
+        title: 'زیرنویس چسبیده',
+        color: 'orange'
       }
     }
   },
+
   data() {
     return {
       RebelMoon,
@@ -120,7 +120,6 @@ export default {
 }
 
 .card-info-overlay {
-
   position: absolute;
   top: 0;
   bottom: 0;
@@ -159,54 +158,15 @@ export default {
   line-height: 1.3;
   color: #fff;
 
-  &--title {
+  &--title-fa {
     font-weight: 700;
     font-size: 15px;
   }
 
-  &--subTitle {
+  &--title-en{
     font-weight: 200;
     font-size: 12px;
   }
 }
 
-.button {
-  display: inline-block;
-  padding: 8px 14px 8px;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  text-align: center;
-  border-radius: 3px;
-  white-space: nowrap;
-  vertical-align: middle;
-  user-select: none;
-  border: 1px solid transparent;
-
-
-  &-transparent-orange {
-    background: transparent;
-    border-color: #FF7555;
-    color: #FF7555;
-  }
-
-  &-transparent-green {
-    background: transparent;
-    border-color: #89d64f;
-    color: #89d64f;
-  }
-
-  &--lg {
-    color: #fff;
-    background-color: #6898f8;
-    border-color: #6898f8;
-    width: 100%;
-    font-size: 14px;
-    line-height: 2;
-  }
-}
-
-//search-box 
-
-
-</style>
+//search-box </style>

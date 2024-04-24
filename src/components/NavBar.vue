@@ -102,26 +102,23 @@
 
 
           <div class="col-1">
-            <button class="btn login-btn">
+            <button class="button button--login">
               <router-link :to='{ name: "loginPageRoute" }'> ورود </router-link>
             </button>
           </div>
 
         </div>
-      </div>
-      <main class="wrapper">
-        <div class="container bv-example-row">
+     
           <section>
             <div class="row mt-4">
-
-              <div class="col-lg-3" v-for="card in cards">
+              <div class="col-lg-3 mb-2" v-for="card in cards">
                 <Cards v-bind="card"></Cards>
               </div>
             </div>
+
             <search-box></search-box>
           </section>
         </div>
-      </main>
     </header>
   </div>
 </template>
@@ -377,42 +374,6 @@ export default {
 .icon-size{
   font-size: 17px;
   font-weight: 700;
-}
-
-/*login*/
-
-.btn{
-    background-color: #1c1c22;
-    display: inline-block;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    user-select: none;
-    border: 1px solid transparent;
-    padding: 7px 22px 8px;
-    font-size: 14px;
-    line-height: 2;
-    border-radius: 3px;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
-    a{
-        text-decoration: none;
-        color: #fff;
-        transition: .3s;
-        font-size: 14px;
-    }
-}
-
-.login-btn {
-  a {
-    color: #8e939b;
-  }
-
-  &:is(:hover, :focus) {
-    a {
-      color: #fff;
-    }
-  }
 }
 
 </style>

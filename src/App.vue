@@ -1,16 +1,15 @@
 <script setup>
-import {  RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import BaseLayout from "@/layouts/BaseLayout.vue";
 </script>
 
 <template>
   <BaseLayout>
-    <router-view :key="$route.fullPath"/>
+    <router-view :key="$route.fullPath" />
   </BaseLayout>
 </template>
 
-<style>
-
+<style lang="scss">
 * {
   direction: rtl;
   box-sizing: border-box;
@@ -32,10 +31,11 @@ body {
   font-family: "myFont";
   src: url("assets/fonts/Iranian Sans.ttf") format('ttf');
 }
+
 .button {
   display: inline-block;
   padding: 8px 14px 8px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1;
   text-align: center;
@@ -44,18 +44,26 @@ body {
   vertical-align: middle;
   user-select: none;
   border: 1px solid transparent;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
+  a {
+    text-decoration: none;
+    color: #fff;
+    transition: .3s;
+  }
 
   &-transparent-orange {
     background: transparent;
     border-color: #FF7555;
     color: #FF7555;
+    font-size: 12px;
   }
 
   &-transparent-green {
     background: transparent;
     border-color: #89d64f;
     color: #89d64f;
+    font-size: 12px;
   }
 
   &--lg {
@@ -63,9 +71,56 @@ body {
     background-color: #6898f8;
     border-color: #6898f8;
     width: 100%;
-    font-size: 14px;
     line-height: 2;
   }
-}
 
+  &--login {
+    line-height: 2;
+    padding: 8px 22px 8px;
+    background-color: #1c1c22;
+
+    a {
+      color: #8e939b;
+    }
+
+    &:is(:hover, :focus) {
+      a {
+        color: #fff;
+      }
+    }
+  }
+
+  &--download {
+    background-color: #89d64f26;
+    padding: 1px 14px;
+    color: #89d64f;
+    font-size: 12px;
+    line-height: 2;
+  }
+
+  &-lg {
+    width: 100%;
+    font-size: 15px;
+    padding: 8px 22px 8px;
+    line-height: 2;
+
+    &--instagram {
+      background: linear-gradient(145deg, #FA9F6F, #FA697C);
+      box-shadow: 0 3px 20px rgba(250, 123, 119, .3);
+
+      i {
+        color: #fff;
+      }
+    }
+
+    &--telegram {
+      background: linear-gradient(145deg, #96D5F5, #5EBAE8);
+      box-shadow: 0 3px 20px rgba(142, 209, 243, .35);
+
+      i {
+        color: #fff;
+      }
+    }
+  }
+}
 </style>
