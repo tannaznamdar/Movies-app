@@ -2,6 +2,10 @@
 export default {
   name:'tag',
   props:{
+    small:{
+      type:Boolean,
+      default:false
+    },
     title:{
       type:String,
       default: 'زیرنویس چسبیده'
@@ -20,5 +24,6 @@ export default {
 </script>
 
 <template>
-  <span class="button" :class="colorClass">{{title}}</span>
+  <span v-if="!small" class="button" :class="colorClass">{{title}}</span>
+  <span v-else class="button small" :class="colorClass">{{title}}</span>
 </template>
