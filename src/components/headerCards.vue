@@ -30,7 +30,7 @@
 
 <script>
 
-import RebelMoon from '../assets/images/RebelMoon.jpg'
+
 import Imdb from '@/assets/images/la--imdb.svg'
 import Tag from "@/components/Tag.vue";
 
@@ -41,27 +41,27 @@ export default {
   props: {
     link: {
       type: String,
-      default: RebelMoon
+      default: ''
     },
     thumbnail: {
       type: String,
-      default: RebelMoon
+      default: ''
     },
     like: {
       type: Number,
-      default: 86
+      default: ''
     },
     imdb: {
       type: String,
-      default: '5.1'
+      default: ''
     },
     title_en: {
       type: String,
-      default: 'Rebel Moon 2 2024'
+      default: ' '
     },
     title_fa: {
       type: String,
-      default: 'فیلم ربل مون 2'
+      default: ''
     },
     hasTag: {
       type: Boolean,
@@ -70,15 +70,14 @@ export default {
     tag: {
       type: Object,
       default: {
-        title: 'زیرنویس چسبیده',
-        color: 'orange'
+        title: ' ',
+        color: ' '
       }
     }
   },
 
   data() {
     return {
-      RebelMoon,
       Imdb,
     }
   }
@@ -138,9 +137,9 @@ export default {
   position: absolute;
   top: 50%;
   right: 0;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-20%, -50%);
+  -ms-transform: translate(-20%, -50%);
+  transform: translate(-20%, -50%);
   box-shadow: 0 5px 25px rgba(0, 0, 0, .13) !important;
 }
 

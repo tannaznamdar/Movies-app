@@ -106,17 +106,17 @@
               <router-link :to='{ name: "loginPageRoute" }'> ورود </router-link>
             </button>
           </div>
-
         </div>
      
           <section>
             <div class="row mt-4">
               <div class="col-lg-3 mb-2" v-for="card in cards">
-                <Cards v-bind="card"></Cards>
+                <headerCards v-bind="card"></headerCards >
               </div>
             </div>
 
             <search-box></search-box>
+
           </section>
         </div>
     </header>
@@ -126,12 +126,12 @@
 
 <script>
 
-import logo from '../assets/images/logo.jpg'
-import Cards from "@/components/Cards.vue";
+import logo from '@/assets/images/logo.jpg'
+import headerCards from "@/components/headerCards.vue";
 import SearchBox from "@/components/SearchBox.vue";
 export default {
   name: 'navbar',
-  components: {SearchBox, Cards},
+  components: {SearchBox, headerCards},
 
   data() {
     return {
@@ -188,10 +188,28 @@ export default {
           slug: 'ComingSoon'
         }
       ],
+
       cards:[
         {
-
-          thumbnail:'https://www.uptvs.com/wp-contents/uploads/2024/04/Heart-of-the-Hunter-2024-Header.jpg',
+          thumbnail:'https://www.uptvs.com/wp-contents/uploads/2024/04/Immaculate-2024-Header.jpg',
+          link:'thumbnail',
+          like:70,
+          imdb:'6.3',
+          title_en:'Immaculate 2024',
+          title_fa:'فیلم معصوم ',
+          hasTag:true,
+          tag:{
+            title:'زیر نویس چسبیده',
+            color:'orange'
+          }
+        },
+        {
+          thumbnail:'https://www.uptvs.com/wp-contents/uploads/2024/04/Rebel-Moon-2-2024-Header.jpg',
+          link:'thumbnail',
+          like:80,
+          imdb:'5.1',
+          title_en:'Rebel Moon 2 2024',
+          title_fa:'فیلم ربل مون 2',
           hasTag:true,
           tag:{
             title:'دوبله فارسی',
@@ -199,13 +217,29 @@ export default {
           }
         },
         {
-          thumbnail:'https://www.uptvs.com/wp-contents/uploads/2024/04/Ahang-2-Nafare-Header.jpg',
+          thumbnail:'https://www.uptvs.com/wp-contents/uploads/2024/04/AfieTehran-7-header.jpg',
           hasTag:true,
           tag:{
-            title:'زیر نویس',
-            color:'orange'
-          }
-        }
+            title: '',
+            color: ''
+          },
+          like:54,
+          imdb:'8.1',
+          title_en:'Tehran Viper',
+          title_fa:'سریال افعی تهران '
+        },
+        {
+          thumbnail:'https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-Header.jpg',
+          hasTag:true,
+          tag:{
+            title:'فیلم برتر ',
+            color:'yellow'
+          },
+          like:87,
+          imdb:'6.7',
+          title_en:'Kung Fu Panda 4 2024',
+          title_fa:'انیمیشن پاندای کونگ فوکار ۴ '
+        },
       ]
     }
   }

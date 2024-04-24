@@ -151,9 +151,9 @@
 
 <script>
 
-import logo from '../assets/images/logo.jpg'
-import telegramIcon from '../assets/images/file-icons--telegram.svg'
-import instagramIcon from '../assets/images/bi--instagram.svg'
+import logo from '@/assets/images/logo.jpg'
+import telegramIcon from '@/assets/images/file-icons--telegram.svg'
+import instagramIcon from '@/assets/images/bi--instagram.svg'
 
 export default {
     name: 'footer',

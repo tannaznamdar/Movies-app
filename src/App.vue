@@ -66,6 +66,13 @@ body {
     font-size: 12px;
   }
 
+  &-transparent-yellow {
+    background: transparent;
+    border-color: #ffc107;
+    color: #ffc107;
+    font-size: 12px;
+  }
+
   &--lg {
     color: #fff;
     background-color: #6898f8;

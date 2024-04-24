@@ -13,10 +13,10 @@
 <script>
 import Navbar from "../components/NavBar.vue";
 import Footer from "../components/Footer.vue";
-import card from "../components/Cards.vue";
+import headerCards from "../components/headerCards.vue";
 
 export default {
-  components:{Navbar,Footer,card},
+  components:{Navbar,Footer,headerCards},
   name:'BaseLayout'
 }
 </script>
