@@ -22,7 +22,8 @@
 
       </div>
     </router-link>
-    <p class="movie-name"> <router-link :to="link"> {{ title_fa }} </router-link>  </p>
+    <p class="movie-name"> <router-link :to="link"> {{ title }} </router-link>  </p>
+    <small v-if="hasSubtitle">{{ subtitle }}</small>
   </article>
 </template>
 
@@ -37,6 +38,10 @@ export default {
   name: 'movieCards',
   components: { Tag },
   props: {
+    hasSubtitle: {
+      type: Boolean,
+      default: false
+    },
     slug: {
       type: String,
       default: ''
@@ -57,7 +62,11 @@ export default {
       type: String,
       default: ''
     },
-    title_fa: {
+    title: {
+      type: String,
+      default: ''
+    },
+    subtitle: {
       type: String,
       default: ''
     },
