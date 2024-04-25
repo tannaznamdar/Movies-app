@@ -37,6 +37,7 @@
   
         movieCards: [
           {
+            slug:'شهرزاد',
             thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
             link: 'thumbnail',
             genre: ' درام,تاریخی,رمانتیک',
@@ -44,6 +45,7 @@
             title_fa: 'شهرزاد',
           },
           {
+            slug:'دل',
             thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2020/09/del-40-207x290.jpg',
             link: 'thumbnail',
             genre: ' درام,رمانتیک',
@@ -51,6 +53,7 @@
             title_fa: 'سریال دل ',
           },
           {
+            slug:'متری-شیش-و-نیم',
             thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2019/03/Metri6.5-207x290.jpg',
             link: 'thumbnail',
             genre: 'اکشن,جنایی,درام',
@@ -58,6 +61,7 @@
             title_fa: 'متری شیش و نیم',
           },
           {
+            slug:'گناه-فرشته',
             thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/GonahFereshteh-18-207x290.jpg',
             link: 'thumbnail',
             genre: ' درام, خانوادگی',
@@ -65,18 +69,20 @@
             title_fa: 'گناه فرشته  ',
           },
           {
-            thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Jangal-Asphalt-5-207x290.jpg',
+            slug:'افعی-تهران',
+            thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Viper-of-Tehran-8-207x290.jpg',
             link: 'thumbnail',
             genre: ' درام,رمانتیک',
             imdb: '8.3',
             title_fa: 'افعی تهران',
           },
           {
-            thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+            slug:'جنگل-آسفالت',
+            thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Jangal-Asphalt-5-207x290.jpg',
             link: 'thumbnail',
             genre: ' درام,تاریخی,رمانتیک',
             imdb: '6.3',
-            title_fa: 'جنگل اسفالت  ',
+            title_fa: 'جنگل آسفالت  ',
           },
         ]
       }

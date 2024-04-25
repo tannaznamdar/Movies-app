@@ -1,6 +1,6 @@
 <template>
   <article class=" mb-3">
-    <router-link :to="link">
+    <router-link :to='{ name: "titlePageRoute", params: { slug }}'>
       <div class="card-container">
 
         <figure class="card-img">
@@ -36,6 +36,10 @@ export default {
   name: 'movieCards',
 
   props: {
+    slug: {
+      type: String,
+      default: ''
+    },
     link: {
       type: String,
       default: ''
