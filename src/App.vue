@@ -89,6 +89,23 @@ body {
     font-size: 12px;
   }
 
+  &-transparent-yellow-full {
+    position: absolute;
+    flex-direction: column;
+    background: #f6b828;
+    color: #000;
+    font-size: 10px;
+    left: 10px;
+    bottom: 10px;
+    text-align: center;
+    line-height: 15px;
+    font-weight: 400;
+    display: flex;
+    z-index: 3;
+    border-radius: 5px;
+    padding: 2px;
+  }
+
   &--lg {
     color: #fff;
     background-color: #6898f8;

@@ -7,7 +7,8 @@
           <img alt="#" :src="thumbnail">
         </figure>
 
-        <span class="badge">رایگان</span>
+        <tag v-if="hasTag" v-bind="tag"></tag>
+        <!-- <span class="badge-sm-free">رایگان</span> -->
 
         <div class="card-info-overlay">
           <div class="card-info">
@@ -30,11 +31,11 @@
 
 
 import Imdb from '@/assets/images/la--imdb.svg'
-
+import Tag from "@/components/Tag.vue";
 
 export default {
   name: 'movieCards',
-
+  components: { Tag },
   props: {
     slug: {
       type: String,
@@ -60,6 +61,17 @@ export default {
       type: String,
       default: ''
     },
+    hasTag: {
+      type: Boolean,
+      default: false
+    },
+    tag: {
+      type: Object,
+      default: {
+        title: ' ',
+        color: ' '
+      }
+    }
   },
 
   data() {
@@ -166,7 +178,7 @@ export default {
   }
 }
 
-.badge {
+.badge-sm-free {
   position: absolute;
     flex-direction: column;
     background: #f6b828;

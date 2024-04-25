@@ -222,11 +222,7 @@ export default {
         {
           slug:"tehran-viper",
           thumbnail:'https://www.uptvs.com/wp-contents/uploads/2024/04/AfieTehran-7-header.jpg',
-          hasTag:true,
-          tag:{
-            title: '',
-            color: ''
-          },
+          hasTag:false,
           like:54,
           imdb:'8.1',
           title_en:'Tehran Viper',

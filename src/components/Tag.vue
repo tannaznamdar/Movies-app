@@ -2,10 +2,10 @@
 export default {
   name:'tag',
   props:{
-    small:{
-      type:Boolean,
-      default:false
-    },
+    // small:{
+    //   type:Boolean,
+    //   default:false
+    // },
     title:{
       type:String,
       default: 'زیرنویس چسبیده'
@@ -25,5 +25,5 @@ export default {
 
 <template>
   <span v-if="!small" class="button" :class="colorClass">{{title}}</span>
-  <span v-else class="button small" :class="colorClass">{{title}}</span>
+  <!-- <span v-else class="badge-sm-free">رایگان</span> -->
 </template>
