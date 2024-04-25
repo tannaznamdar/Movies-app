@@ -1,4 +1,5 @@
 <script setup>
+import '@splidejs/vue-splide/css';
 import { RouterView } from 'vue-router'
 import BaseLayout from "@/layouts/BaseLayout.vue";
 </script>
