@@ -8,7 +8,6 @@
         </figure>
 
         <tag v-if="hasTag" v-bind="tag"></tag>
-        <!-- <span class="badge-sm-free">رایگان</span> -->
 
         <div class="card-info-overlay">
           <div class="card-info">
