@@ -25,5 +25,5 @@ export default {
 
 <template>
   <span v-if="!small" class="button" :class="colorClass">{{title}}</span>
-  <span v-else class="badge-sm-free">{{title}}</span>
+  <span v-else class="badge-sm">{{title}}</span>
 </template>

@@ -1,6 +1,6 @@
 <template>
-  <article class=" mb-3">
-    <router-link :to='{ name: "titlePageRoute", params: { slug }}'>
+  <article class=" movieCard mb-3">
+    <router-link :to='{ name: "titlePageRoute", params: { slug } }'>
       <div class="card-container">
 
         <figure class="card-img">
@@ -11,18 +11,18 @@
 
         <div class="card-info-overlay">
           <div class="card-info">
-            <p class="card-font card-font--title-fa"> {{ genre }} </p>
+            <p class="card-text--info"> {{ genre }} </p>
             <div>
               <img class="internal-distance-l" alt="Imdb" :src="Imdb">
-              <span class="card-font card-font--title-fa"> {{ imdb }} </span>
+              <span class="card-text--info card-text--info-num"> {{ imdb }} </span>
             </div>
           </div>
         </div>
-
       </div>
+      <p class="card-text card-text--title"> {{ title }} </p>
+      <small class="card-text card-text--subtitle" v-if="hasSubtitle">{{ subtitle }}</small>
     </router-link>
-    <p class="movie-name"> <router-link :to="link"> {{ title }} </router-link>  </p>
-    <small v-if="hasSubtitle">{{ subtitle }}</small>
+
   </article>
 </template>
 
@@ -37,10 +37,6 @@ export default {
   name: 'movieCards',
   components: { Tag },
   props: {
-    hasSubtitle: {
-      type: Boolean,
-      default: false
-    },
     slug: {
       type: String,
       default: ''
@@ -69,6 +65,10 @@ export default {
       type: String,
       default: ''
     },
+    hasSubtitle: {
+      type: Boolean,
+      default: false
+    },
     hasTag: {
       type: Boolean,
       default: false
@@ -93,6 +93,12 @@ export default {
 
 
 <style scoped lang="scss">
+.movieCard {
+  a {
+    text-decoration: none;
+  }
+}
+
 .card-container {
   box-shadow: 0 5px 25px rgba(0, 0, 0, .13);
   position: relative;
@@ -149,7 +155,6 @@ export default {
   box-shadow: 0 5px 25px rgba(0, 0, 0, .13) !important;
 }
 
-
 .card-container:hover .card-info-overlay {
   opacity: 1;
 }
@@ -158,49 +163,56 @@ export default {
   margin-left: 10px;
 }
 
-.card-font {
-  font-family: inherit;
-  line-height: 1.3;
-  color: #fff;
-  margin: 0;
-  margin-bottom: 5px;
-
-  &--title-fa {
-    font-weight: 700;
-    font-size: 12px;
-  }
-}
-
-.movie-name {
+.card-text {
   line-height: 0;
   margin-right: 5px;
-  a {
-    text-decoration: none;
-    color: #c6c9cc;
+  text-decoration: none;
+  color: #c6c9cc;
+
+  &:is(:hover, :focus) {
+    color: #b8daff;
+  }
+
+  &--title {
     font-size: 13px;
     font-weight: 400;
+  }
 
-    &:is(:hover, :focus) {
-      color: #b8daff;
+  &--subtitle {
+    font-size: 11px;
+    font-weight: 400;
+  }
+
+  &--info {
+    font-family: inherit;
+    line-height: 1.3;
+    color: #fff;
+    margin: 0;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 12px;
+
+    &-num {
+      font-weight: 400;
+      font-size: 11px;
     }
   }
 }
 
-.badge-sm-free {
+.badge-sm {
   position: absolute;
-    flex-direction: column;
-    background: #f6b828;
-    color: #000;
-    font-size: 10px;
-    left: 10px;
-    bottom: 10px;
-    text-align: center;
-    line-height: 15px;
-    font-weight: 400;
-    display: flex;
-    z-index: 3;
-    border-radius: 5px;
-    padding: 2px;
+  flex-direction: column;
+  background: #f6b828;
+  color: #000;
+  font-size: 10px;
+  left: 10px;
+  bottom: 10px;
+  text-align: center;
+  line-height: 15px;
+  font-weight: 400;
+  display: flex;
+  z-index: 3;
+  border-radius: 5px;
+  padding: 2px;
 }
-
 </style>

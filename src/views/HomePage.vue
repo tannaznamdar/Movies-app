@@ -17,8 +17,8 @@ import MovieCards from "@/components/MovieCards.vue";
         </div>
 
         <div class="row">
-          <div class="col-lg-2" v-for="movieCard in movieCards">
-            <MovieCards v-bind="movieCard"></MovieCards>
+          <div class="col-lg-2" v-for="freeIranianMovie in freeIranianMovies">
+            <MovieCards v-bind="freeIranianMovie"></MovieCards>
           </div>
         </div>
 
@@ -30,17 +30,19 @@ import MovieCards from "@/components/MovieCards.vue";
       <div class="container bv-example-row">
         <div class="row">
           <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
-            <h4 class="title">سریال ایرانی جدید</h4>
+            <h4 class="title"> فیلم جدید </h4>
             <button class="button button--transparent"><a href="#"> مشاهده همه </a></button>
           </div>
         </div>
+
         <Splide class="row"
           :options="{ arrows: false, pagination: false, direction: 'rtl', type: 'slide', focus: 'center', trimSpace: false, perPage: 6, perMove: 1 }"
           aria-label="My Favorite Images">
-          <SplideSlide v-for="series in freePersianSeries">
-            <MovieCards v-bind="series"></MovieCards>
+          <SplideSlide v-for="newMovie in newMovies">
+            <MovieCards v-bind="newMovie"></MovieCards>
           </SplideSlide>
         </Splide>
+
       </div>
     </section>
   </div>
@@ -51,15 +53,16 @@ export default {
   data() {
     return {
 
-      movieCards: [
+      freeIranianMovies: [
         {
           slug: 'شهرزاد',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
           link: 'thumbnail',
           genre: ' درام,تاریخی,رمانتیک',
           imdb: '6.3',
-          title_fa: 'شهرزاد',
-          title_en: '',
+          title: 'شهرزاد',
+          subtitle: '',
+          hasSubtitle: false,
           hasTag: true,
           tag: {
             title: ' رایگان ',
@@ -72,7 +75,9 @@ export default {
           link: 'thumbnail',
           genre: ' درام,رمانتیک',
           imdb: '7.2',
-          title_fa: 'سریال دل ',
+          title: 'سریال دل ',
+          subtitle: '',
+          hasSubtitle: false,
           hasTag: true,
           tag: {
             title: ' رایگان ',
@@ -85,7 +90,9 @@ export default {
           link: 'thumbnail',
           genre: 'اکشن,جنایی,درام',
           imdb: '8.1',
-          title_fa: 'متری شیش و نیم',
+          title: 'متری شیش و نیم',
+          subtitle: '',
+          hasSubtitle: false,
           hasTag: true,
           tag: {
             title: ' رایگان ',
@@ -98,7 +105,9 @@ export default {
           link: 'thumbnail',
           genre: ' درام, خانوادگی',
           imdb: '7.3',
-          title_fa: 'گناه فرشته  ',
+          title: 'گناه فرشته  ',
+          subtitle: '',
+          hasSubtitle: false,
           hasTag: true,
           tag: {
             title: ' رایگان ',
@@ -111,7 +120,9 @@ export default {
           link: 'thumbnail',
           genre: ' درام,رمانتیک',
           imdb: '8.3',
-          title_fa: 'افعی تهران',
+          title: 'افعی تهران',
+          subtitle: '',
+          hasSubtitle: false,
           hasTag: true,
           tag: {
             title: ' رایگان ',
@@ -124,7 +135,9 @@ export default {
           link: 'thumbnail',
           genre: ' درام,تاریخی,رمانتیک',
           imdb: '6.3',
-          title_fa: 'جنگل آسفالت  ',
+          title: 'جنگل آسفالت  ',
+          subtitle: '',
+          hasSubtitle: false,
           hasTag: true,
           tag: {
             title: ' رایگان ',
@@ -133,7 +146,7 @@ export default {
         },
       ],
 
-      freePersianSeries: [
+      newMovies: [
         {
           slug: 'شهرزاد',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
@@ -155,7 +168,9 @@ export default {
           link: 'thumbnail',
           genre: ' درام,رمانتیک',
           imdb: '7.2',
-          title_fa: 'سریال دل ',
+          title: 'سریال دل ',
+          subtitle: '',
+          hasSubtitle: false,
           hasTag: true,
           tag: {
             title: 'دوبله فارسی ',
@@ -168,7 +183,9 @@ export default {
           link: 'thumbnail',
           genre: 'اکشن,جنایی,درام',
           imdb: '8.1',
-          title_fa: 'متری شیش و نیم',
+          title: 'متری شیش و نیم',
+          subtitle: '',
+          hasSubtitle: false,
           hasTag: false,
           tag: {
             title: ' رایگان ',
@@ -180,7 +197,9 @@ export default {
           link: 'thumbnail',
           genre: ' درام, خانوادگی',
           imdb: '7.3',
-          title_fa: 'گناه فرشته  ',
+          title: 'گناه فرشته  ',
+          subtitle: '',
+          hasSubtitle: false,
           hasTag: false,
           tag: {
             title: ' رایگان ',
@@ -192,7 +211,9 @@ export default {
           link: 'thumbnail',
           genre: ' درام,رمانتیک',
           imdb: '8.3',
-          title_fa: 'افعی تهران',
+          title: 'افعی تهران',
+          subtitle: '',
+          hasSubtitle: false,
           hasTag: true,
           tag: {
             title: ' دوبله فارسی  ',
@@ -205,7 +226,9 @@ export default {
           link: 'thumbnail',
           genre: ' درام,تاریخی,رمانتیک',
           imdb: '6.3',
-          title_fa: 'جنگل آسفالت  ',
+          title: 'جنگل آسفالت  ',
+          subtitle: '',
+          hasSubtitle: false,
           hasTag: true,
           tag: {
             title: ' دوبله فارسی  ',
@@ -219,8 +242,8 @@ export default {
           genre: ' درام,تاریخی,رمانتیک',
           imdb: '6.3',
           title: 'شهرزاد',
-          subtitle: 'فصل اول قسمت هفتم',
-          hasSubtitle: true,
+          subtitle: '',
+          hasSubtitle: false,
           hasTag: true,
           tag: {
             title: ' رایگان ',
@@ -233,19 +256,9 @@ export default {
           link: 'thumbnail',
           genre: ' درام,رمانتیک',
           imdb: '7.2',
-          title_fa: 'سریال دل ',
-          hasTag: false,
-          tag: {
-            title: ' رایگان ',
-          }
-        },
-        {
-          slug: 'متری-شیش-و-نیم',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2019/03/Metri6.5-207x290.jpg',
-          link: 'thumbnail',
-          genre: 'اکشن,جنایی,درام',
-          imdb: '8.1',
-          title_fa: 'متری شیش و نیم',
+          title: 'سریال دل ',
+          subtitle: '',
+          hasSubtitle: false,
           hasTag: false,
           tag: {
             title: ' رایگان ',
@@ -257,11 +270,12 @@ export default {
           link: 'thumbnail',
           genre: ' درام, خانوادگی',
           imdb: '7.3',
-          title_fa: 'گناه فرشته  ',
+          title: 'گناه فرشته  ',
+          subtitle: '',
+          hasSubtitle: false,
           hasTag: false,
           tag: {
             title: ' رایگان ',
-
           }
         },
         {
@@ -270,11 +284,13 @@ export default {
           link: 'thumbnail',
           genre: ' درام,رمانتیک',
           imdb: '8.3',
-          title_fa: 'افعی تهران',
+          title: 'افعی تهران',
+          subtitle: '',
+          hasSubtitle: false,
           hasTag: true,
           tag: {
             title: ' دوبله فارسی  ',
-            small:true,
+            small: true,
           }
         },
         {
@@ -283,11 +299,13 @@ export default {
           link: 'thumbnail',
           genre: ' درام,تاریخی,رمانتیک',
           imdb: '6.3',
-          title_fa: 'جنگل آسفالت  ',
+          title: 'جنگل آسفالت  ',
+          subtitle: '',
+          hasSubtitle: false,
           hasTag: true,
           tag: {
             title: ' دوبله فارسی  ',
-            small:true,
+            small: true,
           }
         },
       ]
