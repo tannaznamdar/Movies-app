@@ -16,11 +16,13 @@ import MovieCards from "@/components/MovieCards.vue";
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-lg-2" v-for="freeIranianMovie in freeIranianMovies">
+        <Splide class="row"
+          :options="{ arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1 }"
+          aria-label="My Favorite Images">
+          <SplideSlide v-for="freeIranianMovie in freeIranianMovies">
             <MovieCards v-bind="freeIranianMovie"></MovieCards>
-          </div>
-        </div>
+          </SplideSlide>
+        </Splide>
 
       </div>
     </section>
@@ -36,7 +38,7 @@ import MovieCards from "@/components/MovieCards.vue";
         </div>
 
         <Splide class="row"
-          :options="{ arrows: false, pagination: false, direction: 'rtl', type: 'slide', focus: 'center', trimSpace: false, perPage: 6, perMove: 1 }"
+          :options="{ arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1 }"
           aria-label="My Favorite Images">
           <SplideSlide v-for="newMovie in newMovies">
             <MovieCards v-bind="newMovie"></MovieCards>
@@ -136,6 +138,36 @@ export default {
           genre: ' درام,تاریخی,رمانتیک',
           imdb: '6.3',
           title: 'جنگل آسفالت  ',
+          subtitle: '',
+          hasSubtitle: false,
+          hasTag: true,
+          tag: {
+            title: ' رایگان ',
+            small: true,
+          }
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+          link: 'thumbnail',
+          genre: ' درام,تاریخی,رمانتیک',
+          imdb: '6.3',
+          title: 'شهرزاد',
+          subtitle: '',
+          hasSubtitle: false,
+          hasTag: true,
+          tag: {
+            title: ' رایگان ',
+            small: true,
+          }
+        },
+        {
+          slug: 'دل',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2020/09/del-40-207x290.jpg',
+          link: 'thumbnail',
+          genre: ' درام,رمانتیک',
+          imdb: '7.2',
+          title: 'سریال دل ',
           subtitle: '',
           hasSubtitle: false,
           hasTag: true,
