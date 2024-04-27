@@ -90,6 +90,14 @@ body {
     font-size: 12px;
   }
 
+  &-transparent-white {
+    background: transparent;
+    border-color: #fff;
+    color: #FFF;
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+
   &--lg {
     color: #fff;
     background-color: #6898f8;

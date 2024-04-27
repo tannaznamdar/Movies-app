@@ -2,6 +2,7 @@
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import MovieCards from "@/components/MovieCards.vue";
 import LargeMovieCards from "@/components/LargeMovieCards.vue";
+import SmallMovieCards from "@/components/SmallMovieCards.vue";
 </script>
 
 
@@ -132,9 +133,15 @@ import LargeMovieCards from "@/components/LargeMovieCards.vue";
     <section class="large-movie-card">
       <div class="container bv-example-row">
         <div class="row">
+
           <div class="col-lg-9" v-for="largeMovieCard in largeMovieCards">
             <LargeMovieCards v-bind="largeMovieCard"></LargeMovieCards>
           </div>
+
+          <div class="col-lg-3" v-for="smallMovieCard in smallMovieCards">
+            <SmallMovieCards v-bind="smallMovieCard"></SmallMovieCards>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1196,6 +1203,21 @@ export default {
           Country: 'ایران',
           hasBadge: false
         },
+      ],
+
+      smallMovieCards: [
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
+          link: 'thumbnail',
+          title: 'شهرزاد',
+          hasTag: true,
+          tag: {
+            title: ' امروز ',
+            color: 'white'
+          }
+        },
+
       ],
 
     }
