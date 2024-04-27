@@ -134,12 +134,16 @@ import SmallMovieCards from "@/components/SmallMovieCards.vue";
       <div class="container bv-example-row">
         <div class="row">
 
-          <div class="col-lg-9" v-for="largeMovieCard in largeMovieCards">
-            <LargeMovieCards v-bind="largeMovieCard"></LargeMovieCards>
+          <div class="col-lg-9">
+            <div v-for="largeMovieCard in largeMovieCards">
+              <LargeMovieCards v-bind="largeMovieCard"></LargeMovieCards>
+            </div>
           </div>
 
-          <div class="col-lg-3" v-for="smallMovieCard in smallMovieCards">
-            <SmallMovieCards v-bind="smallMovieCard"></SmallMovieCards>
+          <div class="col-lg-3">
+            <div v-for="smallMovieCard in smallMovieCards">
+              <SmallMovieCards v-bind="smallMovieCard"></SmallMovieCards>
+            </div>
           </div>
 
         </div>
@@ -1206,6 +1210,94 @@ export default {
       ],
 
       smallMovieCards: [
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
+          link: 'thumbnail',
+          title: 'شهرزاد',
+          hasTag: true,
+          tag: {
+            title: ' امروز ',
+            color: 'white'
+          }
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
+          link: 'thumbnail',
+          title: 'شهرزاد',
+          hasTag: true,
+          tag: {
+            title: ' امروز ',
+            color: 'white'
+          }
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
+          link: 'thumbnail',
+          title: 'شهرزاد',
+          hasTag: true,
+          tag: {
+            title: ' امروز ',
+            color: 'white'
+          }
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
+          link: 'thumbnail',
+          title: 'شهرزاد',
+          hasTag: true,
+          tag: {
+            title: ' امروز ',
+            color: 'white'
+          }
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
+          link: 'thumbnail',
+          title: 'شهرزاد',
+          hasTag: true,
+          tag: {
+            title: ' امروز ',
+            color: 'white'
+          }
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
+          link: 'thumbnail',
+          title: 'شهرزاد',
+          hasTag: true,
+          tag: {
+            title: ' امروز ',
+            color: 'white'
+          }
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
+          link: 'thumbnail',
+          title: 'شهرزاد',
+          hasTag: true,
+          tag: {
+            title: ' امروز ',
+            color: 'white'
+          }
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
+          link: 'thumbnail',
+          title: 'شهرزاد',
+          hasTag: true,
+          tag: {
+            title: ' امروز ',
+            color: 'white'
+          }
+        },
         {
           slug: 'شهرزاد',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
