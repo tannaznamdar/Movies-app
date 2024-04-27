@@ -17,7 +17,7 @@
                     <router-link class="card-text card-text--title" :to='{ name: "titlePageRoute", params: { slug } }'>
                         {{ title }} </router-link>
                     <p class="card-text card-text--subtitle">{{ subtitle }}</p>
-                    <div>
+                    <div v-if="hasBadge">
                         <font-awesome-icon icon="circle-check" style="color: #5394c6;" />
                         <span class="card-text card-text--badge">قانونی</span>
                     </div>
@@ -41,7 +41,7 @@
                         <span class="card-text card-text--subtitle">بازیگران:</span>
                         <span class="card-text card-text--subtitle">{{ actors }}</span>
                     </div>
-                    <div class="d-flex d-grid gap-4">
+                    <div class="d-flex d-grid gap-4" v-if="hasDirector">
                         <span class="card-text card-text--subtitle">کارگردان:</span>
                         <span class="card-text card-text--subtitle"> {{ director }}</span>
                     </div>
@@ -141,6 +141,10 @@ export default {
             type: String,
             default: ''
         },
+        hasDirector: {
+            type: Boolean,
+            default: false
+        },
         synopsis: {
             type: String,
             default: ''
@@ -152,7 +156,11 @@ export default {
         Country: {
             type: String,
             default: ''
-        }
+        },
+        hasBadge: {
+            type: Boolean,
+            default: false
+        },
     },
 
     data() {

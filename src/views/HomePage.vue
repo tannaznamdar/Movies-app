@@ -1122,9 +1122,11 @@ export default {
           actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
           like: 86,
           director: 'پژمان تیمورتاش',
+          hasDirector: true,
           synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
           year: 1403,
-          Country: 'ایران'
+          Country: 'ایران',
+          hasBadge: false
         },
         {
           slug: 'شهرزاد',
@@ -1137,9 +1139,11 @@ export default {
           actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
           like: 86,
           director: 'پژمان تیمورتاش',
+          hasDirector: false,
           synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
           year: 1403,
-          Country: 'ایران'
+          Country: 'ایران',
+          hasBadge: true
         },
         {
           slug: 'شهرزاد',
@@ -1152,9 +1156,11 @@ export default {
           actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
           like: 86,
           director: 'پژمان تیمورتاش',
+          hasDirector: true,
           synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
           year: 1403,
-          Country: 'ایران'
+          Country: 'ایران',
+          hasBadge: false
         },
         {
           slug: 'شهرزاد',
@@ -1167,9 +1173,11 @@ export default {
           actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
           like: 86,
           director: 'پژمان تیمورتاش',
+          hasDirector: false,
           synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
           year: 1403,
-          Country: 'ایران'
+          Country: 'ایران',
+          hasBadge: true
         },
         {
           slug: 'شهرزاد',
@@ -1182,9 +1190,11 @@ export default {
           actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
           like: 86,
           director: 'پژمان تیمورتاش',
+          hasDirector: true,
           synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
           year: 1403,
-          Country: 'ایران'
+          Country: 'ایران',
+          hasBadge: false
         },
       ],
 
@@ -1195,7 +1205,7 @@ export default {
 </script>
 
 <style scoped>
-.movie-card .large-movie-card{
+.movie-card .large-movie-card {
   background-color: #16161b;
 }
 </style>
