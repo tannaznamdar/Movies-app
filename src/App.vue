@@ -53,13 +53,13 @@ body {
     transition: .3s;
   }
 
-  &--transparent{
+  &--transparent {
     display: inherit;
     background: transparent;
 
-    a{
+    a {
       color: #b8daff;
-    font-size: 11px;
+      font-size: 11px;
     }
 
     &:is(:hover, :focus) {
@@ -122,6 +122,22 @@ body {
     line-height: 2;
   }
 
+  &--outline-blue {
+    color: #6898f8;
+    background-color: transparent;
+    background-image: none;
+    border-color: #6898f8;
+    padding: 12px 14px 12px;
+
+    &:is(:hover, :focus) {
+      color: #fff;
+      background-color: #6898f8;
+      border-color: #6898f8;
+    }
+
+
+  }
+
   &-lg {
     width: 100%;
     font-size: 15px;
@@ -148,12 +164,11 @@ body {
   }
 }
 
-.title{
+.title {
   font-size: 17px;
   font-family: inherit;
   line-height: 1.3;
   font-weight: 500;
   color: #fff;
 }
-
 </style>

@@ -1,11 +1,13 @@
 <script setup>
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import MovieCards from "@/components/MovieCards.vue";
+import LargeMovieCards from "@/components/LargeMovieCards.vue";
 </script>
 
 
 <template>
   <div class="container-fluid">
+
     <section class="movie-card">
       <div class="container bv-example-row">
 
@@ -107,7 +109,7 @@ import MovieCards from "@/components/MovieCards.vue";
       </div>
     </section>
 
-    <section class="movie-card">
+    <section class="movie-card mb-4">
       <div class="container bv-example-row">
         <div class="row">
           <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
@@ -124,6 +126,16 @@ import MovieCards from "@/components/MovieCards.vue";
           </SplideSlide>
         </Splide>
 
+      </div>
+    </section>
+
+    <section class="large-movie-card">
+      <div class="container bv-example-row">
+        <div class="row">
+          <div class="col-lg-9" v-for="largeMovieCard in largeMovieCards">
+            <LargeMovieCards v-bind="largeMovieCard"></LargeMovieCards>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1098,6 +1110,84 @@ export default {
         }
       ],
 
+      largeMovieCards: [
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+          link: 'thumbnail',
+          genre: ' درام, تاریخی, رمانتیک',
+          imdb: '6.3',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
+          like: 86,
+          director: 'پژمان تیمورتاش',
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران'
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+          link: 'thumbnail',
+          genre: ' درام, تاریخی, رمانتیک',
+          imdb: '6.3',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
+          like: 86,
+          director: 'پژمان تیمورتاش',
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران'
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+          link: 'thumbnail',
+          genre: ' درام, تاریخی, رمانتیک',
+          imdb: '6.3',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
+          like: 86,
+          director: 'پژمان تیمورتاش',
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران'
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+          link: 'thumbnail',
+          genre: ' درام, تاریخی, رمانتیک',
+          imdb: '6.3',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
+          like: 86,
+          director: 'پژمان تیمورتاش',
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران'
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+          link: 'thumbnail',
+          genre: ' درام, تاریخی, رمانتیک',
+          imdb: '6.3',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
+          like: 86,
+          director: 'پژمان تیمورتاش',
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران'
+        },
+      ],
+
     }
   }
 }
@@ -1105,7 +1195,7 @@ export default {
 </script>
 
 <style scoped>
-.movie-card {
+.movie-card .large-movie-card{
   background-color: #16161b;
 }
 </style>
