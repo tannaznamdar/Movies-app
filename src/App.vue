@@ -123,19 +123,23 @@ body {
   }
 
   &--outline-blue {
-    color: #6898f8;
     background-color: transparent;
     background-image: none;
     border-color: #6898f8;
     padding: 12px 14px 12px;
 
+    a {
+      color: #6898f8;
+    }
+
     &:is(:hover, :focus) {
-      color: #fff;
+      a {
+        color: #fff;
+      }
+
       background-color: #6898f8;
       border-color: #6898f8;
     }
-
-
   }
 
   &-lg {

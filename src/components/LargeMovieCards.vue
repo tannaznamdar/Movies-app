@@ -73,8 +73,11 @@
                     </div>
 
                     <button class="button button--outline-blue">
-                        <font-awesome-icon class="internal-distance-l" icon="download" style="color: #164ea2;" />
-                        دانلود سریال
+
+                        <router-link :to='{ name: "titlePageRoute", params: { slug } }'>
+                            <font-awesome-icon class="internal-distance-l" icon="download" style="color: #164ea2;" />
+                            دانلود سریال </router-link>
+
                     </button>
                 </div>
 
