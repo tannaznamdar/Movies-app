@@ -25,7 +25,7 @@ body {
   font-weight: 300;
   font-size: 13px;
   line-height: 1.9;
-  background-color: #101014;
+  background-color: #16161b
 }
 
 @font-face {

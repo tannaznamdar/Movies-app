@@ -14,7 +14,7 @@ import movieIcon from '@/assets/images/movie.svg'
       <div class="container bv-example-row">
 
         <div class="row">
-          <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
+          <div class=" mt-3 mb-3 d-flex align-items-center justify-content-between">
             <h4 class="title">فیلم ایرانی رایگان</h4>
             <button class="button button--transparent"><a href="#"> مشاهده همه </a></button>
           </div>

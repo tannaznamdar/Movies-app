@@ -5,7 +5,7 @@ const location = useRoute();
 <template>
 
   <div class="wrapper">
-    <header class="header">
+    <header class="header pb-1 pt-3">
       <div class="container bv-example-row">
         <div class="row align-items-center">
 
@@ -111,6 +111,7 @@ const location = useRoute();
             </button>
           </div>
         </div>
+
           <section v-if="location.name !== 'titlePageRoute'">
 
             <div class="row mt-4">
@@ -264,6 +265,9 @@ export default {
 .header {
   margin-top: 15px;
   margin-bottom: 15px;
+  background-color: #101014;
+  padding: 0;
+  margin: 0;
 }
 
 .menu-bar {
