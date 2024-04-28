@@ -3,6 +3,7 @@ import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import MovieCards from "@/components/MovieCards.vue";
 import LargeMovieCards from "@/components/LargeMovieCards.vue";
 import SmallMovieCards from "@/components/SmallMovieCards.vue";
+import movieIcon from '@/assets/images/movie.svg'
 </script>
 
 
@@ -141,9 +142,25 @@ import SmallMovieCards from "@/components/SmallMovieCards.vue";
           </div>
 
           <div class="col-lg-3">
+
+            <div class="sidebar-tabs mb-5">
+              <div class="sidebar-tabs-btn">
+                <a href="#" class="sidebar-btn-text"> به روز شده ها </a>
+              </div>
+            </div>
+
+            <div class="mb-4 d-flex align-items-center justify-content-between">
+              <div class="d-flex align-items-center">
+                <img alt="calendar" :src="movieIcon">
+                <h5 class="sidebar-title">آپدیت سریال‌ها</h5>
+              </div>
+              <button class="button button--transparent"><a href="#"> مشاهده همه </a></button>
+            </div>
+
             <div v-for="smallMovieCard in smallMovieCards">
               <SmallMovieCards v-bind="smallMovieCard"></SmallMovieCards>
             </div>
+
           </div>
 
         </div>
@@ -1321,5 +1338,47 @@ export default {
 <style scoped>
 .movie-card .large-movie-card {
   background-color: #16161b;
+}
+
+.sidebar-tabs {
+  background-color: #23232b;
+  border-radius: 4px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+
+  a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #9ea1a6;
+    font-weight: 500;
+    line-height: 0;
+  }
+}
+
+.sidebar-tabs-btn {
+  background: #32323d;
+  right: 5px;
+  height: 52px;
+  transition: all 400ms;
+  border-radius: 4px;
+  box-shadow: 0 3px 20px rgb(88 93 110 / 10%);
+}
+
+.sidebar-btn-text {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+}
+
+.sidebar-title {
+  margin-bottom: .5rem;
+  font-family: inherit;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #f5f5f5;
+  font-size: 16px;
+  margin-bottom: 0;
+  margin-right: 10px;
 }
 </style>

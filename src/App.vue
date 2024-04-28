@@ -56,6 +56,7 @@ body {
   &--transparent {
     display: inherit;
     background: transparent;
+    padding: 0;
 
     a {
       color: #b8daff;
