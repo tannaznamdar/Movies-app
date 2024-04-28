@@ -1,6 +1,6 @@
 <template>
   <article class="card-container">
-    <router-link :to='{ name: "titlePageRoute", params: { slug }}'>
+    <router-link :to='{ name: "titlePageRoute", params: { slug } }'>
       <figure class="card-img">
         <img alt="RebelMoon" :src="thumbnail">
       </figure>
@@ -108,7 +108,7 @@ export default {
   height: 180px;
   position: relative;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   img {
     display: block;
@@ -166,10 +166,9 @@ export default {
     font-size: 15px;
   }
 
-  &--title-en{
+  &--title-en {
     font-weight: 200;
     font-size: 12px;
   }
 }
-
 </style>

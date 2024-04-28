@@ -24,7 +24,8 @@ const location = useRoute();
                   <div class="dropdown-menu">
                     <ul>
                       <li v-for="genre in genres">
-                        <router-link class="active" :to='{ name: "moviesGenrePageRoute", params: { genre: genre.slug }}'>
+                        <router-link class="active"
+                          :to='{ name: "moviesGenrePageRoute", params: { genre: genre.slug } }'>
                           {{ genre.title }} </router-link>
                       </li>
                     </ul>
@@ -38,7 +39,7 @@ const location = useRoute();
                     <ul>
                       <li v-for="country in countries">
                         <router-link class="active"
-                          :to='{ name: "countryMoviePageRoute", params: { country: country.slug }}'>
+                          :to='{ name: "countryMoviePageRoute", params: { country: country.slug } }'>
                           {{ country.title }}</router-link>
                       </li>
                     </ul>
@@ -53,7 +54,7 @@ const location = useRoute();
                     <ul>
                       <li v-for="country in countries">
                         <router-link class="active"
-                          :to='{ name: "countrySeriesPageRoute", params: { country: country.slug }}'>
+                          :to='{ name: "countrySeriesPageRoute", params: { country: country.slug } }'>
                           {{ country.title }}</router-link>
                       </li>
                     </ul>
@@ -73,7 +74,7 @@ const location = useRoute();
                   <div class="dropdown-menu">
                     <ul>
                       <li v-for="content in contents">
-                        <router-link class="active" :to='{ name: "otherPageRoute", params: { content: content.slug }}'>
+                        <router-link class="active" :to='{ name: "otherPageRoute", params: { content: content.slug } }'>
                           {{ content.title }}</router-link>
                       </li>
                     </ul>
@@ -112,18 +113,18 @@ const location = useRoute();
           </div>
         </div>
 
-          <section v-if="location.name !== 'titlePageRoute'">
+        <section v-if="location.name !== 'titlePageRoute'">
 
-            <div class="row mt-4">
-              <div class="col-lg-3 mb-2" v-for="card in cards">
-                <headerCards v-bind="card"></headerCards >
-              </div>
+          <div class="row mt-4">
+            <div class="col-lg-3 mb-2" v-for="card in cards">
+              <headerCards v-bind="card"></headerCards>
             </div>
+          </div>
 
-            <search-box v-if="location.name === 'homePageRoute'" ></search-box>
+          <search-box v-if="location.name === 'homePageRoute'"></search-box>
 
-          </section>
-        </div>
+        </section>
+      </div>
     </header>
   </div>
 </template>
@@ -136,7 +137,7 @@ import headerCards from "@/components/HeaderCards.vue";
 import SearchBox from "@/components/SearchBox.vue";
 export default {
   name: 'navbar',
-  components: {SearchBox, headerCards},
+  components: { SearchBox, headerCards },
   data() {
     return {
       logo,
@@ -193,54 +194,150 @@ export default {
         }
       ],
 
-      cards:[
+      cards: [
         {
-          slug:'immaculate-2024',
-          thumbnail:'https://www.uptvs.com/wp-contents/uploads/2024/04/Immaculate-2024-Header.jpg',
-          like:70,
-          imdb:'6.3',
-          title_en:'Immaculate 2024',
-          title_fa:'فیلم معصوم ',
-          hasTag:true,
-          tag:{
-            title:'زیر نویس چسبیده',
-            color:'orange'
+          slug: 'immaculate-2024',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Immaculate-2024-Header.jpg',
+          like: 70,
+          imdb: '6.3',
+          title_en: 'Immaculate 2024',
+          title_fa: 'فیلم معصوم ',
+          hasTag: true,
+          tag: {
+            title: 'زیر نویس چسبیده',
+            color: 'orange'
           }
         },
         {
-          slug:"rebel-moon-2-2024",
-          thumbnail:'https://www.uptvs.com/wp-contents/uploads/2024/04/Rebel-Moon-2-2024-Header.jpg',
-          like:80,
-          imdb:'5.1',
-          title_en:'Rebel Moon 2 2024',
-          title_fa:'فیلم ربل مون 2',
-          hasTag:true,
-          tag:{
-            title:'دوبله فارسی',
-            color:'green'
+          slug: "rebel-moon-2-2024",
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Rebel-Moon-2-2024-Header.jpg',
+          like: 80,
+          imdb: '5.1',
+          title_en: 'Rebel Moon 2 2024',
+          title_fa: 'فیلم ربل مون 2',
+          hasTag: true,
+          tag: {
+            title: 'دوبله فارسی',
+            color: 'green'
           }
         },
         {
-          slug:"tehran-viper",
-          thumbnail:'https://www.uptvs.com/wp-contents/uploads/2024/04/AfieTehran-7-header.jpg',
-          hasTag:false,
-          like:54,
-          imdb:'8.1',
-          title_en:'Tehran Viper',
-          title_fa:'سریال افعی تهران '
+          slug: "tehran-viper",
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/AfieTehran-7-header.jpg',
+          hasTag: false,
+          like: 54,
+          imdb: '8.1',
+          title_en: 'Tehran Viper',
+          title_fa: 'سریال افعی تهران '
         },
         {
-          slug:'kung-fu-panda-4-2024',
-          thumbnail:'https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-Header.jpg',
-          hasTag:true,
-          tag:{
-            title:'فیلم برتر ',
-            color:'yellow'
+          slug: 'kung-fu-panda-4-2024',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-Header.jpg',
+          hasTag: true,
+          tag: {
+            title: 'فیلم برتر ',
+            color: 'yellow'
           },
-          like:87,
-          imdb:'6.7',
-          title_en:'Kung Fu Panda 4 2024',
-          title_fa:'انیمیشن پاندای کونگ فوکار ۴ '
+          like: 87,
+          imdb: '6.7',
+          title_en: 'Kung Fu Panda 4 2024',
+          title_fa: 'انیمیشن پاندای کونگ فوکار ۴ '
+        },
+        {
+          slug: 'immaculate-2024',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Immaculate-2024-Header.jpg',
+          like: 70,
+          imdb: '6.3',
+          title_en: 'Immaculate 2024',
+          title_fa: 'فیلم معصوم ',
+          hasTag: true,
+          tag: {
+            title: 'زیر نویس چسبیده',
+            color: 'orange'
+          }
+        },
+        {
+          slug: "rebel-moon-2-2024",
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Rebel-Moon-2-2024-Header.jpg',
+          like: 80,
+          imdb: '5.1',
+          title_en: 'Rebel Moon 2 2024',
+          title_fa: 'فیلم ربل مون 2',
+          hasTag: true,
+          tag: {
+            title: 'دوبله فارسی',
+            color: 'green'
+          }
+        },
+        {
+          slug: "tehran-viper",
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/AfieTehran-7-header.jpg',
+          hasTag: false,
+          like: 54,
+          imdb: '8.1',
+          title_en: 'Tehran Viper',
+          title_fa: 'سریال افعی تهران '
+        },
+        {
+          slug: 'kung-fu-panda-4-2024',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-Header.jpg',
+          hasTag: true,
+          tag: {
+            title: 'فیلم برتر ',
+            color: 'yellow'
+          },
+          like: 87,
+          imdb: '6.7',
+          title_en: 'Kung Fu Panda 4 2024',
+          title_fa: 'انیمیشن پاندای کونگ فوکار ۴ '
+        },
+        {
+          slug: 'immaculate-2024',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Immaculate-2024-Header.jpg',
+          like: 70,
+          imdb: '6.3',
+          title_en: 'Immaculate 2024',
+          title_fa: 'فیلم معصوم ',
+          hasTag: true,
+          tag: {
+            title: 'زیر نویس چسبیده',
+            color: 'orange'
+          }
+        },
+        {
+          slug: "rebel-moon-2-2024",
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Rebel-Moon-2-2024-Header.jpg',
+          like: 80,
+          imdb: '5.1',
+          title_en: 'Rebel Moon 2 2024',
+          title_fa: 'فیلم ربل مون 2',
+          hasTag: true,
+          tag: {
+            title: 'دوبله فارسی',
+            color: 'green'
+          }
+        },
+        {
+          slug: "tehran-viper",
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/AfieTehran-7-header.jpg',
+          hasTag: false,
+          like: 54,
+          imdb: '8.1',
+          title_en: 'Tehran Viper',
+          title_fa: 'سریال افعی تهران '
+        },
+        {
+          slug: 'kung-fu-panda-4-2024',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-Header.jpg',
+          hasTag: true,
+          tag: {
+            title: 'فیلم برتر ',
+            color: 'yellow'
+          },
+          like: 87,
+          imdb: '6.7',
+          title_en: 'Kung Fu Panda 4 2024',
+          title_fa: 'انیمیشن پاندای کونگ فوکار ۴ '
         },
       ]
     }
@@ -301,14 +398,14 @@ export default {
         transition: .3s;
         font-weight: 300;
         font-size: 14px;
-        
+
         &:is(:hover, :focus) {
           color: #fff;
-      }
+        }
       }
 
       &:is(:hover, :focus) {
-          color: #fff;
+        color: #fff;
       }
     }
   }
@@ -410,9 +507,8 @@ export default {
   }
 }
 
-.icon-size{
+.icon-size {
   font-size: 17px;
   font-weight: 700;
 }
-
 </style>
