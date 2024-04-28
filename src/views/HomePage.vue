@@ -149,7 +149,7 @@ import movieIcon from '@/assets/images/movie.svg'
               </div>
             </div>
 
-            <section class="update-series">
+            <section class="update-series mb-5">
               <div class="mb-4 d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center">
                   <img alt="calendar" :src="movieIcon">
@@ -163,7 +163,7 @@ import movieIcon from '@/assets/images/movie.svg'
               </div>
             </section>
 
-            <section class="persian-dubbing">
+            <section class="persian-dubbing mb-5">
               <div class="main-sidebar-wrap">
                 <div class="row  d-flex align-items-center mb-2">
                   <div class="col-lg-4">
@@ -223,6 +223,20 @@ import movieIcon from '@/assets/images/movie.svg'
                   </button>
                   <button class="button button-lg button-lg--sidebar"> <a href="#"> فیلم های دوبله فارسی </a> </button>
                 </div>
+              </div>
+            </section>
+
+            <section class="update-series">
+              <div class="mb-4 d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                  <img alt="calendar" :src="movieIcon">
+                  <h5 class="sidebar sidebar--title internal-distance-r"> به زودی </h5>
+                </div>
+                <button class="button button--transparent"><a href="#"> مشاهده همه </a></button>
+              </div>
+
+              <div v-for="comingSoonMovieSmallCard in comingSoonMovieSmallCards">
+                <SmallMovieCards v-bind="comingSoonMovieSmallCard"></SmallMovieCards>
               </div>
             </section>
 
@@ -1310,7 +1324,18 @@ export default {
           title: 'شهرزاد',
           hasTag: true,
           tag: {
-            title: ' امروز ',
+            title: ' دیروز ',
+            color: 'white'
+          }
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
+          link: 'thumbnail',
+          title: 'شهرزاد',
+          hasTag: true,
+          tag: {
+            title: ' شنبه ',
             color: 'white'
           }
         },
@@ -1329,69 +1354,82 @@ export default {
           slug: 'شهرزاد',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
           link: 'thumbnail',
-          title: 'شهرزاد',
+          title: 'دیروز',
           hasTag: true,
           tag: {
             title: ' امروز ',
             color: 'white'
           }
         },
-        {
-          slug: 'شهرزاد',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
-          link: 'thumbnail',
-          title: 'شهرزاد',
-          hasTag: true,
-          tag: {
-            title: ' امروز ',
-            color: 'white'
-          }
-        },
-        {
-          slug: 'شهرزاد',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
-          link: 'thumbnail',
-          title: 'شهرزاد',
-          hasTag: true,
-          tag: {
-            title: ' امروز ',
-            color: 'white'
-          }
-        },
-        {
-          slug: 'شهرزاد',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
-          link: 'thumbnail',
-          title: 'شهرزاد',
-          hasTag: true,
-          tag: {
-            title: ' امروز ',
-            color: 'white'
-          }
-        },
-        {
-          slug: 'شهرزاد',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
-          link: 'thumbnail',
-          title: 'شهرزاد',
-          hasTag: true,
-          tag: {
-            title: ' امروز ',
-            color: 'white'
-          }
-        },
-        {
-          slug: 'شهرزاد',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
-          link: 'thumbnail',
-          title: 'شهرزاد',
-          hasTag: true,
-          tag: {
-            title: ' امروز ',
-            color: 'white'
-          }
-        },
+      ],
 
+      comingSoonMovieSmallCards: [
+        {
+          slug: 'alex-rider',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2021/12/Alex-Rider-s3-JAdval.jpg',
+          link: 'thumbnail',
+          title: 'سریال الکس رایدر Alex Rider',
+          hasTag: true,
+          tag: {
+            title: ' 8 روز پیش ',
+            color: 'white'
+          }
+        },
+        {
+          slug: 'alex-rider',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2021/12/Alex-Rider-s3-JAdval.jpg',
+          link: 'thumbnail',
+          title: 'سریال الکس رایدر Alex Rider',
+          hasTag: true,
+          tag: {
+            title: ' 7 روز پیش ',
+            color: 'white'
+          }
+        },
+        {
+          slug: 'alex-rider',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2021/12/Alex-Rider-s3-JAdval.jpg',
+          link: 'thumbnail',
+          title: 'سریال الکس رایدر Alex Rider',
+          hasTag: true,
+          tag: {
+            title: ' 6 روز پیش ',
+            color: 'white'
+          }
+        },
+        {
+          slug: 'alex-rider',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2021/12/Alex-Rider-s3-JAdval.jpg',
+          link: 'thumbnail',
+          title: 'سریال الکس رایدر Alex Rider',
+          hasTag: true,
+          tag: {
+            title: ' 5 روز پیش ',
+            color: 'white'
+          }
+        },
+        {
+          slug: 'alex-rider',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2021/12/Alex-Rider-s3-JAdval.jpg',
+          link: 'thumbnail',
+          title: 'سریال الکس رایدر Alex Rider',
+          hasTag: true,
+          tag: {
+            title: ' 4 روز پیش ',
+            color: 'white'
+          }
+        },
+        {
+          slug: 'alex-rider',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2021/12/Alex-Rider-s3-JAdval.jpg',
+          link: 'thumbnail',
+          title: 'سریال الکس رایدر Alex Rider',
+          hasTag: true,
+          tag: {
+            title: ' 3 روز پیش ',
+            color: 'white'
+          }
+        },
       ],
 
     }
