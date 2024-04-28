@@ -174,14 +174,30 @@ body {
         color: #fff;
       }
     }
-  }
-}
 
-.title {
-  font-size: 17px;
-  font-family: inherit;
-  line-height: 1.3;
-  font-weight: 500;
-  color: #fff;
+    &--sidebar {
+      border: 1px solid transparent;
+      background-color: #292931;
+      border-color: #292931;
+
+      a {
+        color: #bec4cb;
+        font-size: 14px;
+        line-height: 2;
+      }
+
+      &:is(:hover, :focus) {
+        background-color: #1c1c22;
+      }
+    }
+  }
+
+  .title {
+    font-size: 17px;
+    font-family: inherit;
+    line-height: 1.3;
+    font-weight: 500;
+    color: #fff;
+  }
 }
 </style>

@@ -145,21 +145,86 @@ import movieIcon from '@/assets/images/movie.svg'
 
             <div class="sidebar-tabs mb-5">
               <div class="sidebar-tabs-btn">
-                <a href="#" class="sidebar-btn-text"> به روز شده ها </a>
+                <a href="#" class="sidebar-btn-wrap"> به روز شده ها </a>
               </div>
             </div>
 
-            <div class="mb-4 d-flex align-items-center justify-content-between">
-              <div class="d-flex align-items-center">
-                <img alt="calendar" :src="movieIcon">
-                <h5 class="sidebar-title">آپدیت سریال‌ها</h5>
+            <section class="update-series">
+              <div class="mb-4 d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                  <img alt="calendar" :src="movieIcon">
+                  <h5 class="sidebar sidebar--title internal-distance-r">آپدیت سریال‌ها</h5>
+                </div>
+                <button class="button button--transparent"><a href="#"> مشاهده همه </a></button>
               </div>
-              <button class="button button--transparent"><a href="#"> مشاهده همه </a></button>
-            </div>
 
-            <div v-for="smallMovieCard in smallMovieCards">
-              <SmallMovieCards v-bind="smallMovieCard"></SmallMovieCards>
-            </div>
+              <div v-for="smallMovieCard in smallMovieCards">
+                <SmallMovieCards v-bind="smallMovieCard"></SmallMovieCards>
+              </div>
+            </section>
+
+            <section class="persian-dubbing">
+              <div class="main-sidebar-wrap">
+                <div class="row  d-flex align-items-center mb-2">
+                  <div class="col-lg-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90"
+                      height="90" viewBox="0 0 90 90">
+                      <defs>
+                        <linearGradient id="a" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+                          <stop offset="0" stop-color="#cce3fb"></stop>
+                          <stop offset="1" stop-color="#5facfa"></stop>
+                        </linearGradient>
+                        <filter id="b" x="0" y="0" width="90" height="90" filterUnits="userSpaceOnUse">
+                          <feOffset dy="2" input="SourceAlpha"></feOffset>
+                          <feGaussianBlur stdDeviation="7.5" result="c"></feGaussianBlur>
+                          <feFlood flood-color="#5facfa" flood-opacity="0.271"></feFlood>
+                          <feComposite operator="in" in2="c"></feComposite>
+                          <feComposite in="SourceGraphic"></feComposite>
+                        </filter>
+                        <linearGradient id="d" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+                          <stop offset="0" stop-color="#fccf78"></stop>
+                          <stop offset="1" stop-color="#ff8a7d"></stop>
+                        </linearGradient>
+                      </defs>
+                      <g transform="translate(-519.5 -1013.5)">
+                        <circle cx="29.5" cy="29.5" r="29.5" transform="translate(535 1027)" opacity="0.1"
+                          fill="url(#a)"></circle>
+                        <g transform="matrix(1, 0, 0, 1, 519.5, 1013.5)" filter="url(#b)">
+                          <circle cx="22.5" cy="22.5" r="22.5" transform="translate(22.5 20.5)" fill="#fff"></circle>
+                        </g>
+                        <g transform="translate(557.244 1044.938)">
+                          <g transform="translate(0 10.863)">
+                            <g transform="translate(0)">
+                              <path
+                                d="M92.785,210.2a.8.8,0,1,0-1.594,0,5.631,5.631,0,0,1-11.261,0,.8.8,0,1,0-1.594,0,7.223,7.223,0,0,0,6.427,7.2v2.125h-2.9a.8.8,0,1,0,0,1.594h7.384a.8.8,0,1,0,0-1.594h-2.9V217.4A7.223,7.223,0,0,0,92.785,210.2Z"
+                                transform="translate(-78.336 -209.408)" fill="url(#d)"></path>
+                            </g>
+                          </g>
+                          <g transform="translate(2.789)">
+                            <g transform="translate(0)">
+                              <path
+                                d="M136.531,0A4.443,4.443,0,0,0,132.1,4.435v7.2a4.435,4.435,0,1,0,8.871.027V4.435A4.443,4.443,0,0,0,136.531,0Z"
+                                transform="translate(-132.096)" fill="url(#d)"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+
+                  <div class="col-lg-8">
+                    <span class="sidebar sidebar--subtitle">فقط در آپ تیوی</span>
+                    <h5 class="sidebar sidebar--title">دوبله‌های فارسی</h5>
+                  </div>
+                </div>
+
+                <div>
+                  <button class="button button-lg button-lg--sidebar mb-3"> <a href="#"> انیمیشن دوبله فارسی </a>
+                  </button>
+                  <button class="button button-lg button-lg--sidebar"> <a href="#"> فیلم های دوبله فارسی </a> </button>
+                </div>
+              </div>
+            </section>
 
           </div>
 
@@ -1335,7 +1400,7 @@ export default {
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .movie-card .large-movie-card {
   background-color: #16161b;
 }
@@ -1365,20 +1430,40 @@ export default {
   box-shadow: 0 3px 20px rgb(88 93 110 / 10%);
 }
 
-.sidebar-btn-text {
+.sidebar-btn-wrap {
   position: absolute;
   top: 50%;
   left: 40%;
 }
 
-.sidebar-title {
+.internal-distance-r {
+  margin-right: 5px;
+}
+
+.sidebar {
   margin-bottom: .5rem;
   font-family: inherit;
   line-height: 1.3;
-  font-weight: 700;
-  color: #f5f5f5;
-  font-size: 16px;
   margin-bottom: 0;
-  margin-right: 10px;
+
+  &--title {
+    font-weight: 700;
+    font-size: 16px;
+    color: #f5f5f5;
+  }
+
+  &--subtitle {
+    color: #9ba1a6;
+    font-size: 12px;
+    font-weight: 200;
+  }
 }
+
+.main-sidebar-wrap {
+  box-shadow: 0 5px 25px rgba(0, 0, 0, .13) !important;
+  background-color: #23232b;
+  padding: 0 10px 20px;
+  border-radius: 4px;
+}
+
 </style>
