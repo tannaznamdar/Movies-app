@@ -191,13 +191,13 @@ body {
       }
     }
   }
+}
 
-  .title {
-    font-size: 17px;
-    font-family: inherit;
-    line-height: 1.3;
-    font-weight: 500;
-    color: #fff;
-  }
+.title {
+  font-size: 17px;
+  font-family: inherit;
+  line-height: 1.3;
+  font-weight: 500;
+  color: #fff;
 }
 </style>
