@@ -96,12 +96,99 @@ const location = useRoute();
             <div>
               <form>
                 <div class="search-box align-items-center">
-                  <input class="search-input" type="search" name="search" autocomplete="off"
-                    placeholder="کلمه مورد نظر...">
+                  <input class="search-input" name="search" autocomplete="off" placeholder="کلمه مورد نظر...">
                   <button class="search-btn" type="submit"><a href="#"><font-awesome-icon class="icon-size"
                         icon="magnifying-glass" /></a></button>
                 </div>
               </form>
+            </div>
+          </div>
+
+
+          <div class="fixed_back">
+            <div class="d-flex flex-column">
+              <div>
+                <div class="search-container">
+
+                  <div class="head_boxsearch">
+                    <div class="search-suggest-gradient"></div>
+
+                    <div class="search-input-uptv align-item-center">
+                      <input type="text" class="search-ajax-input" placeholder="جستجو کنید...">
+                      <a href="#"><font-awesome-icon class="icon-size  internal-distance-l"
+                          icon="magnifying-glass" /></a>
+                    </div>
+
+                    <div class="close-button">بستن</div>
+                  </div>
+
+                  <div class="search-result">
+                    <div class="mb-4">
+                      <h4 class="history_title">ترند ها</h4>
+
+                      <div class="item_history d-flex align-items-center">
+                        <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
+                          icon="magnifying-glass" />
+                        <span class="w-100">مردگان متحرک</span>
+                      </div>
+
+                      <div class="item_history d-flex align-items-center">
+                        <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
+                          icon="magnifying-glass" />
+                        <span class="w-100">باب اسفنجی</span>
+                      </div>
+
+                      <div class="item_history d-flex align-items-center">
+                        <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
+                          icon="magnifying-glass" />
+                        <span class="w-100">آواتار</span>
+                      </div>
+
+                      <div class="item_history d-flex align-items-center">
+                        <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
+                          icon="magnifying-glass" />
+                        <span class="w-100">گودزیلا</span>
+                      </div>
+
+                      <div class="item_history d-flex align-items-center">
+                        <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
+                          icon="magnifying-glass" />
+                        <span class="w-100">مردگان متحرک</span>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 class="history_title last_item">
+                        <span>تاریخچه جستجو شما</span>
+                        <span>(حذف تاریخچه)</span>
+                      </h4>
+
+                      <div class="item_history  last_item d-flex align-items-center">
+                        <div class="d-flex align-items-center">
+                          <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
+                            icon="magnifying-glass" />
+                          <span class="w-100">مردگان متحرک</span>
+                        </div>
+                        <div class="left-side-2">
+                          <img alt="xMark" :src="xMark">
+                        </div>
+                      </div>
+
+                      <div class="item_history  last_item d-flex align-items-center">
+                        <div class="d-flex align-items-center">
+                          <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
+                            icon="magnifying-glass" />
+                          <span class="w-100">شهرزاد </span>
+                        </div>
+                        <div class="left-side-2">
+                          <img alt="xMark" :src="xMark">
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -133,11 +220,14 @@ const location = useRoute();
 <script>
 import { useRoute } from 'vue-router'
 import logo from '../assets/images/logo.jpg'
+import xMark from '@/assets/images/xmark.svg'
 import headerCards from "@/components/HeaderCards.vue";
 import SearchBox from "@/components/SearchBox.vue";
+
+
 export default {
   name: 'navbar',
-  components: { SearchBox, headerCards },
+  components: { SearchBox, headerCards, xMark },
   data() {
     return {
       logo,
@@ -343,7 +433,6 @@ export default {
     }
   }
 }
-
 </script>
 
 
@@ -510,5 +599,128 @@ export default {
 .icon-size {
   font-size: 17px;
   font-weight: 700;
+
+  &--gray {
+    color: #bbc1c6;
+    line-height: 0;
+  }
+}
+
+.internal-distance-l {
+  margin-left: 10px;
+}
+
+//search page
+
+.fixed_back {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(10 10 10 / 98%);
+  top: 0;
+  right: 0;
+  z-index: 50;
+  overflow-y: auto;
+}
+
+.head_boxsearch {
+  position: fixed;
+  width: 830px;
+  top: 100px;
+  display: flex;
+  z-index: 55;
+}
+
+.search-container {
+  width: 830px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.search-suggest-gradient {
+  width: 100%;
+  height: 110px;
+  right: 0;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  background-image: linear-gradient(-180deg, #1a1a1a 10%, rgba(26, 26, 26, 0) 100%);
+}
+
+.search-input-uptv {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+
+  a {
+    margin: 0;
+    padding: 0;
+    color: #1a1a1a;
+    line-height: 0;
+  }
+}
+
+.search-ajax-input {
+  width: calc(100% - 60px);
+  height: 100%;
+  border: 0;
+  background-color: transparent;
+  font-size: 15px;
+  outline: none;
+  padding-right: 15px;
+  padding-left: 15px;
+  color: #000;
+}
+
+.close-button {
+  color: #fdc13c;
+  float: left;
+  text-align: center;
+  line-height: 41px;
+  background: rgba(8, 8, 8, .57);
+  width: 50px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.search-result {
+  margin-top: 180px;
+}
+
+.history_title {
+  padding-top: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  line-height: 1.3;
+  font-weight: 500;
+  color: #f5f5f5;
+}
+
+.item_history {
+  padding: 6px 0px;
+  border-bottom: 1px solid #414141;
+  display: flex;
+  cursor: pointer;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 300;
+  color: #bbc1c6;
+}
+
+.history_title>span:last-child {
+  cursor: pointer;
+  font-size: 13px;
+  color: #f5bb3a;
+  margin-right: 10px;
 }
 </style>
