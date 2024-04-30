@@ -128,35 +128,14 @@ const location = useRoute();
                     <div class="mb-4">
                       <h4 class="history_title">ترند ها</h4>
 
-                      <div class="item_history d-flex align-items-center">
-                        <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
-                          icon="magnifying-glass" />
-                        <span class="w-100">مردگان متحرک</span>
+                      <div class="item_history d-flex align-items-center" v-for="trendMovie in trendMovies">
+                        <router-link :to='{ name: "titlePageRoute", params: { slug }}'>
+                          <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
+                            icon="magnifying-glass" />
+                          <span class="w-100"> {{ trendMovie.title }} </span>
+                        </router-link>
                       </div>
 
-                      <div class="item_history d-flex align-items-center">
-                        <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
-                          icon="magnifying-glass" />
-                        <span class="w-100">باب اسفنجی</span>
-                      </div>
-
-                      <div class="item_history d-flex align-items-center">
-                        <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
-                          icon="magnifying-glass" />
-                        <span class="w-100">آواتار</span>
-                      </div>
-
-                      <div class="item_history d-flex align-items-center">
-                        <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
-                          icon="magnifying-glass" />
-                        <span class="w-100">گودزیلا</span>
-                      </div>
-
-                      <div class="item_history d-flex align-items-center">
-                        <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
-                          icon="magnifying-glass" />
-                        <span class="w-100">مردگان متحرک</span>
-                      </div>
                     </div>
 
                     <div>
@@ -220,6 +199,21 @@ import SearchBox from "@/components/SearchBox.vue";
 export default {
   name: 'navbar',
   components: { SearchBox, headerCards, xMark },
+
+  props: {
+        slug: {
+            type: String,
+            default: ''
+        },
+        link: {
+            type: String,
+            default: ''
+        },
+        title: {
+            type: String,
+            default: ''
+        },
+    },
 
   data() {
     return {
@@ -426,7 +420,41 @@ export default {
           title_en: 'Kung Fu Panda 4 2024',
           title_fa: 'انیمیشن پاندای کونگ فوکار ۴ '
         },
+      ],
+
+      trendMovies: [
+        {
+          title: 'گناه فرشته',
+          slug: 'گناه-فرشته',
+          link: 'thumbnail',
+        },
+        {
+          title: ' باب اسفنجی ',
+          slug: 'باب-اسفنجی',
+          link: 'thumbnail',
+        },
+        {
+          title: 'روح ',
+          slug: 'روح',
+          link: 'thumbnail',
+        },
+        {
+          title: 'آواتار',
+          slug: 'اواتار',
+          link: 'thumbnail',
+        },
+        {
+          title: 'گودزیلا ',
+          slug: 'گودزیلا',
+          link: 'thumbnail',
+        },
+        {
+          title: 'سیلو ',
+          slug: 'سیلو',
+          link: 'thumbnail',
+        },
       ]
+      
     }
   },
 
