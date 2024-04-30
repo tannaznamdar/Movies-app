@@ -114,9 +114,11 @@ const location = useRoute();
                     <div class="search-suggest-gradient"></div>
 
                     <div class="search-input-uptv align-item-center">
-                      <input type="text" class="search-ajax-input" placeholder="جستجو کنید...">
-                      <a href="#"><font-awesome-icon class="icon-size  internal-distance-l"
-                          icon="magnifying-glass" /></a>
+                      <input type="text" class="search-ajax-input" placeholder="جستجو کنید..." v-model="inputValue"
+                        @keyup.enter="addSearchItem">
+                      <button class="icon-transparent-btn" @click="addSearchItem">
+                        <font-awesome-icon class="icon-size  internal-distance-l" icon="magnifying-glass" />
+                      </button>
                     </div>
 
                     <div class="close-button">بستن</div>
@@ -160,30 +162,20 @@ const location = useRoute();
                     <div>
                       <h4 class="history_title last_item">
                         <span>تاریخچه جستجو شما</span>
-                        <span>(حذف تاریخچه)</span>
+                        <span @click="removeHistory">(حذف تاریخچه)</span>
                       </h4>
 
-                      <div class="item_history  last_item d-flex align-items-center">
+                      <div class="item_history  last_item d-flex align-items-center" v-for="(item, index) in items">
                         <div class="d-flex align-items-center">
                           <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
                             icon="magnifying-glass" />
-                          <span class="w-100">مردگان متحرک</span>
+                          <span class="w-100"> {{ item }} </span>
                         </div>
-                        <div class="left-side-2">
+                        <button class="icon-transparent-btn" @click="removeSearchItem(index)">
                           <img alt="xMark" :src="xMark">
-                        </div>
+                        </button>
                       </div>
 
-                      <div class="item_history  last_item d-flex align-items-center">
-                        <div class="d-flex align-items-center">
-                          <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
-                            icon="magnifying-glass" />
-                          <span class="w-100">شهرزاد </span>
-                        </div>
-                        <div class="left-side-2">
-                          <img alt="xMark" :src="xMark">
-                        </div>
-                      </div>
                     </div>
 
                   </div>
@@ -228,9 +220,14 @@ import SearchBox from "@/components/SearchBox.vue";
 export default {
   name: 'navbar',
   components: { SearchBox, headerCards, xMark },
+
   data() {
     return {
       logo,
+
+      inputValue: "",
+      items: ["مردگان متحرک"],
+
       genres: [
         {
           title: 'اکشن',
@@ -431,7 +428,29 @@ export default {
         },
       ]
     }
-  }
+  },
+
+  methods: {
+
+    addSearchItem: function () {
+      if (this.inputValue == "") {
+        alert(" لطفا نام فیلم مورد نظر خود را وارد کنید")
+      } else {
+        this.items.push(this.inputValue)
+        this.inputValue = ""
+      }
+    },
+
+    removeSearchItem: function (index) {
+      this.items.splice(index, 1)
+    },
+
+    removeHistory: function () {
+      this.items = []
+    },
+
+
+  },
 }
 </script>
 
@@ -613,7 +632,6 @@ export default {
 //search page
 
 .fixed_back {
-  display: none;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -722,5 +740,11 @@ export default {
   font-size: 13px;
   color: #f5bb3a;
   margin-right: 10px;
+}
+
+.icon-transparent-btn {
+  background-color: transparent;
+  border: none;
+  line-height: 0;
 }
 </style>
