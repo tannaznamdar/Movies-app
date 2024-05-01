@@ -1,7 +1,3 @@
-<script setup>
-
-</script>
-
 <template>
   <div class="new-search-box ">
     <form action="#" method="get">
@@ -10,12 +6,12 @@
 
         <div class="col-lg-2">
           <div class="search-box-list">
-            <button class="dropbtn d-flex justify-content-between">
+            <button class="dropbtn d-flex justify-content-between" @click="seriesMenuShow = !seriesMenuShow">
               سریال
               <font-awesome-icon class="angle-left-icon" icon="angle-left" />
             </button>
 
-            <div class="dropdown-content ">
+            <div class="dropdown-content" v-show="seriesMenuShow">
               <div class="text-item  align-item-center">
                 <label class="custom-radio" name="cat-all" value>
                   <input checked="checked" name="radio" type="radio">
@@ -46,12 +42,12 @@
 
         <div class="col-lg-2">
           <div class="search-box-list">
-            <button class="dropbtn d-flex justify-content-between">
+            <button class="dropbtn d-flex justify-content-between" @click="genreMenuShow = !genreMenuShow">
               ژانر
               <font-awesome-icon class="angle-left-icon" icon="angle-left" />
             </button>
 
-            <div class="dropdown-content ">
+            <div class="dropdown-content" v-show="genreMenuShow">
               <div class="text-item  align-item-center">
                 <label class="custom-radio" name="cat-all" value>
                   <input checked="checked" name="radio" type="radio">
@@ -82,12 +78,12 @@
 
         <div class="col-lg-2">
           <div class="search-box-list">
-            <button class="dropbtn d-flex justify-content-between">
+            <button class="dropbtn d-flex justify-content-between" @click="countryMenuShow = !countryMenuShow">
               کشور
               <font-awesome-icon class="angle-left-icon" icon="angle-left" />
             </button>
 
-            <div class="dropdown-content ">
+            <div class="dropdown-content" v-show="countryMenuShow">
               <div class="text-item  align-item-center">
                 <label class="custom-radio" name="cat-all" value>
                   <input checked="checked" name="radio" type="radio">
@@ -118,12 +114,12 @@
 
         <div class="col-lg-2">
           <div class="search-box-list">
-            <button class="dropbtn d-flex justify-content-between">
+            <button class="dropbtn d-flex justify-content-between" @click="doubleMenuShow = !doubleMenuShow">
               دوبله و زیر نویس
               <font-awesome-icon class="angle-left-icon" icon="angle-left" />
             </button>
 
-            <div class="dropdown-content ">
+            <div class="dropdown-content" v-show="doubleMenuShow">
               <div class="text-item  align-item-center">
                 <label class="custom-radio" name="cat-all" value>
                   <input checked="checked" name="radio" type="radio">
@@ -154,12 +150,12 @@
 
         <div class="col-lg-2">
           <div class="search-box-list">
-            <button class="dropbtn d-flex justify-content-between">
+            <button class="dropbtn d-flex justify-content-between" @click="scoreMenuShow = !scoreMenuShow">
               امتیاز
               <font-awesome-icon class="angle-left-icon" icon="angle-left" />
             </button>
 
-            <div class="dropdown-content ">
+            <div class="dropdown-content" v-show="scoreMenuShow">
               <div class="text-item  align-item-center">
                 <label class="custom-radio" name="cat-all" value>
                   <input checked="checked" name="radio" type="radio">
@@ -189,7 +185,7 @@
         </div>
 
         <div class="col-lg-2">
-          <button class="button button--lg " type="submit" > جستجو </button>
+          <button class="button button--lg " type="submit"> جستجو </button>
         </div>
 
       </div>
@@ -197,6 +193,65 @@
 
   </div>
 </template>
+
+<script>
+export default {
+  name: 'searchBox',
+
+  data() {
+    return {
+      seriesMenuShow: false,
+      genreMenuShow: false,
+      countryMenuShow: false,
+      doubleMenuShow: false,
+      scoreMenuShow: false,
+    }
+  },
+
+  watch: {
+    seriesMenuShow: function () {
+      if (this.seriesMenuShow == true) {
+        this.genreMenuShow = false;
+        this.countryMenuShow = false;
+        this.doubleMenuShow = false;
+        this.scoreMenuShow = false;
+      }
+    },
+    genreMenuShow: function () {
+      if (this.genreMenuShow == true) {
+        this.countryMenuShow = false;
+        this.doubleMenuShow = false;
+        this.scoreMenuShow = false;
+        this.seriesMenuShow = false;
+      }
+    },
+    countryMenuShow: function () {
+      if (this.countryMenuShow == true) {
+        this.genreMenuShow = false;
+        this.doubleMenuShow = false;
+        this.scoreMenuShow = false;
+        this.seriesMenuShow = false;
+      }
+    },
+    doubleMenuShow: function () {
+      if (this.doubleMenuShow == true) {
+        this.genreMenuShow = false;
+        this.countryMenuShow = false;
+        this.scoreMenuShow = false;
+        this.seriesMenuShow = false;
+      }
+    },
+    scoreMenuShow: function () {
+      if (this.scoreMenuShow == true) {
+        this.genreMenuShow = false;
+        this.doubleMenuShow = false;
+        this.countryMenuShow = false;
+        this.seriesMenuShow = false;
+      }
+    },
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .new-search-box {
@@ -239,7 +294,6 @@
 }
 
 .dropdown-content {
-  display: none;
   position: absolute;
   background-color: #1c1c22;
   border-color: #1c1c22;
@@ -306,5 +360,4 @@
 .custom-radio input:checked~.checkmark:after {
   display: block;
 }
-
 </style>

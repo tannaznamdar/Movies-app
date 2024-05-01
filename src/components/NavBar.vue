@@ -8,7 +8,7 @@ const location = useRoute();
     <header class="header pb-1 pt-3">
       <div class="container bv-example-row">
         <div class="row align-items-center">
-
+          
           <div class="col-1">
             <figure class="logo-img">
               <router-link to="/"> <img alt="logo" :src="logo"> </router-link>
