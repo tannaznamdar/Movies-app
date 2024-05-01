@@ -18,8 +18,7 @@ const location = useRoute();
           <div class="col-7">
             <nav class="menu-bar">
               <ul>
-                <li class="menu-has-childern"> ژانر <span><font-awesome-icon class="angle-down-icon"
-                      icon="angle-down" /></span>
+                <li class="menu-has-childern"> ژانر <font-awesome-icon class="angle-down-icon" icon="angle-down" />
 
                   <div class="dropdown-menu">
                     <ul>
@@ -547,11 +546,6 @@ export default {
   font-weight: 900;
   transition: .3s;
   color: #999;
-
-  &:is(:hover, :focus) {
-    color: #fff;
-    transform: rotatex(180deg);
-  }
 }
 
 .dropdown-menu {
@@ -587,6 +581,11 @@ export default {
   transform-origin: top center;
   transform: rotateY(-10deg);
   transition: transform .3s, opacity .3s;
+}
+
+.menu-has-childern:hover .angle-down-icon {
+  color: #fff;
+  transform: rotatex(180deg);
 }
 
 /*search-box*/
