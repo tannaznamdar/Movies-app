@@ -95,7 +95,7 @@ const location = useRoute();
           <div class="col-3">
             <div>
               <form>
-                <div class="search-box align-items-center">
+                <div class="search-box align-items-center" @click="searchBox = true">
                   <input class="search-input" name="search" autocomplete="off" placeholder="کلمه مورد نظر...">
                   <button class="search-btn" type="submit"><a href="#"><font-awesome-icon class="icon-size"
                         icon="magnifying-glass" /></a></button>
@@ -104,64 +104,66 @@ const location = useRoute();
             </div>
           </div>
 
+          <transition name="fade">
+            <div class="fixed_back" v-show="searchBox">
+              <div class="d-flex flex-column">
+                <div>
+                  <div class="search-container">
 
-          <div class="fixed_back">
-            <div class="d-flex flex-column">
-              <div>
-                <div class="search-container">
+                    <div class="head_boxsearch">
+                      <div class="search-suggest-gradient"></div>
 
-                  <div class="head_boxsearch">
-                    <div class="search-suggest-gradient"></div>
-
-                    <div class="search-input-uptv align-item-center">
-                      <input type="text" class="search-ajax-input" placeholder="جستجو کنید..." v-model="inputValue"
-                        @keyup.enter="addSearchItem">
-                      <button class="icon-transparent-btn" @click="addSearchItem">
-                        <font-awesome-icon class="icon-size  internal-distance-l" icon="magnifying-glass" />
-                      </button>
-                    </div>
-
-                    <div class="close-button">بستن</div>
-                  </div>
-
-                  <div class="search-result">
-                    <div class="mb-4">
-                      <h4 class="history_title">ترند ها</h4>
-
-                      <div class="item_history d-flex align-items-center" v-for="trendMovie in trendMovies">
-                        <router-link :to='{ name: "titlePageRoute", params: { slug }}'>
-                          <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
-                            icon="magnifying-glass" />
-                          <span class="w-100"> {{ trendMovie.title }} </span>
-                        </router-link>
-                      </div>
-
-                    </div>
-
-                    <div>
-                      <h4 class="history_title last_item">
-                        <span>تاریخچه جستجو شما</span>
-                        <span @click="removeHistory">(حذف تاریخچه)</span>
-                      </h4>
-
-                      <div class="item_history  last_item d-flex align-items-center" v-for="(item, index) in items">
-                        <div class="d-flex align-items-center">
-                          <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
-                            icon="magnifying-glass" />
-                          <span class="w-100"> {{ item }} </span>
-                        </div>
-                        <button class="icon-transparent-btn" @click="removeSearchItem(index)">
-                          <img alt="xMark" :src="xMark">
+                      <div class="search-input-uptv align-item-center">
+                        <input type="text" class="search-ajax-input" placeholder="جستجو کنید..." v-model="inputValue"
+                          @keyup.enter="addSearchItem">
+                        <button class="icon-transparent-btn" @click="addSearchItem">
+                          <font-awesome-icon class="icon-size  internal-distance-l" icon="magnifying-glass" />
                         </button>
                       </div>
 
+                      <div class="close-button" @click="searchBox = false">بستن</div>
                     </div>
 
+                    <div class="search-result">
+                      <div class="mb-4">
+                        <h4 class="history_title">ترند ها</h4>
+
+                        <div class="item_history d-flex align-items-center" v-for="trendMovie in trendMovies"
+                          @click="searchBox = false">
+                          <router-link :to='{ name: "titlePageRoute", params: { slug: trendMovie.slug } }'>
+                            <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
+                              icon="magnifying-glass" />
+                            <span class="w-100"> {{ trendMovie.title }} </span>
+                          </router-link>
+                        </div>
+
+                      </div>
+
+                      <div>
+                        <h4 class="history_title last_item">
+                          <span>تاریخچه جستجو شما</span>
+                          <span @click="removeHistory">(حذف تاریخچه)</span>
+                        </h4>
+
+                        <div class="item_history  last_item d-flex align-items-center" v-for="(item, index) in items">
+                          <div class="d-flex align-items-center">
+                            <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
+                              icon="magnifying-glass" />
+                            <span class="w-100"> {{ item }} </span>
+                          </div>
+                          <button class="icon-transparent-btn" @click="removeSearchItem(index)">
+                            <img alt="xMark" :src="xMark">
+                          </button>
+                        </div>
+
+                      </div>
+
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </transition>
 
 
           <div class="col-1">
@@ -200,23 +202,11 @@ export default {
   name: 'navbar',
   components: { SearchBox, headerCards, xMark },
 
-  props: {
-        slug: {
-            type: String,
-            default: ''
-        },
-        link: {
-            type: String,
-            default: ''
-        },
-        title: {
-            type: String,
-            default: ''
-        },
-    },
-
   data() {
     return {
+
+      searchBox: false,
+
       logo,
 
       inputValue: "",
@@ -454,7 +444,7 @@ export default {
           link: 'thumbnail',
         },
       ]
-      
+
     }
   },
 
@@ -476,7 +466,6 @@ export default {
     removeHistory: function () {
       this.items = []
     },
-
 
   },
 }
@@ -761,6 +750,15 @@ export default {
   font-size: 14px;
   font-weight: 300;
   color: #bbc1c6;
+
+  a {
+    text-decoration: none;
+    color: #bbc1c6;
+
+    &:is(:hover, :focus) {
+      color: #fff;
+    }
+  }
 }
 
 .history_title>span:last-child {
@@ -774,5 +772,17 @@ export default {
   background-color: transparent;
   border: none;
   line-height: 0;
+}
+
+/* .fade-leave-active below version 2.1.8 */
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0
 }
 </style>
