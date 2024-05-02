@@ -6,141 +6,74 @@
 
         <div class="col-lg-2">
           <div class="search-box-list">
-            <button class="dropbtn d-flex justify-content-between" @click="seriesMenuShow = !seriesMenuShow">
-              سریال
+            <span class="dropbtn d-flex justify-content-between" @click="seriesMenuShow = !seriesMenuShow">
+              فیلم یا سریال
               <font-awesome-icon class="angle-left-icon" icon="angle-left" />
-            </button>
+            </span>
 
             <div class="dropdown-content" v-show="seriesMenuShow">
-              <div class="text-item  align-item-center">
+              <div class="text-item  align-item-center" v-for="movieMenuShow in moviesMenuShow">
                 <label class="custom-radio" name="cat-all" value>
                   <input checked="checked" name="radio" type="radio">
                   <span class="checkmark"></span>
-                  همه
+                  {{ movieMenuShow.title }}
                 </label>
               </div>
-
-              <div class="text-item  align-item-center">
-                <label class="custom-radio" name="cat-all" value>
-                  <input checked="checked" name="radio" type="radio">
-                  <span class="checkmark"></span>
-                  فیلم
-                </label>
-              </div>
-
-              <div class="text-item  align-item-center">
-                <label class="custom-radio" name="cat-all" value>
-                  <input checked="checked" name="radio" type="radio">
-                  <span class="checkmark"></span>
-                  سریال
-                </label>
-              </div>
-
             </div>
           </div>
         </div>
 
         <div class="col-lg-2">
           <div class="search-box-list">
-            <button class="dropbtn d-flex justify-content-between" @click="genreMenuShow = !genreMenuShow">
+            <span class="dropbtn d-flex justify-content-between" @click="genreMenuShow = !genreMenuShow">
               ژانر
               <font-awesome-icon class="angle-left-icon" icon="angle-left" />
-            </button>
+            </span>
 
             <div class="dropdown-content" v-show="genreMenuShow">
-              <div class="text-item  align-item-center">
+              <div class="text-item  align-item-center" v-for="genreMenuShow in genresMenuShow">
                 <label class="custom-radio" name="cat-all" value>
                   <input checked="checked" name="radio" type="radio">
                   <span class="checkmark"></span>
-                  همه
+                  {{ genreMenuShow.title }}
                 </label>
               </div>
-
-              <div class="text-item  align-item-center">
-                <label class="custom-radio" name="cat-all" value>
-                  <input checked="checked" name="radio" type="radio">
-                  <span class="checkmark"></span>
-                  فیلم
-                </label>
-              </div>
-
-              <div class="text-item  align-item-center">
-                <label class="custom-radio" name="cat-all" value>
-                  <input checked="checked" name="radio" type="radio">
-                  <span class="checkmark"></span>
-                  سریال
-                </label>
-              </div>
-
             </div>
           </div>
         </div>
 
         <div class="col-lg-2">
           <div class="search-box-list">
-            <button class="dropbtn d-flex justify-content-between" @click="countryMenuShow = !countryMenuShow">
+            <span class="dropbtn d-flex justify-content-between" @click="countryMenuShow = !countryMenuShow">
               کشور
               <font-awesome-icon class="angle-left-icon" icon="angle-left" />
-            </button>
+            </span>
 
             <div class="dropdown-content" v-show="countryMenuShow">
-              <div class="text-item  align-item-center">
+              <div class="text-item  align-item-center" v-for="countryMenuShow in countriesMenuShow">
                 <label class="custom-radio" name="cat-all" value>
                   <input checked="checked" name="radio" type="radio">
                   <span class="checkmark"></span>
-                  همه
+                  {{ countryMenuShow.title }}
                 </label>
               </div>
-
-              <div class="text-item  align-item-center">
-                <label class="custom-radio" name="cat-all" value>
-                  <input checked="checked" name="radio" type="radio">
-                  <span class="checkmark"></span>
-                  فیلم
-                </label>
-              </div>
-
-              <div class="text-item  align-item-center">
-                <label class="custom-radio" name="cat-all" value>
-                  <input checked="checked" name="radio" type="radio">
-                  <span class="checkmark"></span>
-                  سریال
-                </label>
-              </div>
-
             </div>
           </div>
         </div>
 
         <div class="col-lg-2">
           <div class="search-box-list">
-            <button class="dropbtn d-flex justify-content-between" @click="doubleMenuShow = !doubleMenuShow">
+            <span class="dropbtn d-flex justify-content-between" @click="doubleMenuShow = !doubleMenuShow">
               دوبله و زیر نویس
               <font-awesome-icon class="angle-left-icon" icon="angle-left" />
-            </button>
+            </span>
 
             <div class="dropdown-content" v-show="doubleMenuShow">
-              <div class="text-item  align-item-center">
+              <div class="text-item  align-item-center" v-for="doubleMovieMenuShow in doubleMoviesMenuShow">
                 <label class="custom-radio" name="cat-all" value>
                   <input checked="checked" name="radio" type="radio">
                   <span class="checkmark"></span>
-                  همه
-                </label>
-              </div>
-
-              <div class="text-item  align-item-center">
-                <label class="custom-radio" name="cat-all" value>
-                  <input checked="checked" name="radio" type="radio">
-                  <span class="checkmark"></span>
-                  فیلم
-                </label>
-              </div>
-
-              <div class="text-item  align-item-center">
-                <label class="custom-radio" name="cat-all" value>
-                  <input checked="checked" name="radio" type="radio">
-                  <span class="checkmark"></span>
-                  سریال
+                  {{ doubleMovieMenuShow.title }}
                 </label>
               </div>
 
@@ -150,33 +83,17 @@
 
         <div class="col-lg-2">
           <div class="search-box-list">
-            <button class="dropbtn d-flex justify-content-between" @click="scoreMenuShow = !scoreMenuShow">
+            <span class="dropbtn d-flex justify-content-between" @click="scoreMenuShow = !scoreMenuShow">
               امتیاز
               <font-awesome-icon class="angle-left-icon" icon="angle-left" />
-            </button>
+            </span>
 
             <div class="dropdown-content" v-show="scoreMenuShow">
-              <div class="text-item  align-item-center">
+              <div class="text-item  align-item-center" v-for="scoreMenuShow in scoresMenuShow">
                 <label class="custom-radio" name="cat-all" value>
                   <input checked="checked" name="radio" type="radio">
                   <span class="checkmark"></span>
-                  همه
-                </label>
-              </div>
-
-              <div class="text-item  align-item-center">
-                <label class="custom-radio" name="cat-all" value>
-                  <input checked="checked" name="radio" type="radio">
-                  <span class="checkmark"></span>
-                  فیلم
-                </label>
-              </div>
-
-              <div class="text-item  align-item-center">
-                <label class="custom-radio" name="cat-all" value>
-                  <input checked="checked" name="radio" type="radio">
-                  <span class="checkmark"></span>
-                  سریال
+                  {{ scoreMenuShow.title }}
                 </label>
               </div>
 
@@ -205,7 +122,95 @@ export default {
       countryMenuShow: false,
       doubleMenuShow: false,
       scoreMenuShow: false,
+
+      moviesMenuShow: [
+        {
+          title: 'همه',
+        },
+        {
+          title: 'فیلم',
+        },
+        {
+          title: 'سریال',
+        }
+      ],
+
+      genresMenuShow: [
+        {
+          title: 'همه',
+        },
+        {
+          title: 'درام',
+        },
+        {
+          title: 'اکشن',
+        },
+        {
+          title: 'خانوادگی',
+        },
+        {
+          title: 'عاشقانه',
+        },
+        {
+          title: 'هیجان انگیز',
+        },
+        {
+          title: 'کمدی',
+        },
+      ],
+
+      countriesMenuShow: [
+        {
+          title: 'همه',
+        },
+        {
+          title: 'ایرانی',
+        },
+        {
+          title: 'هندی',
+        },
+        {
+          title: 'کره ای',
+        },
+        {
+          title: 'ترکیه ای',
+        },
+        {
+          title: 'آمریکایی',
+        },
+      ],
+
+      doubleMoviesMenuShow: [
+        {
+          title: 'همه',
+        },
+        {
+          title: 'دوبله شذه',
+        },
+        {
+          title: 'زیر نویس ',
+        },
+      ],
+
+      scoresMenuShow: [
+        {
+          title: 'همه',
+        },
+        {
+          title: '0 تا 2',
+        },
+        {
+          title: ' 2 تا 5',
+        },
+        {
+          title: ' 5 تا 7 ',
+        },
+        {
+          title: 'بالای 7',
+        },
+      ],
     }
+
   },
 
   watch: {
