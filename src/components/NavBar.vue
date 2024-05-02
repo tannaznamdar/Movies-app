@@ -8,7 +8,7 @@ const location = useRoute();
     <header class="header pb-1 pt-3">
       <div class="container bv-example-row">
         <div class="row align-items-center">
-          
+
           <div class="col-1">
             <figure class="logo-img">
               <router-link to="/"> <img alt="logo" :src="logo"> </router-link>
@@ -63,8 +63,19 @@ const location = useRoute();
                 <li>
                   <router-link class="active" :to='{ name: "animationPageRoute" }'> انیمیشن </router-link>
                 </li>
-                <li>
-                  <router-link class="active" :to='{ name: "persianDubPageRoute" }'> دوبله فارسی </router-link>
+
+                <li class="menu-has-childern"> دوبله فارسی <span><font-awesome-icon class="angle-down-icon"
+                      icon="angle-down" /></span>
+
+                  <div class="dropdown-menu">
+                    <ul>
+                      <li v-for="doubleGenre in doubleGenres">
+                        <router-link class="active"
+                          :to='{ name: "persianDubPageRoute", params: { doubleGenre: doubleGenre.slug } }'>
+                          {{ doubleGenre.title }}</router-link>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
 
                 <li class="menu-has-childern"> سایر <span><font-awesome-icon class="angle-down-icon"
@@ -79,9 +90,11 @@ const location = useRoute();
                     </ul>
                   </div>
                 </li>
+
                 <li>
                   <router-link class="active" :to='{ name: "jobPageRoute" }'> استخدام </router-link>
                 </li>
+
                 <li>
                   <router-link class="active" :to='{ name: "contactUsPageRoute" }'> ارتباط با ما </router-link>
                 </li>
@@ -442,6 +455,21 @@ export default {
           slug: 'سیلو',
           link: 'thumbnail',
         },
+      ],
+
+      doubleGenres: [
+        {
+          title: 'فیلم  ',
+          slug: 'movies'
+        },
+        {
+          title: 'سریال ',
+          slug: 'series'
+        },
+        {
+          title: ' انیمیشن ',
+          slug: 'animation'
+        }
       ]
 
     }

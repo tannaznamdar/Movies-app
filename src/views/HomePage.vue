@@ -17,7 +17,10 @@ import Pagination from '@/components/Pagination.vue'
         <div class="row">
           <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
             <h4 class="title">فیلم ایرانی رایگان</h4>
-            <button class="button button--transparent"><a href="#"> مشاهده همه </a></button>
+            <button class="button button--transparent">
+              <router-link class="active" :to='{ name: "countryMoviePageRoute", params: { country: "iran" } }'> مشاهده
+                همه </router-link>
+            </button>
           </div>
         </div>
 
@@ -37,7 +40,9 @@ import Pagination from '@/components/Pagination.vue'
         <div class="row">
           <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
             <h4 class="title"> فیلم جدید </h4>
-            <button class="button button--transparent"><a href="#"> مشاهده همه </a></button>
+            <button class="button button--transparent">
+              <router-link class="active" :to='{ name: "newMoviePageRoute" }'> مشاهده همه </router-link>
+            </button>
           </div>
         </div>
 
@@ -57,7 +62,11 @@ import Pagination from '@/components/Pagination.vue'
         <div class="row">
           <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
             <h4 class="title"> سریال خارجی </h4>
-            <button class="button button--transparent"><a href="#"> مشاهده همه </a></button>
+            <button class="button button--transparent">
+              <router-link class="active"
+                :to='{ name: "countrySeriesPageRoute", params: { country: "international" } }'>
+                مشاهده همه </router-link>
+            </button>
           </div>
         </div>
 
@@ -76,8 +85,11 @@ import Pagination from '@/components/Pagination.vue'
       <div class="container bv-example-row">
         <div class="row">
           <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
-            <h4 class="title"> سریال ایرانی جدید </h4>
-            <button class="button button--transparent"><a href="#"> مشاهده همه </a></button>
+            <h4 class="title"> سریال ایرانی </h4>
+            <button class="button button--transparent">
+              <router-link class="active" :to='{ name: "countrySeriesPageRoute", params: { country: "iran" } }'> مشاهده
+                همه </router-link>
+            </button>
           </div>
         </div>
 
@@ -97,7 +109,9 @@ import Pagination from '@/components/Pagination.vue'
         <div class="row">
           <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
             <h4 class="title"> فیلم دوبله فارسی جدید </h4>
-            <button class="button button--transparent"><a href="#"> مشاهده همه </a></button>
+            <button class="button button--transparent">
+              <router-link class="active" :to='{ name: "persianDubPageRoute" }'> مشاهده همه </router-link>
+            </button>
           </div>
         </div>
 
@@ -117,7 +131,9 @@ import Pagination from '@/components/Pagination.vue'
         <div class="row">
           <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
             <h4 class="title"> انیمیشن</h4>
-            <button class="button button--transparent"><a href="#"> مشاهده همه </a></button>
+            <button class="button button--transparent">
+              <router-link class="active" :to='{ name: "animationPageRoute" }'> مشاهده همه </router-link>
+            </button>
           </div>
         </div>
 
@@ -159,7 +175,9 @@ import Pagination from '@/components/Pagination.vue'
                   <img alt="calendar" :src="movieIcon">
                   <h5 class="sidebar sidebar--title internal-distance-r">آپدیت سریال‌ها</h5>
                 </div>
-                <button class="button button--transparent"><a href="#"> مشاهده همه </a></button>
+                <button class="button button--transparent">
+                  <router-link class="active" :to='{ name: "updateSeriesPageRoute" }'> مشاهده همه </router-link>
+                </button>
               </div>
 
               <div v-for="smallMovieCard in smallMovieCards">
@@ -223,9 +241,16 @@ import Pagination from '@/components/Pagination.vue'
                 </div>
 
                 <div>
-                  <button class="button button-lg button-lg--sidebar mb-3"> <a href="#"> انیمیشن دوبله فارسی </a>
+                  <button class="button button-lg button-lg--sidebar mb-3">
+                    <router-link class="active"
+                      :to='{ name: "persianDubPageRoute", params: { doubleGenre: "animation" } }'> انیمیشن دوبله فارسی
+                    </router-link>
                   </button>
-                  <button class="button button-lg button-lg--sidebar"> <a href="#"> فیلم های دوبله فارسی </a> </button>
+                  <button class="button button-lg button-lg--sidebar">
+                    <router-link class="active"
+                      :to='{ name: "persianDubPageRoute", params: { doubleGenre: "movies" } }'>فیلم های دوبله فارسی
+                    </router-link>
+                  </button>
                 </div>
               </div>
             </section>
@@ -236,7 +261,11 @@ import Pagination from '@/components/Pagination.vue'
                   <img alt="calendar" :src="movieIcon">
                   <h5 class="sidebar sidebar--title internal-distance-r"> به زودی </h5>
                 </div>
-                <button class="button button--transparent"><a href="#"> مشاهده همه </a></button>
+                <button class="button button--transparent">
+                  <router-link class="active" :to='{ name: "otherPageRoute", params: { content: "ComingSoon" } }'>
+                    مشاهده
+                    همه </router-link>
+                </button>
               </div>
 
               <div v-for="comingSoonMovieSmallCard in comingSoonMovieSmallCards">
