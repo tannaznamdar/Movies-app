@@ -248,15 +248,15 @@ export default {
 
       countries: [
         {
-          title: 'فیلم ایرانی ',
+          title: ' ایرانی ',
           slug: 'iran'
         },
         {
-          title: 'فیلم ترکی ',
+          title: ' ترکی ',
           slug: 'turkey'
         },
         {
-          title: 'فیلم خارجی ',
+          title: ' خارجی ',
           slug: 'international'
         }
       ],
