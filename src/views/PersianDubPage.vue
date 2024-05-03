@@ -1,22 +1,27 @@
 <template>
-    <div>
-      <h1>
-        Persian Dub
-      </h1>
-    </div>
+  <div>
+    <h1>
+      Persian Dub {{ slug }} 
+    </h1>
+  </div>
 </template>
 
-   <script>
-   
-   export default {
-     name: 'PersianDub',
-     }
+<script>
 
-     
-   </script>
+export default {
+  name: 'PersianDub',
+  data() {
+    return {
+      slug: '',
+    }
+  },
+  mounted() {
+    this.slug = (this.$route.params.slug);
+  }
+}
+
+</script>
 
 
 
-<style scoped>
-
-</style>
+<style scoped></style>

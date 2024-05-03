@@ -27,7 +27,7 @@ const router = createRouter({
     { path: "/new-movie", name: "newMoviePageRoute", component: NewMovie },
     { path: "/update-series", name: "updateSeriesPageRoute", component: UpdateSeries },
     { path: "/animation", name: "animationPageRoute", component: Animation },
-    { path: "/persian-dub", name: "persianDubPageRoute", component: PersianDub },
+    { path: "/persian-dub/:slug?", name: "persianDubPageRoute", component: PersianDub },
     { path: "/other/:content", name: 'otherPageRoute', component: Other },
     { path: "/job", name: "jobPageRoute", component: Job },
     { path: "/contact-us", name: "contactUsPageRoute", component: ContactUs },

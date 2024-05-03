@@ -243,12 +243,12 @@ import Pagination from '@/components/Pagination.vue'
                 <div>
                   <button class="button button-lg button-lg--sidebar mb-3">
                     <router-link class="active"
-                      :to='{ name: "persianDubPageRoute", params: { doubleGenre: "animation" } }'> انیمیشن دوبله فارسی
+                      :to='{ name: "persianDubPageRoute", params: { slug: "animation" } }'> انیمیشن دوبله فارسی
                     </router-link>
                   </button>
                   <button class="button button-lg button-lg--sidebar">
                     <router-link class="active"
-                      :to='{ name: "persianDubPageRoute", params: { doubleGenre: "movies" } }'>فیلم های دوبله فارسی
+                      :to='{ name: "persianDubPageRoute", params: { slug: "movies" } }'>فیلم های دوبله فارسی
                     </router-link>
                   </button>
                 </div>

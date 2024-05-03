@@ -71,7 +71,7 @@ const location = useRoute();
                     <ul>
                       <li v-for="doubleGenre in doubleGenres">
                         <router-link class="active"
-                          :to='{ name: "persianDubPageRoute", params: { doubleGenre: doubleGenre.slug } }'>
+                          :to='{ name: "persianDubPageRoute", params: { slug: doubleGenre.slug } }'>
                           {{ doubleGenre.title }}</router-link>
                       </li>
                     </ul>
