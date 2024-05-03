@@ -70,6 +70,25 @@ body {
     }
   }
 
+  &--gray {
+    backdrop-filter: blur(10px);
+    background: rgba(250, 250, 250, .1);
+    font-size: 13px;
+    line-height: 2;
+
+    &:is(:hover, :focus) {
+      background: rgba(250, 250, 250, .125);
+    }
+
+    &-like {
+      color: #FF7555 !important;
+    }
+
+    &-dislike {
+      color: #89d64f !important;
+    }
+  }
+
   &-transparent-orange {
     background: transparent;
     border-color: #FF7555;
