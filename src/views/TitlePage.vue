@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <section class="post-header">
 
-            <div class="uptvs-big-play-btn">
+            <div class="uptvs-big-play">
                 <a href="#" class="ic">
                     <svg fill="#fba087" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 459 459" xml:space="preserve">
@@ -26,7 +26,7 @@
                     <div class="col-lg-2">
                         <a href="#">
                             <figure class="movie-img">
-                                <img alt=" انیمیشن پاندای کونگ فوکار ۴ Kung Fu Panda 4 2024 با دوبله فارسی"
+                                <img alt="#"
                                     src="https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-207x290.jpg">
                             </figure>
                         </a>
@@ -34,31 +34,32 @@
 
                     <div class="col-lg-10 movie-info mb-5">
                         <div>
-                            <h1 class="font-text font-text--title">انیمیشن پاندای کونگ فوکار ۴ Kung Fu Panda 4 2024
-                            </h1>
+                            <h1 class="font-text font-text--title">{{ singlePageMovie.title }}</h1>
                             <div class="post-single-meta">
                                 <div class="row">
                                     <div class="col-lg">
                                         <span class="font-text font-text--subtitle">
-                                            <a href="#">انیمیشن</a>
+                                            <a href="#">{{ singlePageMovie.genre }}</a>
                                             ،
-                                            <a href="#"> اکشن </a>
+                                            <a href="#"> {{ singlePageMovie.genre2 }} </a>
                                         </span>
                                         <span class="text-white-25 internal-distance">|</span>
-                                        <span class="font-text font-text--subtitle">2024</span>
+                                        <span class="font-text font-text--subtitle">{{ singlePageMovie.year }}</span>
                                         <span class="text-white-25 internal-distance">|</span>
 
                                         <span class="d-inline-block">
-                                            <span class="font-text font-text--subtitle font-text--subtitle-green">بالای
-                                                13 سال</span> </span>
+                                            <span class="font-text font-text--subtitle font-text--subtitle-green">{{
+                                                singlePageMovie.age }}</span>
+                                        </span>
                                         <span class="text-white-25 internal-distance">|</span>
-                                        <span class="font-text font-text--subtitle">آمریکا </span>
+                                        <span class="font-text font-text--subtitle">{{ singlePageMovie.country }}
+                                        </span>
                                         <span class="text-white-25 internal-distance">|</span>
-                                        <span class="font-text font-text--subtitle"> 94 دقیقه </span>
+                                        <span class="font-text font-text--subtitle"> {{ singlePageMovie.time }}</span>
                                     </div>
 
                                     <div class="col-lg-auto">
-                                        <span class="button button-transparent-green">دوبله فارسی</span>
+                                        <span class="button button-transparent-green"> {{singlePageMovie.btnTitle}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -71,14 +72,15 @@
 
                                     <div class="col-md-auto col-auto xs-p-0 ml-lg-30 ml-md-15">
                                         <img class="internal-distance" alt="Imdb" :src="ImdbYellow">
-                                        <span class="font-text font-text--subtitle"> 6.7 </span>
+                                        <span class="font-text font-text--subtitle"> {{ singlePageMovie.imdb }}</span>
                                         <span class="font-text font-text--sm-12 internal-distance">از 10 </span>
-                                        <span class="font-text font-text--sm-11">از 3,000 رای</span>
+                                        <span class="font-text font-text--sm-11">از {{ singlePageMovie.votes }} رای</span>
                                     </div>
 
                                     <div class="col-md-auto col-auto  ml-lg-20">
                                         <img class="internal-distance" alt="like" :src="heart">
-                                        <span class="font-text font-text--subtitle">86% </span>
+                                        <span class="font-text font-text--subtitle"> % {{ singlePageMovie.consent }}
+                                        </span>
                                         <span class="font-text font-text--sm-11 internal-distance"> رضایت </span>
                                     </div>
                                 </div>
@@ -89,13 +91,15 @@
                                     <div class="mb-half">
                                         <span class="font-text font-text--subtitle font-text--subtitle-gray"> بازیگران :
                                         </span>
-                                        <span class="font-text font-text--subtitle internal-distance">tannaz</span>
+                                        <span class="font-text font-text--subtitle internal-distance">{{
+                                            singlePageMovie.actors }}</span>
                                     </div>
 
                                     <div class="">
                                         <span class="font-text font-text--subtitle font-text--subtitle-gray"> کارگردان :
                                         </span>
-                                        <span class="font-text font-text--subtitle internal-distance">namdar</span>
+                                        <span class="font-text font-text--subtitle internal-distance">{{
+                                            singlePageMovie.director }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -104,12 +108,12 @@
 
                                 <div class="pt-3">
                                     <button class="button button--gray button--gray-like">
-                                        7022
+                                        {{ singlePageMovie.like }}
                                         <img alt="like" :src="like">
                                     </button>
 
                                     <button class="button button--gray button--gray-dislike internal-distance">
-                                        1091
+                                        {{ singlePageMovie.dislike }}
                                         <img alt="dislike" :src="dislike">
                                     </button>
 
@@ -123,6 +127,8 @@
 
             </div>
         </section>
+
+
     </div>
 
 </template>
@@ -145,10 +151,29 @@ export default {
             like,
             dislike,
 
+            singlePageMovie: {
+                thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-207x290.jpg',
+                link: 'thumbnail',
+                title: 'انیمیشن پاندای کونگ فوکار ۴ Kung Fu Panda 4 2024',
+                genre: 'انیمیشن',
+                genre2: 'اکشن',
+                actors: 'Awkwafina، Jack Black، Viola Davis',
+                director: 'Mike Mitchell',
+                year: '2024',
+                time: '94 دقیقه ',
+                country: 'آمریکا',
+                age: 'بالای 13 سال',
+                like: 750,
+                dislike: 250,
+                imdb: '6.7',
+                consent: 86,
+                votes: 3000,
+                btnTitle: 'دوبله فارسی',
+            }
+
         }
     }
 }
-
 
 </script>
 
@@ -162,7 +187,7 @@ export default {
     background: #101014;
 }
 
-.uptvs-big-play-btn {
+.uptvs-big-play {
     width: 100%;
     float: right;
     height: 300px;
@@ -171,14 +196,14 @@ export default {
     margin-bottom: 30px;
 }
 
-.uptvs-big-play-btn .ic {
+.uptvs-big-play .ic {
     transition-duration: 0.3s;
     position: absolute;
     top: calc(50% - 50px);
     right: calc(50% - 30px);
 }
 
-.uptvs-big-play-btn .ic::before {
+.uptvs-big-play .ic::before {
     transition-duration: 0.3s;
     border-radius: 50%;
     content: "";
@@ -192,8 +217,8 @@ export default {
     animation: sonarWave 2s linear infinite;
 }
 
-.uptvs-big-play-btn .ic,
-.uptvs-big-play-btn .ic svg {
+.uptvs-big-play .ic,
+.uptvs-big-play .ic svg {
     width: 60px;
     height: 60px;
 }
@@ -242,7 +267,6 @@ export default {
     margin-left: 10px;
 
     img {
-        vertical-align: middle;
         border-style: none;
         display: block;
         width: auto;
