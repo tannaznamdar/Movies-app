@@ -26,40 +26,42 @@
                     <div class="col-lg-2">
                         <a href="#">
                             <figure class="movie-img">
-                                <img alt="#"
-                                    src="https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-207x290.jpg">
+
+                                <img alt="#" :src="thumbnail">
                             </figure>
                         </a>
                     </div>
 
                     <div class="col-lg-10 movie-info mb-5">
                         <div>
-                            <h1 class="font-text font-text--title">{{ singlePageMovie.title }}</h1>
+                            <h1 class="font-text font-text--title">{{ title }}</h1>
+                            <span class="font-text font-text--subtitle font-text--subtitle-yellow" v-if="hasSubtitle">{{
+                                subtitle }}</span>
                             <div class="post-single-meta">
                                 <div class="row">
                                     <div class="col-lg">
                                         <span class="font-text font-text--subtitle">
-                                            <a href="#">{{ singlePageMovie.genre }}</a>
+                                            <a href="#">{{ genre }}</a>
                                             ،
-                                            <a href="#"> {{ singlePageMovie.genre2 }} </a>
+                                            <a href="#"> {{ genre2 }} </a>
                                         </span>
                                         <span class="text-white-25 internal-distance">|</span>
-                                        <span class="font-text font-text--subtitle">{{ singlePageMovie.year }}</span>
+                                        <span class="font-text font-text--subtitle">{{ year }}</span>
                                         <span class="text-white-25 internal-distance">|</span>
 
                                         <span class="d-inline-block">
-                                            <span class="font-text font-text--subtitle font-text--subtitle-green">{{
-                                                singlePageMovie.age }}</span>
+                                            <span class="font-text font-text--subtitle font-text--subtitle-green">{{ age
+                                                }}</span>
                                         </span>
                                         <span class="text-white-25 internal-distance">|</span>
-                                        <span class="font-text font-text--subtitle">{{ singlePageMovie.country }}
+                                        <span class="font-text font-text--subtitle">{{ country }}
                                         </span>
                                         <span class="text-white-25 internal-distance">|</span>
-                                        <span class="font-text font-text--subtitle"> {{ singlePageMovie.time }}</span>
+                                        <span class="font-text font-text--subtitle"> {{ time }}</span>
                                     </div>
 
                                     <div class="col-lg-auto">
-                                        <span class="button button-transparent-green"> {{singlePageMovie.btnTitle}}</span>
+                                        <tag v-if="hasTag" v-bind="tag"></tag>
                                     </div>
                                 </div>
                             </div>
@@ -72,14 +74,15 @@
 
                                     <div class="col-md-auto col-auto xs-p-0 ml-lg-30 ml-md-15">
                                         <img class="internal-distance" alt="Imdb" :src="ImdbYellow">
-                                        <span class="font-text font-text--subtitle"> {{ singlePageMovie.imdb }}</span>
+                                        <span class="font-text font-text--subtitle"> {{ imdb }}</span>
                                         <span class="font-text font-text--sm-12 internal-distance">از 10 </span>
-                                        <span class="font-text font-text--sm-11">از {{ singlePageMovie.votes }} رای</span>
+                                        <span class="font-text font-text--sm-11">از {{ votes }}
+                                            رای</span>
                                     </div>
 
                                     <div class="col-md-auto col-auto  ml-lg-20">
                                         <img class="internal-distance" alt="like" :src="heart">
-                                        <span class="font-text font-text--subtitle"> % {{ singlePageMovie.consent }}
+                                        <span class="font-text font-text--subtitle"> % {{ consent }}
                                         </span>
                                         <span class="font-text font-text--sm-11 internal-distance"> رضایت </span>
                                     </div>
@@ -92,14 +95,14 @@
                                         <span class="font-text font-text--subtitle font-text--subtitle-gray"> بازیگران :
                                         </span>
                                         <span class="font-text font-text--subtitle internal-distance">{{
-                                            singlePageMovie.actors }}</span>
+                                            actors }}</span>
                                     </div>
 
                                     <div class="">
                                         <span class="font-text font-text--subtitle font-text--subtitle-gray"> کارگردان :
                                         </span>
                                         <span class="font-text font-text--subtitle internal-distance">{{
-                                            singlePageMovie.director }}</span>
+                                            director }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -108,13 +111,13 @@
 
                                 <div class="pt-3">
                                     <button class="button button--gray button--gray-like">
-                                        {{ singlePageMovie.like }}
-                                        <img alt="like" :src="like">
+                                        {{ like }}
+                                        <img alt="like" :src="likeSvg">
                                     </button>
 
                                     <button class="button button--gray button--gray-dislike internal-distance">
-                                        {{ singlePageMovie.dislike }}
-                                        <img alt="dislike" :src="dislike">
+                                        {{ dislike }}
+                                        <img alt="dislike" :src="dislikeSvg">
                                     </button>
 
                                 </div>
@@ -128,6 +131,38 @@
             </div>
         </section>
 
+        <section class="dark-background pt-4">
+            <div class="container bv-example-row">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="position-relative">
+                            <video class="video-box" controls="" :poster="poster" preload="none">
+                                <source :src="video" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <h4 class="font-text font-text--title">
+                            <img class="internal-distance" alt="video" :src="videoSvg">
+                            داستان انیمیشن
+                        </h4>
+                        <p class="font-text font-text--description"> {{ story }}</p>
+
+                        <h4 class="font-text font-text--title mt-20">
+                            <img class="internal-distance" alt="video" :src="videoSvg">
+                            درباره انیمیشن
+                        </h4>
+
+                        <p class="font-text font-text--description"> {{ about }}</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
 
     </div>
 
@@ -137,54 +172,84 @@
 
 import ImdbYellow from '@/assets/images/imdb-yellow.svg'
 import heart from '@/assets/images/heart.svg'
-import like from '@/assets/images/like-orange.svg'
-import dislike from '@/assets/images/dislike-green.svg'
+import likeSvg from '@/assets/images/like-orange.svg'
+import dislikeSvg from '@/assets/images/dislike-green.svg'
+import videoSvg from '@/assets/images/video-gray.svg'
+import Tag from "@/components/Tag.vue";
 
 export default {
     name: 'singlePage',
+    components: { Tag },
+
+    props: {
+        tag: {
+            type: Object,
+            default: {
+                title: ' ',
+                color: ' '
+            }
+        }
+    },
 
     data() {
         return {
 
             ImdbYellow,
             heart,
-            like,
-            dislike,
+            likeSvg,
+            dislikeSvg,
+            videoSvg,
+            hasSubtitle: false,
+            hasTag: false,
 
-            singlePageMovie: {
-                thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-207x290.jpg',
-                link: 'thumbnail',
-                title: 'انیمیشن پاندای کونگ فوکار ۴ Kung Fu Panda 4 2024',
-                genre: 'انیمیشن',
-                genre2: 'اکشن',
-                actors: 'Awkwafina، Jack Black، Viola Davis',
-                director: 'Mike Mitchell',
-                year: '2024',
-                time: '94 دقیقه ',
-                country: 'آمریکا',
-                age: 'بالای 13 سال',
-                like: 750,
-                dislike: 250,
-                imdb: '6.7',
-                consent: 86,
-                votes: 3000,
-                btnTitle: 'دوبله فارسی',
-            }
+
+            thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-207x290.jpg',
+            link: 'thumbnail',
+            title: 'انیمیشن پاندای کونگ فوکار ۴ Kung Fu Panda 4 2024',
+            hasSubtitle: true,
+            subtitle: 'قسمت 4',
+            genre: 'انیمیشن',
+            genre2: 'اکشن',
+            actors: 'Awkwafina، Jack Black، Viola Davis',
+            director: 'Mike Mitchell',
+            year: '2024',
+            time: '94 دقیقه ',
+            country: 'آمریکا',
+            age: 'بالای 13 سال',
+            like: 750,
+            dislike: 250,
+            imdb: '6.7',
+            consent: 86,
+            votes: 3000,
+            hasTag: true,
+            tag: {
+                title: 'زیرنویس چسبیده ',
+                color: 'orange'
+            },
+            poster: "https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-Trailer.jpg",
+            video: 'https://trailer.uptvs.com/trailer/Kung-Fu-Panda-4-Trailer.mp4',
+            story: 'در انیمیشن پاندای کونگ فوکار ۴ : پو در حال آماده شدن برای تبدیل شدن به رهبر معنوی دره صلح خود است، اما همچنین به کسی نیاز دارد که جای او را به عنوان جنگجوی اژدها بگیرد. به این ترتیب، او یک کونگ فو کار جدید را برای آن نقطه آموزش می دهد و با شروری به نام آفتاب پرست روبرو می شود که شرورانی از گذشته را تداعی می کند.',
+            about: 'انیمیشن پاندای کونگ فوکار ۴ Kung Fu Panda 4 محصول کشور آمریکا و در ژانر انیمیشن ، اکشن می‌باشد و به کارگردانی Mike Mitchell در سال 2024 ساخته شده است. در انیمیشن پاندای کونگ فوکار ۴ بازیگرانی چون Awkwafina، Jack Black، Viola Davis، و... به ایفای نقش پرداخته اند.',
 
         }
     }
 }
+
 
 </script>
 
 
 
 <style scoped lang="scss">
+.dark-background {
+    background: #101014;
+}
+
 .post-header {
-    padding-top: 120px;
     position: relative;
     overflow: hidden;
     background: #101014;
+    padding-top: 120px;
 }
 
 .uptvs-big-play {
@@ -310,6 +375,12 @@ export default {
         &-green {
             color: #89d64f;
         }
+
+        &-yellow {
+            color: #ffae00;
+            font-weight: 500;
+            font-size: 13px;
+        }
     }
 
     &--sm-11 {
@@ -321,6 +392,16 @@ export default {
     &--sm-12 {
         font-size: 12px;
         font-weight: 200;
+    }
+
+    &--description {
+        font-size: 13px;
+        font-weight: 300;
+        line-height: 1.9;
+        color: #bbc1c6;
+        width: 100%;
+        text-align: justify;
+        text-align-last: right;
     }
 
 }
@@ -335,7 +416,7 @@ export default {
 }
 
 .post-single-meta {
-    padding-top: 5px;
+    padding-top: 15px;
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(255, 255, 255, .1);
 }
@@ -344,5 +425,10 @@ export default {
     border-bottom: 1px solid rgba(255, 255, 255, .1);
     padding-top: 10px;
     padding-bottom: 20px;
+}
+
+.video-box {
+    height: auto;
+    width: 100%;
 }
 </style>
