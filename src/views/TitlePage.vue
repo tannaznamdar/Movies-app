@@ -147,10 +147,10 @@
         </section>
 
         <section v-if="hasWebDownload">
-            <div class="alert alert-red">
-              <img class="internal-distance" alt="download" :src="downloadSvg">
-              <span class="d-inline-block"> کیفیت Web-Dl جایگزین شد </span>
-            </div>
+          <div class="alert alert-red">
+            <img class="internal-distance" alt="download" :src="downloadSvg">
+            <span class="d-inline-block"> کیفیت Web-Dl جایگزین شد </span>
+          </div>
         </section>
 
         <section class="pb-5">
@@ -188,6 +188,13 @@
           </div>
         </section>
 
+        <section class="related-post">
+          <h4 class="font-text font-text--medium-title pb-4">
+            <img alt="calendar" :src="movieIcon">
+            {{ relatedPostTitle }}
+          </h4>
+        </section>
+
       </div>
 
     </div>
@@ -202,6 +209,7 @@ import likeSvg from '@/assets/images/like-orange.svg'
 import dislikeSvg from '@/assets/images/dislike-green.svg'
 import videoSvg from '@/assets/images/video-gray.svg'
 import downloadSvg from '@/assets/images/download.svg'
+import movieIcon from '@/assets/images/movie.svg'
 import Tag from "@/components/Tag.vue";
 
 export default {
@@ -224,6 +232,7 @@ export default {
       dislikeSvg,
       downloadSvg,
       videoSvg,
+      movieIcon,
       hasPlayOnline: true,
       thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-207x290.jpg',
       link: 'thumbnail',
@@ -254,16 +263,18 @@ export default {
       story: 'در انیمیشن پاندای کونگ فوکار ۴ : پو در حال آماده شدن برای تبدیل شدن به رهبر معنوی دره صلح خود است، اما همچنین به کسی نیاز دارد که جای او را به عنوان جنگجوی اژدها بگیرد. به این ترتیب، او یک کونگ فو کار جدید را برای آن نقطه آموزش می دهد و با شروری به نام آفتاب پرست روبرو می شود که شرورانی از گذشته را تداعی می کند.',
       about: 'انیمیشن پاندای کونگ فوکار ۴ Kung Fu Panda 4 محصول کشور آمریکا و در ژانر انیمیشن ، اکشن می‌باشد و به کارگردانی Mike Mitchell در سال 2024 ساخته شده است. در انیمیشن پاندای کونگ فوکار ۴ بازیگرانی چون Awkwafina، Jack Black، Viola Davis، و... به ایفای نقش پرداخته اند.',
       hasWebDownload: true,
+      relatedPostTitle:'انیمیشن های مشابه',
+      
 
-      downloadItems:[
+      downloadItems: [
         {
-          title:'دوبله فارسی اول'
+          title: 'دوبله فارسی اول'
         },
         {
-          title:'دوبله فارسی دوم'
+          title: 'دوبله فارسی دوم'
         },
         {
-          title:'زیرنویس چسبیده '
+          title: 'زیرنویس چسبیده '
         }
       ]
     }
@@ -437,6 +448,14 @@ export default {
     text-align: justify;
     text-align-last: right;
   }
+
+  &--medium-title {
+    font-family: inherit;
+    line-height: 1.3;
+    font-weight: 700;
+    color: #f5f5f5;
+    font-size: 17px;
+  }
 }
 
 .text-white-25 {
@@ -521,6 +540,6 @@ export default {
   &--purple {
     color: #aa7df2;
     background-color: #aa7df224;
-}
+  }
 }
 </style>
