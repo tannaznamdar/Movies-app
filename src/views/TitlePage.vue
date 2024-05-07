@@ -118,8 +118,9 @@
     </section>
 
     <div class="dark-background pt-4">
-      <section>
-        <div class="container bv-example-row movie-info-section">
+      <div class="container bv-example-row">
+
+        <section>
           <div class="row align-items-center">
             <div class="col-lg-6">
               <div class="position-relative">
@@ -143,21 +144,53 @@
               <p class="font-text font-text--description"> {{ about }}</p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section v-if="hasWebDownload">
-        <div class="container bv-example-row">
-          <div class="row">
+        <section v-if="hasWebDownload">
             <div class="alert alert-red">
               <img class="internal-distance" alt="download" :src="downloadSvg">
               <span class="d-inline-block"> کیفیت Web-Dl جایگزین شد </span>
             </div>
-          </div>
-        </div>
-      </section>
-    </div>
+        </section>
 
+        <section class="pb-5">
+          <div class="download-box">
+
+            <div class="post-content-download" v-for="downloadItem in downloadItems">
+              <div class="row align-items-lg-center gutter-6">
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <span class="font-text font-text--subtitle font-text--subtitle-gray">
+                      کیفیت: 1080p حجم: 1.88 گیگابایت | کیفیت: 720p حجم: 1.04 گیگابایت
+                    </span>
+
+                    <span class="badge badge--red internal-distance">{{ downloadItem.title }}</span>
+                  </div>
+
+                  <div class="d-flex">
+                    <button class="button button--medium button--medium-green internal-distance-l">
+                      <a href="#"> دانلود 1080p </a>
+                    </button>
+                    <button class="button button--medium button--medium-green internal-distance-l">
+                      <a href="#"> دانلود 720p </a>
+                    </button>
+                    <button class="button button--medium button--medium-green internal-distance-l">
+                      <a href="#"> دانلود 480p </a>
+                    </button>
+                    <button class="button button--medium button--medium-yellow">
+                      <a href="#"> تماشای آنلاین </a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+
+    </div>
   </div>
 </template>
 
@@ -220,7 +253,19 @@ export default {
       video: 'https://trailer.uptvs.com/trailer/Kung-Fu-Panda-4-Trailer.mp4',
       story: 'در انیمیشن پاندای کونگ فوکار ۴ : پو در حال آماده شدن برای تبدیل شدن به رهبر معنوی دره صلح خود است، اما همچنین به کسی نیاز دارد که جای او را به عنوان جنگجوی اژدها بگیرد. به این ترتیب، او یک کونگ فو کار جدید را برای آن نقطه آموزش می دهد و با شروری به نام آفتاب پرست روبرو می شود که شرورانی از گذشته را تداعی می کند.',
       about: 'انیمیشن پاندای کونگ فوکار ۴ Kung Fu Panda 4 محصول کشور آمریکا و در ژانر انیمیشن ، اکشن می‌باشد و به کارگردانی Mike Mitchell در سال 2024 ساخته شده است. در انیمیشن پاندای کونگ فوکار ۴ بازیگرانی چون Awkwafina، Jack Black، Viola Davis، و... به ایفای نقش پرداخته اند.',
-      hasWebDownload:true,
+      hasWebDownload: true,
+
+      downloadItems:[
+        {
+          title:'دوبله فارسی اول'
+        },
+        {
+          title:'دوبله فارسی دوم'
+        },
+        {
+          title:'زیرنویس چسبیده '
+        }
+      ]
     }
   }
 }
@@ -403,6 +448,10 @@ export default {
   margin-right: 5px;
 }
 
+.internal-distance-l {
+  margin-left: 5px;
+}
+
 .post-single-meta {
   padding-top: 15px;
   padding-bottom: 10px;
@@ -435,5 +484,43 @@ export default {
 .movie-info-section {
   padding-bottom: 30px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.download-box {
+  padding: 20px 20px 1px 20px;
+  border-radius: 4px;
+  background-color: #15151a;
+  margin-bottom: 5px;
+}
+
+.post-content-download {
+  position: relative;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, .13) !important;
+  background-color: #23232b;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 14px 8px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 3px;
+
+  &--red {
+    color: #FF7555;
+    background-color: #ff4b4b17;
+  }
+
+  &--purple {
+    color: #aa7df2;
+    background-color: #aa7df224;
+}
 }
 </style>

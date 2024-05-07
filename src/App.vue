@@ -126,6 +126,32 @@ body {
     line-height: 2;
   }
 
+  &--medium {
+    padding: .6rem 1.25rem;
+    line-height: 1.5;
+    font-weight: 300;
+
+    &-green {
+      background-color: #12AE40;
+      border-color: #12AE40;
+
+      &:is(:hover, :focus) {
+        background-color: #92ca55;
+        border-color: #92ca55;
+      }
+    }
+
+    &-yellow {
+      background-color: #ffb231;
+      border-color: #ffb231;
+
+      &:is(:hover, :focus) {
+        background-color: #f2b551;
+        border-color: #f2b551;
+      }
+    }
+  }
+
   &--login {
     line-height: 2;
     padding: 8px 22px 8px;
@@ -210,6 +236,7 @@ body {
       }
     }
   }
+
 }
 
 .title {
