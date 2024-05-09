@@ -160,10 +160,10 @@ import ImdbYellow from '@/assets/images/imdb-yellow.svg'
           </div>
         </section>
 
-        <section v-if="hasWebDownload">
+        <section v-if="hasAlert">
           <div class="alert alert-red">
             <img class="internal-distance" alt="download" :src="downloadSvg">
-            <span class="d-inline-block"> کیفیت Web-Dl جایگزین شد </span>
+            <span class="d-inline-block"> {{ alert }} </span>
           </div>
         </section>
 
@@ -202,7 +202,7 @@ import ImdbYellow from '@/assets/images/imdb-yellow.svg'
           </div>
         </section>
 
-        <section class="related-post">
+        <section class="related-post pb-5">
           <h4 class="font-text font-text--medium-title pb-4">
             <img alt="calendar" :src="movieIcon">
             {{ relatedPostTitle }}
@@ -269,7 +269,8 @@ export default {
       video: 'https://trailer.uptvs.com/trailer/Kung-Fu-Panda-4-Trailer.mp4',
       story: 'در انیمیشن پاندای کونگ فوکار ۴ : پو در حال آماده شدن برای تبدیل شدن به رهبر معنوی دره صلح خود است، اما همچنین به کسی نیاز دارد که جای او را به عنوان جنگجوی اژدها بگیرد. به این ترتیب، او یک کونگ فو کار جدید را برای آن نقطه آموزش می دهد و با شروری به نام آفتاب پرست روبرو می شود که شرورانی از گذشته را تداعی می کند.',
       about: 'انیمیشن پاندای کونگ فوکار ۴ Kung Fu Panda 4 محصول کشور آمریکا و در ژانر انیمیشن ، اکشن می‌باشد و به کارگردانی Mike Mitchell در سال 2024 ساخته شده است. در انیمیشن پاندای کونگ فوکار ۴ بازیگرانی چون Awkwafina، Jack Black، Viola Davis، و... به ایفای نقش پرداخته اند.',
-      hasWebDownload: true,
+      hasAlert: true,
+      alert: ' کیفیت Web-Dl جایگزین شد ',
       relatedPostTitle: 'انیمیشن های مشابه',
 
 
