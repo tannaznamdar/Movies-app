@@ -1,3 +1,17 @@
+<script setup>
+
+import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import SinglePageCards from "@/components/SinglePageCards.vue";
+import heart from '@/assets/images/heart.svg'
+import likeSvg from '@/assets/images/like-orange.svg'
+import dislikeSvg from '@/assets/images/dislike-green.svg'
+import videoSvg from '@/assets/images/video-gray.svg'
+import downloadSvg from '@/assets/images/download.svg'
+import movieIcon from '@/assets/images/movie.svg'
+import ImdbYellow from '@/assets/images/imdb-yellow.svg'
+
+</script>
+
 <template>
   <div class="container-fluid">
 
@@ -193,6 +207,14 @@
             <img alt="calendar" :src="movieIcon">
             {{ relatedPostTitle }}
           </h4>
+
+          <Splide class="row"
+            :options="{ arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1 }"
+            aria-label="My Favorite Images">
+            <SplideSlide v-for="relatedPost in relatedPosts">
+              <SinglePageCards v-bind="relatedPost"></SinglePageCards>
+            </SplideSlide>
+          </Splide>
         </section>
 
       </div>
@@ -203,18 +225,9 @@
 
 <script>
 
-import ImdbYellow from '@/assets/images/imdb-yellow.svg'
-import heart from '@/assets/images/heart.svg'
-import likeSvg from '@/assets/images/like-orange.svg'
-import dislikeSvg from '@/assets/images/dislike-green.svg'
-import videoSvg from '@/assets/images/video-gray.svg'
-import downloadSvg from '@/assets/images/download.svg'
-import movieIcon from '@/assets/images/movie.svg'
-import Tag from "@/components/Tag.vue";
-
 export default {
   name: 'singlePage',
-  components: { Tag },
+
   props: {
     tag: {
       type: Object,
@@ -226,13 +239,7 @@ export default {
   },
   data() {
     return {
-      ImdbYellow,
-      heart,
-      likeSvg,
-      dislikeSvg,
-      downloadSvg,
-      videoSvg,
-      movieIcon,
+
       hasPlayOnline: true,
       thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-207x290.jpg',
       link: 'thumbnail',
@@ -263,8 +270,8 @@ export default {
       story: 'در انیمیشن پاندای کونگ فوکار ۴ : پو در حال آماده شدن برای تبدیل شدن به رهبر معنوی دره صلح خود است، اما همچنین به کسی نیاز دارد که جای او را به عنوان جنگجوی اژدها بگیرد. به این ترتیب، او یک کونگ فو کار جدید را برای آن نقطه آموزش می دهد و با شروری به نام آفتاب پرست روبرو می شود که شرورانی از گذشته را تداعی می کند.',
       about: 'انیمیشن پاندای کونگ فوکار ۴ Kung Fu Panda 4 محصول کشور آمریکا و در ژانر انیمیشن ، اکشن می‌باشد و به کارگردانی Mike Mitchell در سال 2024 ساخته شده است. در انیمیشن پاندای کونگ فوکار ۴ بازیگرانی چون Awkwafina، Jack Black، Viola Davis، و... به ایفای نقش پرداخته اند.',
       hasWebDownload: true,
-      relatedPostTitle:'انیمیشن های مشابه',
-      
+      relatedPostTitle: 'انیمیشن های مشابه',
+
 
       downloadItems: [
         {
@@ -276,11 +283,70 @@ export default {
         {
           title: 'زیرنویس چسبیده '
         }
+      ],
+
+      relatedPosts: [
+        {
+          slug: 'گارفیلد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/02/The-Garfield-Movie-2024-207x290.jpg',
+          link: 'thumbnail',
+          title: 'گارفیلد 3',
+          like: 87
+        },
+        {
+          slug: 'ناکلز',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Knuckles-s1-Poster-207x290.jpg',
+          link: 'thumbnail',
+          title: 'ناکلز',
+          like: 92
+        },
+        {
+          slug: 'استاد-مولی',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/05/Master-Moley-2019-207x290.jpg',
+          link: 'thumbnail',
+          title: 'استاد مولی با دعوت سلطنتی	',
+          like: 79
+        },
+        {
+          slug: 'نفرین',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/02/Curses-207x290.jpg',
+          link: 'thumbnail',
+          title: 'انیمیشن نفرین ',
+          like: 65
+        },
+        {
+          slug: 'المنتال',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2023/06/Elemental-2023-207x290.jpg',
+          link: 'thumbnail',
+          title: 'انیمیشن المنتال',
+          like: 87
+        },
+        {
+          slug: 'گارفیلد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/02/The-Garfield-Movie-2024-207x290.jpg',
+          link: 'thumbnail',
+          title: 'گارفیلد 3',
+          like: 87
+        },
+        {
+          slug: 'ناکلز',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Knuckles-s1-Poster-207x290.jpg',
+          link: 'thumbnail',
+          title: 'ناکلز',
+          like: 92
+        },
+        {
+          slug: 'استاد-مولی',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/05/Master-Moley-2019-207x290.jpg',
+          link: 'thumbnail',
+          title: 'استاد مولی با دعوت سلطنتی	',
+          like: 79
+        },
+
       ]
     }
   }
 }
-
 
 </script>
 
