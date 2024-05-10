@@ -14,7 +14,7 @@ import chat from '@/assets/images/chat.svg'
 </script>
 
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid gx-0">
 
     <section class="post-header">
       <div class="uptvs-big-play" v-if="hasPlayOnline">
