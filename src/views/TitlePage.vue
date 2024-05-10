@@ -9,6 +9,7 @@ import videoSvg from '@/assets/images/video-gray.svg'
 import downloadSvg from '@/assets/images/download.svg'
 import movieIcon from '@/assets/images/movie.svg'
 import ImdbYellow from '@/assets/images/imdb-yellow.svg'
+import chat from '@/assets/images/chat.svg'
 
 </script>
 
@@ -217,6 +218,18 @@ import ImdbYellow from '@/assets/images/imdb-yellow.svg'
           </Splide>
         </section>
 
+        <section>
+          <div class="align-items-center d-flex justify-content-between  pb-4">
+            <h4 class="font-text font-text--medium-title">
+              <img alt="chat" :src="chat">
+              {{ NumberOfViews }} دیدگاه
+            </h4>
+            <button class="button button--outline-green"><a href="#"><font-awesome-icon class="internal-distance-l"
+                  icon="plus" size="sm" /> افزودن دیدگاه </a></button>
+          </div>
+
+        </section>
+
       </div>
 
     </div>
@@ -272,6 +285,7 @@ export default {
       hasAlert: true,
       alert: ' کیفیت Web-Dl جایگزین شد ',
       relatedPostTitle: 'انیمیشن های مشابه',
+      NumberOfViews: 115,
 
 
       downloadItems: [
@@ -522,6 +536,7 @@ export default {
     font-weight: 700;
     color: #f5f5f5;
     font-size: 17px;
+    padding: 0;
   }
 }
 

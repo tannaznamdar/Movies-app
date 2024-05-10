@@ -196,6 +196,34 @@ body {
     }
   }
 
+  &--outline-green {
+    background-color: transparent;
+    background-image: none;
+    border-color: #89d64f;
+    padding: 12px 14px 12px;
+
+    a {
+      color: #89d64f;
+    }
+
+    i {
+      color: #89d64f;
+    }
+
+    &:is(:hover, :focus) {
+      a {
+        color: #fff;
+      }
+
+      i {
+        color: #fff;
+      }
+
+      background-color: #89d64f;
+      border-color: #89d64f;
+    }
+  }
+
   &-lg {
     width: 100%;
     font-size: 15px;
