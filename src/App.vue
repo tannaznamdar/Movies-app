@@ -210,7 +210,9 @@ body {
     }
 
     &:is(:hover, :focus) {
+
         color: #fff;
+
 
       i {
         color: #fff;

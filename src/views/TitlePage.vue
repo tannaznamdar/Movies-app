@@ -10,6 +10,7 @@ import downloadSvg from '@/assets/images/download.svg'
 import movieIcon from '@/assets/images/movie.svg'
 import ImdbYellow from '@/assets/images/imdb-yellow.svg'
 import chat from '@/assets/images/chat.svg'
+import xmarkwhite from '@/assets/images/xmarkwhite.svg'
 
 </script>
 
@@ -224,32 +225,37 @@ import chat from '@/assets/images/chat.svg'
               <img alt="chat" :src="chat">
               {{ NumberOfViews }} دیدگاه
             </h4>
-            <button v-if="!addCommentBox" class="button button--outline-green" @click="addCommentBox = true"><font-awesome-icon
-                class="internal-distance-l" icon="plus" size="sm" /> افزودن دیدگاه </button>
-            <button v-else class="button button--outline-green" @click="addCommentBox = true"><font-awesome-icon
-                class="internal-distance-l" icon="plus" size="sm" /> بستن</button>
+            <button v-if="!addCommentBox" class="button button--outline-green"
+              @click="addCommentBox = true"><font-awesome-icon class="internal-distance-l" icon="plus" size="sm" />
+              افزودن دیدگاه </button>
+            <button v-else class="button button--outline-green" @click="addCommentBox = false">
+              <img alt="xmarkwhite" :src="xmarkwhite">
+            </button>
           </div>
 
-          <div class="add-comment-box" v-show="addCommentBox">
-            <div class="respond">
-              <h3 class="font-text font-text--medium-title pt-2 pb-4">دیدگاهتان را بنویسید</h3>
+          <transition name="fade">
+            <div class="add-comment-box pb-2" v-show="addCommentBox">
+              <div class="respond">
+                <h3 class="font-text font-text--medium-title pt-2 pb-4">دیدگاهتان را بنویسید</h3>
+                <form action="" class="comment-form">
+                  <textarea name="comment" class="w-100 form-control" placeholder="این فیلم چطور بود؟" maxlength="65525"
+                    aria-required="true" required="required"></textarea>
 
-              <form action="" class="comment-form">
-                <textarea name="comment" class="w-100 form-control" placeholder="این فیلم چطور بود؟" maxlength="65525" aria-required="true" required="required"></textarea>
+                  <div class="comment-form-author">
+                    <input id="author" name="author" placeholder="نام شما" class="w-100 form-control" type="text"
+                      value="" size="30" maxlength="245">
+                  </div>
 
-                <div class="comment-form-author">
-                  <input id="author" name="author" placeholder="نام شما" class="w-100 form-control" type="text" value=""
-                    size="30" maxlength="245">
-                </div>
-
-                <div class="form-submit">
-                  <input name="submit" type="submit" class="button button--medium button--medium-green"
-                    value="فرستادن دیدگاه">
-                </div>
-              </form>
-
+                  <div class="form-submit">
+                    <input name="submit" type="submit" class="button button--medium button--medium-green"
+                      value="فرستادن دیدگاه">
+                  </div>
+                </form>
+              </div>
             </div>
-          </div>
+          </transition>
+
+         
 
         </section>
 
@@ -707,5 +713,23 @@ input:focus {
 textarea:focus {
   border: 1px solid #8e939b;
   background-color: #fff;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0
+}
+
+.comment{
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #1c1c22;
+  border-radius: 4px ;
+  position: relative;
 }
 </style>
