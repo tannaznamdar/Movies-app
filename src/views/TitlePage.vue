@@ -224,8 +224,10 @@ import chat from '@/assets/images/chat.svg'
               <img alt="chat" :src="chat">
               {{ NumberOfViews }} دیدگاه
             </h4>
-            <button class="button button--outline-green" @click="addCommentBox = true"><font-awesome-icon
+            <button v-if="!addCommentBox" class="button button--outline-green" @click="addCommentBox = true"><font-awesome-icon
                 class="internal-distance-l" icon="plus" size="sm" /> افزودن دیدگاه </button>
+            <button v-else class="button button--outline-green" @click="addCommentBox = true"><font-awesome-icon
+                class="internal-distance-l" icon="plus" size="sm" /> بستن</button>
           </div>
 
           <div class="add-comment-box" v-show="addCommentBox">
@@ -233,9 +235,7 @@ import chat from '@/assets/images/chat.svg'
               <h3 class="font-text font-text--medium-title pt-2 pb-4">دیدگاهتان را بنویسید</h3>
 
               <form action="" class="comment-form">
-                <textarea name="comment" class="w-100 form-control" placeholder="این فیلم چطور بود؟" maxlength="65525"
-                  aria-required="true" required="required">
-                  </textarea>
+                <textarea name="comment" class="w-100 form-control" placeholder="این فیلم چطور بود؟" maxlength="65525" aria-required="true" required="required"></textarea>
 
                 <div class="comment-form-author">
                   <input id="author" name="author" placeholder="نام شما" class="w-100 form-control" type="text" value=""
