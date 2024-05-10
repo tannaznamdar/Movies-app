@@ -224,8 +224,31 @@ import chat from '@/assets/images/chat.svg'
               <img alt="chat" :src="chat">
               {{ NumberOfViews }} دیدگاه
             </h4>
-            <button class="button button--outline-green"><a href="#"><font-awesome-icon class="internal-distance-l"
-                  icon="plus" size="sm" /> افزودن دیدگاه </a></button>
+            <button class="button button--outline-green" @click="addCommentBox = true"><font-awesome-icon
+                class="internal-distance-l" icon="plus" size="sm" /> افزودن دیدگاه </button>
+          </div>
+
+          <div class="add-comment-box" v-show="addCommentBox">
+            <div class="respond">
+              <h3 class="font-text font-text--medium-title pt-2 pb-4">دیدگاهتان را بنویسید</h3>
+
+              <form action="" class="comment-form">
+                <textarea name="comment" class="w-100 form-control" placeholder="این فیلم چطور بود؟" maxlength="65525"
+                  aria-required="true" required="required">
+                  </textarea>
+
+                <div class="comment-form-author">
+                  <input id="author" name="author" placeholder="نام شما" class="w-100 form-control" type="text" value=""
+                    size="30" maxlength="245">
+                </div>
+
+                <div class="form-submit">
+                  <input name="submit" type="submit" class="button button--medium button--medium-green"
+                    value="فرستادن دیدگاه">
+                </div>
+              </form>
+
+            </div>
           </div>
 
         </section>
@@ -286,6 +309,7 @@ export default {
       alert: ' کیفیت Web-Dl جایگزین شد ',
       relatedPostTitle: 'انیمیشن های مشابه',
       NumberOfViews: 115,
+      addCommentBox: false,
 
 
       downloadItems: [
@@ -623,5 +647,65 @@ export default {
     color: #aa7df2;
     background-color: #aa7df224;
   }
+}
+
+.add-comment-box {
+  display: block;
+}
+
+.respond {
+  border-bottom: 1px solid #f1f2f3;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+.form-control {
+  display: block;
+  padding: 8px 15px;
+  font-size: 14px;
+  line-height: 2;
+  font-weight: 500;
+  color: #8e939b;
+  background-color: #1c1c22;
+  background-clip: padding-box;
+  border: 0 solid #ced4da;
+  border-radius: 3px;
+  box-shadow: 0 0;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.comment-form-author {
+  width: 42%;
+  margin-left: 20px;
+  float: right;
+}
+
+::placeholder {
+  color: #8e939b;
+  opacity: 1;
+}
+
+textarea:-moz-placeholder,
+/* Firefox 18- */
+textarea::-moz-placeholder,
+/* Firefox 19+ */
+textarea:-ms-input-placeholder,
+/* IE 10+ */
+textarea::-webkit-input-placeholder,
+/* Webkit based */
+textarea::placeholder {
+  /* Modern browsers */
+  color: #0bf;
+}
+
+input:focus {
+  border: 1px solid #8e939b;
+  background-color: #fff;
+}
+
+textarea:focus {
+  border: 1px solid #8e939b;
+  background-color: #fff;
 }
 </style>

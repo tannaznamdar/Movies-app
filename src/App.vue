@@ -130,6 +130,8 @@ body {
     padding: .6rem 1.25rem;
     line-height: 1.5;
     font-weight: 300;
+    color: #fff;
+    display: block;
 
     &-green {
       background-color: #12AE40;
@@ -201,19 +203,14 @@ body {
     background-image: none;
     border-color: #89d64f;
     padding: 12px 14px 12px;
-
-    a {
-      color: #89d64f;
-    }
+    color: #89d64f;
 
     i {
       color: #89d64f;
     }
 
     &:is(:hover, :focus) {
-      a {
         color: #fff;
-      }
 
       i {
         color: #fff;
