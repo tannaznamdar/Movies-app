@@ -255,8 +255,36 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
             </div>
           </transition>
 
-         
+          <section>
+            <div class="comment" v-for="comment in comments">
+              <div class="row vcard gutter-x-6 gutter-y-0 pb-2">
+                <div class=" d-flex flex-row   align-items-center justify-content-between">
+                  <div>
+                    <font-awesome-icon class="user-icon internal-distance" icon="user" />
+                    <span class="font-text font-text--sm-15 internal-distance">{{ comment.userName }}</span>
+                    <span class="font-text font-text--sm-12 font-text-gray internal-distance">
+                      {{ comment.messageTime }} </span>
+                  </div>
 
+                  <div class="d-flex">
+                    <button class="button button-transparent internal-distance">
+                      <img class="internal-distance" alt="like" :src="likeSvg">
+                      {{ comment.commentLike }}
+                    </button>
+
+                    <button class="button button-transparent internal-distance">
+                      <img class="internal-distance" alt="dislike" :src="dislikeSvg">
+                      {{ comment.commentDislike }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <p class="font-text font-text--sm-15 internal-distance-r-45">{{ comment.message }}</p>
+              </div>
+            </div>
+          </section>
         </section>
 
       </div>
@@ -316,7 +344,6 @@ export default {
       relatedPostTitle: 'انیمیشن های مشابه',
       NumberOfViews: 115,
       addCommentBox: false,
-
 
       downloadItems: [
         {
@@ -388,7 +415,40 @@ export default {
           like: 79
         },
 
+      ],
+
+      comments: [
+        {
+          userName: 'امیر',
+          messageTime: ' 03-05-2024',
+          message: 'عالی بود',
+          commentLike: 5,
+          commentDislike: 8,
+        },
+        {
+          userName: 'علی',
+          messageTime: ' 02-05-2024',
+          message: ' خوووووب بود',
+          commentLike: 5,
+          commentDislike: 8,
+        },
+        {
+          userName: 'بابک',
+          messageTime: ' 01-05-2024',
+          message: 'بد بود',
+          commentLike: 5,
+          commentDislike: 8,
+        },
+        {
+          userName: 'طناز',
+          messageTime: ' 01-05-2024',
+          message: 'عالی بود',
+          commentLike: 5,
+          commentDislike: 8,
+        },
       ]
+
+
     }
   }
 }
@@ -545,9 +605,20 @@ export default {
     color: #9ba1a6;
   }
 
+  &-gray {
+    color: #9ba1a6;
+  }
+
   &--sm-12 {
     font-size: 12px;
     font-weight: 200;
+  }
+
+  &--sm-15 {
+    font-size: 15px;
+    font-weight: 500;
+    color: #bbbfc3;
+    margin: 0;
   }
 
   &--description {
@@ -581,6 +652,10 @@ export default {
 
 .internal-distance-l {
   margin-left: 5px;
+}
+
+.internal-distance-r-45 {
+  margin-right: 45px;
 }
 
 .post-single-meta {
@@ -692,14 +767,6 @@ export default {
   opacity: 1;
 }
 
-textarea:-moz-placeholder,
-/* Firefox 18- */
-textarea::-moz-placeholder,
-/* Firefox 19+ */
-textarea:-ms-input-placeholder,
-/* IE 10+ */
-textarea::-webkit-input-placeholder,
-/* Webkit based */
 textarea::placeholder {
   /* Modern browsers */
   color: #0bf;
@@ -725,11 +792,17 @@ textarea:focus {
   opacity: 0
 }
 
-.comment{
-  padding: 15px;
+.comment {
+  padding: 15px 15px 15px 25px;
   margin-bottom: 15px;
   background-color: #1c1c22;
-  border-radius: 4px ;
+  border-radius: 4px;
   position: relative;
+}
+
+.user-icon {
+  font-size: 17px;
+  font-weight: 700;
+  color: #bbc1c6;
 }
 </style>

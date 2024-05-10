@@ -70,6 +70,18 @@ body {
     }
   }
 
+  &-transparent{
+    display: inherit;
+    background: transparent;
+    padding: 0;
+    color: #999;
+    font-size: 13px;
+    
+    &:is(:hover, :focus) {
+      color: #fff;
+    }
+  }
+
   &--gray {
     backdrop-filter: blur(10px);
     background: rgba(250, 250, 250, .1);
