@@ -132,165 +132,179 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
         </div>
       </div>
     </section>
+  </div>
 
-    <div class="dark-background pt-4">
-      <div class="container bv-example-row">
+  <div class="dark-background pt-4">
+    <div class="container bv-example-row">
 
-        <section>
-          <div class="row align-items-center">
-            <div class="col-lg-6">
-              <div class="position-relative">
-                <video class="video-box" controls="" :poster="poster" preload="none">
-                  <source :src="video" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <h4 class="font-text font-text--title">
-                <img class="internal-distance" alt="video" :src="videoSvg">
-                داستان انیمیشن
-              </h4>
-              <p class="font-text font-text--description"> {{ story }}</p>
-
-              <h4 class="font-text font-text--title mt-20">
-                <img class="internal-distance" alt="video" :src="videoSvg">
-                درباره انیمیشن
-              </h4>
-              <p class="font-text font-text--description"> {{ about }}</p>
+      <section>
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="position-relative">
+              <video class="video-box" controls="" :poster="poster" preload="none">
+                <source :src="video" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
-        </section>
-
-        <section v-if="hasAlert">
-          <div class="alert alert-red">
-            <img class="internal-distance" alt="download" :src="downloadSvg">
-            <span class="d-inline-block"> {{ alert }} </span>
-          </div>
-        </section>
-
-        <section class="pb-5">
-          <div class="download-box">
-
-            <div class="post-content-download" v-for="downloadItem in downloadItems">
-              <div class="row align-items-lg-center gutter-6">
-                <div class="d-flex justify-content-between">
-                  <div class="d-flex align-items-center">
-                    <span class="font-text font-text--subtitle font-text--subtitle-gray">
-                      کیفیت: 1080p حجم: 1.88 گیگابایت | کیفیت: 720p حجم: 1.04 گیگابایت
-                    </span>
-
-                    <span class="badge badge--red internal-distance">{{ downloadItem.title }}</span>
-                  </div>
-
-                  <div class="d-flex">
-                    <button class="button button--medium button--medium-green internal-distance-l">
-                      <a href="#"> دانلود 1080p </a>
-                    </button>
-                    <button class="button button--medium button--medium-green internal-distance-l">
-                      <a href="#"> دانلود 720p </a>
-                    </button>
-                    <button class="button button--medium button--medium-green internal-distance-l">
-                      <a href="#"> دانلود 480p </a>
-                    </button>
-                    <button class="button button--medium button--medium-yellow">
-                      <a href="#"> تماشای آنلاین </a>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        <section class="related-post pb-5">
-          <h4 class="font-text font-text--medium-title pb-4">
-            <img alt="calendar" :src="movieIcon">
-            {{ relatedPostTitle }}
-          </h4>
-
-          <Splide class="row"
-            :options="{ arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1 }"
-            aria-label="My Favorite Images">
-            <SplideSlide v-for="relatedPost in relatedPosts">
-              <SinglePageCards v-bind="relatedPost"></SinglePageCards>
-            </SplideSlide>
-          </Splide>
-        </section>
-
-        <section>
-          <div class="align-items-center d-flex justify-content-between  pb-4">
-            <h4 class="font-text font-text--medium-title">
-              <img alt="chat" :src="chat">
-              {{ NumberOfViews }} دیدگاه
+          <div class="col-lg-6">
+            <h4 class="font-text font-text--title">
+              <img class="internal-distance" alt="video" :src="videoSvg">
+              داستان انیمیشن
             </h4>
-            <button v-if="!addCommentBox" class="button button--outline-green"
-              @click="addCommentBox = true"><font-awesome-icon class="internal-distance-l" icon="plus" size="sm" />
-              افزودن دیدگاه </button>
-            <button v-else class="button button--outline-green" @click="addCommentBox = false">
-              <img alt="xmarkwhite" :src="xmarkwhite">
-            </button>
+            <p class="font-text font-text--description"> {{ story }}</p>
+
+            <h4 class="font-text font-text--title mt-20">
+              <img class="internal-distance" alt="video" :src="videoSvg">
+              درباره انیمیشن
+            </h4>
+            <p class="font-text font-text--description"> {{ about }}</p>
           </div>
+        </div>
+      </section>
 
-          <transition name="fade">
-            <div class="add-comment-box pb-2" v-show="addCommentBox">
-              <div class="respond">
-                <h3 class="font-text font-text--medium-title pt-2 pb-4">دیدگاهتان را بنویسید</h3>
-                <form action="" class="comment-form">
-                  <textarea name="comment" class="w-100 form-control" placeholder="این فیلم چطور بود؟" maxlength="65525"
-                    aria-required="true" required="required"></textarea>
+      <section v-if="hasAlert">
+        <div class="alert alert-red">
+          <img class="internal-distance" alt="download" :src="downloadSvg">
+          <span class="d-inline-block"> {{ alert }} </span>
+        </div>
+      </section>
 
-                  <div class="comment-form-author">
-                    <input id="author" name="author" placeholder="نام شما" class="w-100 form-control" type="text"
-                      value="" size="30" maxlength="245">
-                  </div>
+      <section class="pb-5">
+        <div class="download-box">
 
-                  <div class="form-submit">
-                    <input name="submit" type="submit" class="button button--medium button--medium-green"
-                      value="فرستادن دیدگاه">
-                  </div>
-                </form>
-              </div>
-            </div>
-          </transition>
+          <div class="post-content-download" v-for="downloadItem in downloadItems">
+            <div class="row align-items-lg-center gutter-6">
+              <div class="d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                  <span class="font-text font-text--subtitle font-text--subtitle-gray">
+                    کیفیت: 1080p حجم: 1.88 گیگابایت | کیفیت: 720p حجم: 1.04 گیگابایت
+                  </span>
 
-          <section>
-            <div class="comment" v-for="comment in comments">
-              <div class="row vcard gutter-x-6 gutter-y-0 pb-2">
-                <div class=" d-flex flex-row   align-items-center justify-content-between">
-                  <div>
-                    <font-awesome-icon class="user-icon internal-distance" icon="user" />
-                    <span class="font-text font-text--sm-15 internal-distance">{{ comment.userName }}</span>
-                    <span class="font-text font-text--sm-12 font-text-gray internal-distance">
-                      {{ comment.messageTime }} </span>
-                  </div>
+                  <span class="badge badge--red internal-distance">{{ downloadItem.title }}</span>
+                </div>
 
-                  <div class="d-flex">
-                    <button class="button button-transparent internal-distance">
-                      <img class="internal-distance" alt="like" :src="likeSvg">
-                      {{ comment.commentLike }}
-                    </button>
-
-                    <button class="button button-transparent internal-distance">
-                      <img class="internal-distance" alt="dislike" :src="dislikeSvg">
-                      {{ comment.commentDislike }}
-                    </button>
-                  </div>
+                <div class="d-flex">
+                  <button class="button button--medium button--medium-green internal-distance-l">
+                    <a href="#"> دانلود 1080p </a>
+                  </button>
+                  <button class="button button--medium button--medium-green internal-distance-l">
+                    <a href="#"> دانلود 720p </a>
+                  </button>
+                  <button class="button button--medium button--medium-green internal-distance-l">
+                    <a href="#"> دانلود 480p </a>
+                  </button>
+                  <button class="button button--medium button--medium-yellow">
+                    <a href="#"> تماشای آنلاین </a>
+                  </button>
                 </div>
               </div>
+            </div>
+          </div>
 
-              <div>
-                <p class="font-text font-text--sm-15 internal-distance-r-45">{{ comment.message }}</p>
+        </div>
+      </section>
+
+      <section class="related-post pb-5">
+        <h4 class="font-text font-text--medium-title pb-4">
+          <img alt="calendar" :src="movieIcon">
+          {{ relatedPostTitle }}
+        </h4>
+
+        <Splide class="row"
+          :options="{ arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1 }"
+          aria-label="My Favorite Images">
+          <SplideSlide v-for="relatedPost in relatedPosts">
+            <SinglePageCards v-bind="relatedPost"></SinglePageCards>
+          </SplideSlide>
+        </Splide>
+      </section>
+
+      <section>
+        <div class="align-items-center d-flex justify-content-between  pb-4">
+          <h4 class="font-text font-text--medium-title">
+            <img alt="chat" :src="chat">
+            {{ NumberOfViews }} دیدگاه
+          </h4>
+          <button v-if="!addCommentBox" class="button button--outline-green"
+            @click="addCommentBox = true"><font-awesome-icon class="internal-distance-l" icon="plus" size="sm" />
+            افزودن دیدگاه </button>
+          <button v-else class="button button--outline-green" @click="addCommentBox = false">
+            <img alt="xmarkwhite" :src="xmarkwhite">
+          </button>
+        </div>
+
+        <transition name="fade">
+          <div class="add-comment-box pb-2" v-show="addCommentBox">
+            <div class="respond">
+              <h3 class="font-text font-text--medium-title pt-2 pb-4">دیدگاهتان را بنویسید</h3>
+              <form action="" class="comment-form">
+                <textarea name="comment" class="w-100 form-control" placeholder="این فیلم چطور بود؟" maxlength="65525"
+                  aria-required="true" required="required"></textarea>
+
+                <div class="comment-form-author">
+                  <input id="author" name="author" placeholder="نام شما" class="w-100 form-control" type="text" value=""
+                    size="30" maxlength="245">
+                </div>
+
+                <div class="form-submit">
+                  <input name="submit" type="submit" class="button button--medium button--medium-green"
+                    value="فرستادن دیدگاه">
+                </div>
+              </form>
+            </div>
+          </div>
+        </transition>
+
+        <section>
+          <div class="comment" v-for="comment in comments">
+            <div class="row vcard gutter-x-6 gutter-y-0 pb-2">
+              <div class=" d-flex flex-row   align-items-center justify-content-between">
+                <div>
+                  <font-awesome-icon class="user-icon internal-distance" icon="user" />
+                  <span class="font-text font-text--sm-15 internal-distance">{{ comment.userName }}</span>
+                  <span class="font-text font-text--sm-12 font-text-gray internal-distance">
+                    {{ comment.messageTime }} </span>
+                </div>
+
+                <div class="d-flex">
+                  <button class="button button-transparent internal-distance">
+                    <img class="internal-distance" alt="like" :src="likeSvg">
+                    {{ comment.commentLike }}
+                  </button>
+
+                  <button class="button button-transparent internal-distance">
+                    <img class="internal-distance" alt="dislike" :src="dislikeSvg">
+                    {{ comment.commentDislike }}
+                  </button>
+                </div>
               </div>
             </div>
-          </section>
-        </section>
 
-      </div>
+            <div>
+              <p class="font-text font-text--sm-15 internal-distance-r-45">{{ comment.message }}</p>
+            </div>
+          </div>
+        </section>
+      </section>
 
     </div>
+
+    <section>
+      <div class="breadcrumbs pt-5">
+        <span><a href="">آپ تی وی</a></span>
+        /
+        <span><a href="https://www.uptvs.com/category/animationsz">انیمیشن</a></span>
+        /
+        <span class="breadcrumb_last" aria-current="page">انیمیشن پاندای کونگ فوکار ۴ Kung Fu Panda 4 2024 با دوبله
+          فارسی</span>
+      </div>
+    </section>
   </div>
+
+
+
+
 </template>
 
 <script>
@@ -768,8 +782,8 @@ export default {
 }
 
 textarea::placeholder {
-  /* Modern browsers */
-  color: #0bf;
+  color: #8e939b;
+  opacity: 1;
 }
 
 input:focus {
@@ -804,5 +818,22 @@ textarea:focus {
   font-size: 17px;
   font-weight: 700;
   color: #bbc1c6;
+}
+
+.breadcrumbs {
+  color: #c6c9cc;
+  font-size: 13px;
+
+  &:is(:hover, :focus) {
+    a {
+      color: #b8daff;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: #c6c9cc;
+  }
+
 }
 </style>
