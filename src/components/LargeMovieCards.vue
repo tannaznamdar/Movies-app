@@ -23,7 +23,7 @@
                     </div>
                 </div>
 
-                <div class="card-info d-flex d-grid gap-4">
+                <div class="card-info d-flex d-grid gap-4 mt-2">
                     <div>
                         <font-awesome-icon class="icon" icon="bars" style="color: #ffffff;" />
                         <span class="card-text card-text--subtitle">{{ genre }}</span>
