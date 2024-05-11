@@ -1350,10 +1350,10 @@ export default {
 
       smallMovieCards: [
         {
-          slug: 'شهرزاد',
+          slug: 'زیر-پل',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
           link: 'thumbnail',
-          title: 'شهرزاد',
+          title: 'زیر پل',
           hasTag: true,
           tag: {
             title: ' امروز ',
@@ -1361,32 +1361,10 @@ export default {
           }
         },
         {
-          slug: 'شهرزاد',
+          slug: 'زیر-پل',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
           link: 'thumbnail',
-          title: 'شهرزاد',
-          hasTag: true,
-          tag: {
-            title: ' دیروز ',
-            color: 'white'
-          }
-        },
-        {
-          slug: 'شهرزاد',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
-          link: 'thumbnail',
-          title: 'شهرزاد',
-          hasTag: true,
-          tag: {
-            title: ' شنبه ',
-            color: 'white'
-          }
-        },
-        {
-          slug: 'شهرزاد',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
-          link: 'thumbnail',
-          title: 'شهرزاد',
+          title: 'زیر پل',
           hasTag: true,
           tag: {
             title: ' امروز ',
@@ -1394,10 +1372,32 @@ export default {
           }
         },
         {
-          slug: 'شهرزاد',
+          slug: 'زیر-پل',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
           link: 'thumbnail',
-          title: 'دیروز',
+          title: 'زیر پل',
+          hasTag: true,
+          tag: {
+            title: ' امروز ',
+            color: 'white'
+          }
+        },
+        {
+          slug: 'زیر-پل',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
+          link: 'thumbnail',
+          title: 'زیر پل',
+          hasTag: true,
+          tag: {
+            title: ' امروز ',
+            color: 'white'
+          }
+        },
+        {
+          slug: 'زیر-پل',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
+          link: 'thumbnail',
+          title: 'زیر پل',
           hasTag: true,
           tag: {
             title: ' امروز ',
