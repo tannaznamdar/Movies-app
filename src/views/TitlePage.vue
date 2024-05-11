@@ -18,20 +18,16 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
   <div class="container-fluid gx-0">
 
     <section class="post-header">
+
       <div class="uptvs-big-play" v-if="hasPlayOnline">
-        <a href="#" class="ic">
-          <svg fill="#fba087" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 459 459" xml:space="preserve">
-            <g>
-              <g>
-                <path
-                  d="M229.5,0C102.751,0,0,102.751,0,229.5S102.751,459,229.5,459S459,356.249,459,229.5S356.249,0,229.5,0z M310.292,239.651l-111.764,76.084c-3.761,2.56-8.63,2.831-12.652,0.704c-4.022-2.128-6.538-6.305-6.538-10.855V153.416c0-4.55,2.516-8.727,6.538-10.855c4.022-2.127,8.891-1.857,12.652,0.704l111.764,76.084c3.359,2.287,5.37,6.087,5.37,10.151C315.662,233.564,313.652,237.364,310.292,239.651z">
-                </path>
-              </g>
-            </g>
-          </svg>
-        </a>
+        <button type="button" class="video-play-button" @click="playVideo">
+          <span></span>
+        </button>
+        <div v-if="showOverlay" class="video-overlay" @click.stop="closeVideo"> <button class="video-overlay-close"
+            @click="closeVideo">&times;</button>
+        </div>
       </div>
+
       <div class="post-header-cover" v-if="hasPlayOnline"></div>
       <div class="post-header-grad-info-background"></div>
       <div class="container bv-example-row mb-5">
@@ -324,6 +320,9 @@ export default {
   data() {
     return {
 
+      showOverlay: false,
+      videoSrc: 'https://www.youtube.com/embed/ngElkyQ6Rhs',
+
       hasPlayOnline: true,
       thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-207x290.jpg',
       link: 'thumbnail',
@@ -462,15 +461,161 @@ export default {
         },
       ]
 
-
     }
-  }
+  },
+
+  methods: {
+    playVideo() {
+      this.showOverlay = true;
+    },
+    closeVideo() {
+      this.showOverlay = false;
+    },
+  },
 }
 
 </script>
 
 
 <style scoped lang="scss">
+.video-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.video-overlay.open {
+  display: block;
+}
+
+.video-play-button {
+  position: absolute;
+  z-index: 10;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  box-sizing: content-box;
+  display: block;
+  width: 10px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 18px 20px 18px 28px;
+}
+
+.video-play-button:before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: #583759;
+  border-radius: 50%;
+  animation: pulse-border 1500ms ease-out infinite;
+}
+
+.video-play-button:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: #fa183d;
+  border-radius: 50%;
+  transition: all 200ms;
+}
+
+.video-play-button:hover:after {
+  background-color: darken(#fa183d, 10%);
+}
+
+.video-play-button img {
+  position: relative;
+  z-index: 3;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.video-play-button span {
+  display: block;
+  position: relative;
+  z-index: 3;
+  width: 13px;
+  height: 0;
+  border-left: 14px solid #fff;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+}
+
+@keyframes pulse-border {
+  0% {
+    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.video-overlay {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.80);
+  opacity: 0;
+  transition: all ease 500ms;
+}
+
+.video-overlay.open {
+  position: fixed;
+  z-index: 1000;
+  opacity: 1;
+}
+
+.video-overlay-close {
+  position: absolute;
+  z-index: 1000;
+  top: 15px;
+  right: 20px;
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 400;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.video-overlay-close:hover {
+  color: #fa183d;
+}
+
+.video-overlay iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+}
+
 .dark-background {
   background: #101014;
 }
@@ -489,33 +634,6 @@ export default {
   position: relative;
   z-index: 9;
   margin-bottom: 30px;
-}
-
-.uptvs-big-play .ic {
-  transition-duration: 0.3s;
-  position: absolute;
-  top: calc(50% - 50px);
-  right: calc(50% - 30px);
-}
-
-.uptvs-big-play .ic::before {
-  transition-duration: 0.3s;
-  border-radius: 50%;
-  content: "";
-  right: 0;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  animation: sonarWave 2s linear infinite;
-}
-
-.uptvs-big-play .ic,
-.uptvs-big-play .ic svg {
-  width: 60px;
-  height: 60px;
 }
 
 .post-header-cover {
@@ -552,7 +670,7 @@ export default {
 }
 
 .movie-img {
-  z-index: 999;
+  z-index: 3;
   display: block;
   border-radius: 4px;
   width: 100%;
@@ -575,7 +693,7 @@ export default {
 }
 
 .movie-info {
-  z-index: 999;
+  z-index: 3;
   padding-left: 10px;
   padding-right: 10px;
 }
