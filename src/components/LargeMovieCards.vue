@@ -76,7 +76,7 @@
 
                         <router-link :to='{ name: "titlePageRoute", params: { slug } }'>
                             <font-awesome-icon class="internal-distance-l" icon="download" style="color: #164ea2;" />
-                            دانلود سریال </router-link>
+                            {{ btnTitle }} </router-link>
 
                     </button>
                 </div>
@@ -129,6 +129,10 @@ export default {
             type: String,
             default: ''
         },
+        hasSubtitle: {
+            type: Boolean,
+            default: false
+        },
         like: {
             type: Number,
             default: ''
@@ -161,6 +165,10 @@ export default {
             type: Boolean,
             default: false
         },
+        btnTitle: {
+            type: String,
+            default: 'دانلود'
+        }
     },
 
     data() {
