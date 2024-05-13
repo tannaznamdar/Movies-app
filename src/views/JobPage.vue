@@ -50,7 +50,7 @@
                 <span class="required-label">*</span>
               </label>
               <input type="text" class="form-field" id="name" name="name" required />
-              <label class="wpforms-error" for="wpforms-135922-field_0" v-show="wpformsError">این فیلد پر نشده
+              <label class="forms-error" for="forms-135922-field_0" v-show="formsError">این فیلد پر نشده
                 است.</label>
             </div>
 
@@ -60,7 +60,7 @@
               </label>
               <input type="number" class="form-field mb-1" id="number" name="number" placeholder="(0912***)">
               <div class="titil titil--sm">برای ارتباط سریع ما با شما</div>
-              <label class="wpforms-error" for="wpforms-135922-field_0" v-show="wpformsError">این فیلد پر نشده
+              <label class="forms-error" for="forms-135922-field_0" v-show="formsError">این فیلد پر نشده
                 است.</label>
             </div>
 
@@ -69,7 +69,7 @@
                 <span class="required-label">*</span>
               </label>
               <input type="text" class="form-field" id="age" name="age" placeholder="مثلا ۱۸ سال" required />
-              <label class="wpforms-error" for="wpforms-135922-field_0" v-show="wpformsError">این فیلد پر نشده
+              <label class="forms-error" for="forms-135922-field_0" v-show="formsError">این فیلد پر نشده
                 است.</label>
             </div>
 
@@ -83,7 +83,7 @@
                 <span class="required-label">*</span>
               </label>
               <input type="email" id="email" name="email" class="form-field" required />
-              <label class="wpforms-error" for="wpforms-135922-field_0" v-show="wpformsError">این فیلد پر نشده
+              <label class="forms-error" for="forms-135922-field_0" v-show="formsError">این فیلد پر نشده
                 است.</label>
             </div>
 
@@ -94,7 +94,7 @@
               <textarea class="textarea-box" id="message" name="message"
                 placeholder="در مورد سوابق کاری و نمونه کار اگر دارید اینجا قرار دهید" required
                 aria-invalid="true"></textarea>
-              <label class="wpforms-error" v-show="wpformsError">این فیلد پر نشده است.</label>
+              <label class="forms-error" v-show="formsError">این فیلد پر نشده است.</label>
             </div>
 
             <div>
@@ -116,7 +116,7 @@ export default {
   data() {
     return {
 
-      wpformsError: true,
+      formsError: true,
 
     }
   }
@@ -208,7 +208,7 @@ input[type=radio] {
   vertical-align: baseline;
 }
 
-.wpforms-error {
+.forms-error {
   display: block;
   color: #990000;
   font-size: 14px;

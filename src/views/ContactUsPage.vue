@@ -14,7 +14,7 @@
                 <span class="required-label">*</span>
               </label>
               <input type="text" class="form-field" id="name" name="name" required />
-              <label class="wpforms-error" for="wpforms-135922-field_0" v-show="wpformsError">این فیلد پر نشده
+              <label class="forms-error" for="forms-135922-field_0" v-show="formsError">این فیلد پر نشده
                 است.</label>
             </div>
 
@@ -45,7 +45,7 @@
               </label>
               <textarea class="textarea-box" id="message" name="message" placeholder="متن پیام شما" required
                 aria-invalid="true"></textarea>
-              <label class="wpforms-error" v-show="wpformsError">این فیلد پر نشده است.</label>
+              <label class="forms-error" v-show="formsError">این فیلد پر نشده است.</label>
             </div>
 
             <div>
@@ -68,7 +68,7 @@ export default {
   data() {
     return {
 
-      wpformsError: true,
+      formsError: true,
 
     }
   }
@@ -162,7 +162,7 @@ input[type=radio] {
   vertical-align: baseline;
 }
 
-.wpforms-error {
+.forms-error {
   display: block;
   color: #990000;
   font-size: 14px;
