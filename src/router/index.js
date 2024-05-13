@@ -9,6 +9,7 @@ import UpdateSeries from "@/views/UpdateSeriesPage.vue";
 import PersianDub from "@/views/PersianDubPage.vue";
 import Collection from "@/views/CollectionPage.vue";
 import ComingSoon from "@/views/ComingSoonPage.vue";
+import TopMovie from "@/views/TopMoviePage.vue";
 import Job from "@/views/JobPage.vue";
 import ContactUs from "@/views/ContactUsPage.vue";
 import Home from "@/views/HomePage.vue";
@@ -31,6 +32,7 @@ const router = createRouter({
     { path: "/persian-dub/:slug?", name: "persianDubPageRoute", component: PersianDub },
     { path: "/collection", name: 'collectionPageRoute', component: Collection },
     { path: "/coming-soon", name: 'comingSoonPageRoute', component: ComingSoon },
+    { path: "/Top-movie", name: 'topMoviePageRoute', component: TopMovie },
     { path: "/job", name: "jobPageRoute", component: Job },
     { path: "/contact-us", name: "contactUsPageRoute", component: ContactUs },
     { path: "/login", name: "loginPageRoute", component: Login },

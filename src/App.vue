@@ -70,13 +70,13 @@ body {
     }
   }
 
-  &-transparent{
+  &-transparent {
     display: inherit;
     background: transparent;
     padding: 0;
     color: #999;
     font-size: 13px;
-    
+
     &:is(:hover, :focus) {
       color: #fff;
     }
@@ -223,8 +223,7 @@ body {
 
     &:is(:hover, :focus) {
 
-        color: #fff;
-
+      color: #fff;
 
       i {
         color: #fff;
@@ -232,6 +231,25 @@ body {
 
       background-color: #89d64f;
       border-color: #89d64f;
+    }
+  }
+
+  &--outline-white {
+    background-color: transparent;
+    color: #c6c9cc;
+    cursor: pointer;
+    border: 1px #ddd solid;
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 10px;
+
+    &:is(:hover, :focus) {
+
+      color: #6898f8;
+
+      i {
+        color: #6898f8;
+      }
     }
   }
 

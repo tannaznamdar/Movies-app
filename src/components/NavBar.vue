@@ -89,6 +89,9 @@ const location = useRoute();
                       <li>
                         <router-link class="active" :to='{ name: "comingSoonPageRoute" }'> به زودی </router-link>
                       </li>
+                      <li>
+                        <router-link class="active" :to='{ name: "topMoviePageRoute" }'> 250 فیلم برتر </router-link>
+                      </li>
                     </ul>
                   </div>
                 </li>
