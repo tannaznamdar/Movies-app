@@ -92,6 +92,9 @@ const location = useRoute();
                       <li>
                         <router-link class="active" :to='{ name: "topMoviePageRoute" }'> 250 فیلم برتر </router-link>
                       </li>
+                      <li>
+                        <router-link class="active" :to='{ name: "oscarMoviesPageRoute" }'> اسکار ۲۰۲۳ </router-link>
+                      </li>
                     </ul>
                   </div>
                 </li>
