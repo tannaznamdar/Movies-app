@@ -7,7 +7,8 @@ import Animation from "@/views/AnimationPage.vue";
 import NewMovie from "@/views/NewMoviePage.vue";
 import UpdateSeries from "@/views/UpdateSeriesPage.vue";
 import PersianDub from "@/views/PersianDubPage.vue";
-import Other from "@/views/OtherPage.vue";
+import Collection from "@/views/CollectionPage.vue";
+import ComingSoon from "@/views/ComingSoonPage.vue";
 import Job from "@/views/JobPage.vue";
 import ContactUs from "@/views/ContactUsPage.vue";
 import Home from "@/views/HomePage.vue";
@@ -28,7 +29,8 @@ const router = createRouter({
     { path: "/update-series", name: "updateSeriesPageRoute", component: UpdateSeries },
     { path: "/animation", name: "animationPageRoute", component: Animation },
     { path: "/persian-dub/:slug?", name: "persianDubPageRoute", component: PersianDub },
-    { path: "/other/:content", name: 'otherPageRoute', component: Other },
+    { path: "/collection", name: 'collectionPageRoute', component: Collection },
+    { path: "/coming-soon", name: 'comingSoonPageRoute', component: ComingSoon },
     { path: "/job", name: "jobPageRoute", component: Job },
     { path: "/contact-us", name: "contactUsPageRoute", component: ContactUs },
     { path: "/login", name: "loginPageRoute", component: Login },

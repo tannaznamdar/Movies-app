@@ -83,9 +83,11 @@ const location = useRoute();
 
                   <div class="dropdown-menu">
                     <ul>
-                      <li v-for="content in contents">
-                        <router-link class="active" :to='{ name: "otherPageRoute", params: { content: content.slug } }'>
-                          {{ content.title }}</router-link>
+                      <li>
+                        <router-link class="active" :to='{ name: "collectionPageRoute" }'> کالکشن </router-link>
+                      </li>
+                      <li>
+                        <router-link class="active" :to='{ name: "comingSoonPageRoute" }'> به زودی </router-link>
                       </li>
                     </ul>
                   </div>
@@ -258,22 +260,6 @@ export default {
         {
           title: ' خارجی ',
           slug: 'international'
-        }
-      ],
-
-      contents: [
-        {
-          title: '250 فیلم برتر ',
-          slug: 'imdb-250'
-        },
-        {
-
-          title: 'اسکار 2023',
-          slug: 'oscar2023'
-        },
-        {
-          title: ' به زودی  ',
-          slug: 'ComingSoon'
         }
       ],
 

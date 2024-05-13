@@ -172,7 +172,7 @@ import Pagination from '@/components/Pagination.vue'
                   <h5 class="sidebar sidebar--title internal-distance-r"> به زودی </h5>
                 </div>
                 <button class="button button--transparent">
-                  <router-link class="active" :to='{ name: "otherPageRoute", params: { content: "ComingSoon" } }'>
+                  <router-link class="active" :to='{ name: "comingSoonPageRoute" }'>
                     مشاهده
                     همه </router-link>
                 </button>

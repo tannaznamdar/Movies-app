@@ -3,7 +3,7 @@ import collectioncards from "@/components/CollectionCards.vue";
 </script>
 
 <template>
-  
+
   <div class="container-fluid">
     <section>
       <div class="container bv-example-row">
@@ -20,10 +20,9 @@ import collectioncards from "@/components/CollectionCards.vue";
 
 <script>
 export default {
-  name: 'Other',
+  name: 'Collection',
   data() {
     return {
-      content: '',
 
       collectionMovies: [
         {
@@ -39,9 +38,7 @@ export default {
       ]
     }
   },
-  mounted() {
-    this.content = (this.$route.params.content);
-  }
+
 }
 
 </script>
