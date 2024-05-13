@@ -90,7 +90,6 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 8px;
     border-radius: 4px;
   }
 }
