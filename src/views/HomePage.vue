@@ -18,7 +18,7 @@ import Pagination from '@/components/Pagination.vue'
           <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
             <h4 class="title">فیلم ایرانی رایگان</h4>
             <button class="button button--transparent">
-              <router-link class="active" :to='{ name: "countryMoviePageRoute", params: { country: "iran" } }'> مشاهده
+              <router-link class="active" :to='{ name: "freeMoviespageRoute" }'> مشاهده
                 همه </router-link>
             </button>
           </div>

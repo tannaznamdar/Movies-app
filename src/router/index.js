@@ -4,7 +4,8 @@ import MoviesGenre from "@/views/MoviesGenrePage.vue";
 import CountryMovies from "@/views/CountryMoviesPage.vue";
 import CountrySeries from "@/views/CountrySeriesPage.vue";
 import Animation from "@/views/AnimationPage.vue";
-import NewMovie from "@/views/NewMoviePage.vue";
+import NewMovies from "@/views/NewMoviePage.vue";
+import FreeMovies from "@/views/FreeMoviespage.vue";
 import UpdateSeries from "@/views/UpdateSeriesPage.vue";
 import PersianDub from "@/views/PersianDubPage.vue";
 import Collection from "@/views/CollectionPage.vue";
@@ -27,7 +28,8 @@ const router = createRouter({
     { path: "/genre/:genre", name: 'moviesGenrePageRoute', component: MoviesGenre },
     { path: "/movie/:country", name: 'countryMoviePageRoute', component: CountryMovies },
     { path: "/series/:country", name: 'countrySeriesPageRoute', component: CountrySeries },
-    { path: "/new-movie", name: "newMoviePageRoute", component: NewMovie },
+    { path: "/new-movies", name: "newMoviePageRoute", component: NewMovies },
+    { path: "/free-Movies", name: "freeMoviespageRoute", component: FreeMovies },
     { path: "/update-series", name: "updateSeriesPageRoute", component: UpdateSeries },
     { path: "/animation", name: "animationPageRoute", component: Animation },
     { path: "/persian-dub/:slug?", name: "persianDubPageRoute", component: PersianDub },
