@@ -1,6 +1,5 @@
 <script setup>
 import lock from "@/assets/images/lock.svg";
-import eyeIcon from "@/assets/images/eye-icon.svg";
 </script>
 
 <template>
@@ -16,10 +15,15 @@ import eyeIcon from "@/assets/images/eye-icon.svg";
 
       <div class="item_form">
         <label for="user_password">رمز عبور شما</label>
-        <div>
-          <input type="password" name="password" class="password_input" id="user_password">
-          <div class="put_icon">
-            <img alt="eye" :src="eyeIcon">
+        <div class="form-element">
+          <div>
+            <input v-if="showPassword" type="text" name="password" id="password-field" v-model="password">
+            <input v-else type="password" v-model="password">
+          </div>
+
+          <div class="put_icon toggle-password" @click="togglePasswordVisibility">
+            <font-awesome-icon v-if="!showPassword" icon="eye" />
+            <font-awesome-icon v-else icon="eye-slash" />
           </div>
         </div>
       </div>
@@ -28,8 +32,7 @@ import eyeIcon from "@/assets/images/eye-icon.svg";
         <label for="user_name">کد مقابل را وارد کنید</label>
         <div class="inner_item_form d-flex align-items-center">
           <input class="" type="text" name="captcha" id="captcha">
-          <img class="internal-distance-r captcha-border" src="https://zarfilm.com/captcha/?rnd=0.7958875497123545"
-            alt="" title="">
+          <img class="internal-distance-r captcha-border" :src="captcha" alt="" title="">
         </div>
       </div>
 
@@ -70,6 +73,21 @@ import eyeIcon from "@/assets/images/eye-icon.svg";
 
 export default {
   name: 'login',
+
+  data() {
+    return {
+
+      captcha: ' https://zarfilm.com/captcha/?rnd=0.7958875497123545',
+      password: '',
+      showPassword: false,
+    };
+  },
+  methods: {
+    togglePasswordVisibility() {
+      this.showPassword = !this.showPassword;
+    },
+  },
+
 }
 </script>
 
@@ -125,20 +143,12 @@ input {
   width: 100%;
   touch-action: manipulation;
   overflow: visible;
-}
-
-input {
   color: inherit;
   font: inherit;
   margin: 0;
+  color: #fff;
 }
 
-.inner_item_form img {
-  margin: auto 20px auto 0;
-  border-radius: 10px;
-  width: 130px;
-  height: 50px;
-}
 
 .internal-distance-r {
   margin-right: 8px;
@@ -208,11 +218,12 @@ input {
 }
 
 ul#menu-footer_menu {
-  display: flex;
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
   list-style: none;
+  flex-direction: row;
+  display: flex;
 }
 
 .menu-item {
@@ -222,7 +233,8 @@ ul#menu-footer_menu {
     font-size: 16px;
     color: #666;
     font-weight: 500;
-    margin-left: 50px;
+    margin-right: 15px;
+    margin-left: 15px;
 
     &:is(:hover, :focus) {
       color: #DF7C07;
@@ -242,5 +254,23 @@ ul#menu-footer_menu {
 
 .footer_menu {
   margin-bottom: 40px;
+}
+
+.form-element {
+  position: relative;
+}
+
+.form-element .toggle-password {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 10px;
+  left: 5px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 35px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #666;
 }
 </style>
