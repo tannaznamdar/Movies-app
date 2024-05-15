@@ -8,9 +8,7 @@ import lock from "@/assets/images/lock.svg";
 
       <div class="item_form">
         <label for="user_name">نام کاربری یا پست الکترونیک یا شماره موبایل</label>
-        <div class="inner_item_form">
-          <input type="text" name="username" id="user_name">
-        </div>
+        <input type="text" name="username" id="user_name">
       </div>
 
       <div class="item_form">
@@ -30,26 +28,30 @@ import lock from "@/assets/images/lock.svg";
 
       <div class="item_form captcha">
         <label for="user_name">کد مقابل را وارد کنید</label>
-        <div class="inner_item_form d-flex align-items-center">
+        <div class="d-flex align-items-center">
           <input class="" type="text" name="captcha" id="captcha">
-          <img class="internal-distance-r captcha-border" :src="captcha" alt="" title="">
+          <img class="internal-distance-r captcha-border" :src="captcha">
         </div>
       </div>
 
-      <div class="item_form">
-        <button type="submit" id="dologin" class="do_login_btn">ورود به پنل کاربری</button>
-      </div>
+      <button type="submit" id="dologin" class="orange_btn">
+        <a href="#">
+          ورود به پنل کاربری
+        </a>
+      </button>
 
       <div>
-        <a href="#" class="bottom_link" data-wpel-link="internal">
+        <router-link class="bottom_link" :to='{ name: "forgotPasswordPageRoute" }'>
           <img alt="lock" :src="lock">
           فراموشی رمز عبور
-        </a>
+        </router-link>
       </div>
 
-      <a class="btnregisteronloginpage" title="عضویت در زرفیلم" href="#" data-wpel-link="internal">عضویت
-        در سایت
-      </a>
+      <button class="yellow-btn">
+        <a title="عضویت در زرفیلم" href="#" data-wpel-link="internal">عضویت
+          در سایت
+        </a>
+      </button>
     </form>
 
     <div class="footer_menu">
@@ -130,11 +132,6 @@ body {
   font-weight: 500;
 }
 
-.inner_item_form {
-  position: relative;
-  text-align: right;
-}
-
 input {
   background: #1e1e1e;
   border: 3px solid #272727;
@@ -158,12 +155,12 @@ input {
   border-radius: 4px;
 }
 
-.do_login_btn {
+.orange_btn {
+  margin-bottom: 10px;
   background: #82490D;
   border: 0;
   border-radius: 12px;
   box-shadow: 0 8px 60px 0 rgba(245, 173, 17, .3);
-  color: #fff;
   font-size: 20px;
   font-weight: 800;
   margin-top: 20px;
@@ -172,6 +169,11 @@ input {
   position: relative;
   transition: all .3s ease-in-out;
   width: 100%;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
 }
 
 .put_icon {
@@ -203,11 +205,9 @@ input {
   font-weight: 500;
 }
 
-.btnregisteronloginpage {
-  text-decoration: none;
+.yellow-btn {
   background: #2b261d;
   border-radius: 12px;
-  color: #DF7C07;
   display: inline-block;
   font-size: 20px;
   font-weight: 800;
@@ -215,6 +215,12 @@ input {
   text-align: center;
   width: 100%;
   margin-top: 20px;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: #DF7C07;
 }
 
 ul#menu-footer_menu {

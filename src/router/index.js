@@ -17,6 +17,7 @@ import ContactUs from "@/views/ContactUsPage.vue";
 import Home from "@/views/HomePage.vue";
 import TitlePage from "@/views/TitlePage.vue";
 import Login from "@/views/LoginPage.vue";
+import ForgotPassword from "@/views/ForgotPasswordPage.vue";
 
 
 
@@ -40,6 +41,7 @@ const router = createRouter({
     { path: "/job", name: "jobPageRoute", component: Job },
     { path: "/contact-us", name: "contactUsPageRoute", component: ContactUs },
     { path: "/login", name: "loginPageRoute", component: Login },
+    { path: "/forgot-Password", name: "forgotPasswordPageRoute", component: ForgotPassword },
     { path: "/:catchAll(.*)", redirect: '/' }
   ]
 })
