@@ -2,7 +2,6 @@
 import LargeMovieCards from "@/components/LargeMovieCards.vue";
 import SmallMovieCards from "@/components/SmallMovieCards.vue";
 import movieIcon from '@/assets/images/movie.svg'
-import Pagination from '@/components/Pagination.vue'
 </script>
 
 <template>
@@ -19,7 +18,6 @@ import Pagination from '@/components/Pagination.vue'
                         <div v-for="largeComingSoonCard in largeComingSoonCards">
                             <LargeMovieCards v-bind="largeComingSoonCard"></LargeMovieCards>
                         </div>
-                        <Pagination></Pagination>
                     </div>
 
                     <div class="col-lg-3">
