@@ -48,10 +48,12 @@ import lock from "@/assets/images/lock.svg";
       </div>
 
       <button class="yellow-btn">
-        <a title="عضویت در زرفیلم" href="#" data-wpel-link="internal">عضویت
-          در سایت
-        </a>
+        <router-link class="bottom_link" :to='{ name: "membershipPageRoute" }'>
+          عضویت در سایت
+        </router-link>
       </button>
+
+
     </form>
 
     <div class="footer_menu">
@@ -209,18 +211,17 @@ input {
   background: #2b261d;
   border-radius: 12px;
   display: inline-block;
-  font-size: 20px;
-  font-weight: 800;
   padding: 13px;
   text-align: center;
   width: 100%;
   margin-top: 20px;
   border: none;
-}
-
-a {
+  a {
   text-decoration: none;
   color: #DF7C07;
+  font-size: 20px;
+  font-weight: 800;
+}
 }
 
 ul#menu-footer_menu {

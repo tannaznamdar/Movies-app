@@ -18,7 +18,7 @@ import Home from "@/views/HomePage.vue";
 import TitlePage from "@/views/TitlePage.vue";
 import Login from "@/views/LoginPage.vue";
 import ForgotPassword from "@/views/ForgotPasswordPage.vue";
-
+import Membership from "@/views/MembershipPage.vue";
 
 
 const router = createRouter({
@@ -42,6 +42,7 @@ const router = createRouter({
     { path: "/contact-us", name: "contactUsPageRoute", component: ContactUs },
     { path: "/login", name: "loginPageRoute", component: Login },
     { path: "/forgot-Password", name: "forgotPasswordPageRoute", component: ForgotPassword },
+    { path: "/membership", name: "membershipPageRoute", component: Membership },
     { path: "/:catchAll(.*)", redirect: '/' }
   ]
 })
