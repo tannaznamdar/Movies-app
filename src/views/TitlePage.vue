@@ -48,10 +48,10 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
               <div class="post-single-meta">
                 <div class="row">
                   <div class="col-lg">
-                    <span class="font-text font-text--subtitle">
-                      <a href="#">{{ genre }}</a>
-                      ،
-                      <a href="#"> {{ genre2 }} </a>
+                    <span class="font-text font-text--subtitle" v-for="genre in genres">
+                      <router-link class="active" :to='{ name: "moviesGenrePageRoute", params: { genre: genre.slug } }'>
+                        {{ genre.title }} {{ }}
+                      </router-link>
                     </span>
                     <span class="text-white-25 internal-distance">|</span>
                     <span class="font-text font-text--subtitle">{{ year }}</span>
@@ -336,8 +336,16 @@ export default {
       title: 'انیمیشن پاندای کونگ فوکار ۴ Kung Fu Panda 4 2024',
       hasSubtitle: true,
       subtitle: 'قسمت 4',
-      genre: 'انیمیشن',
-      genre2: 'اکشن',
+      genres: [
+        {
+          title: 'درام',
+          slug: 'drama'
+        },
+        {
+          title: 'عاشقانه',
+          slug: 'romance'
+        }
+      ],
       actors: [
         {
           title: 'Awkwafina',
