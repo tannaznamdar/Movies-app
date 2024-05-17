@@ -1,5 +1,5 @@
 <script setup>
-import {useRoute} from 'vue-router'
+import { useRoute } from 'vue-router'
 
 const location = useRoute();
 </script>
@@ -20,13 +20,13 @@ const location = useRoute();
             <nav class="menu-bar">
               <ul>
                 <li class="menu-has-childern"> ژانر
-                  <font-awesome-icon class="angle-down-icon" icon="angle-down"/>
+                  <font-awesome-icon class="angle-down-icon" icon="angle-down" />
 
                   <div class="dropdown-menu">
                     <ul>
                       <li v-for="genre in genres">
                         <router-link class="active"
-                                     :to='{ name: "moviesGenrePageRoute", params: { genre: genre.slug } }'>
+                          :to='{ name: "moviesGenrePageRoute", params: { genre: genre.slug } }'>
                           {{ genre.title }}
                         </router-link>
                       </li>
@@ -35,13 +35,13 @@ const location = useRoute();
                 </li>
 
                 <li class="menu-has-childern"> فیلم <span><font-awesome-icon class="angle-down-icon"
-                                                                             icon="angle-down"/></span>
+                      icon="angle-down" /></span>
 
                   <div class="dropdown-menu">
                     <ul>
                       <li v-for="country in countries">
                         <router-link class="active"
-                                     :to='{ name: "countryMoviePageRoute", params: { country: country.slug } }'>
+                          :to='{ name: "countryMoviePageRoute", params: { country: country.slug } }'>
                           {{ country.title }}
                         </router-link>
                       </li>
@@ -51,13 +51,13 @@ const location = useRoute();
 
 
                 <li class="menu-has-childern"> سریال <span><font-awesome-icon class="angle-down-icon"
-                                                                              icon="angle-down"/></span>
+                      icon="angle-down" /></span>
 
                   <div class="dropdown-menu">
                     <ul>
                       <li v-for="country in countries">
                         <router-link class="active"
-                                     :to='{ name: "countrySeriesPageRoute", params: { country: country.slug } }'>
+                          :to='{ name: "countrySeriesPageRoute", params: { country: country.slug } }'>
                           {{ country.title }}
                         </router-link>
                       </li>
@@ -70,14 +70,14 @@ const location = useRoute();
                 </li>
 
                 <li class="menu-has-childern"> دوبله فارسی <span><font-awesome-icon class="angle-down-icon"
-                                                                                    icon="angle-down"/></span>
+                      icon="angle-down" /></span>
 
                   <div class="dropdown-menu">
                     <ul>
-                      <li v-for="doubleGenre in doubleGenres">
+                      <li v-for="double in dubs">
                         <router-link class="active"
-                                     :to='{ name: "persianDubPageRoute", params: { slug: doubleGenre.slug } }'>
-                          {{ doubleGenre.title }}
+                          :to='{ name: "persianDubPageRoute", params: { slug: double.slug } }'>
+                          {{ double.title }}
                         </router-link>
                       </li>
                     </ul>
@@ -85,7 +85,7 @@ const location = useRoute();
                 </li>
 
                 <li class="menu-has-childern"> سایر <span><font-awesome-icon class="angle-down-icon"
-                                                                             icon="angle-down"/></span>
+                      icon="angle-down" /></span>
 
                   <div class="dropdown-menu">
                     <ul>
@@ -124,9 +124,8 @@ const location = useRoute();
                 <div class="search-box align-items-center" @click="searchBox = true">
                   <input class="search-input" name="search" autocomplete="off" placeholder="کلمه مورد نظر...">
                   <button class="search-btn" type="submit"><a href="#">
-                    <font-awesome-icon class="icon-size"
-                                       icon="magnifying-glass"/>
-                  </a></button>
+                      <font-awesome-icon class="icon-size" icon="magnifying-glass" />
+                    </a></button>
                 </div>
               </form>
             </div>
@@ -143,9 +142,9 @@ const location = useRoute();
 
                       <div class="search-input-uptv align-item-center">
                         <input type="text" class="search-ajax-input" placeholder="جستجو کنید..." v-model="inputValue"
-                               @keyup.enter="addSearchItem">
+                          @keyup.enter="addSearchItem">
                         <button class="icon-transparent-btn" @click="addSearchItem">
-                          <font-awesome-icon class="icon-size  internal-distance-l" icon="magnifying-glass"/>
+                          <font-awesome-icon class="icon-size  internal-distance-l" icon="magnifying-glass" />
                         </button>
                       </div>
 
@@ -157,10 +156,10 @@ const location = useRoute();
                         <h4 class="history_title">ترند ها</h4>
 
                         <div class="item_history d-flex align-items-center" v-for="trendMovie in trendMovies"
-                             @click="searchBox = false">
+                          @click="searchBox = false">
                           <router-link :to='{ name: "titlePageRoute", params: { slug: trendMovie.slug } }'>
                             <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
-                                               icon="magnifying-glass"/>
+                              icon="magnifying-glass" />
                             <span class="w-100"> {{ trendMovie.title }} </span>
                           </router-link>
                         </div>
@@ -176,7 +175,7 @@ const location = useRoute();
                         <div class="item_history  last_item d-flex align-items-center" v-for="(item, index) in items">
                           <div class="d-flex align-items-center">
                             <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
-                                               icon="magnifying-glass"/>
+                              icon="magnifying-glass" />
                             <span class="w-100"> {{ item }} </span>
                           </div>
                           <button class="icon-transparent-btn" @click="removeSearchItem(index)">
@@ -219,7 +218,7 @@ const location = useRoute();
 
 
 <script>
-import {useRoute} from 'vue-router'
+import { useRoute } from 'vue-router'
 import logo from '../assets/images/logo.jpg'
 import xMark from '@/assets/images/xmark.svg'
 import headerCards from "@/components/HeaderCards.vue";
@@ -228,7 +227,7 @@ import SearchBox from "@/components/SearchBox.vue";
 
 export default {
   name: 'navbar',
-  components: {SearchBox, headerCards, xMark},
+  components: { SearchBox, headerCards, xMark },
 
   data() {
     return {
@@ -457,7 +456,7 @@ export default {
         },
       ],
 
-      doubleGenres: [
+      dubs: [
         {
           title: 'فیلم  ',
           slug: 'movies'
@@ -803,7 +802,7 @@ export default {
   }
 }
 
-.history_title > span:last-child {
+.history_title>span:last-child {
   cursor: pointer;
   font-size: 13px;
   color: #f5bb3a;

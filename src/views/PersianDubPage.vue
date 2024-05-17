@@ -11,7 +11,7 @@ import Pagination from '@/components/Pagination.vue'
       <div class="container bv-example-row">
 
         <div class=" mt-5 mb-3 d-flex">
-          <h4 class="title"> آخرین {{ slug }} دوبله فارسی </h4>
+          <h4 class="title"> {{ $t('title.dubs.' + slug) }} </h4>
         </div>
 
         <div class="row">
