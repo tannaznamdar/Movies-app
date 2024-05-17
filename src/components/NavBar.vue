@@ -487,7 +487,19 @@ export default {
       if (location.name === 'titlePageRoute') {
         return false;
       }
+      if (location.name === 'collectionPageRoute') {
+        return false;
+      }
+      if (location.name === 'comingSoonPageRoute') {
+        return false;
+      }
       if (location.name === 'oscarMoviesPageRoute') {
+        return false
+      }
+      if (location.name === 'contactUsPageRoute') {
+        return false
+      }
+      if (location.name === 'jobPageRoute') {
         return false
       }
       return (location.name !== 'topMoviePageRoute');
