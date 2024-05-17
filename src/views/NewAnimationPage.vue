@@ -4,7 +4,7 @@ import { Splide, SplideSlide } from '@splidejs/vue-splide';
 </script>
 
 <template>
-    <div class="container-fluid">
+    <div class="container-fluid gx-0">
         <section class="cover">
             <img :src="thumbnail" alt="#">
             <div class="cover-bg-1"></div>
