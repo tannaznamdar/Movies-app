@@ -20,6 +20,7 @@ import TitlePage from "@/views/TitlePage.vue";
 import Login from "@/views/LoginPage.vue";
 import ForgotPassword from "@/views/ForgotPasswordPage.vue";
 import Membership from "@/views/MembershipPage.vue";
+import Director from "@/views/DirectorPage.vue";
 
 
 const router = createRouter({
@@ -45,6 +46,7 @@ const router = createRouter({
     { path: "/login", name: "loginPageRoute", component: Login },
     { path: "/forgot-password", name: "forgotPasswordPageRoute", component: ForgotPassword },
     { path: "/membership", name: "membershipPageRoute", component: Membership },
+    { path: "/director/:director?", name: "directorPageRoute", component: Director },
     { path: "/:catchAll(.*)", redirect: '/' }
   ]
 })

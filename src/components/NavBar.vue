@@ -517,6 +517,9 @@ export default {
       if (location.name === 'membershipPageRoute') {
         return false
       }
+      if (location.name === 'directorPageRoute') {
+        return false
+      }
       return (location.name !== 'topMoviePageRoute');
     },
     addSearchItem: function () {

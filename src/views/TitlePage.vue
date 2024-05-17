@@ -102,12 +102,16 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
                       actors
                     }}</span>
                   </div>
-                  <div class="">
+                  <div>
                     <span class="font-text font-text--subtitle font-text--subtitle-gray" v-if="hasDirector"> کارگردان :
                     </span>
-                    <span class="font-text font-text--subtitle internal-distance" v-if="hasDirector">{{
-                      director
-                    }}</span>
+                    <span class="font-text font-text--subtitle internal-distance" v-if="hasDirector"
+                      v-for="director in directors">
+                      <router-link class="active"
+                        :to='{ name: "directorPageRoute", params: { director: director.slug } }'>
+                        {{ director.title }}
+                      </router-link>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -333,7 +337,12 @@ export default {
       genre2: 'اکشن',
       actors: 'Awkwafina، Jack Black، Viola Davis',
       hasDirector: true,
-      director: 'Mike Mitchell',
+      directors: [
+        {
+          title: 'Mike Mitchell',
+          slug: 'Mike-Mitchell'
+        }
+      ],
       year: '2024',
       time: '94 دقیقه ',
       country: 'آمریکا',
