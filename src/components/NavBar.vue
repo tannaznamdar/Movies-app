@@ -502,6 +502,15 @@ export default {
       if (location.name === 'jobPageRoute') {
         return false
       }
+      if (location.name === 'loginPageRoute') {
+        return false
+      }
+      if (location.name === 'forgotPasswordPageRoute') {
+        return false
+      }
+      if (location.name === 'membershipPageRoute') {
+        return false
+      }
       return (location.name !== 'topMoviePageRoute');
     },
     addSearchItem: function () {
