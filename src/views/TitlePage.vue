@@ -98,9 +98,12 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
                   <div class="mb-half">
                     <span class="font-text font-text--subtitle font-text--subtitle-gray"> بازیگران :
                     </span>
-                    <span class="font-text font-text--subtitle internal-distance">{{
-                      actors
-                    }}</span>
+                    <span class="font-text font-text--subtitle internal-distance" v-if="hasDirector"
+                      v-for="actor in actors">
+                      <router-link class="active" :to='{ name: "actorsPageRoute", params: { actor: actor.slug } }'>
+                        {{ actor.title }}
+                      </router-link>
+                    </span>
                   </div>
                   <div>
                     <span class="font-text font-text--subtitle font-text--subtitle-gray" v-if="hasDirector"> کارگردان :
@@ -335,7 +338,20 @@ export default {
       subtitle: 'قسمت 4',
       genre: 'انیمیشن',
       genre2: 'اکشن',
-      actors: 'Awkwafina، Jack Black، Viola Davis',
+      actors: [
+        {
+          title: 'Awkwafina',
+          slug: 'awkwafina'
+        },
+        {
+          title: 'Jack Black',
+          slug: 'Jack-Black'
+        },
+        {
+          title: 'Viola Davis',
+          slug: 'Viola-Davis'
+        }
+      ],
       hasDirector: true,
       directors: [
         {
