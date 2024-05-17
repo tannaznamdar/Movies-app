@@ -38,7 +38,7 @@ import Pagination from '@/components/Pagination.vue'
       <div class="container bv-example-row">
         <div class="row">
           <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
-            <h4 class="title"> انیمیشن های برتر </h4>
+            <h4 class="title"> انیمیشن های دوبله شده </h4>
             <button class="button button--transparent">
               <router-link class="active" :to='{ name: "newMoviePageRoute" }'> مشاهده همه </router-link>
             </button>
