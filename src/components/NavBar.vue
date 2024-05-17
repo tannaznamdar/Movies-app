@@ -490,6 +490,12 @@ export default {
       if (location.name === 'collectionPageRoute') {
         return false;
       }
+      if (location.name === 'freeMoviespageRoute') {
+        return false;
+      }
+      if (location.name === 'newAnimationPageRoute') {
+        return false;
+      }
       if (location.name === 'comingSoonPageRoute') {
         return false;
       }

@@ -4,6 +4,7 @@ import MoviesGenre from "@/views/MoviesGenrePage.vue";
 import CountryMovies from "@/views/CountryMoviesPage.vue";
 import CountrySeries from "@/views/CountrySeriesPage.vue";
 import Animation from "@/views/AnimationPage.vue";
+import NewAnimation from "@/views/NewAnimationPage.vue";
 import NewMovies from "@/views/NewMoviePage.vue";
 import FreeMovies from "@/views/FreeMoviespage.vue";
 import UpdateSeries from "@/views/UpdateSeriesPage.vue";
@@ -30,9 +31,10 @@ const router = createRouter({
     { path: "/movie/:country", name: 'countryMoviePageRoute', component: CountryMovies },
     { path: "/series/:country", name: 'countrySeriesPageRoute', component: CountrySeries },
     { path: "/new-movies", name: "newMoviePageRoute", component: NewMovies },
-    { path: "/free-Movies", name: "freeMoviespageRoute", component: FreeMovies },
+    { path: "/free-movies", name: "freeMoviespageRoute", component: FreeMovies },
     { path: "/update-series", name: "updateSeriesPageRoute", component: UpdateSeries },
     { path: "/animation", name: "animationPageRoute", component: Animation },
+    { path: "/new-animation", name: "newAnimationPageRoute", component: NewAnimation },
     { path: "/persian-dub/:slug?", name: "persianDubPageRoute", component: PersianDub },
     { path: "/collection", name: 'collectionPageRoute', component: Collection },
     { path: "/coming-soon", name: 'comingSoonPageRoute', component: ComingSoon },
@@ -41,7 +43,7 @@ const router = createRouter({
     { path: "/job", name: "jobPageRoute", component: Job },
     { path: "/contact-us", name: "contactUsPageRoute", component: ContactUs },
     { path: "/login", name: "loginPageRoute", component: Login },
-    { path: "/forgot-Password", name: "forgotPasswordPageRoute", component: ForgotPassword },
+    { path: "/forgot-password", name: "forgotPasswordPageRoute", component: ForgotPassword },
     { path: "/membership", name: "membershipPageRoute", component: Membership },
     { path: "/:catchAll(.*)", redirect: '/' }
   ]

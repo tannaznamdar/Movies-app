@@ -17,7 +17,7 @@ import Pagination from '@/components/Pagination.vue'
           <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
             <h4 class="title">انیمیشن های 2023</h4>
             <button class="button button--transparent">
-              <router-link class="active" :to='{ name: "countryMoviePageRoute", params: { country: "iran" } }'> مشاهده
+              <router-link class="active" :to='{ name: "newAnimationPageRoute" }'> مشاهده
                 همه </router-link>
             </button>
           </div>
@@ -40,7 +40,8 @@ import Pagination from '@/components/Pagination.vue'
           <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
             <h4 class="title"> انیمیشن های دوبله شده </h4>
             <button class="button button--transparent">
-              <router-link class="active" :to='{ name: "newMoviePageRoute" }'> مشاهده همه </router-link>
+              <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: "animation" } }'> مشاهده
+                همه </router-link>
             </button>
           </div>
         </div>
