@@ -7,10 +7,10 @@ import Pagination from '@/components/Pagination.vue'
 
 <template>
     <div class="container-fluid">
-        <section class="background">
+        <section>
             <div class="container bv-example-row">
 
-                <div class=" mt-5 mb-3 d-flex">
+                <div class="pt-5 mb-3 d-flex">
                     <h4 class="title">آخرین سریالها </h4>
                 </div>
 
@@ -36,7 +36,7 @@ import Pagination from '@/components/Pagination.vue'
                                     <img alt="calendar" :src="movieIcon">
                                     <h5 class="sidebar sidebar--title internal-distance-r">آپدیت سریال ها</h5>
                                 </div>
-                                <button class="button button--transparent">
+                                <button class="button button--transparent button--transparent-gray">
                                     <router-link class="active" :to='{ name: "updateSeriesPageRoute" }'> مشاهده همه
                                     </router-link>
                                 </button>
@@ -131,7 +131,7 @@ import Pagination from '@/components/Pagination.vue'
                                     <img alt="calendar" :src="movieIcon">
                                     <h5 class="sidebar sidebar--title internal-distance-r"> به زودی </h5>
                                 </div>
-                                <button class="button button--transparent">
+                                <button class="button button--transparent button--transparent-gray">
                                     <router-link class="active" :to='{ name: "comingSoonPageRoute" }'>
                                         مشاهده
                                         همه </router-link>
@@ -389,10 +389,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.background {
-    background-color: #16161b;
-}
-
 .sidebar-tabs {
     background-color: #23232b;
     border-radius: 4px;
