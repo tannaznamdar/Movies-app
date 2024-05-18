@@ -4,7 +4,7 @@ import { Splide, SplideSlide } from '@splidejs/vue-splide';
 </script>
 
 <template>
-    <div class="container-fluid">
+    <div class="container-fluid gx-0">
         <section class="cover">
             <img :src="thumbnail" alt="#">
             <div class="cover-bg-1"></div>
@@ -29,17 +29,12 @@ import { Splide, SplideSlide } from '@splidejs/vue-splide';
             </div>
         </section>
 
-        <section class="mb-5">
+        <section class="pb-4">
             <div class="container bv-example-row">
-                <div class="row mb-4">
+                <div class="row ">
                     <div class="col-lg-2" v-for="freeMovieCard in freeMovieCards">
                         <MovieCards v-bind="freeMovieCard"></MovieCards>
                     </div>
-                </div>
-                <div class="text-align">
-                    <button class="button button--outline-white">بارگزاری بیشتر
-                        <font-awesome-icon class="internal-distance" icon="arrow-down" />
-                    </button>
                 </div>
             </div>
         </section>
