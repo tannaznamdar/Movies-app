@@ -3,7 +3,7 @@ import lock from "@/assets/images/lock.svg";
 </script>
 
 <template>
-  <div class="pt-5 ">
+  <div class="pt-150 ">
     <form method="post" action="" class="form_user_dashbord">
 
       <div class="item_form">
@@ -216,12 +216,13 @@ input {
   width: 100%;
   margin-top: 20px;
   border: none;
+
   a {
-  text-decoration: none;
-  color: #DF7C07;
-  font-size: 20px;
-  font-weight: 800;
-}
+    text-decoration: none;
+    color: #DF7C07;
+    font-size: 20px;
+    font-weight: 800;
+  }
 }
 
 ul#menu-footer_menu {
@@ -279,5 +280,9 @@ ul#menu-footer_menu {
   font-size: 20px;
   cursor: pointer;
   color: #666;
+}
+
+.pt-150 {
+  padding-top: 150px;
 }
 </style>

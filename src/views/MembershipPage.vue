@@ -1,5 +1,5 @@
 <template>
-    <div class="pt-5 ">
+    <div class="pt-150 ">
         <form method="post" action="" class="form_user_dashbord">
 
             <div class="item_form">
@@ -267,5 +267,9 @@ ul#menu-footer_menu {
     font-size: 20px;
     cursor: pointer;
     color: #666;
+}
+
+.pt-150 {
+    padding-top: 150px;
 }
 </style>
