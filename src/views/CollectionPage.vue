@@ -5,7 +5,7 @@ import collectioncards from "@/components/CollectionCards.vue";
 <template>
 
   <div class="container-fluid">
-    <section>
+    <section class="pt-70">
       <div class="container bv-example-row">
         <h4 class="archive-title mt-5 mb-4">آرشیو کالکشن ها</h4>
         <div class="row">
@@ -168,5 +168,9 @@ export default {
   line-height: 1.3;
   font-weight: 700;
   color: #bbc1c6;
+}
+
+.pt-70 {
+  padding-top: 70px;
 }
 </style>

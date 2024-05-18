@@ -29,7 +29,7 @@ import imdb from '@/assets/images/la--imdb.svg'
             </router-link>
         </div>
     </article>
-    
+
 </template>
 
 
@@ -141,7 +141,6 @@ export default {
     font-size: 13px;
     overflow: hidden;
     white-space: nowrap;
-    text-overflow: clip;
     text-overflow: ellipsis;
 
     &:is(:hover, :focus) {
