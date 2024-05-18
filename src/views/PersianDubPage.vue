@@ -7,10 +7,10 @@ import Pagination from '@/components/Pagination.vue'
 
 <template>
   <div class="container-fluid">
-    <section class="background">
-      <div class="container bv-example-row">
+    <section>
+      <div class="container bv-example-row pb-3">
 
-        <div class=" mt-5 mb-3 d-flex">
+        <div class=" pt-5 mb-3 d-flex">
           <h4 class="title"> {{ $t('title.dubs.' + slug) }} </h4>
         </div>
 
@@ -36,7 +36,7 @@ import Pagination from '@/components/Pagination.vue'
                   <img alt="calendar" :src="movieIcon">
                   <h5 class="sidebar sidebar--title internal-distance-r">آپدیت سریال ها</h5>
                 </div>
-                <button class="button button--transparent">
+                <button class="button button--transparent button--transparent-gray">
                   <router-link class="active" :to='{ name: "updateSeriesPageRoute" }'> مشاهده همه </router-link>
                 </button>
               </div>
@@ -122,7 +122,7 @@ import Pagination from '@/components/Pagination.vue'
                   <img alt="calendar" :src="movieIcon">
                   <h5 class="sidebar sidebar--title internal-distance-r"> به زودی </h5>
                 </div>
-                <button class="button button--transparent">
+                <button class="button button--transparent button--transparent-gray">
                   <router-link class="active" :to='{ name: "comingSoonPageRoute" }'>
                     مشاهده
                     همه </router-link>
@@ -387,10 +387,6 @@ export default {
 
 
 <style scoped lang="scss">
-.background {
-  background-color: #16161b;
-}
-
 .sidebar-tabs {
   background-color: #23232b;
   border-radius: 4px;
@@ -446,7 +442,7 @@ export default {
 }
 
 .main-sidebar-wrap {
-  box-shadow: 0 5px 25px rgba(0, 0, 0, .13) !important;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, .13);
   background-color: #23232b;
   padding: 0 10px 20px;
   border-radius: 4px;

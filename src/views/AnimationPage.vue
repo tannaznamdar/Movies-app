@@ -86,7 +86,7 @@ import Pagination from '@/components/Pagination.vue'
                   <img alt="calendar" :src="movieIcon">
                   <h5 class="sidebar sidebar--title internal-distance-r">آپدیت انیمیشن ها</h5>
                 </div>
-                <button class="button button--transparent">
+                <button class="button button--transparent button--transparent-gray">
                   <router-link class="active" :to='{ name: "updateSeriesPageRoute" }'> مشاهده همه </router-link>
                 </button>
               </div>
@@ -172,7 +172,7 @@ import Pagination from '@/components/Pagination.vue'
                   <img alt="calendar" :src="movieIcon">
                   <h5 class="sidebar sidebar--title internal-distance-r"> به زودی </h5>
                 </div>
-                <button class="button button--transparent">
+                <button class="button button--transparent button--transparent-gray">
                   <router-link class="active" :to='{ name: "comingSoonPageRoute" }'>
                     مشاهده
                     همه </router-link>
@@ -840,7 +840,7 @@ export default {
 }
 
 .main-sidebar-wrap {
-  box-shadow: 0 5px 25px rgba(0, 0, 0, .13) !important;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, .13);
   background-color: #23232b;
   padding: 0 10px 20px;
   border-radius: 4px;
