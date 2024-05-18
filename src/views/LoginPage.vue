@@ -96,15 +96,6 @@ export default {
 </script>
 
 <style scoped>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: black;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 .form_user_dashbord {
   background-color: #1e1e1e;
   border-radius: 20px;
