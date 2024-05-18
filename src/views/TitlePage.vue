@@ -261,20 +261,20 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
             <div class="row vcard gutter-x-6 gutter-y-0 pb-2">
               <div class=" d-flex flex-row   align-items-center justify-content-between">
                 <div>
-                  <font-awesome-icon class="user-icon internal-distance" icon="user" />
+                  <font-awesome-icon class="user-icon ernalint-distance" icon="user" />
                   <span class="font-text font-text--sm-15 internal-distance">{{ comment.userName }}</span>
                   <span class="font-text font-text--sm-12 font-text-gray internal-distance">
                     {{ comment.messageTime }} </span>
                 </div>
 
                 <div class="d-flex">
-                  <button class="button button-transparent internal-distance">
-                    <img class="internal-distance" alt="like" :src="likeSvg">
+                  <button class="button button-transparent button-transparent-like internal-distance">
+                    <font-awesome-icon class="internal-distance-l" icon="thumbs-up" />
                     {{ comment.commentLike }}
                   </button>
 
-                  <button class="button button-transparent internal-distance">
-                    <img class="internal-distance" alt="dislike" :src="dislikeSvg">
+                  <button class="button button-transparent button-transparent-dislike internal-distance">
+                    <font-awesome-icon class="internal-distance-l" icon="thumbs-down" />
                     {{ comment.commentDislike }}
                   </button>
                 </div>

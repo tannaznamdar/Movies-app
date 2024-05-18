@@ -90,8 +90,30 @@ body {
     color: #999;
     font-size: 13px;
 
-    &:is(:hover, :focus) {
-      color: #fff;
+    &-like {
+      i {
+        color: #999;
+      }
+
+      &:is(:hover, :focus) {
+        color: #FF7555;
+
+        i {
+          color: #FF7555;
+        }
+      }
+    }
+
+    &-dislike {
+      color: #999;
+
+      &:is(:hover, :focus) {
+        color: #89d64f;
+
+        i {
+          color: #89d64f;
+        }
+      }
     }
   }
 
