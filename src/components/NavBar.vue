@@ -199,20 +199,20 @@ const location = useRoute();
             </button>
           </div>
         </div>
-
-        <section v-if="checkRouteName(location)">
-
-          <div class="row mt-4">
-            <div class="col-lg-3 mb-2" v-for="card in cards">
-              <headerCards v-bind="card"></headerCards>
-            </div>
-          </div>
-
-          <search-box v-if="location.name === 'homePageRoute'"></search-box>
-
-        </section>
       </div>
     </header>
+
+    <section class="container bv-example-row pt-90" v-if="checkRouteName(location)">
+
+      <div class="row">
+        <div class="col-lg-3 mb-2" v-for="card in cards">
+          <headerCards v-bind="card"></headerCards>
+        </div>
+      </div>
+
+      <search-box v-if="location.name === 'homePageRoute'"></search-box>
+
+    </section>
   </div>
 </template>
 
@@ -559,8 +559,16 @@ export default {
   margin-top: 15px;
   margin-bottom: 15px;
   background-color: #101014;
-  padding: 0;
   margin: 0;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 90px;
+  padding: 15px 0 15px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.99) 0px, transparent);
+
 }
 
 .menu-bar {
@@ -855,5 +863,9 @@ export default {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0
+}
+
+.pt-90 {
+  padding-top: 90px;
 }
 </style>

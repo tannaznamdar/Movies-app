@@ -1,14 +1,18 @@
 <template>
   <div>
-    <Navbar/>
-    <slot/>
-    <Footer/>
+    <Navbar />
+    <div class="background-light">
+      <slot />
+    </div>
+    <Footer class="background-light" />
   </div>
 
 </template>
 
-<style scoped>
-
+<style>
+.background-light {
+  background-color: #1c1c22;
+}
 </style>
 <script>
 import Navbar from "../components/NavBar.vue";
@@ -17,7 +21,7 @@ import headerCards from "../components/HeaderCards.vue";
 import MovieCards from "../components/MovieCards.vue";
 
 export default {
-  components:{Navbar,Footer,headerCards, MovieCards},
-  name:'BaseLayout'
+  components: { Navbar, Footer, headerCards, MovieCards },
+  name: 'BaseLayout'
 }
 </script>
