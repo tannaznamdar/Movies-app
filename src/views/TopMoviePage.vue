@@ -29,7 +29,7 @@ import { Splide, SplideSlide } from '@splidejs/vue-splide';
             </div>
         </section>
 
-        <section class="mb-5">
+        <section class="pb-4">
             <div class="container bv-example-row">
                 <div class="row mb-4">
                     <div class="col-lg-2" v-for="topMovieCard in topMovieCards">

@@ -29,17 +29,12 @@ import { Splide, SplideSlide } from '@splidejs/vue-splide';
             </div>
         </section>
 
-        <section class="mb-5">
+        <section class="pb-1">
             <div class="container bv-example-row">
                 <div class="row mb-4">
                     <div class="col-lg-2" v-for="oscarMovieCard in oscarMovieCards">
                         <MovieCards v-bind="oscarMovieCard"></MovieCards>
                     </div>
-                </div>
-                <div class="text-align">
-                    <button class="button button--outline-white">بارگزاری بیشتر
-                        <font-awesome-icon class="internal-distance" icon="arrow-down" />
-                    </button>
                 </div>
             </div>
         </section>

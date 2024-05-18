@@ -523,6 +523,9 @@ export default {
       if (location.name === 'actorsPageRoute') {
         return false
       }
+      if (location.name === 'newMoviePageRoute') {
+        return false
+      }
       return (location.name !== 'topMoviePageRoute');
     },
     addSearchItem: function () {
