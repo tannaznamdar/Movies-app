@@ -60,9 +60,8 @@ export default {
 <style scoped lang="scss">
 .content-thumb {
   box-shadow: 0 5px 25px rgba(0, 0, 0, .13);
-  padding: 10px;
+  padding: 10px 10px 20px 10px;
   background: #1c1c22;
-  margin: 0;
   border-radius: 4px;
   margin-left: 15px;
 

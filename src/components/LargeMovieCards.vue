@@ -11,7 +11,6 @@
                 </router-link>
             </div>
 
-
             <div class="col-lg-9">
                 <div>
                     <router-link class="card-text card-text--title" :to='{ name: "titlePageRoute", params: { slug } }'>
@@ -247,7 +246,6 @@ export default {
         font-family: inherit;
         line-height: 1.3;
         color: #c6c9cc;
-        margin: 0;
         margin-bottom: 5px;
         font-weight: 300;
         font-size: 12px;
