@@ -1,6 +1,6 @@
 <template>
   <div class="container bv-example-row">
-    <div class="row justify-content-center align-items-center">
+    <div class="row justify-content-center align-items-center pt-100">
       <div class="col-lg-9 ">
         <div class="main-posts">
           <h1 class="titil titil--lg">استخدام</h1>
@@ -259,5 +259,9 @@ input[type=radio] {
 
 .internal-distance-r {
   margin-right: 40px;
+}
+
+.pt-100{
+  padding-top: 100px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="container bv-example-row">
-    <div class="row justify-content-center align-items-center">
+    <div class="row justify-content-center align-items-center pt-100">
       <div class="col-lg-9 ">
         <div class="main-posts">
           <h1 class="titil titil--lg">ارتباط با ما</h1>
@@ -74,7 +74,6 @@ export default {
   }
 
 }
-
 
 </script>
 
@@ -209,5 +208,9 @@ input[type=radio] {
   margin-bottom: 15px;
   margin-top: 50px;
   background: #f1faea0a;
+}
+
+.pt-100{
+  padding-top: 100px;
 }
 </style>
