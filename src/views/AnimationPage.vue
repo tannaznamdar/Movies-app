@@ -10,7 +10,7 @@ import Pagination from '@/components/Pagination.vue'
 <template>
   <div class="container-fluid">
 
-    <section class="background">
+    <section>
       <div class="container bv-example-row">
 
         <div class="row">
@@ -34,7 +34,7 @@ import Pagination from '@/components/Pagination.vue'
       </div>
     </section>
 
-    <section class="background">
+    <section>
       <div class="container bv-example-row">
         <div class="row">
           <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
@@ -57,7 +57,7 @@ import Pagination from '@/components/Pagination.vue'
       </div>
     </section>
 
-    <section class="background">
+    <section>
       <div class="container bv-example-row">
 
         <div class=" mt-5 mb-3 d-flex">
@@ -785,10 +785,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.background {
-  background-color: #16161b;
-}
-
 .sidebar-tabs {
   background-color: #23232b;
   border-radius: 4px;
