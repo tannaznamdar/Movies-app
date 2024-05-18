@@ -51,7 +51,12 @@ const router = createRouter({
     { path: "/director/:director?", name: "directorPageRoute", component: Director },
     { path: "/actors/:actor?", name: "actorsPageRoute", component: Actors },
     { path: "/:catchAll(.*)", redirect: '/' }
-  ]
+  ],
+
+  scrollBehavior(to, from, savedPosition) {
+    // always scroll to top
+    return { top: 0 }
+  },
 })
 
 export default router
