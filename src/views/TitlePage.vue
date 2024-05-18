@@ -19,18 +19,17 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
 
     <section class="post-header">
 
-      <div class="uptvs-big-play" v-if="hasPlayOnline">
-        <button type="button" class="video-play-button" @click="playVideo">
+      <div class="uptvs-big-play mt-5" v-if="hasPlayOnline">
+        <button type="button" class="video-play-button" >
           <span></span>
         </button>
-        <div v-if="showOverlay" class="video-overlay" @click.stop="closeVideo"> <button class="video-overlay-close"
-            @click="closeVideo">&times;</button>
+        <div v-if="showOverlay" class="video-overlay" > <button class="video-overlay-close"></button>
         </div>
       </div>
 
-      <div class="post-header-cover" v-if="hasPlayOnline"></div>
+      <div class="post-header-cover"></div>
       <div class="post-header-grad-info-background"></div>
-      <div class="container bv-example-row mb-5">
+      <div class="container bv-example-row mb-5 pt-5">
         <div class="row">
           <div class="col-lg-2">
             <a href="#">
@@ -142,7 +141,7 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
 
       <section>
         <div class="row align-items-center">
-          <div class="col-lg-6">
+          <div class="col-lg-6"  v-if="hasMovieTrailer"                   >
             <div class="position-relative">
               <video class="video-box" controls="" :poster="poster" preload="none">
                 <source :src="video" type="video/mp4">
@@ -150,7 +149,7 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
               </video>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-md">
             <h4 class="font-text font-text--title">
               <img class="internal-distance" alt="video" :src="videoSvg">
               داستان انیمیشن
@@ -327,9 +326,9 @@ export default {
   data() {
     return {
 
-      showOverlay: false,
+      showOverlay: true,
       videoSrc: 'https://www.youtube.com/embed/ngElkyQ6Rhs',
-
+      hasMovieTrailer:true,
       hasPlayOnline: true,
       thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-207x290.jpg',
       link: 'thumbnail',
@@ -497,14 +496,6 @@ export default {
     }
   },
 
-  methods: {
-    playVideo() {
-      this.showOverlay = true;
-    },
-    closeVideo() {
-      this.showOverlay = false;
-    },
-  },
 }
 
 </script>
