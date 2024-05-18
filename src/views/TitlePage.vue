@@ -3,8 +3,6 @@
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import SinglePageCards from "@/components/SinglePageCards.vue";
 import heart from '@/assets/images/heart.svg'
-import likeSvg from '@/assets/images/like-orange.svg'
-import dislikeSvg from '@/assets/images/dislike-green.svg'
 import videoSvg from '@/assets/images/video-gray.svg'
 import downloadSvg from '@/assets/images/download.svg'
 import movieIcon from '@/assets/images/movie.svg'
@@ -20,10 +18,10 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
     <section class="post-header">
 
       <div class="uptvs-big-play mt-5" v-if="hasPlayOnline">
-        <button type="button" class="video-play-button" >
+        <button type="button" class="video-play-button">
           <span></span>
         </button>
-        <div v-if="showOverlay" class="video-overlay" > <button class="video-overlay-close"></button>
+        <div v-if="showOverlay" class="video-overlay"> <button class="video-overlay-close"></button>
         </div>
       </div>
 
@@ -121,11 +119,11 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
                 <div class="pt-3">
                   <button class="button button--gray button--gray-like">
                     {{ like }}
-                    <img alt="like" :src="likeSvg">
+                    <font-awesome-icon icon="thumbs-up" />
                   </button>
                   <button class="button button--gray button--gray-dislike internal-distance">
                     {{ dislike }}
-                    <img alt="dislike" :src="dislikeSvg">
+                    <font-awesome-icon icon="thumbs-down" />
                   </button>
                 </div>
               </div>
@@ -141,7 +139,7 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
 
       <section>
         <div class="row align-items-center">
-          <div class="col-lg-6"  v-if="hasMovieTrailer"                   >
+          <div class="col-lg-6" v-if="hasMovieTrailer">
             <div class="position-relative">
               <video class="video-box" controls="" :poster="poster" preload="none">
                 <source :src="video" type="video/mp4">
@@ -328,7 +326,7 @@ export default {
 
       showOverlay: true,
       videoSrc: 'https://www.youtube.com/embed/ngElkyQ6Rhs',
-      hasMovieTrailer:true,
+      hasMovieTrailer: true,
       hasPlayOnline: true,
       thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-207x290.jpg',
       link: 'thumbnail',

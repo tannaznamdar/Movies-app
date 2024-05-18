@@ -106,11 +106,31 @@ body {
     }
 
     &-like {
-      color: #FF7555 !important;
+      color: #cbcfd3;
+
+      i {
+        color: #fff;
+      }
+
+      &:is(:hover, :focus) {
+        color: #FF7555;
+
+        i {
+          color: #FF7555;
+        }
+      }
     }
 
     &-dislike {
-      color: #89d64f !important;
+      color: #cbcfd3;
+
+      &:is(:hover, :focus) {
+        color: #89d64f;
+
+        i {
+          color: #89d64f;
+        }
+      }
     }
   }
 
