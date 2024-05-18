@@ -274,7 +274,6 @@ export default {
 
 .dropbtn {
   background-color: #1c1c22;
-  border-color: #1c1c22;
   color: white;
   text-align: right;
   border: none;

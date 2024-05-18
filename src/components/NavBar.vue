@@ -6,7 +6,7 @@ const location = useRoute();
 <template>
 
   <div class="wrapper">
-    <header class="header pb-1 pt-3">
+    <header class="header">
       <div class="container bv-example-row">
         <div class="row align-items-center">
 
@@ -556,10 +556,7 @@ export default {
 }
 
 .header {
-  margin-top: 15px;
-  margin-bottom: 15px;
   background-color: #101014;
-  margin: 0;
   z-index: 9999;
   top: 0;
   left: 0;
@@ -568,7 +565,6 @@ export default {
   height: 90px;
   padding: 15px 0 15px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.99) 0px, transparent);
-
 }
 
 .menu-bar {
