@@ -110,7 +110,8 @@ import Pagination from '@/components/Pagination.vue'
           <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
             <h4 class="title"> فیلم دوبله فارسی جدید </h4>
             <button class="button button--transparent">
-              <router-link class="active" :to='{ name: "persianDubPageRoute" }'> مشاهده همه </router-link>
+              <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: "movies" } }'> مشاهده همه
+              </router-link>
             </button>
           </div>
         </div>
@@ -175,7 +176,7 @@ import Pagination from '@/components/Pagination.vue'
                   <img alt="calendar" :src="movieIcon">
                   <h5 class="sidebar sidebar--title internal-distance-r">آپدیت سریال‌ها</h5>
                 </div>
-                <button class="button button--transparent">
+                <button class="button button--transparent button--transparent-gray">
                   <router-link class="active" :to='{ name: "updateSeriesPageRoute" }'> مشاهده همه </router-link>
                 </button>
               </div>
@@ -261,7 +262,7 @@ import Pagination from '@/components/Pagination.vue'
                   <img alt="calendar" :src="movieIcon">
                   <h5 class="sidebar sidebar--title internal-distance-r"> به زودی </h5>
                 </div>
-                <button class="button button--transparent">
+                <button class="button button--transparent button--transparent-gray">
                   <router-link class="active" :to='{ name: "comingSoonPageRoute" }'>
                     مشاهده
                     همه </router-link>

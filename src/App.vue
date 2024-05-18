@@ -59,13 +59,26 @@ body {
     padding: 0;
 
     a {
-      color: #b8daff;
+      color: #6898f8;
       font-size: 11px;
     }
 
     &:is(:hover, :focus) {
       a {
         color: #3777f6;
+      }
+    }
+
+    &-gray {
+      a {
+        color: #c6c9cc;
+        font-size: 13px;
+      }
+
+      &:is(:hover, :focus) {
+        a {
+          color: #b8daff;
+        }
       }
     }
   }
@@ -279,17 +292,19 @@ body {
 
     &--sidebar {
       border: 1px solid transparent;
-      background-color: #292931;
-      border-color: #292931;
+      background-color: #1c1c22;
+      border-color: #1c1c22;
 
       a {
-        color: #bec4cb;
+        color: #8e949a;
         font-size: 14px;
         line-height: 2;
       }
 
       &:is(:hover, :focus) {
-        background-color: #1c1c22;
+        color: #bec4cb;
+        background-color: #292931;
+        border-color: #292931;
       }
     }
   }
