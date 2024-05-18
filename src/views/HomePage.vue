@@ -252,7 +252,7 @@ import Pagination from '@/components/Pagination.vue'
                       های دوبله فارسی
                     </router-link>
                   </button>
-                </div>
+                </div>ّ
               </div>
             </section>
 
@@ -1256,14 +1256,87 @@ export default {
           slug: 'شهرزاد',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
           link: 'thumbnail',
-          genre: ' درام, تاریخی, رمانتیک',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
           imdb: '6.3',
           title: 'شهرزاد',
           subtitle: 'فصل اول قسمت هفتم',
           hasSubtitle: 'true',
-          actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
           like: 86,
-          director: 'پژمان تیمورتاش',
+          hasDirector: true,
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران',
+          hasBadge: false,
+          btnTitle: 'دانلود سریال'
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+          link: 'thumbnail',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
+          imdb: '6.3',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
+          like: 86,
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
           hasDirector: true,
           synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
           year: 1403,
@@ -1275,77 +1348,139 @@ export default {
           slug: 'شهرزاد',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
           link: 'thumbnail',
-          genre: ' درام, تاریخی, رمانتیک',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
           imdb: '6.3',
           title: 'شهرزاد',
-          hasSubtitle: 'true',
           subtitle: 'فصل اول قسمت هفتم',
-          actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
           like: 86,
-          director: 'پژمان تیمورتاش',
-          hasDirector: false,
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
+          hasDirector: true,
           synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
           year: 1403,
           Country: 'ایران',
-          hasBadge: true,
+          hasBadge: false,
           btnTitle: 'دانلود سریال'
         },
         {
           slug: 'شهرزاد',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
           link: 'thumbnail',
-          genre: ' درام, تاریخی, رمانتیک',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
           imdb: '6.3',
           title: 'شهرزاد',
-          hasSubtitle: 'true',
           subtitle: 'فصل اول قسمت هفتم',
-          actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
           like: 86,
-          director: 'پژمان تیمورتاش',
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
           hasDirector: true,
           synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
           year: 1403,
           Country: 'ایران',
           hasBadge: false,
-          btnTitle: 'دانلود فیلم'
-        },
-        {
-          slug: 'شهرزاد',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
-          link: 'thumbnail',
-          genre: ' درام, تاریخی, رمانتیک',
-          imdb: '6.3',
-          title: 'شهرزاد',
-          hasSubtitle: 'true',
-          subtitle: 'فصل اول قسمت هفتم',
-          actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
-          like: 86,
-          director: 'پژمان تیمورتاش',
-          hasDirector: false,
-          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
-          year: 1403,
-          Country: 'ایران',
-          hasBadge: true,
           btnTitle: 'دانلود سریال'
         },
         {
           slug: 'شهرزاد',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
           link: 'thumbnail',
-          genre: ' درام, تاریخی, رمانتیک',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
           imdb: '6.3',
           title: 'شهرزاد',
-          hasSubtitle: 'true',
           subtitle: 'فصل اول قسمت هفتم',
-          actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
           like: 86,
-          director: 'پژمان تیمورتاش',
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
           hasDirector: true,
           synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
           year: 1403,
           Country: 'ایران',
           hasBadge: false,
-          btnTitle: 'دانلود فیلم'
+          btnTitle: 'دانلود سریال'
         },
       ],
 

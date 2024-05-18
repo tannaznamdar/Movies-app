@@ -25,7 +25,12 @@
                 <div class="card-info d-flex d-grid gap-4 mt-2">
                     <div>
                         <font-awesome-icon class="icon" icon="bars" style="color: #ffffff;" />
-                        <span class="card-text card-text--subtitle">{{ genre }}</span>
+                        <span class="card-text card-text--subtitle" v-for="genre in genres">
+                            <router-link class="active"
+                                :to='{ name: "moviesGenrePageRoute", params: { genre: genre.slug } }'>
+                                {{ genre.title }} {{ }}
+                            </router-link>
+                        </span>
                     </div>
 
                     <div>
@@ -36,13 +41,23 @@
                 </div>
 
                 <div>
-                    <div class="d-flex d-grid gap-4">
+                    <div class="d-flex d-grid gap-4 align-items-center">
                         <span class="card-text card-text--subtitle">بازیگران:</span>
-                        <span class="card-text card-text--subtitle">{{ actors }}</span>
+                        <span class="card-text card-text--subtitle" v-for="actor in actors">
+                            <router-link class="active"
+                                :to='{ name: "actorsPageRoute", params: { actor: actor.slug } }'>
+                                {{ actor.title }}
+                            </router-link>
+                        </span>
                     </div>
-                    <div class="d-flex d-grid gap-4" v-if="hasDirector">
+                    <div class="d-flex d-grid gap-4 align-items-center" v-if="hasDirector">
                         <span class="card-text card-text--subtitle">کارگردان:</span>
-                        <span class="card-text card-text--subtitle"> {{ director }}</span>
+                        <span class="card-text card-text--subtitle" v-for="director in directors">
+                            <router-link class="active"
+                                :to='{ name: "directorPageRoute", params: { director: director.slug } }'>
+                                {{ director.title }}
+                            </router-link>
+                        </span>
                     </div>
                 </div>
 
@@ -231,11 +246,28 @@ export default {
     }
 
     &--subtitle {
+        text-decoration: none;
         font-size: 13px;
         font-weight: 300;
         line-height: 1.9;
-        margin-top: 5px;
         color: #c6c9cc;
+        margin-top: 5px;
+
+        a {
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.9;
+            color: #c6c9cc;
+            margin-top: 5px;
+
+            &:is(:hover, :focus) {
+                color: #69a3dd;
+            }
+        }
+
+        margin-top: 5px;
+
 
         &:is(:hover, :focus) {
             color: #c6c9cc;

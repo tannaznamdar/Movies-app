@@ -480,118 +480,234 @@ export default {
       ],
 
       largeAnimationCards: [
-        {
-          slug: 'گارفیلد',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/02/The-Garfield-Movie-2024-207x290.jpg',
+      {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
           link: 'thumbnail',
-          genre: ' انیمیشن ، ماجراجویی ',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
           imdb: '6.3',
-          title: 'انیمیشن گارفیلد ۳ The Garfield 3 Movie 2024 با دوبله فارسی',
-          subtitle: '',
-          hasSubtitle: 'false',
-          actors: 'Chris Pratt، Hannah Waddingham، Samuel L. Jackson',
-          like: 86,
-          director: 'Mark Dindal',
-          hasDirector: true,
-          synopsis: 'گارفیلد پس از یک ملاقات غیرمنتظره با پدر گمشده‌اش، یک گربه خیابانی ژولیده به نام ویک، مجبور...',
-          year: 2024,
-          Country: 'انگلستان',
-          hasBadge: false,
-          btnTitle: 'دانلود انیمیشن'
-        },
-        {
-          slug: 'استاد-مولی',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/05/Master-Moley-2019-207x290.jpg',
-          link: 'thumbnail',
-          genre: ' انیمیشن ، کوتاه',
-          imdb: '6.3',
-          title: 'انیمیشن استاد مولی با دعوت سلطنتی Master Moley 2019 با دوبله فارسی',
-          subtitle: '',
-          hasSubtitle: 'false',
-          actors: 'Gemma Arterton، Togo Igawa، Warwick Davis',
-          like: 86,
-          director: 'Leon Joosen',
-          hasDirector: false,
-          synopsis: 'داستان یک موش کور جوان و ماجراجویی او برای چیدن گل رز از باغ ملکه، بدون اینکه...',
-          year: 2019,
-          Country: 'انگلستان',
-          hasBadge: true,
-          btnTitle: 'دانلود انیمیشن'
-        },
-        {
-          slug: 'پسر-دلفینی',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/03/PesarDolphini-207x290.jpg',
-          link: 'thumbnail',
-          genre: ' درام, تاریخی, رمانتیک',
-          imdb: '6.3',
-          title: 'سریال پسر دلفینی',
+          title: 'شهرزاد',
           subtitle: 'فصل اول قسمت هفتم',
           hasSubtitle: 'true',
-          actors: 'حامد عزیزی، جواد پزشکیان، مهدی امینی',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
           like: 86,
-          director: 'رضا فصاحت',
           hasDirector: true,
-          synopsis: 'پسر دلفینی اکنون یک وظیفه‌ی مهم دارد. او نگهبان دریاست و باید از موجودات دریایی محافظت کند....',
-          year: 2024,
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
           Country: 'ایران',
-          hasBadge: true,
+          hasBadge: false,
           btnTitle: 'دانلود سریال'
         },
         {
-          slug: 'گارفیلد',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/02/The-Garfield-Movie-2024-207x290.jpg',
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
           link: 'thumbnail',
-          genre: ' انیمیشن ، ماجراجویی ',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
           imdb: '6.3',
-          title: 'انیمیشن گارفیلد ۳ The Garfield 3 Movie 2024 با دوبله فارسی',
-          subtitle: '',
-          hasSubtitle: 'false',
-          actors: 'Chris Pratt، Hannah Waddingham، Samuel L. Jackson',
-          like: 86,
-          director: 'Mark Dindal',
-          hasDirector: true,
-          synopsis: 'گارفیلد پس از یک ملاقات غیرمنتظره با پدر گمشده‌اش، یک گربه خیابانی ژولیده به نام ویک، مجبور...',
-          year: 2024,
-          Country: 'انگلستان',
-          hasBadge: false,
-          btnTitle: 'دانلود انیمیشن'
-        },
-        {
-          slug: 'استاد-مولی',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/05/Master-Moley-2019-207x290.jpg',
-          link: 'thumbnail',
-          genre: ' انیمیشن ، کوتاه',
-          imdb: '6.3',
-          title: 'انیمیشن استاد مولی با دعوت سلطنتی Master Moley 2019 با دوبله فارسی',
-          subtitle: '',
-          hasSubtitle: 'false',
-          actors: 'Gemma Arterton، Togo Igawa، Warwick Davis',
-          like: 86,
-          director: 'Leon Joosen',
-          hasDirector: false,
-          synopsis: 'داستان یک موش کور جوان و ماجراجویی او برای چیدن گل رز از باغ ملکه، بدون اینکه...',
-          year: 2019,
-          Country: 'انگلستان',
-          hasBadge: true,
-          btnTitle: 'دانلود انیمیشن'
-        },
-        {
-          slug: 'پسر-دلفینی',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/03/PesarDolphini-207x290.jpg',
-          link: 'thumbnail',
-          genre: ' درام, تاریخی, رمانتیک',
-          imdb: '6.3',
-          title: 'سریال پسر دلفینی',
+          title: 'شهرزاد',
           subtitle: 'فصل اول قسمت هفتم',
           hasSubtitle: 'true',
-          actors: 'حامد عزیزی، جواد پزشکیان، مهدی امینی',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
           like: 86,
-          director: 'رضا فصاحت',
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
           hasDirector: true,
-          synopsis: 'پسر دلفینی اکنون یک وظیفه‌ی مهم دارد. او نگهبان دریاست و باید از موجودات دریایی محافظت کند....',
-          year: 2024,
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
           Country: 'ایران',
-          hasBadge: true,
+          hasBadge: false,
+          btnTitle: 'دانلود سریال'
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+          link: 'thumbnail',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
+          imdb: '6.3',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
+          like: 86,
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
+          hasDirector: true,
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران',
+          hasBadge: false,
+          btnTitle: 'دانلود سریال'
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+          link: 'thumbnail',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
+          imdb: '6.3',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
+          like: 86,
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
+          hasDirector: true,
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران',
+          hasBadge: false,
+          btnTitle: 'دانلود سریال'
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+          link: 'thumbnail',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
+          imdb: '6.3',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
+          like: 86,
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
+          hasDirector: true,
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران',
+          hasBadge: false,
           btnTitle: 'دانلود سریال'
         },
       ],

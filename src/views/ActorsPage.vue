@@ -155,101 +155,236 @@ export default {
         return {
 
             largeCards: [
-                {
-                    slug: 'Dark-Matter',
-                    thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/05/matter-2-207x290.jpg',
-                    link: 'thumbnail',
-                    genre: ' درام ',
-                    imdb: '6.3',
-                    title: 'سریال ماده تاریک Dark Matter فصل اول',
-                    hasSubtitle: 'true',
-                    subtitle: 'فصل 1 قسمت 2',
-                    actors: 'Jennifer Connelly، Joel Edgerton، Oakes Fegley',
-                    like: 86,
-                    director: '',
-                    hasDirector: false,
-                    synopsis: 'یک متخصص فیزیک نجومی ناگهان وارد نسخه ای متفاوت از زندگی اش می شود و هنگام گذر...',
-                    year: 2024,
-                    Country: 'آمریکا',
-                    hasBadge: true,
-                    btnTitle: 'دانلود سریال'
-                },
-                {
-                    slug: 'Yabani',
-                    thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/02/Yabani-1-207x290.jpg',
-                    link: 'thumbnail',
-                    genre: ' درام, رمانتیک',
-                    imdb: '6.3',
-                    title: 'سریال ترکی وحشی Yabani فصل اول',
-                    hasSubtitle: 'true',
-                    subtitle: 'فصل 1 قسمت 6',
-                    actors: 'Halit Özgür Sari، Simay Barlas، Yurdaer Okur',
-                    like: 86,
-                    director: 'Cagatay Tosun',
-                    hasDirector: true,
-                    synopsis: 'پسربچه ای به نام یامان که همراه با دوستانش در خیابان‌ها بزرگ شده و با چالش‌هایی برای...',
-                    year: 2023,
-                    Country: 'ترکیه',
-                    hasBadge: true,
-                    btnTitle: 'دانلود سریال'
-                },
-                {
-                    slug: 'Dark-Matter',
-                    thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/05/matter-2-207x290.jpg',
-                    link: 'thumbnail',
-                    genre: ' درام ',
-                    imdb: '6.3',
-                    title: 'سریال ماده تاریک Dark Matter فصل اول',
-                    hasSubtitle: 'true',
-                    subtitle: 'فصل 1 قسمت 2',
-                    actors: 'Jennifer Connelly، Joel Edgerton، Oakes Fegley',
-                    like: 86,
-                    director: '',
-                    hasDirector: false,
-                    synopsis: 'یک متخصص فیزیک نجومی ناگهان وارد نسخه ای متفاوت از زندگی اش می شود و هنگام گذر...',
-                    year: 2024,
-                    Country: 'آمریکا',
-                    hasBadge: true,
-                    btnTitle: 'دانلود سریال'
-                },
-                {
-                    slug: 'Yabani',
-                    thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/02/Yabani-1-207x290.jpg',
-                    link: 'thumbnail',
-                    genre: ' درام, رمانتیک',
-                    imdb: '6.3',
-                    title: 'سریال ترکی وحشی Yabani فصل اول',
-                    hasSubtitle: 'true',
-                    subtitle: 'فصل 1 قسمت 6',
-                    actors: 'Halit Özgür Sari، Simay Barlas، Yurdaer Okur',
-                    like: 86,
-                    director: 'Cagatay Tosun',
-                    hasDirector: true,
-                    synopsis: 'پسربچه ای به نام یامان که همراه با دوستانش در خیابان‌ها بزرگ شده و با چالش‌هایی برای...',
-                    year: 2023,
-                    Country: 'ترکیه',
-                    hasBadge: true,
-                    btnTitle: 'دانلود سریال'
-                },
-                {
-                    slug: 'Dark-Matter',
-                    thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/05/matter-2-207x290.jpg',
-                    link: 'thumbnail',
-                    genre: ' درام ',
-                    imdb: '6.3',
-                    title: 'سریال ماده تاریک Dark Matter فصل اول',
-                    hasSubtitle: 'true',
-                    subtitle: 'فصل 1 قسمت 2',
-                    actors: 'Jennifer Connelly، Joel Edgerton، Oakes Fegley',
-                    like: 86,
-                    director: '',
-                    hasDirector: false,
-                    synopsis: 'یک متخصص فیزیک نجومی ناگهان وارد نسخه ای متفاوت از زندگی اش می شود و هنگام گذر...',
-                    year: 2024,
-                    Country: 'آمریکا',
-                    hasBadge: true,
-                    btnTitle: 'دانلود سریال'
-                },
+            {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+          link: 'thumbnail',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
+          imdb: '6.3',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
+          like: 86,
+          hasDirector: true,
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران',
+          hasBadge: false,
+          btnTitle: 'دانلود سریال'
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+          link: 'thumbnail',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
+          imdb: '6.3',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
+          like: 86,
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
+          hasDirector: true,
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران',
+          hasBadge: false,
+          btnTitle: 'دانلود سریال'
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+          link: 'thumbnail',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
+          imdb: '6.3',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
+          like: 86,
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
+          hasDirector: true,
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران',
+          hasBadge: false,
+          btnTitle: 'دانلود سریال'
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+          link: 'thumbnail',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
+          imdb: '6.3',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
+          like: 86,
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
+          hasDirector: true,
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران',
+          hasBadge: false,
+          btnTitle: 'دانلود سریال'
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+          link: 'thumbnail',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
+          imdb: '6.3',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
+          like: 86,
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
+          hasDirector: true,
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران',
+          hasBadge: false,
+          btnTitle: 'دانلود سریال'
+        },
             ],
 
             smallCards: [

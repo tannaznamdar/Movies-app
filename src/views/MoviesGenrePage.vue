@@ -151,119 +151,235 @@ export default {
       genre: '',
 
       largeMovieCards: [
-        {
-          slug: 'The-Tearsmith',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/The-Tearsmith-2024-207x290.jpg',
+      {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
           link: 'thumbnail',
-          genre: ' درام, رمانتیک',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
           imdb: '6.3',
-          title: 'فیلم اشک ساز The Tearsmith 2024 با زیرنویس فارسی',
-          hasSubtitle: 'false',
-          subtitle: '',
-          actors: 'Caterina Ferioli، Dana Melanie، Simone Baldasseroni',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
           like: 86,
-          director: ' Alessandro Genovesi',
           hasDirector: true,
-          synopsis: 'نیکا یک دختر یتیم است که والدینش را در یک تصادف وحشتناک از دست داده و در...',
-          year: 2024,
-          Country: 'ایتالیا',
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران',
           hasBadge: false,
-          btnTitle: 'دانلود فیلم'
+          btnTitle: 'دانلود سریال'
         },
         {
-          slug: 'More-Than-Ever',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/More-Than-Ever-2022-207x290.jpg',
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
           link: 'thumbnail',
-          genre: ' درام, رمانتیک',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
           imdb: '6.3',
-          title: 'فیلم بیشتر از همیشه More Than Ever 2022 با زیرنویس فارسی',
-          hasSubtitle: 'false',
-          subtitle: '',
-          actors: 'Bjørn Floberg، Gaspard Ulliel، Vicky Krieps',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
           like: 86,
-          director: '',
-          hasDirector: false,
-          synopsis: 'هلن، زنی 33 ساله اهل بوردو، فرانسه، به عنوان یک زوج در کنار متیو، همسر چندین ساله...',
-          year: 2022,
-          Country: 'فرانسه',
-          hasBadge: true,
-          btnTitle: 'دانلود فیلم'
-        },
-        {
-          slug: 'The-Tearsmith',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/The-Tearsmith-2024-207x290.jpg',
-          link: 'thumbnail',
-          genre: ' درام, رمانتیک',
-          imdb: '6.3',
-          title: 'فیلم اشک ساز The Tearsmith 2024 با زیرنویس فارسی',
-          hasSubtitle: 'false',
-          subtitle: '',
-          actors: 'Caterina Ferioli، Dana Melanie، Simone Baldasseroni',
-          like: 86,
-          director: ' Alessandro Genovesi',
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
           hasDirector: true,
-          synopsis: 'نیکا یک دختر یتیم است که والدینش را در یک تصادف وحشتناک از دست داده و در...',
-          year: 2024,
-          Country: 'ایتالیا',
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران',
           hasBadge: false,
-          btnTitle: 'دانلود فیلم'
+          btnTitle: 'دانلود سریال'
         },
         {
-          slug: 'More-Than-Ever',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/More-Than-Ever-2022-207x290.jpg',
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
           link: 'thumbnail',
-          genre: ' درام, رمانتیک',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
           imdb: '6.3',
-          title: 'فیلم بیشتر از همیشه More Than Ever 2022 با زیرنویس فارسی',
-          hasSubtitle: 'false',
-          subtitle: '',
-          actors: 'Bjørn Floberg، Gaspard Ulliel، Vicky Krieps',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
           like: 86,
-          director: '',
-          hasDirector: false,
-          synopsis: 'هلن، زنی 33 ساله اهل بوردو، فرانسه، به عنوان یک زوج در کنار متیو، همسر چندین ساله...',
-          year: 2022,
-          Country: 'فرانسه',
-          hasBadge: true,
-          btnTitle: 'دانلود فیلم'
-        },
-        {
-          slug: 'The-Tearsmith',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/The-Tearsmith-2024-207x290.jpg',
-          link: 'thumbnail',
-          genre: ' درام, رمانتیک',
-          imdb: '6.3',
-          title: 'فیلم اشک ساز The Tearsmith 2024 با زیرنویس فارسی',
-          hasSubtitle: 'false',
-          subtitle: '',
-          actors: 'Caterina Ferioli، Dana Melanie، Simone Baldasseroni',
-          like: 86,
-          director: ' Alessandro Genovesi',
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
           hasDirector: true,
-          synopsis: 'نیکا یک دختر یتیم است که والدینش را در یک تصادف وحشتناک از دست داده و در...',
-          year: 2024,
-          Country: 'ایتالیا',
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران',
           hasBadge: false,
-          btnTitle: 'دانلود فیلم'
+          btnTitle: 'دانلود سریال'
         },
         {
-          slug: 'More-Than-Ever',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/More-Than-Ever-2022-207x290.jpg',
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
           link: 'thumbnail',
-          genre: ' درام, رمانتیک',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
           imdb: '6.3',
-          title: 'فیلم بیشتر از همیشه More Than Ever 2022 با زیرنویس فارسی',
-          hasSubtitle: 'false',
-          subtitle: '',
-          actors: 'Bjørn Floberg، Gaspard Ulliel، Vicky Krieps',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
           like: 86,
-          director: '',
-          hasDirector: false,
-          synopsis: 'هلن، زنی 33 ساله اهل بوردو، فرانسه، به عنوان یک زوج در کنار متیو، همسر چندین ساله...',
-          year: 2022,
-          Country: 'فرانسه',
-          hasBadge: true,
-          btnTitle: 'دانلود فیلم'
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
+          hasDirector: true,
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران',
+          hasBadge: false,
+          btnTitle: 'دانلود سریال'
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+          link: 'thumbnail',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
+          imdb: '6.3',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
+          like: 86,
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
+          hasDirector: true,
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران',
+          hasBadge: false,
+          btnTitle: 'دانلود سریال'
         },
       ],
 
