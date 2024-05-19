@@ -172,31 +172,74 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
 
       <section class="pb-5">
         <div class="download-box">
-
-          <div class="post-content-download" v-for="downloadItem in downloadItems">
+          <div class="post-content-download" v-for="downloadMovieItem in downloadMovieItems">
             <div class="row align-items-lg-center gutter-6">
               <div class="d-flex justify-content-between">
                 <div class="d-flex align-items-center">
                   <span class="font-text font-text--subtitle font-text--subtitle-gray">
-                    کیفیت: 1080p حجم: 1.88 گیگابایت | کیفیت: 720p حجم: 1.04 گیگابایت
+                    {{ downloadMovieItem.title }}
                   </span>
 
-                  <span class="badge badge--red internal-distance">{{ downloadItem.title }}</span>
+                  <span class="badge badge--red internal-distance" v-if="hasBadge">{{ downloadMovieItem.badgeTitle
+                    }}</span>
                 </div>
 
                 <div class="d-flex">
-                  <button class="button button--medium button--medium-green internal-distance-l">
+                  <button class="button button--medium button--medium-green internal-distance-l" v-if="hasDl1080">
                     <a href="#"> دانلود 1080p </a>
                   </button>
-                  <button class="button button--medium button--medium-green internal-distance-l">
+                  <button class="button button--medium button--medium-green internal-distance-l" v-if="hasDl720">
                     <a href="#"> دانلود 720p </a>
                   </button>
-                  <button class="button button--medium button--medium-green internal-distance-l">
+                  <button class="button button--medium button--medium-green internal-distance-l" v-if="hasDl480">
                     <a href="#"> دانلود 480p </a>
                   </button>
-                  <button class="button button--medium button--medium-yellow">
+                  <button class="button button--medium button--medium-yellow" v-if="hasWatchOnline">
                     <a href="#"> تماشای آنلاین </a>
                   </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="pb-5">
+        <div class="download-box download-box-series">
+          <div class="tab-holder">
+            <button class="table-tab-btn active"> فصل اول </button>
+            <button class="table-tab-btn"> فصل دوم </button>
+          </div>
+
+          <div class="tab-background">
+            <div class="Serial-content-download" v-for="downloadSeriesItem in downloadSeriesItems">
+              <div class="row align-items-lg-center gutter-6">
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <span class="font-text font-text--subtitle font-text--subtitle-gray internal-distance bold-text">{{
+                      downloadSeriesItem.title }} - </span>
+                    <span class="font-text font-text--subtitle font-text--subtitle-gray internal-distance"> {{
+                      downloadSeriesItem.description }}
+                    </span>
+                    <span class="badge badge--red internal-distance" v-if="hasBadge"> {{ downloadSeriesItem.badgeTitle
+                      }}</span>
+                  </div>
+
+                  <div class="d-flex">
+                    <button class="button button--medium button--medium-green internal-distance-l" v-if="hasDl1080">
+                      <a href="#"> دانلود 1080p </a>
+                    </button>
+                    <button class="button button--medium button--medium-green internal-distance-l" v-if="hasDl720">
+                      <a href="#"> دانلود 720p </a>
+                    </button>
+                    <button class="button button--medium button--medium-green internal-distance-l" v-if="hasDl480">
+                      <a href="#"> دانلود 480p </a>
+                    </button>
+                    <button class="button button--medium button--medium-yellow" v-if="hasWatchOnline">
+                      <a href="#"> تماشای آنلاین </a>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -302,9 +345,6 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
     </section>
   </div>
 
-
-
-
 </template>
 
 <script>
@@ -388,15 +428,68 @@ export default {
       NumberOfViews: 115,
       addCommentBox: false,
 
-      downloadItems: [
+      hasDescription: true,
+      hasBadge: true,
+      hasDl480: true,
+      hasDl720: true,
+      hasDl1080: true,
+      hasWatchOnline: true,
+
+      downloadMovieItems: [
         {
-          title: 'دوبله فارسی اول'
+          title: '  کیفیت: 1080p حجم: 1.88 گیگابایت | کیفیت: 720p حجم: 1.04 گیگابایت',
+          hasDescription: false,
+          description: '',
+          hasBadge: true,
+          badgeTitle: 'دوبله فارسی اول'
+
         },
         {
-          title: 'دوبله فارسی دوم'
+          title: '  کیفیت: 1080p حجم: 1.88 گیگابایت | کیفیت: 720p حجم: 1.04 گیگابایت',
+          hasDescription: false,
+          description: '',
+          hasBadge: true,
+          badgeTitle: 'دوبله فارسی دوم'
         },
         {
-          title: 'زیرنویس چسبیده '
+          title: '  کیفیت: 1080p حجم: 1.88 گیگابایت | کیفیت: 720p حجم: 1.04 گیگابایت',
+          hasDescription: false,
+          description: '',
+          hasBadge: true,
+          badgeTitle: 'زیرنویس چسبیده '
+        }
+      ],
+
+
+
+      downloadSeriesItems: [
+        {
+          title: ' قسمت 01 ',
+          hasDescription: false,
+          description: 'زیرنویس فارسی',
+          hasBadge: false,
+
+        },
+        {
+          title: ' قسمت 02 ',
+          hasDescription: true,
+          description: 'زیرنویس فارسی',
+          hasBadge: false,
+
+        },
+        {
+          title: ' قسمت 03 ',
+          hasDescription: true,
+          description: 'زیرنویس فارسی',
+          hasBadge: true,
+          badgeTitle: '10 روز پیش'
+        },
+        {
+          title: ' قسمت 04 ',
+          hasDescription: true,
+          description: 'زیرنویس فارسی',
+          hasBadge: true,
+          badgeTitle: ' 1 روز پیش'
         }
       ],
 
@@ -851,6 +944,10 @@ export default {
   border-radius: 4px;
   background-color: #15151a;
   margin-bottom: 5px;
+
+  &-series {
+    padding: 20px;
+  }
 }
 
 .post-content-download {
@@ -974,6 +1071,50 @@ textarea:focus {
     text-decoration: none;
     color: #c6c9cc;
   }
+}
 
+.tab-holder {
+  width: 100%;
+  margin-right: 0px;
+}
+
+.table-tab-btn {
+  background-color: transparent;
+  text-align: center;
+  width: 238px;
+  height: 48px;
+  border: none;
+  border-radius: 5px 5px 0 0;
+  display: inline-block;
+  padding: 12px;
+  color: #bdbfc3;
+  text-decoration: none;
+  font-size: 13px;
+
+  &:is(:hover, :focus, :active) {
+    background: #23232b;
+    color: #FFF;
+  }
+}
+
+.tab-background {
+  padding: 20px;
+  background-color: #23232b;
+  border-radius: 4px;
+}
+
+.Serial-content-download {
+  padding: 15px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  background-color: #1c1c22;
+  font-size: 13px;
+  font-weight: 300;
+  color: #bbc1c6;
+  width: 100%;
+}
+
+.bold-text {
+  font-weight: 500;
 }
 </style>
