@@ -103,7 +103,6 @@ import Pagination from '@/components/Pagination.vue'
                                     </div>
                                 </div>
 
-                                <div>
                                     <button class="button button-lg button-lg--sidebar mb-3">
                                         <router-link class="active"
                                             :to='{ name: "persianDubPageRoute", params: { slug: "animation" } }'>
@@ -116,7 +115,6 @@ import Pagination from '@/components/Pagination.vue'
                                             های دوبله فارسی
                                         </router-link>
                                     </button>
-                                </div>
                             </div>
                         </section>
 
@@ -576,7 +574,7 @@ export default {
 .main-sidebar-wrap {
     box-shadow: 0 5px 25px rgba(0, 0, 0, .13) !important;
     background-color: #23232b;
-    padding: 0 10px 20px;
+    padding: 10px 20px 20px;
     border-radius: 4px;
 }
 

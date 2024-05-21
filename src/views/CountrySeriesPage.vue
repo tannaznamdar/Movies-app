@@ -101,18 +101,16 @@ import Pagination from '@/components/Pagination.vue'
                   </div>
                 </div>
 
-                <div>
-                  <button class="button button-lg button-lg--sidebar mb-3">
-                    <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: "animation" } }'>
-                      انیمیشن دوبله فارسی
-                    </router-link>
-                  </button>
-                  <button class="button button-lg button-lg--sidebar">
-                    <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: "movies" } }'>فیلم
-                      های دوبله فارسی
-                    </router-link>
-                  </button>
-                </div>
+                <button class="button button-lg button-lg--sidebar mb-3">
+                  <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: "animation" } }'>
+                    انیمیشن دوبله فارسی
+                  </router-link>
+                </button>
+                <button class="button button-lg button-lg--sidebar">
+                  <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: "movies" } }'>فیلم
+                    های دوبله فارسی
+                  </router-link>
+                </button>
               </div>
             </section>
 
@@ -151,7 +149,7 @@ export default {
       country: '',
 
       largeSerialCards: [
-      {
+        {
           slug: 'شهرزاد',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
           link: 'thumbnail',
@@ -577,7 +575,7 @@ export default {
 .main-sidebar-wrap {
   box-shadow: 0 5px 25px rgba(0, 0, 0, .13);
   background-color: #23232b;
-  padding: 0 10px 20px;
+  padding: 10px 20px 20px;
   border-radius: 4px;
 }
 </style>
