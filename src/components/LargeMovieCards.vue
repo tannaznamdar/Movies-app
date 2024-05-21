@@ -1,6 +1,6 @@
 <template>
 
-    <article class=" movieCard mb-3">
+    <article class=" movieCard">
         <div class="row">
 
             <div class="col-lg-3">
@@ -127,9 +127,9 @@ export default {
             type: String,
             default: ''
         },
-        genre: {
-            type: String,
-            default: ' '
+        genres: {
+            type: Array,
+            default: []
         },
         imdb: {
             type: String,
@@ -152,12 +152,12 @@ export default {
             default: ''
         },
         actors: {
-            type: String,
-            default: ''
+            type: Array,
+            default: []
         },
-        director: {
-            type: String,
-            default: ''
+        directors: {
+            type: Array,
+            default: []
         },
         hasDirector: {
             type: Boolean,
@@ -203,6 +203,7 @@ export default {
     padding: 20px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, .13) !important;
     border-radius: 4px;
+    margin-bottom: 20px;
 }
 
 .card-img {

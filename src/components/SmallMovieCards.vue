@@ -82,7 +82,7 @@ export default {
     height: 90px;
     position: relative;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 
     img {
         display: block;
