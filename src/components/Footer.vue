@@ -3,7 +3,7 @@
     <div class="wrapper">
         <footer class="footer pt-5">
             <div class="container bv-example-row">
-                <div class="row  mb-5">
+                <div class="row align-items-center mb-5">
 
                     <div class="col-lg-9">
                         <div class="main-footer-help-section">

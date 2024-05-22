@@ -9,6 +9,7 @@ import movieIcon from '@/assets/images/movie.svg'
 import ImdbYellow from '@/assets/images/imdb-yellow.svg'
 import chat from '@/assets/images/chat.svg'
 import xmarkwhite from '@/assets/images/xmarkwhite.svg'
+import Tag from "@/components/Tag.vue";
 
 </script>
 
@@ -27,117 +28,123 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
 
       <div class="post-header-cover"></div>
       <div class="post-header-grad-info-background"></div>
-      <div class="container bv-example-row mb-5 pt-5">
+      <div class="container-sm bv-example-row mb-5 pt-5">
         <div class="row">
-          <div class="col-lg-2">
-            <a href="#">
-              <figure class="movie-img">
-                <img alt="#" :src="thumbnail">
-              </figure>
-            </a>
-          </div>
-          <div class="col-lg-10 movie-info ">
+          <div class="d-flex flex-row">
             <div>
-              <h1 class="font-text font-text--title">{{ title }}</h1>
-              <span class="font-text font-text--subtitle font-text--subtitle-yellow" v-if="hasSubtitle">{{
-                subtitle
-              }}</span>
-              <div class="post-single-meta">
-                <div class="row">
-                  <div class="col-lg">
-                    <span class="font-text font-text--subtitle" v-for="genre in genres">
-                      <router-link class="active" :to='{ name: "moviesGenrePageRoute", params: { genre: genre.slug } }'>
-                        {{ genre.title }} {{ }}
-                      </router-link>
-                    </span>
-                    <span class="text-white-25 internal-distance">|</span>
-                    <span class="font-text font-text--subtitle">{{ year }}</span>
-                    <span class="text-white-25 internal-distance">|</span>
-
-                    <span class="d-inline-block">
-                      <span class="font-text font-text--subtitle font-text--subtitle-green">{{
-                        age
-                      }}</span>
-                    </span>
-                    <span class="text-white-25 internal-distance">|</span>
-                    <span class="font-text font-text--subtitle">{{ country }}
-                    </span>
-                    <span class="text-white-25 internal-distance">|</span>
-                    <span class="font-text font-text--subtitle"> {{ time }}</span>
-                  </div>
-                  <div class="col-lg-auto">
-                    <tag v-if="hasTag" v-bind="tag"></tag>
-                  </div>
-                </div>
-              </div>
+              <a href="#">
+                <figure class="movie-img">
+                  <img alt="#" :src="thumbnail">
+                </figure>
+              </a>
             </div>
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="row mt-3 mb-3 align-items-center">
 
-                  <div class="col-md-auto col-auto xs-p-0 ml-lg-30 ml-md-15">
-                    <img class="internal-distance" alt="Imdb" :src="ImdbYellow">
-                    <span class="font-text font-text--subtitle"> {{ imdb }}</span>
-                    <span class="font-text font-text--sm-12 internal-distance">از 10 </span>
-                    <span class="font-text font-text--sm-11">از {{ votes }}
-                      رای</span>
-                  </div>
-                  <div class="col-md-auto col-auto  ml-lg-20">
-                    <img class="internal-distance" alt="like" :src="heart">
-                    <span class="font-text font-text--subtitle"> % {{ consent }}
-                    </span>
-                    <span class="font-text font-text--sm-11 internal-distance"> رضایت </span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="post-single-artist  py-20">
-                  <div class="mb-half">
-                    <span class="font-text font-text--subtitle font-text--subtitle-gray"> بازیگران :
-                    </span>
-                    <span class="font-text font-text--subtitle internal-distance" v-if="hasDirector"
-                      v-for="actor in actors">
-                      <router-link class="active" :to='{ name: "actorsPageRoute", params: { actor: actor.slug } }'>
-                        {{ actor.title }}
-                      </router-link>
-                    </span>
-                  </div>
-                  <div>
-                    <span class="font-text font-text--subtitle font-text--subtitle-gray" v-if="hasDirector"> کارگردان :
-                    </span>
-                    <span class="font-text font-text--subtitle internal-distance" v-if="hasDirector"
-                      v-for="director in directors">
-                      <router-link class="active"
-                        :to='{ name: "directorPageRoute", params: { director: director.slug } }'>
-                        {{ director.title }}
-                      </router-link>
-                    </span>
+            <div class="movie-info">
+              <div>
+                <h1 class="font-text font-text--title">{{ title }}</h1>
+                <span class="font-text font-text--subtitle font-text--subtitle-yellow" v-if="hasSubtitle">{{
+                  subtitle
+                }}</span>
+                <div class="post-single-meta">
+                  <div class="row">
+                    <div class="col-lg">
+                      <span class="font-text font-text--subtitle" v-for="genre in genres">
+                        <router-link class="active"
+                          :to='{ name: "moviesGenrePageRoute", params: { genre: genre.slug } }'>
+                          {{ genre.title }} {{ }}
+                        </router-link>
+                      </span>
+                      <span class="text-white-25 internal-distance">|</span>
+                      <span class="font-text font-text--subtitle">{{ year }}</span>
+                      <span class="text-white-25 internal-distance">|</span>
+
+                      <span class="d-inline-block">
+                        <span class="font-text font-text--subtitle font-text--subtitle-green">{{
+                          age
+                        }}</span>
+                      </span>
+                      <span class="text-white-25 internal-distance">|</span>
+                      <span class="font-text font-text--subtitle">{{ country }}
+                      </span>
+                      <span class="text-white-25 internal-distance">|</span>
+                      <span class="font-text font-text--subtitle"> {{ time }}</span>
+                    </div>
+                    <div class="col-lg-auto">
+                      <tag v-if="hasTag" v-bind="tag"></tag>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-12">
-                <div class="pt-3">
-                  <button class="button button--gray button--gray-like">
-                    {{ like }}
-                    <font-awesome-icon icon="thumbs-up" />
-                  </button>
-                  <button class="button button--gray button--gray-dislike internal-distance">
-                    {{ dislike }}
-                    <font-awesome-icon icon="thumbs-down" />
-                  </button>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="row mt-3 mb-3 align-items-center">
+
+                    <div class="col-md-auto col-auto xs-p-0 ml-lg-30 ml-md-15">
+                      <img class="internal-distance" alt="Imdb" :src="ImdbYellow">
+                      <span class="font-text font-text--subtitle"> {{ imdb }}</span>
+                      <span class="font-text font-text--sm-12 internal-distance">از 10 </span>
+                      <span class="font-text font-text--sm-11">از {{ votes }}
+                        رای</span>
+                    </div>
+                    <div class="col-md-auto col-auto  ml-lg-20">
+                      <img class="internal-distance" alt="like" :src="heart">
+                      <span class="font-text font-text--subtitle"> % {{ consent }}
+                      </span>
+                      <span class="font-text font-text--sm-11 internal-distance"> رضایت </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="post-single-artist  py-20">
+                    <div class="mb-half">
+                      <span class="font-text font-text--subtitle font-text--subtitle-gray"> بازیگران :
+                      </span>
+                      <span class="font-text font-text--subtitle internal-distance" v-if="hasDirector"
+                        v-for="actor in actors">
+                        <router-link class="active" :to='{ name: "actorsPageRoute", params: { actor: actor.slug } }'>
+                          {{ actor.title }}
+                        </router-link>
+                      </span>
+                    </div>
+                    <div>
+                      <span class="font-text font-text--subtitle font-text--subtitle-gray" v-if="hasDirector"> کارگردان
+                        :
+                      </span>
+                      <span class="font-text font-text--subtitle internal-distance" v-if="hasDirector"
+                        v-for="director in directors">
+                        <router-link class="active"
+                          :to='{ name: "directorPageRoute", params: { director: director.slug } }'>
+                          {{ director.title }}
+                        </router-link>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="pt-3">
+                    <button class="button button--gray button--gray-like">
+                      {{ like }}
+                      <font-awesome-icon icon="thumbs-up" />
+                    </button>
+                    <button class="button button--gray button--gray-dislike internal-distance">
+                      {{ dislike }}
+                      <font-awesome-icon icon="thumbs-down" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
   </div>
 
   <div class="dark-background pt-4">
-    <div class="container bv-example-row">
+    <div class="container-sm bv-example-row">
 
-      <section>
+      <section class="movie-trailer">
         <div class="row align-items-center">
           <div class="col-lg-6" v-if="hasMovieTrailer">
             <div class="position-relative">
@@ -180,7 +187,8 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
                     {{ downloadMovieItem.title }}
                   </span>
 
-                  <span class="badge badge--red internal-distance" v-if="hasBadge">{{ downloadMovieItem.badgeTitle
+                  <span class="badge badge--red internal-distance" v-if="downloadMovieItem.hasBadge">{{
+                    downloadMovieItem.badgeTitle
                     }}</span>
                 </div>
 
@@ -222,7 +230,8 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
                     <span class="font-text font-text--subtitle font-text--subtitle-gray internal-distance"> {{
                       downloadSeriesItem.description }}
                     </span>
-                    <span class="badge badge--red internal-distance" v-if="hasBadge"> {{ downloadSeriesItem.badgeTitle
+                    <span class="badge badge--red internal-distance" v-if="downloadSeriesItem.hasBadge"> {{
+                      downloadSeriesItem.badgeTitle
                       }}</span>
                   </div>
 
@@ -415,8 +424,8 @@ export default {
       votes: 3000,
       hasTag: true,
       tag: {
-        title: 'زیرنویس چسبیده ',
-        color: 'orange'
+        title: ' دوبله فارسی ',
+        color: 'green'
       },
       poster: "https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-Trailer.jpg",
       video: 'https://trailer.uptvs.com/trailer/Kung-Fu-Panda-4-Trailer.mp4',
@@ -784,11 +793,16 @@ export default {
   padding-right: 15px;
 }
 
+.movie-trailer {
+  border-bottom: 1px solid #1b1c1e;
+  padding-bottom: 20px;
+}
+
 .movie-img {
   z-index: 3;
   display: block;
   border-radius: 4px;
-  width: 100%;
+  width: 207px;
   height: 290px;
   position: relative;
   overflow: hidden;
@@ -811,6 +825,7 @@ export default {
   z-index: 3;
   padding-left: 10px;
   padding-right: 10px;
+  width: 100%;
 }
 
 .font-text {
@@ -1116,5 +1131,9 @@ textarea:focus {
 
 .bold-text {
   font-weight: 500;
+}
+
+.container-sm {
+  max-width: 1140px;
 }
 </style>
