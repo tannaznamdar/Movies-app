@@ -22,18 +22,18 @@ import { Splide, SplideSlide } from '@splidejs/vue-splide';
                 <Splide class="row"
                     :options="{ arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 8, perMove: 1 }"
                     aria-label="My Favorite Images">
-                    <SplideSlide v-for="newMovie in newMovies">
-                        <MovieCards v-bind="newMovie"></MovieCards>
+                    <SplideSlide v-for="oscarMovie in oscarMovies">
+                        <MovieCards v-bind="oscarMovie"></MovieCards>
                     </SplideSlide>
                 </Splide>
             </div>
         </section>
 
-        <section class="pb-4">
+        <section class="pb-1">
             <div class="container bv-example-row">
-                <div class="row">
-                    <div class="col-lg-2" v-for="newMovieCard in newMovieCards">
-                        <MovieCards v-bind="newMovieCard"></MovieCards>
+                <div class="row mb-4">
+                    <div class="col-lg-2" v-for="oscarMovieCard in oscarMovieCards">
+                        <MovieCards v-bind="oscarMovieCard"></MovieCards>
                     </div>
                 </div>
             </div>
@@ -43,16 +43,18 @@ import { Splide, SplideSlide } from '@splidejs/vue-splide';
 
 
 <script>
+
 export default {
-    name: 'newMovies',
+    name: 'OscarMovies',
 
     data() {
         return {
-            titleFa: 'فیلم های جدید ',
-            titleEn: 'Year 2023 / 2024',
-            thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/01/movie2024.jpg',
+            titleFa: 'فیلم های منتخب اسکار ۲۰۲۳',
+            titleEn: 'Oscar 2023',
+            subtitle: ' فیلم های منتخب اسکار ۲۰۲۳ را با دوبله و زیرنویس در آپ تی وی ببینید',
+            thumbnail: 'https://www.uptvs.com/wp-contents/themes/UPnw/assets/oscar2023.jpg',
 
-            newMovies: [
+            oscarMovies: [
                 {
                     slug: 'فیل-شعبده-باز',
                     thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2023/03/The-Magicians-Elephant-2023-1-207x290.jpg',
@@ -220,7 +222,7 @@ export default {
                 },
             ],
 
-            newMovieCards: [
+            oscarMovieCards: [
                 {
                     slug: 'فیل-شعبده-باز',
                     thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2023/03/The-Magicians-Elephant-2023-1-207x290.jpg',
@@ -362,6 +364,7 @@ export default {
 }
 </script>
 
+
 <style scoped lang="scss">
 .cover {
     position: relative;
@@ -375,13 +378,12 @@ export default {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 100%;
     }
 }
 
 .cover-info {
     width: 50%;
-    padding: 200px 50px 200px;
+    padding: 150px 50px 200px;
     margin-top: 80px;
     z-index: 2;
     position: absolute;

@@ -22,8 +22,8 @@ import { Splide, SplideSlide } from '@splidejs/vue-splide';
                 <Splide class="row"
                     :options="{ arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 8, perMove: 1 }"
                     aria-label="My Favorite Images">
-                    <SplideSlide v-for="newMovie in newMovies">
-                        <MovieCards v-bind="newMovie"></MovieCards>
+                    <SplideSlide v-for="freeMovie in freeMovies">
+                        <MovieCards v-bind="freeMovie"></MovieCards>
                     </SplideSlide>
                 </Splide>
             </div>
@@ -31,9 +31,9 @@ import { Splide, SplideSlide } from '@splidejs/vue-splide';
 
         <section class="pb-4">
             <div class="container bv-example-row">
-                <div class="row">
-                    <div class="col-lg-2" v-for="newMovieCard in newMovieCards">
-                        <MovieCards v-bind="newMovieCard"></MovieCards>
+                <div class="row ">
+                    <div class="col-lg-2" v-for="freeMovieCard in freeMovieCards">
+                        <MovieCards v-bind="freeMovieCard"></MovieCards>
                     </div>
                 </div>
             </div>
@@ -44,15 +44,15 @@ import { Splide, SplideSlide } from '@splidejs/vue-splide';
 
 <script>
 export default {
-    name: 'newMovies',
+    name: 'FreeMovies',
 
     data() {
         return {
-            titleFa: 'فیلم های جدید ',
-            titleEn: 'Year 2023 / 2024',
-            thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/01/movie2024.jpg',
+            titleFa: 'فیلم های ایرانی رایگان',
+            titleEn: 'Free Iranian Movie',
+            thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/01/Ghorbaghe.jpg',
 
-            newMovies: [
+            freeMovies: [
                 {
                     slug: 'فیل-شعبده-باز',
                     thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2023/03/The-Magicians-Elephant-2023-1-207x290.jpg',
@@ -220,7 +220,7 @@ export default {
                 },
             ],
 
-            newMovieCards: [
+            freeMovieCards: [
                 {
                     slug: 'فیل-شعبده-باز',
                     thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2023/03/The-Magicians-Elephant-2023-1-207x290.jpg',

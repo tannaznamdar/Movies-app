@@ -25,7 +25,7 @@ body {
   font-weight: 300;
   font-size: 13px;
   line-height: 1.9;
-  background-color: #16161b
+  background-color: #101014;
 }
 
 @font-face {
@@ -59,7 +59,7 @@ body {
     padding: 0;
 
     a {
-      color: #b8daff;
+      color: #6898f8;
       font-size: 11px;
     }
 
@@ -68,17 +68,52 @@ body {
         color: #3777f6;
       }
     }
+
+    &-gray {
+      a {
+        color: #c6c9cc;
+        font-size: 13px;
+      }
+
+      &:is(:hover, :focus) {
+        a {
+          color: #b8daff;
+        }
+      }
+    }
   }
 
-  &-transparent{
+  &-transparent {
     display: inherit;
     background: transparent;
     padding: 0;
     color: #999;
     font-size: 13px;
-    
-    &:is(:hover, :focus) {
-      color: #fff;
+
+    &-like {
+      i {
+        color: #999;
+      }
+
+      &:is(:hover, :focus) {
+        color: #FF7555;
+
+        i {
+          color: #FF7555;
+        }
+      }
+    }
+
+    &-dislike {
+      color: #999;
+
+      &:is(:hover, :focus) {
+        color: #89d64f;
+
+        i {
+          color: #89d64f;
+        }
+      }
     }
   }
 
@@ -93,11 +128,31 @@ body {
     }
 
     &-like {
-      color: #FF7555 !important;
+      color: #cbcfd3;
+
+      i {
+        color: #fff;
+      }
+
+      &:is(:hover, :focus) {
+        color: #FF7555;
+
+        i {
+          color: #FF7555;
+        }
+      }
     }
 
     &-dislike {
-      color: #89d64f !important;
+      color: #cbcfd3;
+
+      &:is(:hover, :focus) {
+        color: #89d64f;
+
+        i {
+          color: #89d64f;
+        }
+      }
     }
   }
 
@@ -223,8 +278,7 @@ body {
 
     &:is(:hover, :focus) {
 
-        color: #fff;
-
+      color: #fff;
 
       i {
         color: #fff;
@@ -232,6 +286,25 @@ body {
 
       background-color: #89d64f;
       border-color: #89d64f;
+    }
+  }
+
+  &--outline-white {
+    background-color: transparent;
+    color: #c6c9cc;
+    cursor: pointer;
+    border: 1px #ddd solid;
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 10px;
+
+    &:is(:hover, :focus) {
+
+      color: #6898f8;
+
+      i {
+        color: #6898f8;
+      }
     }
   }
 
@@ -261,17 +334,19 @@ body {
 
     &--sidebar {
       border: 1px solid transparent;
-      background-color: #292931;
-      border-color: #292931;
+      background-color: #1c1c22;
+      border-color: #1c1c22;
 
       a {
-        color: #bec4cb;
+        color: #8e949a;
         font-size: 14px;
         line-height: 2;
       }
 
       &:is(:hover, :focus) {
-        background-color: #1c1c22;
+        color: #bec4cb;
+        background-color: #292931;
+        border-color: #292931;
       }
     }
   }

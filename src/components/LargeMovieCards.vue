@@ -1,6 +1,6 @@
 <template>
 
-    <article class=" movieCard mb-3">
+    <article class=" movieCard">
         <div class="row">
 
             <div class="col-lg-3">
@@ -10,7 +10,6 @@
                     </figure>
                 </router-link>
             </div>
-
 
             <div class="col-lg-9">
                 <div>
@@ -23,10 +22,15 @@
                     </div>
                 </div>
 
-                <div class="card-info d-flex d-grid gap-4">
+                <div class="card-info d-flex d-grid gap-4 mt-2">
                     <div>
                         <font-awesome-icon class="icon" icon="bars" style="color: #ffffff;" />
-                        <span class="card-text card-text--subtitle">{{ genre }}</span>
+                        <span class="card-text card-text--subtitle" v-for="genre in genres">
+                            <router-link class="active"
+                                :to='{ name: "moviesGenrePageRoute", params: { genre: genre.slug } }'>
+                                {{ genre.title }} {{ }}
+                            </router-link>
+                        </span>
                     </div>
 
                     <div>
@@ -37,13 +41,23 @@
                 </div>
 
                 <div>
-                    <div class="d-flex d-grid gap-4">
+                    <div class="d-flex d-grid gap-4 align-items-center">
                         <span class="card-text card-text--subtitle">بازیگران:</span>
-                        <span class="card-text card-text--subtitle">{{ actors }}</span>
+                        <span class="card-text card-text--subtitle" v-for="actor in actors">
+                            <router-link class="active"
+                                :to='{ name: "actorsPageRoute", params: { actor: actor.slug } }'>
+                                {{ actor.title }}
+                            </router-link>
+                        </span>
                     </div>
-                    <div class="d-flex d-grid gap-4" v-if="hasDirector">
+                    <div class="d-flex d-grid gap-4 align-items-center" v-if="hasDirector">
                         <span class="card-text card-text--subtitle">کارگردان:</span>
-                        <span class="card-text card-text--subtitle"> {{ director }}</span>
+                        <span class="card-text card-text--subtitle" v-for="director in directors">
+                            <router-link class="active"
+                                :to='{ name: "directorPageRoute", params: { director: director.slug } }'>
+                                {{ director.title }}
+                            </router-link>
+                        </span>
                     </div>
                 </div>
 
@@ -76,7 +90,7 @@
 
                         <router-link :to='{ name: "titlePageRoute", params: { slug } }'>
                             <font-awesome-icon class="internal-distance-l" icon="download" style="color: #164ea2;" />
-                            دانلود سریال </router-link>
+                            {{ btnTitle }} </router-link>
 
                     </button>
                 </div>
@@ -113,9 +127,9 @@ export default {
             type: String,
             default: ''
         },
-        genre: {
-            type: String,
-            default: ' '
+        genres: {
+            type: Array,
+            default: []
         },
         imdb: {
             type: String,
@@ -129,17 +143,21 @@ export default {
             type: String,
             default: ''
         },
+        hasSubtitle: {
+            type: Boolean,
+            default: false
+        },
         like: {
             type: Number,
             default: ''
         },
         actors: {
-            type: String,
-            default: ''
+            type: Array,
+            default: []
         },
-        director: {
-            type: String,
-            default: ''
+        directors: {
+            type: Array,
+            default: []
         },
         hasDirector: {
             type: Boolean,
@@ -161,6 +179,10 @@ export default {
             type: Boolean,
             default: false
         },
+        btnTitle: {
+            type: String,
+            default: 'دانلود'
+        }
     },
 
     data() {
@@ -181,6 +203,7 @@ export default {
     padding: 20px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, .13) !important;
     border-radius: 4px;
+    margin-bottom: 20px;
 }
 
 .card-img {
@@ -224,11 +247,28 @@ export default {
     }
 
     &--subtitle {
+        text-decoration: none;
         font-size: 13px;
         font-weight: 300;
         line-height: 1.9;
-        margin-top: 5px;
         color: #c6c9cc;
+        margin-top: 5px;
+
+        a {
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.9;
+            color: #c6c9cc;
+            margin-top: 5px;
+
+            &:is(:hover, :focus) {
+                color: #69a3dd;
+            }
+        }
+
+        margin-top: 5px;
+
 
         &:is(:hover, :focus) {
             color: #c6c9cc;
@@ -239,7 +279,6 @@ export default {
         font-family: inherit;
         line-height: 1.3;
         color: #c6c9cc;
-        margin: 0;
         margin-bottom: 5px;
         font-weight: 300;
         font-size: 12px;

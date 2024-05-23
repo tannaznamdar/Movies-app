@@ -1,7 +1,6 @@
 <template>
 
     <article class="small-card">
-
         <router-link :to='{ name: "titlePageRoute", params: { slug } }'>
             <figure class="card-img">
                 <img alt="#" :src="thumbnail">
@@ -11,7 +10,6 @@
                 <tag v-if="hasTag" v-bind="tag"></tag>
             </div>
         </router-link>
-
     </article>
 </template>
 
@@ -84,7 +82,7 @@ export default {
     height: 90px;
     position: relative;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 
     img {
         display: block;

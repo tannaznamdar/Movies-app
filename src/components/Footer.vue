@@ -3,7 +3,7 @@
     <div class="wrapper">
         <footer class="footer pt-5">
             <div class="container bv-example-row">
-                <div class="row  mb-5">
+                <div class="row align-items-center mb-5">
 
                     <div class="col-lg-9">
                         <div class="main-footer-help-section">
@@ -20,7 +20,8 @@
                                         <div class="col pt-half">
                                             <a class="footer-item" href="#">
                                                 <span class="text-gray">مورد نیاز </span>
-                                                <h6>نرم‌افزار‌های پخش فیلم <font-awesome-icon class="text-gray" icon="arrow-left" /></h6>
+                                                <h6>نرم‌افزار‌های پخش فیلم <font-awesome-icon class="text-gray"
+                                                        icon="arrow-left" /></h6>
                                             </a>
                                         </div>
 
@@ -38,8 +39,9 @@
 
                                         <div class="col pt-half">
                                             <a class="footer-item" href="#">
-                                                <span class="text-gray">پخش دوبله  </span>
-                                                <h6>راهنمای تنظیم صدا <font-awesome-icon class="text-gray" icon="arrow-left" /></h6>
+                                                <span class="text-gray">پخش دوبله </span>
+                                                <h6>راهنمای تنظیم صدا <font-awesome-icon class="text-gray"
+                                                        icon="arrow-left" /></h6>
                                             </a>
                                         </div>
 
@@ -58,7 +60,8 @@
                                         <div class="col pt-half">
                                             <a class="footer-item" href="#">
                                                 <span class="text-gray">مورد نیاز</span>
-                                                <h6> راهنمای فرمت ها  <font-awesome-icon class="text-gray" icon="arrow-left" /></h6>
+                                                <h6> راهنمای فرمت ها <font-awesome-icon class="text-gray"
+                                                        icon="arrow-left" /></h6>
                                             </a>
                                         </div>
                                     </div>
@@ -81,7 +84,8 @@
                             </div>
                         </button>
 
-                        <button class="button button-lg button-lg--telegram d-flex justify-content-between align-items-center">
+                        <button
+                            class="button button-lg button-lg--telegram d-flex justify-content-between align-items-center">
                             <div>
                                 <img class="internal-distance" alt="logo" :src="telegramIcon">
                                 <router-link class="active" to='/'> کانال تلگرام </router-link>
@@ -139,9 +143,9 @@
                     </div>
                 </div>
 
-                    <p class="copyright">استفاده از محتوا و لینک های دانلود آپ تی وی، مجاز نمی باشد. تمامی حقوق این سایت به
+                <p class="copyright">استفاده از محتوا و لینک های دانلود آپ تی وی، مجاز نمی باشد. تمامی حقوق این سایت به
                     نام آپ تی وی محفوظ است.</p>
-                
+
             </div>
         </footer>
     </div>
@@ -211,10 +215,6 @@ export default {
 
 
 <style scoped lang="scss">
-.footer{
-    background-color: #16161b;
-}
-
 .main-footer-help-section {
     background-color: #23232b;
     padding: 30px;
@@ -222,7 +222,7 @@ export default {
     box-shadow: 0 5px 25px rgba(0, 0, 0, .13) !important;
 }
 
-.badge{
+.badge {
     width: 62px;
     display: inline-block;
     height: 62px;
@@ -231,17 +231,17 @@ export default {
     font-size: 17px;
     border-radius: 5px;
 
-    &--yellow{
+    &--yellow {
         color: #ffc107;
-    background-color: #ffc10729;
+        background-color: #ffc10729;
     }
 
-    &--blue{
+    &--blue {
         color: #6898f8;
-    background-color: #6898f824;
+        background-color: #6898f824;
     }
 
-    &--green{
+    &--green {
         color: #89d64f;
         background-color: #89d64f26;
     }
@@ -260,7 +260,7 @@ export default {
     font-size: 12px;
 }
 
-.icon-size{
+.icon-size {
     font-size: 22px;
 }
 
@@ -311,17 +311,17 @@ export default {
     font-weight: 500;
 }
 
-.gear-icon{
+.gear-icon {
     font-size: 20px;
     margin-left: 5px;
-    color: #89d64f ;
+    color: #89d64f;
 }
 
-.icon-background{
+.icon-background {
     background: rgba(255, 255, 255, .15);
     width: 22px;
     height: 22px;
-    border-radius:100%;
+    border-radius: 100%;
     padding: 3px 7px 0 0;
 }
 
@@ -331,7 +331,7 @@ export default {
     display: block;
 }
 
-.internal-distance{
+.internal-distance {
     margin-left: 5px;
 }
 
@@ -343,5 +343,4 @@ export default {
     padding-top: 20px;
     padding-bottom: 30px;
 }
-
 </style>

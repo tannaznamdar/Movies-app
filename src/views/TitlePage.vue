@@ -3,14 +3,13 @@
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import SinglePageCards from "@/components/SinglePageCards.vue";
 import heart from '@/assets/images/heart.svg'
-import likeSvg from '@/assets/images/like-orange.svg'
-import dislikeSvg from '@/assets/images/dislike-green.svg'
 import videoSvg from '@/assets/images/video-gray.svg'
 import downloadSvg from '@/assets/images/download.svg'
 import movieIcon from '@/assets/images/movie.svg'
 import ImdbYellow from '@/assets/images/imdb-yellow.svg'
 import chat from '@/assets/images/chat.svg'
 import xmarkwhite from '@/assets/images/xmarkwhite.svg'
+import Tag from "@/components/Tag.vue";
 
 </script>
 
@@ -18,128 +17,136 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
   <div class="container-fluid gx-0">
 
     <section class="post-header">
-      <div class="uptvs-big-play" v-if="hasPlayOnline">
-        <a href="#" class="ic">
-          <svg fill="#fba087" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 459 459" xml:space="preserve">
-            <g>
-              <g>
-                <path
-                  d="M229.5,0C102.751,0,0,102.751,0,229.5S102.751,459,229.5,459S459,356.249,459,229.5S356.249,0,229.5,0z M310.292,239.651l-111.764,76.084c-3.761,2.56-8.63,2.831-12.652,0.704c-4.022-2.128-6.538-6.305-6.538-10.855V153.416c0-4.55,2.516-8.727,6.538-10.855c4.022-2.127,8.891-1.857,12.652,0.704l111.764,76.084c3.359,2.287,5.37,6.087,5.37,10.151C315.662,233.564,313.652,237.364,310.292,239.651z">
-                </path>
-              </g>
-            </g>
-          </svg>
-        </a>
+
+      <div class="uptvs-big-play mt-5" v-if="hasPlayOnline">
+        <button type="button" class="video-play-button">
+          <span></span>
+        </button>
+        <div v-if="showOverlay" class="video-overlay"> <button class="video-overlay-close"></button>
+        </div>
       </div>
-      <div class="post-header-cover" v-if="hasPlayOnline"></div>
+
+      <div class="post-header-cover"></div>
       <div class="post-header-grad-info-background"></div>
-      <div class="container bv-example-row mb-5">
+      <div class="container-sm bv-example-row mb-5 pt-5">
         <div class="row">
-          <div class="col-lg-2">
-            <a href="#">
-              <figure class="movie-img">
-                <img alt="#" :src="thumbnail">
-              </figure>
-            </a>
-          </div>
-          <div class="col-lg-10 movie-info ">
+          <div class="d-flex flex-row">
             <div>
-              <h1 class="font-text font-text--title">{{ title }}</h1>
-              <span class="font-text font-text--subtitle font-text--subtitle-yellow" v-if="hasSubtitle">{{
-                subtitle
-              }}</span>
-              <div class="post-single-meta">
-                <div class="row">
-                  <div class="col-lg">
-                    <span class="font-text font-text--subtitle">
-                      <a href="#">{{ genre }}</a>
-                      ،
-                      <a href="#"> {{ genre2 }} </a>
-                    </span>
-                    <span class="text-white-25 internal-distance">|</span>
-                    <span class="font-text font-text--subtitle">{{ year }}</span>
-                    <span class="text-white-25 internal-distance">|</span>
-
-                    <span class="d-inline-block">
-                      <span class="font-text font-text--subtitle font-text--subtitle-green">{{
-                        age
-                      }}</span>
-                    </span>
-                    <span class="text-white-25 internal-distance">|</span>
-                    <span class="font-text font-text--subtitle">{{ country }}
-                    </span>
-                    <span class="text-white-25 internal-distance">|</span>
-                    <span class="font-text font-text--subtitle"> {{ time }}</span>
-                  </div>
-                  <div class="col-lg-auto">
-                    <tag v-if="hasTag" v-bind="tag"></tag>
-                  </div>
-                </div>
-              </div>
+              <a href="#">
+                <figure class="movie-img">
+                  <img alt="#" :src="thumbnail">
+                </figure>
+              </a>
             </div>
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="row mt-3 mb-3 align-items-center">
 
-                  <div class="col-md-auto col-auto xs-p-0 ml-lg-30 ml-md-15">
-                    <img class="internal-distance" alt="Imdb" :src="ImdbYellow">
-                    <span class="font-text font-text--subtitle"> {{ imdb }}</span>
-                    <span class="font-text font-text--sm-12 internal-distance">از 10 </span>
-                    <span class="font-text font-text--sm-11">از {{ votes }}
-                      رای</span>
-                  </div>
-                  <div class="col-md-auto col-auto  ml-lg-20">
-                    <img class="internal-distance" alt="like" :src="heart">
-                    <span class="font-text font-text--subtitle"> % {{ consent }}
-                    </span>
-                    <span class="font-text font-text--sm-11 internal-distance"> رضایت </span>
+            <div class="movie-info">
+              <div>
+                <h1 class="font-text font-text--title">{{ title }}</h1>
+                <span class="font-text font-text--subtitle font-text--subtitle-yellow" v-if="hasSubtitle">{{
+                  subtitle
+                }}</span>
+                <div class="post-single-meta">
+                  <div class="row">
+                    <div class="col-lg">
+                      <span class="font-text font-text--subtitle" v-for="genre in genres">
+                        <router-link class="active"
+                          :to='{ name: "moviesGenrePageRoute", params: { genre: genre.slug } }'>
+                          {{ genre.title }} {{ }}
+                        </router-link>
+                      </span>
+                      <span class="text-white-25 internal-distance">|</span>
+                      <span class="font-text font-text--subtitle">{{ year }}</span>
+                      <span class="text-white-25 internal-distance">|</span>
+
+                      <span class="d-inline-block">
+                        <span class="font-text font-text--subtitle font-text--subtitle-green">{{
+                          age
+                        }}</span>
+                      </span>
+                      <span class="text-white-25 internal-distance">|</span>
+                      <span class="font-text font-text--subtitle">{{ country }}
+                      </span>
+                      <span class="text-white-25 internal-distance">|</span>
+                      <span class="font-text font-text--subtitle"> {{ time }}</span>
+                    </div>
+                    <div class="col-lg-auto">
+                      <tag v-if="hasTag" v-bind="tag"></tag>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-12">
-                <div class="post-single-artist  py-20">
-                  <div class="mb-half">
-                    <span class="font-text font-text--subtitle font-text--subtitle-gray"> بازیگران :
-                    </span>
-                    <span class="font-text font-text--subtitle internal-distance">{{
-                      actors
-                    }}</span>
-                  </div>
-                  <div class="">
-                    <span class="font-text font-text--subtitle font-text--subtitle-gray" v-if="hasDirector"> کارگردان :
-                    </span>
-                    <span class="font-text font-text--subtitle internal-distance" v-if="hasDirector">{{
-                      director
-                    }}</span>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="row mt-3 mb-3 align-items-center">
+
+                    <div class="col-md-auto col-auto xs-p-0 ml-lg-30 ml-md-15">
+                      <img class="internal-distance" alt="Imdb" :src="ImdbYellow">
+                      <span class="font-text font-text--subtitle"> {{ imdb }}</span>
+                      <span class="font-text font-text--sm-12 internal-distance">از 10 </span>
+                      <span class="font-text font-text--sm-11">از {{ votes }}
+                        رای</span>
+                    </div>
+                    <div class="col-md-auto col-auto  ml-lg-20">
+                      <img class="internal-distance" alt="like" :src="heart">
+                      <span class="font-text font-text--subtitle"> % {{ consent }}
+                      </span>
+                      <span class="font-text font-text--sm-11 internal-distance"> رضایت </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="pt-3">
-                  <button class="button button--gray button--gray-like">
-                    {{ like }}
-                    <img alt="like" :src="likeSvg">
-                  </button>
-                  <button class="button button--gray button--gray-dislike internal-distance">
-                    {{ dislike }}
-                    <img alt="dislike" :src="dislikeSvg">
-                  </button>
+                <div class="col-lg-12">
+                  <div class="post-single-artist  py-20">
+                    <div class="mb-half">
+                      <span class="font-text font-text--subtitle font-text--subtitle-gray"> بازیگران :
+                      </span>
+                      <span class="font-text font-text--subtitle internal-distance" v-if="hasDirector"
+                        v-for="actor in actors">
+                        <router-link class="active" :to='{ name: "actorsPageRoute", params: { actor: actor.slug } }'>
+                          {{ actor.title }}
+                        </router-link>
+                      </span>
+                    </div>
+                    <div>
+                      <span class="font-text font-text--subtitle font-text--subtitle-gray" v-if="hasDirector"> کارگردان
+                        :
+                      </span>
+                      <span class="font-text font-text--subtitle internal-distance" v-if="hasDirector"
+                        v-for="director in directors">
+                        <router-link class="active"
+                          :to='{ name: "directorPageRoute", params: { director: director.slug } }'>
+                          {{ director.title }}
+                        </router-link>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="pt-3">
+                    <button class="button button--gray button--gray-like">
+                      {{ like }}
+                      <font-awesome-icon icon="thumbs-up" />
+                    </button>
+                    <button class="button button--gray button--gray-dislike internal-distance">
+                      {{ dislike }}
+                      <font-awesome-icon icon="thumbs-down" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
   </div>
 
   <div class="dark-background pt-4">
-    <div class="container bv-example-row">
+    <div class="container-sm bv-example-row">
 
-      <section>
+      <section class="movie-trailer">
         <div class="row align-items-center">
-          <div class="col-lg-6">
+          <div class="col-lg-6" v-if="hasMovieTrailer">
             <div class="position-relative">
               <video class="video-box" controls="" :poster="poster" preload="none">
                 <source :src="video" type="video/mp4">
@@ -147,7 +154,7 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
               </video>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-md">
             <h4 class="font-text font-text--title">
               <img class="internal-distance" alt="video" :src="videoSvg">
               داستان انیمیشن
@@ -172,31 +179,76 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
 
       <section class="pb-5">
         <div class="download-box">
-
-          <div class="post-content-download" v-for="downloadItem in downloadItems">
+          <div class="post-content-download" v-for="downloadMovieItem in downloadMovieItems">
             <div class="row align-items-lg-center gutter-6">
               <div class="d-flex justify-content-between">
                 <div class="d-flex align-items-center">
                   <span class="font-text font-text--subtitle font-text--subtitle-gray">
-                    کیفیت: 1080p حجم: 1.88 گیگابایت | کیفیت: 720p حجم: 1.04 گیگابایت
+                    {{ downloadMovieItem.title }}
                   </span>
 
-                  <span class="badge badge--red internal-distance">{{ downloadItem.title }}</span>
+                  <span class="badge badge--red internal-distance" v-if="downloadMovieItem.hasBadge">{{
+                    downloadMovieItem.badgeTitle
+                    }}</span>
                 </div>
 
                 <div class="d-flex">
-                  <button class="button button--medium button--medium-green internal-distance-l">
+                  <button class="button button--medium button--medium-green internal-distance-l" v-if="hasDl1080">
                     <a href="#"> دانلود 1080p </a>
                   </button>
-                  <button class="button button--medium button--medium-green internal-distance-l">
+                  <button class="button button--medium button--medium-green internal-distance-l" v-if="hasDl720">
                     <a href="#"> دانلود 720p </a>
                   </button>
-                  <button class="button button--medium button--medium-green internal-distance-l">
+                  <button class="button button--medium button--medium-green internal-distance-l" v-if="hasDl480">
                     <a href="#"> دانلود 480p </a>
                   </button>
-                  <button class="button button--medium button--medium-yellow">
+                  <button class="button button--medium button--medium-yellow" v-if="hasWatchOnline">
                     <a href="#"> تماشای آنلاین </a>
                   </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="pb-5">
+        <div class="download-box download-box-series">
+          <div class="tab-holder">
+            <button class="table-tab-btn active"> فصل اول </button>
+            <button class="table-tab-btn"> فصل دوم </button>
+          </div>
+
+          <div class="tab-background">
+            <div class="Serial-content-download" v-for="downloadSeriesItem in downloadSeriesItems">
+              <div class="row align-items-lg-center gutter-6">
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <span class="font-text font-text--subtitle font-text--subtitle-gray internal-distance bold-text">{{
+                      downloadSeriesItem.title }} - </span>
+                    <span class="font-text font-text--subtitle font-text--subtitle-gray internal-distance"> {{
+                      downloadSeriesItem.description }}
+                    </span>
+                    <span class="badge badge--red internal-distance" v-if="downloadSeriesItem.hasBadge"> {{
+                      downloadSeriesItem.badgeTitle
+                      }}</span>
+                  </div>
+
+                  <div class="d-flex">
+                    <button class="button button--medium button--medium-green internal-distance-l" v-if="hasDl1080">
+                      <a href="#"> دانلود 1080p </a>
+                    </button>
+                    <button class="button button--medium button--medium-green internal-distance-l" v-if="hasDl720">
+                      <a href="#"> دانلود 720p </a>
+                    </button>
+                    <button class="button button--medium button--medium-green internal-distance-l" v-if="hasDl480">
+                      <a href="#"> دانلود 480p </a>
+                    </button>
+                    <button class="button button--medium button--medium-yellow" v-if="hasWatchOnline">
+                      <a href="#"> تماشای آنلاین </a>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -261,20 +313,20 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
             <div class="row vcard gutter-x-6 gutter-y-0 pb-2">
               <div class=" d-flex flex-row   align-items-center justify-content-between">
                 <div>
-                  <font-awesome-icon class="user-icon internal-distance" icon="user" />
+                  <font-awesome-icon class="user-icon ernalint-distance" icon="user" />
                   <span class="font-text font-text--sm-15 internal-distance">{{ comment.userName }}</span>
                   <span class="font-text font-text--sm-12 font-text-gray internal-distance">
                     {{ comment.messageTime }} </span>
                 </div>
 
                 <div class="d-flex">
-                  <button class="button button-transparent internal-distance">
-                    <img class="internal-distance" alt="like" :src="likeSvg">
+                  <button class="button button-transparent button-transparent-like internal-distance">
+                    <font-awesome-icon class="internal-distance-l" icon="thumbs-up" />
                     {{ comment.commentLike }}
                   </button>
 
-                  <button class="button button-transparent internal-distance">
-                    <img class="internal-distance" alt="dislike" :src="dislikeSvg">
+                  <button class="button button-transparent button-transparent-dislike internal-distance">
+                    <font-awesome-icon class="internal-distance-l" icon="thumbs-down" />
                     {{ comment.commentDislike }}
                   </button>
                 </div>
@@ -302,9 +354,6 @@ import xmarkwhite from '@/assets/images/xmarkwhite.svg'
     </section>
   </div>
 
-
-
-
 </template>
 
 <script>
@@ -324,17 +373,46 @@ export default {
   data() {
     return {
 
+      showOverlay: true,
+      videoSrc: 'https://www.youtube.com/embed/ngElkyQ6Rhs',
+      hasMovieTrailer: true,
       hasPlayOnline: true,
       thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-207x290.jpg',
       link: 'thumbnail',
       title: 'انیمیشن پاندای کونگ فوکار ۴ Kung Fu Panda 4 2024',
       hasSubtitle: true,
       subtitle: 'قسمت 4',
-      genre: 'انیمیشن',
-      genre2: 'اکشن',
-      actors: 'Awkwafina، Jack Black، Viola Davis',
+      genres: [
+        {
+          title: 'درام',
+          slug: 'drama'
+        },
+        {
+          title: 'عاشقانه',
+          slug: 'romance'
+        }
+      ],
+      actors: [
+        {
+          title: 'Awkwafina',
+          slug: 'awkwafina'
+        },
+        {
+          title: 'Jack Black',
+          slug: 'Jack-Black'
+        },
+        {
+          title: 'Viola Davis',
+          slug: 'Viola-Davis'
+        }
+      ],
       hasDirector: true,
-      director: 'Mike Mitchell',
+      directors: [
+        {
+          title: 'Mike Mitchell',
+          slug: 'Mike-Mitchell'
+        }
+      ],
       year: '2024',
       time: '94 دقیقه ',
       country: 'آمریکا',
@@ -346,8 +424,8 @@ export default {
       votes: 3000,
       hasTag: true,
       tag: {
-        title: 'زیرنویس چسبیده ',
-        color: 'orange'
+        title: ' دوبله فارسی ',
+        color: 'green'
       },
       poster: "https://www.uptvs.com/wp-contents/uploads/2024/03/Kung-Fu-Panda-4-Trailer.jpg",
       video: 'https://trailer.uptvs.com/trailer/Kung-Fu-Panda-4-Trailer.mp4',
@@ -359,15 +437,68 @@ export default {
       NumberOfViews: 115,
       addCommentBox: false,
 
-      downloadItems: [
+      hasDescription: true,
+      hasBadge: true,
+      hasDl480: true,
+      hasDl720: true,
+      hasDl1080: true,
+      hasWatchOnline: true,
+
+      downloadMovieItems: [
         {
-          title: 'دوبله فارسی اول'
+          title: '  کیفیت: 1080p حجم: 1.88 گیگابایت | کیفیت: 720p حجم: 1.04 گیگابایت',
+          hasDescription: false,
+          description: '',
+          hasBadge: true,
+          badgeTitle: 'دوبله فارسی اول'
+
         },
         {
-          title: 'دوبله فارسی دوم'
+          title: '  کیفیت: 1080p حجم: 1.88 گیگابایت | کیفیت: 720p حجم: 1.04 گیگابایت',
+          hasDescription: false,
+          description: '',
+          hasBadge: true,
+          badgeTitle: 'دوبله فارسی دوم'
         },
         {
-          title: 'زیرنویس چسبیده '
+          title: '  کیفیت: 1080p حجم: 1.88 گیگابایت | کیفیت: 720p حجم: 1.04 گیگابایت',
+          hasDescription: false,
+          description: '',
+          hasBadge: true,
+          badgeTitle: 'زیرنویس چسبیده '
+        }
+      ],
+
+
+
+      downloadSeriesItems: [
+        {
+          title: ' قسمت 01 ',
+          hasDescription: false,
+          description: 'زیرنویس فارسی',
+          hasBadge: false,
+
+        },
+        {
+          title: ' قسمت 02 ',
+          hasDescription: true,
+          description: 'زیرنویس فارسی',
+          hasBadge: false,
+
+        },
+        {
+          title: ' قسمت 03 ',
+          hasDescription: true,
+          description: 'زیرنویس فارسی',
+          hasBadge: true,
+          badgeTitle: '10 روز پیش'
+        },
+        {
+          title: ' قسمت 04 ',
+          hasDescription: true,
+          description: 'زیرنویس فارسی',
+          hasBadge: true,
+          badgeTitle: ' 1 روز پیش'
         }
       ],
 
@@ -462,15 +593,153 @@ export default {
         },
       ]
 
-
     }
-  }
+  },
+
 }
 
 </script>
 
 
 <style scoped lang="scss">
+.video-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.video-overlay.open {
+  display: block;
+}
+
+.video-play-button {
+  position: absolute;
+  z-index: 10;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  box-sizing: content-box;
+  display: block;
+  width: 10px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 18px 20px 18px 28px;
+}
+
+.video-play-button:before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: #583759;
+  border-radius: 50%;
+  animation: pulse-border 1500ms ease-out infinite;
+}
+
+.video-play-button:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: #fa183d;
+  border-radius: 50%;
+  transition: all 200ms;
+}
+
+.video-play-button:hover:after {
+  background-color: darken(#fa183d, 10%);
+}
+
+.video-play-button img {
+  position: relative;
+  z-index: 3;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.video-play-button span {
+  display: block;
+  position: relative;
+  z-index: 3;
+  width: 13px;
+  height: 0;
+  border-left: 14px solid #fff;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+}
+
+@keyframes pulse-border {
+  0% {
+    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.video-overlay {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.80);
+  opacity: 0;
+  transition: all ease 500ms;
+}
+
+.video-overlay.open {
+  position: fixed;
+  z-index: 1000;
+  opacity: 1;
+}
+
+.video-overlay-close {
+  position: absolute;
+  z-index: 1000;
+  top: 15px;
+  right: 20px;
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 400;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.video-overlay-close:hover {
+  color: #fa183d;
+}
+
+.video-overlay iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+}
+
 .dark-background {
   background: #101014;
 }
@@ -489,33 +758,6 @@ export default {
   position: relative;
   z-index: 9;
   margin-bottom: 30px;
-}
-
-.uptvs-big-play .ic {
-  transition-duration: 0.3s;
-  position: absolute;
-  top: calc(50% - 50px);
-  right: calc(50% - 30px);
-}
-
-.uptvs-big-play .ic::before {
-  transition-duration: 0.3s;
-  border-radius: 50%;
-  content: "";
-  right: 0;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  animation: sonarWave 2s linear infinite;
-}
-
-.uptvs-big-play .ic,
-.uptvs-big-play .ic svg {
-  width: 60px;
-  height: 60px;
 }
 
 .post-header-cover {
@@ -551,11 +793,16 @@ export default {
   padding-right: 15px;
 }
 
+.movie-trailer {
+  border-bottom: 1px solid #1b1c1e;
+  padding-bottom: 20px;
+}
+
 .movie-img {
-  z-index: 999;
+  z-index: 3;
   display: block;
   border-radius: 4px;
-  width: 100%;
+  width: 207px;
   height: 290px;
   position: relative;
   overflow: hidden;
@@ -575,9 +822,10 @@ export default {
 }
 
 .movie-info {
-  z-index: 999;
+  z-index: 3;
   padding-left: 10px;
   padding-right: 10px;
+  width: 100%;
 }
 
 .font-text {
@@ -711,6 +959,10 @@ export default {
   border-radius: 4px;
   background-color: #15151a;
   margin-bottom: 5px;
+
+  &-series {
+    padding: 20px;
+  }
 }
 
 .post-content-download {
@@ -834,6 +1086,54 @@ textarea:focus {
     text-decoration: none;
     color: #c6c9cc;
   }
+}
 
+.tab-holder {
+  width: 100%;
+  margin-right: 0px;
+}
+
+.table-tab-btn {
+  background-color: transparent;
+  text-align: center;
+  width: 238px;
+  height: 48px;
+  border: none;
+  border-radius: 5px 5px 0 0;
+  display: inline-block;
+  padding: 12px;
+  color: #bdbfc3;
+  text-decoration: none;
+  font-size: 13px;
+
+  &:is(:hover, :focus, :active) {
+    background: #23232b;
+    color: #FFF;
+  }
+}
+
+.tab-background {
+  padding: 20px;
+  background-color: #23232b;
+  border-radius: 4px;
+}
+
+.Serial-content-download {
+  padding: 15px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  background-color: #1c1c22;
+  font-size: 13px;
+  font-weight: 300;
+  color: #bbc1c6;
+  width: 100%;
+}
+
+.bold-text {
+  font-weight: 500;
+}
+
+.container-sm {
+  max-width: 1140px;
 }
 </style>

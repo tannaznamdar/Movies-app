@@ -1,31 +1,34 @@
 <script setup>
 import { useRoute } from 'vue-router'
+
 const location = useRoute();
 </script>
 <template>
 
   <div class="wrapper">
-    <header class="header pb-1 pt-3">
+    <header class="header">
       <div class="container bv-example-row">
         <div class="row align-items-center">
 
           <div class="col-1">
             <figure class="logo-img">
-              <router-link to="/"> <img alt="logo" :src="logo"> </router-link>
+              <router-link to="/"><img alt="logo" :src="logo"></router-link>
             </figure>
           </div>
 
           <div class="col-7">
             <nav class="menu-bar">
               <ul>
-                <li class="menu-has-childern"> ژانر <font-awesome-icon class="angle-down-icon" icon="angle-down" />
+                <li class="menu-has-childern"> ژانر
+                  <font-awesome-icon class="angle-down-icon" icon="angle-down" />
 
                   <div class="dropdown-menu">
                     <ul>
                       <li v-for="genre in genres">
                         <router-link class="active"
                           :to='{ name: "moviesGenrePageRoute", params: { genre: genre.slug } }'>
-                          {{ genre.title }} </router-link>
+                          {{ genre.title }}
+                        </router-link>
                       </li>
                     </ul>
                   </div>
@@ -39,7 +42,8 @@ const location = useRoute();
                       <li v-for="country in countries">
                         <router-link class="active"
                           :to='{ name: "countryMoviePageRoute", params: { country: country.slug } }'>
-                          {{ country.title }}</router-link>
+                          {{ country.title }}
+                        </router-link>
                       </li>
                     </ul>
                   </div>
@@ -54,14 +58,15 @@ const location = useRoute();
                       <li v-for="country in countries">
                         <router-link class="active"
                           :to='{ name: "countrySeriesPageRoute", params: { country: country.slug } }'>
-                          {{ country.title }}</router-link>
+                          {{ country.title }}
+                        </router-link>
                       </li>
                     </ul>
                   </div>
                 </li>
 
                 <li>
-                  <router-link class="active" :to='{ name: "animationPageRoute" }'> انیمیشن </router-link>
+                  <router-link class="active" :to='{ name: "animationPageRoute" }'> انیمیشن</router-link>
                 </li>
 
                 <li class="menu-has-childern"> دوبله فارسی <span><font-awesome-icon class="angle-down-icon"
@@ -69,10 +74,11 @@ const location = useRoute();
 
                   <div class="dropdown-menu">
                     <ul>
-                      <li v-for="doubleGenre in doubleGenres">
+                      <li v-for="double in dubs">
                         <router-link class="active"
-                          :to='{ name: "persianDubPageRoute", params: { slug: doubleGenre.slug } }'>
-                          {{ doubleGenre.title }}</router-link>
+                          :to='{ name: "persianDubPageRoute", params: { slug: double.slug } }'>
+                          {{ double.title }}
+                        </router-link>
                       </li>
                     </ul>
                   </div>
@@ -83,20 +89,28 @@ const location = useRoute();
 
                   <div class="dropdown-menu">
                     <ul>
-                      <li v-for="content in contents">
-                        <router-link class="active" :to='{ name: "otherPageRoute", params: { content: content.slug } }'>
-                          {{ content.title }}</router-link>
+                      <li>
+                        <router-link class="active" :to='{ name: "collectionPageRoute" }'> کالکشن</router-link>
+                      </li>
+                      <li>
+                        <router-link class="active" :to='{ name: "comingSoonPageRoute" }'> به زودی</router-link>
+                      </li>
+                      <li>
+                        <router-link class="active" :to='{ name: "topMoviePageRoute" }'> 250 فیلم برتر</router-link>
+                      </li>
+                      <li>
+                        <router-link class="active" :to='{ name: "oscarMoviesPageRoute" }'> اسکار ۲۰۲۳</router-link>
                       </li>
                     </ul>
                   </div>
                 </li>
 
                 <li>
-                  <router-link class="active" :to='{ name: "jobPageRoute" }'> استخدام </router-link>
+                  <router-link class="active" :to='{ name: "jobPageRoute" }'> استخدام</router-link>
                 </li>
 
                 <li>
-                  <router-link class="active" :to='{ name: "contactUsPageRoute" }'> ارتباط با ما </router-link>
+                  <router-link class="active" :to='{ name: "contactUsPageRoute" }'> ارتباط با ما</router-link>
                 </li>
 
               </ul>
@@ -109,8 +123,9 @@ const location = useRoute();
               <form>
                 <div class="search-box align-items-center" @click="searchBox = true">
                   <input class="search-input" name="search" autocomplete="off" placeholder="کلمه مورد نظر...">
-                  <button class="search-btn" type="submit"><a href="#"><font-awesome-icon class="icon-size"
-                        icon="magnifying-glass" /></a></button>
+                  <button class="search-btn" type="submit"><a href="#">
+                      <font-awesome-icon class="icon-size" icon="magnifying-glass" />
+                    </a></button>
                 </div>
               </form>
             </div>
@@ -180,24 +195,24 @@ const location = useRoute();
 
           <div class="col-1">
             <button class="button button--login">
-              <router-link :to='{ name: "loginPageRoute" }'> ورود </router-link>
+              <router-link :to='{ name: "loginPageRoute" }'> ورود</router-link>
             </button>
           </div>
         </div>
-
-        <section v-if="location.name !== 'titlePageRoute'">
-
-          <div class="row mt-4">
-            <div class="col-lg-3 mb-2" v-for="card in cards">
-              <headerCards v-bind="card"></headerCards>
-            </div>
-          </div>
-
-          <search-box v-if="location.name === 'homePageRoute'"></search-box>
-
-        </section>
       </div>
     </header>
+
+    <section class="container bv-example-row pt-90" v-if="checkRouteName(location)">
+
+      <div class="row">
+        <div class="col-lg-3 mb-2" v-for="card in cards">
+          <headerCards v-bind="card"></headerCards>
+        </div>
+      </div>
+
+      <search-box v-if="location.name === 'homePageRoute'"></search-box>
+
+    </section>
   </div>
 </template>
 
@@ -216,7 +231,7 @@ export default {
 
   data() {
     return {
-
+      showCards: true,
       searchBox: false,
 
       logo,
@@ -258,22 +273,6 @@ export default {
         {
           title: ' خارجی ',
           slug: 'international'
-        }
-      ],
-
-      contents: [
-        {
-          title: '250 فیلم برتر ',
-          slug: 'imdb-250'
-        },
-        {
-
-          title: 'اسکار 2023',
-          slug: 'oscar2023'
-        },
-        {
-          title: ' به زودی  ',
-          slug: 'ComingSoon'
         }
       ],
 
@@ -457,7 +456,7 @@ export default {
         },
       ],
 
-      doubleGenres: [
+      dubs: [
         {
           title: 'فیلم  ',
           slug: 'movies'
@@ -474,11 +473,63 @@ export default {
 
     }
   },
-
+  watch: {
+    searchBox(val) {
+      if (val) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+    }
+  },
   methods: {
-
+    checkRouteName(location) {
+      if (location.name === 'titlePageRoute') {
+        return false;
+      }
+      if (location.name === 'collectionPageRoute') {
+        return false;
+      }
+      if (location.name === 'freeMoviespageRoute') {
+        return false;
+      }
+      if (location.name === 'newAnimationPageRoute') {
+        return false;
+      }
+      if (location.name === 'comingSoonPageRoute') {
+        return false;
+      }
+      if (location.name === 'oscarMoviesPageRoute') {
+        return false
+      }
+      if (location.name === 'contactUsPageRoute') {
+        return false
+      }
+      if (location.name === 'jobPageRoute') {
+        return false
+      }
+      if (location.name === 'loginPageRoute') {
+        return false
+      }
+      if (location.name === 'forgotPasswordPageRoute') {
+        return false
+      }
+      if (location.name === 'membershipPageRoute') {
+        return false
+      }
+      if (location.name === 'directorPageRoute') {
+        return false
+      }
+      if (location.name === 'actorsPageRoute') {
+        return false
+      }
+      if (location.name === 'newMoviePageRoute') {
+        return false
+      }
+      return (location.name !== 'topMoviePageRoute');
+    },
     addSearchItem: function () {
-      if (this.inputValue == "") {
+      if (this.inputValue === "") {
         alert(" لطفا نام فیلم مورد نظر خود را وارد کنید")
       } else {
         this.items.push(this.inputValue)
@@ -499,7 +550,6 @@ export default {
 </script>
 
 
-
 <style scoped lang="scss">
 .logo-img {
   padding: 0;
@@ -512,11 +562,15 @@ export default {
 }
 
 .header {
-  margin-top: 15px;
-  margin-bottom: 15px;
   background-color: #101014;
-  padding: 0;
-  margin: 0;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 90px;
+  padding: 15px 0 15px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.99) 0px, transparent);
 }
 
 .menu-bar {
@@ -811,5 +865,9 @@ export default {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0
+}
+
+.pt-90 {
+  padding-top: 90px;
 }
 </style>

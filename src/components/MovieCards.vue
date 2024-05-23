@@ -12,7 +12,7 @@
         <div class="card-info-overlay">
           <div class="card-info">
             <p class="card-text--info"> {{ genre }} </p>
-            <div>
+            <div class="imdb-info">
               <img class="internal-distance-l" alt="Imdb" :src="Imdb">
               <span class="card-text--info card-text--info-num"> {{ imdb }} </span>
             </div>
@@ -138,7 +138,6 @@ export default {
   opacity: 0;
   bottom: 0;
   right: 0;
-  padding: 10px;
   background: linear-gradient(to bottom, transparent 0%, transparent 100px, #101014 100%);
   width: 100%;
   border-radius: 4px;
@@ -147,7 +146,7 @@ export default {
 
 .card-info {
   position: absolute;
-  top: 85%;
+  top: 90%;
   right: 0;
   -webkit-transform: translate(-20%, -50%);
   -ms-transform: translate(-20%, -50%);
@@ -187,7 +186,6 @@ export default {
     font-family: inherit;
     line-height: 1.3;
     color: #fff;
-    margin: 0;
     margin-bottom: 5px;
     font-weight: 700;
     font-size: 12px;
@@ -205,7 +203,7 @@ export default {
   background: #f6b828;
   color: #000;
   font-size: 10px;
-  left: 10px;
+  left: 15px;
   bottom: 10px;
   text-align: center;
   line-height: 15px;
@@ -214,5 +212,10 @@ export default {
   z-index: 3;
   border-radius: 5px;
   padding: 2px;
+}
+
+.imdb-info {
+  align-items: center;
+  line-height: 0;
 }
 </style>

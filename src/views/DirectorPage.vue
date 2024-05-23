@@ -7,17 +7,12 @@ import Pagination from '@/components/Pagination.vue'
 
 <template>
   <div class="container-fluid">
-    <section>
+    <section class="background pt-70 pb-4">
       <div class="container bv-example-row">
-
-        <div class="pt-5 mb-3 d-flex">
-          <h4 class="title">آخرین سریالها </h4>
-        </div>
-
-        <div class="row">
+        <div class="row pt-5">
           <div class="col-lg-9">
-            <div v-for="largeSerialCard in largeSerialCards">
-              <LargeMovieCards v-bind="largeSerialCard"></LargeMovieCards>
+            <div v-for="largeCard in largeCards">
+              <LargeMovieCards v-bind="largeCard"></LargeMovieCards>
             </div>
             <Pagination></Pagination>
           </div>
@@ -42,8 +37,8 @@ import Pagination from '@/components/Pagination.vue'
                 </button>
               </div>
 
-              <div v-for="smallSerialCard in smallSerialCards">
-                <SmallMovieCards v-bind="smallSerialCard"></SmallMovieCards>
+              <div v-for="smallCard in smallCards">
+                <SmallMovieCards v-bind="smallCard"></SmallMovieCards>
               </div>
             </section>
 
@@ -129,8 +124,8 @@ import Pagination from '@/components/Pagination.vue'
                 </button>
               </div>
 
-              <div v-for="comingSoonSerialSmallCard in comingSoonSerialSmallCards">
-                <SmallMovieCards v-bind="comingSoonSerialSmallCard"></SmallMovieCards>
+              <div v-for="comingSoonSmallCard in comingSoonSmallCards">
+                <SmallMovieCards v-bind="comingSoonSmallCard"></SmallMovieCards>
               </div>
             </section>
 
@@ -145,12 +140,12 @@ import Pagination from '@/components/Pagination.vue'
 
 <script>
 export default {
-  name: 'updateSeries',
+  name: 'Director',
 
   data() {
     return {
 
-      largeSerialCards: [
+      largeCards: [
         {
           slug: 'شهرزاد',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
@@ -383,7 +378,7 @@ export default {
         },
       ],
 
-      smallSerialCards: [
+      smallCards: [
         {
           slug: 'زیر-پل',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
@@ -441,7 +436,7 @@ export default {
         },
       ],
 
-      comingSoonSerialSmallCards: [
+      comingSoonSmallCards: [
         {
           slug: 'alex-rider',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2021/12/Alex-Rider-s3-JAdval.jpg',
@@ -574,5 +569,9 @@ export default {
   background-color: #23232b;
   padding: 10px 20px 20px;
   border-radius: 4px;
+}
+
+.pt-70 {
+  padding-top: 70px;
 }
 </style>

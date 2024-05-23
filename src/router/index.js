@@ -4,15 +4,24 @@ import MoviesGenre from "@/views/MoviesGenrePage.vue";
 import CountryMovies from "@/views/CountryMoviesPage.vue";
 import CountrySeries from "@/views/CountrySeriesPage.vue";
 import Animation from "@/views/AnimationPage.vue";
-import NewMovie from "@/views/NewMoviePage.vue";
+import NewAnimation from "@/views/NewAnimationPage.vue";
+import NewMovies from "@/views/NewMoviePage.vue";
+import FreeMovies from "@/views/FreeMoviespage.vue";
 import UpdateSeries from "@/views/UpdateSeriesPage.vue";
 import PersianDub from "@/views/PersianDubPage.vue";
-import Other from "@/views/OtherPage.vue";
+import Collection from "@/views/CollectionPage.vue";
+import ComingSoon from "@/views/ComingSoonPage.vue";
+import OscarMovies from "@/views/OscarMoviesPage.vue";
+import TopMovie from "@/views/TopMoviePage.vue";
 import Job from "@/views/JobPage.vue";
 import ContactUs from "@/views/ContactUsPage.vue";
 import Home from "@/views/HomePage.vue";
 import TitlePage from "@/views/TitlePage.vue";
 import Login from "@/views/LoginPage.vue";
+import ForgotPassword from "@/views/ForgotPasswordPage.vue";
+import Membership from "@/views/MembershipPage.vue";
+import Director from "@/views/DirectorPage.vue";
+import Actors from "@/views/ActorsPage.vue";
 
 
 
@@ -24,16 +33,30 @@ const router = createRouter({
     { path: "/genre/:genre", name: 'moviesGenrePageRoute', component: MoviesGenre },
     { path: "/movie/:country", name: 'countryMoviePageRoute', component: CountryMovies },
     { path: "/series/:country", name: 'countrySeriesPageRoute', component: CountrySeries },
-    { path: "/new-movie", name: "newMoviePageRoute", component: NewMovie },
+    { path: "/new-movies", name: "newMoviePageRoute", component: NewMovies },
+    { path: "/free-movies", name: "freeMoviespageRoute", component: FreeMovies },
     { path: "/update-series", name: "updateSeriesPageRoute", component: UpdateSeries },
     { path: "/animation", name: "animationPageRoute", component: Animation },
+    { path: "/new-animation", name: "newAnimationPageRoute", component: NewAnimation },
     { path: "/persian-dub/:slug?", name: "persianDubPageRoute", component: PersianDub },
-    { path: "/other/:content", name: 'otherPageRoute', component: Other },
+    { path: "/collection", name: 'collectionPageRoute', component: Collection },
+    { path: "/coming-soon", name: 'comingSoonPageRoute', component: ComingSoon },
+    { path: "/top-movie", name: 'topMoviePageRoute', component: TopMovie },
+    { path: "/oscar-movies", name: 'oscarMoviesPageRoute', component: OscarMovies },
     { path: "/job", name: "jobPageRoute", component: Job },
     { path: "/contact-us", name: "contactUsPageRoute", component: ContactUs },
     { path: "/login", name: "loginPageRoute", component: Login },
+    { path: "/forgot-password", name: "forgotPasswordPageRoute", component: ForgotPassword },
+    { path: "/membership", name: "membershipPageRoute", component: Membership },
+    { path: "/director/:director?", name: "directorPageRoute", component: Director },
+    { path: "/actors/:actor?", name: "actorsPageRoute", component: Actors },
     { path: "/:catchAll(.*)", redirect: '/' }
-  ]
+  ],
+
+  scrollBehavior(to, from, savedPosition) {
+    // always scroll to top
+    return { top: 0 }
+  },
 })
 
 export default router

@@ -2,24 +2,22 @@
 import LargeMovieCards from "@/components/LargeMovieCards.vue";
 import SmallMovieCards from "@/components/SmallMovieCards.vue";
 import movieIcon from '@/assets/images/movie.svg'
-import Pagination from '@/components/Pagination.vue'
 </script>
 
 <template>
   <div class="container-fluid">
-    <section>
+    <section class="pt-70">
       <div class="container bv-example-row">
 
-        <div class="pt-5 mb-3 d-flex">
-          <h4 class="title">آخرین سریالها </h4>
+        <div class="pt-5 pb-3 d-flex">
+          <h4 class="title">مطالب مربوط به موضوع : به زودی </h4>
         </div>
 
         <div class="row">
           <div class="col-lg-9">
-            <div v-for="largeSerialCard in largeSerialCards">
-              <LargeMovieCards v-bind="largeSerialCard"></LargeMovieCards>
+            <div v-for="largeComingSoonCard in largeComingSoonCards">
+              <LargeMovieCards v-bind="largeComingSoonCard"></LargeMovieCards>
             </div>
-            <Pagination></Pagination>
           </div>
 
           <div class="col-lg-3">
@@ -42,8 +40,8 @@ import Pagination from '@/components/Pagination.vue'
                 </button>
               </div>
 
-              <div v-for="smallSerialCard in smallSerialCards">
-                <SmallMovieCards v-bind="smallSerialCard"></SmallMovieCards>
+              <div v-for="smallDubleCard in smallDubleCards">
+                <SmallMovieCards v-bind="smallDubleCard"></SmallMovieCards>
               </div>
             </section>
 
@@ -129,8 +127,8 @@ import Pagination from '@/components/Pagination.vue'
                 </button>
               </div>
 
-              <div v-for="comingSoonSerialSmallCard in comingSoonSerialSmallCards">
-                <SmallMovieCards v-bind="comingSoonSerialSmallCard"></SmallMovieCards>
+              <div v-for="comingSoonDubleSmallCard in comingSoonDubleSmallCards">
+                <SmallMovieCards v-bind="comingSoonDubleSmallCard"></SmallMovieCards>
               </div>
             </section>
 
@@ -143,14 +141,17 @@ import Pagination from '@/components/Pagination.vue'
 
 </template>
 
+
 <script>
+
+
 export default {
-  name: 'updateSeries',
+  name: 'ComingSoon',
 
   data() {
     return {
 
-      largeSerialCards: [
+      largeComingSoonCards: [
         {
           slug: 'شهرزاد',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
@@ -383,7 +384,7 @@ export default {
         },
       ],
 
-      smallSerialCards: [
+      smallDubleCards: [
         {
           slug: 'زیر-پل',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
@@ -441,7 +442,7 @@ export default {
         },
       ],
 
-      comingSoonSerialSmallCards: [
+      comingSoonDubleSmallCards: [
         {
           slug: 'alex-rider',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2021/12/Alex-Rider-s3-JAdval.jpg',
@@ -509,10 +510,12 @@ export default {
           }
         },
       ],
+
     }
   }
 }
 </script>
+
 
 <style scoped lang="scss">
 .sidebar-tabs {
@@ -570,9 +573,13 @@ export default {
 }
 
 .main-sidebar-wrap {
-  box-shadow: 0 5px 25px rgba(0, 0, 0, .13) !important;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, .13);
   background-color: #23232b;
   padding: 10px 20px 20px;
   border-radius: 4px;
+}
+
+.pt-70 {
+  padding-top: 70px;
 }
 </style>

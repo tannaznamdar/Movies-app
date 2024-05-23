@@ -1,102 +1,279 @@
-<template>
-    <div>
-        <form >
-        <div class="container">
-          <h1>Login Form</h1>
-          <p>Please fill in this form to create an account.</p>
-          <hr>
-      
-          <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
+<script setup>
+import lock from "@/assets/images/lock.svg";
+</script>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-          <hr>
-          <button type="submit" class="registerbtn">Login</button>
-          <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-            </label>
+<template>
+  <div class="pt-150 ">
+    <form method="post" action="" class="form_user_dashbord">
+
+      <div class="item_form">
+        <label for="user_name">نام کاربری یا پست الکترونیک یا شماره موبایل</label>
+        <input type="text" name="username" id="user_name">
+      </div>
+
+      <div class="item_form">
+        <label for="user_password">رمز عبور شما</label>
+        <div class="form-element">
+          <div>
+            <input v-if="showPassword" type="text" name="password" id="password-field" v-model="password">
+            <input v-else type="password" v-model="password">
+          </div>
+
+          <div class="put_icon toggle-password" @click="togglePasswordVisibility">
+            <font-awesome-icon v-if="!showPassword" icon="eye" />
+            <font-awesome-icon v-else icon="eye-slash" />
+          </div>
         </div>
-        
-        
-      </form>
+      </div>
+
+      <div class="item_form captcha">
+        <label for="user_name">کد مقابل را وارد کنید</label>
+        <div class="d-flex align-items-center">
+          <input class="" type="text" name="captcha" id="captcha">
+          <img class="internal-distance-r captcha-border" :src="captcha">
+        </div>
+      </div>
+
+      <button type="submit" id="dologin" class="orange_btn">
+        <a href="#">
+          ورود به پنل کاربری
+        </a>
+      </button>
+
+      <div>
+        <router-link class="bottom_link" :to='{ name: "forgotPasswordPageRoute" }'>
+          <img alt="lock" :src="lock">
+          فراموشی رمز عبور
+        </router-link>
+      </div>
+
+      <button class="yellow-btn">
+        <router-link class="bottom_link" :to='{ name: "membershipPageRoute" }'>
+          عضویت در سایت
+        </router-link>
+      </button>
+
+
+    </form>
+
+    <div class="footer_menu">
+      <nav class="menu-footer_menu-container">
+        <ul id="menu-footer_menu" class="menu">
+          <li class="menu-item"> <router-link to="/"> صفحه نخست </router-link></li>
+          <li class="menu-item"> <router-link class="active" :to='{ name: "topMoviePageRoute" }'> فیلم ها </router-link>
+          </li>
+          <li class="menu-item"> <router-link class="active" :to='{ name: "updateSeriesPageRoute" }'> سریال ها
+            </router-link></li>
+        </ul>
+      </nav>
     </div>
+    <div class="bottom_line"></div>
+
+  </div>
+
 </template>
 
-   <script>
-   
-   export default {
-     name: 'login',
-   }
-   </script>
+<script>
+
+export default {
+  name: 'login',
+
+  data() {
+    return {
+
+      captcha: ' https://zarfilm.com/captcha/?rnd=0.7958875497123545',
+      password: '',
+      showPassword: false,
+    };
+  },
+  methods: {
+    togglePasswordVisibility() {
+      this.showPassword = !this.showPassword;
+    },
+  },
+
+}
+</script>
 
 <style scoped>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: black;
+.form_user_dashbord {
+  background-color: #1e1e1e;
+  border-radius: 20px;
+  box-shadow: 0 0 100px 0 rgba(0, 0, 0, .25);
+  margin-bottom: 70px;
+  padding: 25px;
+  width: 430px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.item_form {
+  margin-bottom: 20px;
+  position: relative;
+  text-align: right;
+  width: 100%;
+}
+
+.item_form label {
+  background: #1e1e1e;
+  line-height: 0;
+  padding: 3px 10px 0;
+  z-index: 5;
+  display: inline-block;
+  color: #666;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+input {
+  background: #1e1e1e;
+  border: 3px solid #272727;
+  border-radius: 12px;
+  padding: 15px;
+  width: 100%;
+  touch-action: manipulation;
+  overflow: visible;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  color: #fff;
+}
+
+
+.internal-distance-r {
+  margin-right: 8px;
+}
+
+.captcha-border {
+  border-radius: 4px;
+}
+
+.orange_btn {
+  margin-bottom: 10px;
+  background: #82490D;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 8px 60px 0 rgba(245, 173, 17, .3);
+  font-size: 20px;
+  font-weight: 800;
+  margin-top: 20px;
+  outline: none;
+  padding: 13px;
+  position: relative;
+  transition: all .3s ease-in-out;
+  width: 100%;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+.put_icon {
+  align-content: center;
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  width: 50px;
+  top: 12px;
+}
+
+.bottom_form_links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.bottom_link {
+  text-decoration: none;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.yellow-btn {
+  background: #2b261d;
+  border-radius: 12px;
+  display: inline-block;
+  padding: 13px;
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+  border: none;
+
+  a {
+    text-decoration: none;
+    color: #DF7C07;
+    font-size: 20px;
+    font-weight: 800;
+  }
+}
+
+ul#menu-footer_menu {
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  list-style: none;
+  flex-direction: row;
+  display: flex;
+}
+
+.menu-item {
+  a {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    color: #666;
+    font-weight: 500;
+    margin-right: 15px;
+    margin-left: 15px;
+
+    &:is(:hover, :focus) {
+      color: #DF7C07;
     }
-    
-    * {
-      box-sizing: border-box;
-    }
-    
-    /* Add padding to containers */
-    .container {
-      margin-top: 30px;
-      margin-bottom: 30px;
-      margin-left: auto;
-      margin-right: auto;
-      width: 50%;
-      padding: 16px;
-      background-color: white;
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    }
-    
-    /* Full-width input fields */
-    input[type=text], input[type=password] {
-      width: 100%;
-      padding: 15px;
-      margin: 5px 0 22px 0;
-      display: inline-block;
-      border: none;
-      background: #f1f1f1;
-    }
-    
-    input[type=text]:focus, input[type=password]:focus {
-      background-color: #ddd;
-      outline: none;
-    }
-    
-    /* Overwrite default styles of hr */
-    hr {
-      border: 1px solid #f1f1f1;
-      margin-bottom: 25px;
-    }
-    
-    /* Set a style for the submit button */
-    .registerbtn {
-      background-color: #04AA6D;
-      color: white;
-      padding: 16px 20px;
-      margin: 8px 0;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      opacity: 0.9;
-    }
-    
-    .registerbtn:hover {
-      opacity: 1;
-    }
-    
-    /* Add a blue text color to links */
-    a {
-      color: dodgerblue;
-    }
-    
-    /* Set a grey background color and center the text of the "sign in" section */
-    .signin {
-      background-color: #f1f1f1;
-      text-align: center;
-    }
+  }
+
+}
+
+.bottom_line {
+  background: #82490D;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 8px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.footer_menu {
+  margin-bottom: 40px;
+}
+
+.form-element {
+  position: relative;
+}
+
+.form-element .toggle-password {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 10px;
+  left: 5px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 35px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #666;
+}
+
+.pt-150 {
+  padding-top: 150px;
+}
 </style>

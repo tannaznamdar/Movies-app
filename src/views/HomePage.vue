@@ -18,7 +18,7 @@ import Pagination from '@/components/Pagination.vue'
           <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
             <h4 class="title">فیلم ایرانی رایگان</h4>
             <button class="button button--transparent">
-              <router-link class="active" :to='{ name: "countryMoviePageRoute", params: { country: "iran" } }'> مشاهده
+              <router-link class="active" :to='{ name: "freeMoviespageRoute" }'> مشاهده
                 همه </router-link>
             </button>
           </div>
@@ -110,7 +110,8 @@ import Pagination from '@/components/Pagination.vue'
           <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
             <h4 class="title"> فیلم دوبله فارسی جدید </h4>
             <button class="button button--transparent">
-              <router-link class="active" :to='{ name: "persianDubPageRoute" }'> مشاهده همه </router-link>
+              <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: "movies" } }'> مشاهده همه
+              </router-link>
             </button>
           </div>
         </div>
@@ -175,7 +176,7 @@ import Pagination from '@/components/Pagination.vue'
                   <img alt="calendar" :src="movieIcon">
                   <h5 class="sidebar sidebar--title internal-distance-r">آپدیت سریال‌ها</h5>
                 </div>
-                <button class="button button--transparent">
+                <button class="button button--transparent button--transparent-gray">
                   <router-link class="active" :to='{ name: "updateSeriesPageRoute" }'> مشاهده همه </router-link>
                 </button>
               </div>
@@ -240,18 +241,16 @@ import Pagination from '@/components/Pagination.vue'
                   </div>
                 </div>
 
-                <div>
                   <button class="button button-lg button-lg--sidebar mb-3">
-                    <router-link class="active"
-                      :to='{ name: "persianDubPageRoute", params: { slug: "animation" } }'> انیمیشن دوبله فارسی
+                    <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: "animation" } }'>
+                      انیمیشن دوبله فارسی
                     </router-link>
                   </button>
                   <button class="button button-lg button-lg--sidebar">
-                    <router-link class="active"
-                      :to='{ name: "persianDubPageRoute", params: { slug: "movies" } }'>فیلم های دوبله فارسی
+                    <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: "movies" } }'>فیلم
+                      های دوبله فارسی
                     </router-link>
                   </button>
-                </div>
               </div>
             </section>
 
@@ -261,8 +260,8 @@ import Pagination from '@/components/Pagination.vue'
                   <img alt="calendar" :src="movieIcon">
                   <h5 class="sidebar sidebar--title internal-distance-r"> به زودی </h5>
                 </div>
-                <button class="button button--transparent">
-                  <router-link class="active" :to='{ name: "otherPageRoute", params: { content: "ComingSoon" } }'>
+                <button class="button button--transparent button--transparent-gray">
+                  <router-link class="active" :to='{ name: "comingSoonPageRoute" }'>
                     مشاهده
                     همه </router-link>
                 </button>
@@ -1255,95 +1254,240 @@ export default {
           slug: 'شهرزاد',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
           link: 'thumbnail',
-          genre: ' درام, تاریخی, رمانتیک',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
           imdb: '6.3',
           title: 'شهرزاد',
           subtitle: 'فصل اول قسمت هفتم',
-          actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
           like: 86,
-          director: 'پژمان تیمورتاش',
+          hasDirector: true,
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران',
+          hasBadge: false,
+          btnTitle: 'دانلود سریال'
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+          link: 'thumbnail',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
+          imdb: '6.3',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
+          like: 86,
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
           hasDirector: true,
           synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
           year: 1403,
           Country: 'ایران',
-          hasBadge: false
+          hasBadge: false,
+          btnTitle: 'دانلود سریال'
         },
         {
           slug: 'شهرزاد',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
           link: 'thumbnail',
-          genre: ' درام, تاریخی, رمانتیک',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
           imdb: '6.3',
           title: 'شهرزاد',
           subtitle: 'فصل اول قسمت هفتم',
-          actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
           like: 86,
-          director: 'پژمان تیمورتاش',
-          hasDirector: false,
-          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
-          year: 1403,
-          Country: 'ایران',
-          hasBadge: true
-        },
-        {
-          slug: 'شهرزاد',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
-          link: 'thumbnail',
-          genre: ' درام, تاریخی, رمانتیک',
-          imdb: '6.3',
-          title: 'شهرزاد',
-          subtitle: 'فصل اول قسمت هفتم',
-          actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
-          like: 86,
-          director: 'پژمان تیمورتاش',
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
           hasDirector: true,
           synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
           year: 1403,
           Country: 'ایران',
-          hasBadge: false
+          hasBadge: false,
+          btnTitle: 'دانلود سریال'
         },
         {
           slug: 'شهرزاد',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
           link: 'thumbnail',
-          genre: ' درام, تاریخی, رمانتیک',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
           imdb: '6.3',
           title: 'شهرزاد',
           subtitle: 'فصل اول قسمت هفتم',
-          actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
           like: 86,
-          director: 'پژمان تیمورتاش',
-          hasDirector: false,
-          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
-          year: 1403,
-          Country: 'ایران',
-          hasBadge: true
-        },
-        {
-          slug: 'شهرزاد',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
-          link: 'thumbnail',
-          genre: ' درام, تاریخی, رمانتیک',
-          imdb: '6.3',
-          title: 'شهرزاد',
-          subtitle: 'فصل اول قسمت هفتم',
-          actors: 'امیر جعفری، آزاده صمدی، دیبا زاهدی',
-          like: 86,
-          director: 'پژمان تیمورتاش',
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
           hasDirector: true,
           synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
           year: 1403,
           Country: 'ایران',
-          hasBadge: false
+          hasBadge: false,
+          btnTitle: 'دانلود سریال'
+        },
+        {
+          slug: 'شهرزاد',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+          link: 'thumbnail',
+          genres: [
+            {
+              title: 'درام',
+              slug: 'drama'
+            },
+            {
+              title: 'عاشقانه',
+              slug: 'romance'
+            }
+          ],
+          imdb: '6.3',
+          title: 'شهرزاد',
+          subtitle: 'فصل اول قسمت هفتم',
+          hasSubtitle: 'true',
+          actors: [
+            {
+              title: 'امیر جعفری',
+              slug: 'امیر-جعفری'
+            },
+            {
+              title: 'آزاده صمدی',
+              slug: 'آزاده-صمدی'
+            },
+            {
+              title: 'دیبا زاهد',
+              slug: 'دیبا-زاهد'
+            }
+          ],
+          like: 86,
+          directors: [
+            {
+              title: 'پژمان تیمورتاش',
+              slug: 'پژمان-تیمورتاش'
+            }
+          ],
+          hasDirector: true,
+          synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+          year: 1403,
+          Country: 'ایران',
+          hasBadge: false,
+          btnTitle: 'دانلود سریال'
         },
       ],
 
       smallMovieCards: [
         {
-          slug: 'شهرزاد',
+          slug: 'زیر-پل',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
           link: 'thumbnail',
-          title: 'شهرزاد',
+          title: 'زیر پل',
           hasTag: true,
           tag: {
             title: ' امروز ',
@@ -1351,32 +1495,10 @@ export default {
           }
         },
         {
-          slug: 'شهرزاد',
+          slug: 'زیر-پل',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
           link: 'thumbnail',
-          title: 'شهرزاد',
-          hasTag: true,
-          tag: {
-            title: ' دیروز ',
-            color: 'white'
-          }
-        },
-        {
-          slug: 'شهرزاد',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
-          link: 'thumbnail',
-          title: 'شهرزاد',
-          hasTag: true,
-          tag: {
-            title: ' شنبه ',
-            color: 'white'
-          }
-        },
-        {
-          slug: 'شهرزاد',
-          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
-          link: 'thumbnail',
-          title: 'شهرزاد',
+          title: 'زیر پل',
           hasTag: true,
           tag: {
             title: ' امروز ',
@@ -1384,10 +1506,32 @@ export default {
           }
         },
         {
-          slug: 'شهرزاد',
+          slug: 'زیر-پل',
           thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
           link: 'thumbnail',
-          title: 'دیروز',
+          title: 'زیر پل',
+          hasTag: true,
+          tag: {
+            title: ' امروز ',
+            color: 'white'
+          }
+        },
+        {
+          slug: 'زیر-پل',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
+          link: 'thumbnail',
+          title: 'زیر پل',
+          hasTag: true,
+          tag: {
+            title: ' امروز ',
+            color: 'white'
+          }
+        },
+        {
+          slug: 'زیر-پل',
+          thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Under-The-Bridge-s1-Jadval.jpg',
+          link: 'thumbnail',
+          title: 'زیر پل',
           hasTag: true,
           tag: {
             title: ' امروز ',
@@ -1533,7 +1677,7 @@ export default {
 .main-sidebar-wrap {
   box-shadow: 0 5px 25px rgba(0, 0, 0, .13) !important;
   background-color: #23232b;
-  padding: 0 10px 20px;
+  padding: 10px 20px 20px;
   border-radius: 4px;
 }
 </style>
