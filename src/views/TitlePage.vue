@@ -189,7 +189,7 @@ import Tag from "@/components/Tag.vue";
 
                   <span class="badge badge--red internal-distance" v-if="downloadMovieItem.hasBadge">{{
                     downloadMovieItem.badgeTitle
-                    }}</span>
+                  }}</span>
                 </div>
 
                 <div class="d-flex">
@@ -232,7 +232,7 @@ import Tag from "@/components/Tag.vue";
                     </span>
                     <span class="badge badge--red internal-distance" v-if="downloadSeriesItem.hasBadge"> {{
                       downloadSeriesItem.badgeTitle
-                      }}</span>
+                    }}</span>
                   </div>
 
                   <div class="d-flex">
@@ -286,7 +286,9 @@ import Tag from "@/components/Tag.vue";
           </button>
         </div>
 
-        <transition name="fade">
+        <transition v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:after-enter="afterEnter"
+          v-on:enter-cancelled="enterCancelled" v-on:before-leave="beforeLeave" v-on:leave="leave"
+          v-on:after-leave="afterLeave" v-on:level-cancelled="leaveCancelled" v-bind:css="false">
           <div class="add-comment-box pb-2" v-show="addCommentBox">
             <div class="respond">
               <h3 class="font-text font-text--medium-title pt-2 pb-4">دیدگاهتان را بنویسید</h3>
@@ -596,6 +598,45 @@ export default {
     }
   },
 
+  methods: {
+    beforeEnter(el) {
+      el.style.height = 0;
+      el.style.overflow = "hidden";
+    },
+    enter(el, done) {
+      const increaseHeight = () => {
+        if (el.clientHeight < el.scrollHeight) {
+          const height = `${parseInt(el.style.height) + 5}px`;
+          el.style.height = height;
+        } else {
+          clearInterval(this.enterInterval);
+          done();
+        }
+      };
+      this.enterInterval = setInterval(increaseHeight, 10);
+    },
+    afterEnter(el) { },
+    enterCancelled(el) {
+      clearInterval(this.enterInterval);
+    },
+    beforeLeave(el) { },
+    leave(el, done) {
+      const decreaseHeight = () => {
+        if (el.clientHeight > 0) {
+          const height = `${parseInt(el.style.height) - 5}px`;
+          el.style.height = height;
+        } else {
+          clearInterval(this.leaveInterval);
+          done();
+        }
+      };
+      this.leaveInterval = setInterval(decreaseHeight, 10);
+    },
+    afterLeave(el) { },
+    leaveCancelled(el) {
+      clearInterval(this.leaveInterval);
+    },
+  },
 }
 
 </script>
@@ -1048,14 +1089,21 @@ textarea:focus {
   background-color: #fff;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity .5s
+.slidedown-enter-active,
+.slidedown-leave-active {
+  transition: max-height 0.5s ease-in-out;
 }
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0
+.slidedown-enter-to,
+.slidedown-leave-from {
+  overflow: hidden;
+  max-height: 1000px;
+}
+
+.slidedown-enter-from,
+.slidedown-leave-to {
+  overflow: hidden;
+  max-height: 0;
 }
 
 .comment {
