@@ -34,7 +34,7 @@ import lock from "@/assets/images/lock.svg";
         </div>
       </div>
 
-      <button type="submit" id="dologin" class="orange_btn">
+      <button type="submit" id="dologin" class="blue_btn">
         <a href="#">
           ورود به پنل کاربری
         </a>
@@ -47,7 +47,7 @@ import lock from "@/assets/images/lock.svg";
         </router-link>
       </div>
 
-      <button class="yellow-btn">
+      <button class="gray-btn">
         <router-link class="bottom_link" :to='{ name: "membershipPageRoute" }'>
           عضویت در سایت
         </router-link>
@@ -97,7 +97,7 @@ export default {
 
 <style scoped>
 .form_user_dashbord {
-  background-color: #1e1e1e;
+  background-color: #23232b;
   border-radius: 20px;
   box-shadow: 0 0 100px 0 rgba(0, 0, 0, .25);
   margin-bottom: 70px;
@@ -115,7 +115,6 @@ export default {
 }
 
 .item_form label {
-  background: #1e1e1e;
   line-height: 0;
   padding: 3px 10px 0;
   z-index: 5;
@@ -127,7 +126,7 @@ export default {
 
 input {
   background: #1e1e1e;
-  border: 3px solid #272727;
+  border: 3px solid #23232b;
   border-radius: 12px;
   padding: 15px;
   width: 100%;
@@ -139,7 +138,6 @@ input {
   color: #fff;
 }
 
-
 .internal-distance-r {
   margin-right: 8px;
 }
@@ -148,12 +146,11 @@ input {
   border-radius: 4px;
 }
 
-.orange_btn {
+.blue_btn {
   margin-bottom: 10px;
-  background: #82490D;
+  background: #6898f8;
   border: 0;
   border-radius: 12px;
-  box-shadow: 0 8px 60px 0 rgba(245, 173, 17, .3);
   font-size: 20px;
   font-weight: 800;
   margin-top: 20px;
@@ -198,8 +195,8 @@ input {
   font-weight: 500;
 }
 
-.yellow-btn {
-  background: #2b261d;
+.gray-btn {
+  background: #313136;
   border-radius: 12px;
   display: inline-block;
   padding: 13px;
@@ -210,7 +207,7 @@ input {
 
   a {
     text-decoration: none;
-    color: #DF7C07;
+    color: #6898f8;
     font-size: 20px;
     font-weight: 800;
   }
@@ -236,17 +233,16 @@ ul#menu-footer_menu {
     margin-left: 15px;
 
     &:is(:hover, :focus) {
-      color: #DF7C07;
+      color: #6898f8;
     }
   }
-
 }
 
 .bottom_line {
-  background: #82490D;
+  background: #6898f8;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  height: 8px;
+  height: 5px;
   width: 80%;
   margin: 0 auto;
 }
