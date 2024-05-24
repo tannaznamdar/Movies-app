@@ -31,12 +31,12 @@
 
             <div class="mb-4">
               <label class="label-text pb-1">موضوع :</label>
-              <input type="checkbox" id="item1" name="item1" value="درخواست فیلم">
+              <input type="radio" id="item1" name="items" value="درخواست فیلم">
               <label class="titil titil--sm mb-2" for="item1"> درخواست فیلم </label><br>
-              <input type="checkbox" id="item2" name="item2" value="گزارش خرابی">
+              <input type="radio" id="item2" name="items" value="گزارش خرابی">
               <label class="titil titil--sm mb-2" for="item2"> گزارش خرابی </label><br>
-              <input type="checkbox" id="item3" name="item3" value="انتقاد و پیشنهاد">
-              <label class="titil titil--sm mb-2" for="item3"> انتقاد و پیشنهاد </label><br>
+              <input type="radio" id="item3" name="items" value="انتقاد و پیشنهاد">
+              <label class="titil titil--sm mb-2" for="item3"> انتقاد و پیشنهاد </label>
             </div>
 
             <div class="mb-4 pt-2">
@@ -210,7 +210,7 @@ input[type=radio] {
   background: #f1faea0a;
 }
 
-.pt-100{
+.pt-100 {
   padding-top: 100px;
 }
 </style>
