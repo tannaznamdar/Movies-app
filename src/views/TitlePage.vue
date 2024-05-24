@@ -10,6 +10,7 @@ import ImdbYellow from '@/assets/images/imdb-yellow.svg'
 import chat from '@/assets/images/chat.svg'
 import xmarkwhite from '@/assets/images/xmarkwhite.svg'
 import Tag from "@/components/Tag.vue";
+import {getActivePinia} from "pinia";
 
 </script>
 
@@ -216,22 +217,22 @@ import Tag from "@/components/Tag.vue";
       <section class="pb-5">
         <div class="download-box download-box-series">
           <div class="tab-holder">
-            <button class="table-tab-btn active"> فصل اول </button>
-            <button class="table-tab-btn"> فصل دوم </button>
+            <button v-for="downloadSeriesItem in downloadSeriesItems"
+                    class="table-tab-btn" :class="{'active':downloadSeriesItem.id === activeSeriesTab}" @click="activeSeriesTab = downloadSeriesItem.id"> {{downloadSeriesItem.title}} </button>
           </div>
 
           <div class="tab-background">
-            <div class="Serial-content-download" v-for="downloadSeriesItem in downloadSeriesItems">
+            <div class="Serial-content-download" v-for="episode  in downloadSeriesItems.find(x=>{return x.id === activeSeriesTab}).episodes">
               <div class="row align-items-lg-center gutter-6">
                 <div class="d-flex justify-content-between">
                   <div class="d-flex align-items-center">
                     <span class="font-text font-text--subtitle font-text--subtitle-gray internal-distance bold-text">{{
-                      downloadSeriesItem.title }} - </span>
+                        episode.title }} - </span>
                     <span class="font-text font-text--subtitle font-text--subtitle-gray internal-distance"> {{
-                      downloadSeriesItem.description }}
+                        episode.description }}
                     </span>
-                    <span class="badge badge--red internal-distance" v-if="downloadSeriesItem.hasBadge"> {{
-                      downloadSeriesItem.badgeTitle
+                    <span class="badge badge--red internal-distance" v-if="episode.hasBadge"> {{
+                        episode.badgeTitle
                     }}</span>
                   </div>
 
@@ -362,19 +363,9 @@ import Tag from "@/components/Tag.vue";
 
 export default {
   name: 'singlePage',
-
-  props: {
-    tag: {
-      type: Object,
-      default: {
-        title: ' ',
-        color: ' '
-      }
-    }
-  },
   data() {
     return {
-
+      activeSeriesTab:1,
       showOverlay: true,
       videoSrc: 'https://www.youtube.com/embed/ngElkyQ6Rhs',
       hasMovieTrailer: true,
@@ -475,32 +466,72 @@ export default {
 
       downloadSeriesItems: [
         {
-          title: ' قسمت 01 ',
-          hasDescription: false,
-          description: 'زیرنویس فارسی',
-          hasBadge: false,
+          id:1,
+          title: 'فصل یک',
+          episodes:[
+            {
+              title: ' قسمت 21 ',
+              hasDescription: false,
+              description: 'زیرنویس فارسی',
+              hasBadge: false,
 
-        },
-        {
-          title: ' قسمت 02 ',
-          hasDescription: true,
-          description: 'زیرنویس فارسی',
-          hasBadge: false,
+            },
+            {
+              title: ' قسمت 22 ',
+              hasDescription: true,
+              description: 'زیرنویس فارسی',
+              hasBadge: false,
 
+            },
+            {
+              title: ' قسمت 23 ',
+              hasDescription: true,
+              description: 'زیرنویس فارسی',
+              hasBadge: true,
+              badgeTitle: '10 روز پیش'
+            },
+            {
+              title: ' قسمت 23 ',
+              hasDescription: true,
+              description: 'زیرنویس فارسی',
+              hasBadge: true,
+              badgeTitle: ' 1 روز پیش'
+            }
+          ]
         },
         {
-          title: ' قسمت 03 ',
-          hasDescription: true,
-          description: 'زیرنویس فارسی',
-          hasBadge: true,
-          badgeTitle: '10 روز پیش'
-        },
-        {
-          title: ' قسمت 04 ',
-          hasDescription: true,
-          description: 'زیرنویس فارسی',
-          hasBadge: true,
-          badgeTitle: ' 1 روز پیش'
+          id:2,
+          title: 'فصل دو',
+          episodes:[
+            {
+              title: ' قسمت 01 ',
+              hasDescription: false,
+              description: 'زیرنویس فارسی',
+              hasBadge: false,
+
+            },
+            {
+              title: ' قسمت 02 ',
+              hasDescription: true,
+              description: 'زیرنویس فارسی',
+              hasBadge: false,
+
+            },
+            {
+              title: ' قسمت 03 ',
+              hasDescription: true,
+              description: 'زیرنویس فارسی',
+              hasBadge: true,
+              badgeTitle: '10 روز پیش'
+            },
+            {
+              title: ' قسمت 04 ',
+              hasDescription: true,
+              description: 'زیرنویس فارسی',
+              hasBadge: true,
+              badgeTitle: ' 1 روز پیش'
+            }
+          ]
         }
       ],
 
