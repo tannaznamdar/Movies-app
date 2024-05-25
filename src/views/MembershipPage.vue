@@ -134,6 +134,7 @@ input {
 }
 
 .blue_btn {
+    user-select: none;
     margin-bottom: 10px;
     background: #6898f8;
     border: 0;
@@ -183,6 +184,7 @@ input {
 }
 
 .gray-btn {
+    user-select: none;
     background: #313136;
     border-radius: 12px;
     display: inline-block;

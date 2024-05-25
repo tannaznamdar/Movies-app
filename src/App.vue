@@ -34,6 +34,7 @@ body {
 }
 
 .button {
+  user-select: none;
   display: inline-block;
   padding: 8px 14px 8px;
   font-size: 14px;
