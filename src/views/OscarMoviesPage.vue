@@ -374,6 +374,7 @@ export default {
     object-fit: cover;
 
     img {
+        width: 100%;
         position: absolute;
         top: 50%;
         left: 50%;
