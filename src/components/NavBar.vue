@@ -6,7 +6,7 @@ const location = useRoute();
 <template>
 
   <div class="wrapper">
-    <header class="header">
+    <header class="header responsive-header-lg">
       <div class="container bv-example-row">
         <div class="row align-items-center">
 
@@ -213,6 +213,209 @@ const location = useRoute();
       <search-box v-if="location.name === 'homePageRoute'"></search-box>
 
     </section>
+
+    <!-- heder/tablet -->
+    <section class="header responsive-header-tablet">
+      <div class="container-md">
+        <div class="row">
+          <div class="col-md-12 d-flex justify-content-between align-items-center mb-3">
+
+            <div class="dropdown-button">
+              <a href="#" class="button-transparent ">
+                <img alt="menu" :src="mobileMenu">
+              </a>
+            </div>
+
+            <div>
+              <figure class="logo-img">
+                <router-link to="/"><img alt="logo" :src="logo"></router-link>
+              </figure>
+            </div>
+
+            <div class="col-md-8">
+              <div>
+                <form>
+                  <div class="search-box align-items-center" @click="searchBox = true">
+                    <input class="search-input" name="search" autocomplete="off" placeholder="کلمه مورد نظر...">
+                    <button class="search-btn" type="submit"><a href="#">
+                        <font-awesome-icon class="icon-size" icon="magnifying-glass" />
+                      </a></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <transition name="fade">
+              <div class="fixed_back" v-show="searchBox">
+                <div class="d-flex flex-column">
+                  <div>
+                    <div class="search-container">
+
+                      <div class="head_boxsearch">
+                        <div class="search-suggest-gradient"></div>
+
+                        <div class="search-input-uptv align-item-center">
+                          <input type="text" class="search-ajax-input" placeholder="جستجو کنید..." v-model="inputValue"
+                            @keyup.enter="addSearchItem">
+                          <button class="icon-transparent-btn" @click="addSearchItem">
+                            <font-awesome-icon class="icon-size  internal-distance-l" icon="magnifying-glass" />
+                          </button>
+                        </div>
+
+                        <div class="close-button" @click="searchBox = false">بستن</div>
+                      </div>
+
+                      <div class="search-result">
+                        <div class="mb-4">
+                          <h4 class="history_title">ترند ها</h4>
+
+                          <div class="item_history d-flex align-items-center" v-for="trendMovie in trendMovies"
+                            @click="searchBox = false">
+                            <router-link :to='{ name: "titlePageRoute", params: { slug: trendMovie.slug } }'>
+                              <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
+                                icon="magnifying-glass" />
+                              <span class="w-100"> {{ trendMovie.title }} </span>
+                            </router-link>
+                          </div>
+
+                        </div>
+
+                        <div>
+                          <h4 class="history_title last_item">
+                            <span>تاریخچه جستجو شما</span>
+                            <span @click="removeHistory">(حذف تاریخچه)</span>
+                          </h4>
+
+                          <div class="item_history  last_item d-flex align-items-center" v-for="(item, index) in items">
+                            <div class="d-flex align-items-center">
+                              <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
+                                icon="magnifying-glass" />
+                              <span class="w-100"> {{ item }} </span>
+                            </div>
+                            <button class="icon-transparent-btn" @click="removeSearchItem(index)">
+                              <img alt="xMark" :src="xMark">
+                            </button>
+                          </div>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </transition>
+
+            <div class="col-md-1">
+              <button class="button button--login">
+                <router-link :to='{ name: "loginPageRoute" }'> ورود</router-link>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- heder/mobile -->
+    <section class="header responsive-header-mobile">
+      <div class="container-sm">
+        <div class="row">
+          <div class="col-sm-12 d-flex justify-content-between align-items-center mb-3">
+
+            <div class="dropdown-button">
+              <a href="#" class="button-transparent ">
+                <img alt="menu" :src="mobileMenu">
+              </a>
+            </div>
+
+            <div class="col-8">
+              <div>
+                <form>
+                  <div class="search-box align-items-center" @click="searchBox = true">
+                    <input class="search-input" name="search" autocomplete="off" placeholder="کلمه مورد نظر...">
+                    <button class="search-btn" type="submit"><a href="#">
+                        <font-awesome-icon class="icon-size" icon="magnifying-glass" />
+                      </a></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <transition name="fade">
+              <div class="fixed_back" v-show="searchBox">
+                <div class="d-flex flex-column">
+                  <div>
+                    <div class="search-container">
+
+                      <div class="head_boxsearch">
+                        <div class="search-suggest-gradient"></div>
+
+                        <div class="search-input-uptv align-item-center">
+                          <input type="text" class="search-ajax-input" placeholder="جستجو کنید..." v-model="inputValue"
+                            @keyup.enter="addSearchItem">
+                          <button class="icon-transparent-btn" @click="addSearchItem">
+                            <font-awesome-icon class="icon-size  internal-distance-l" icon="magnifying-glass" />
+                          </button>
+                        </div>
+
+                        <div class="close-button" @click="searchBox = false">بستن</div>
+                      </div>
+
+                      <div class="search-result">
+                        <div class="mb-4">
+                          <h4 class="history_title">ترند ها</h4>
+
+                          <div class="item_history d-flex align-items-center" v-for="trendMovie in trendMovies"
+                            @click="searchBox = false">
+                            <router-link :to='{ name: "titlePageRoute", params: { slug: trendMovie.slug } }'>
+                              <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
+                                icon="magnifying-glass" />
+                              <span class="w-100"> {{ trendMovie.title }} </span>
+                            </router-link>
+                          </div>
+
+                        </div>
+
+                        <div>
+                          <h4 class="history_title last_item">
+                            <span>تاریخچه جستجو شما</span>
+                            <span @click="removeHistory">(حذف تاریخچه)</span>
+                          </h4>
+
+                          <div class="item_history  last_item d-flex align-items-center" v-for="(item, index) in items">
+                            <div class="d-flex align-items-center">
+                              <font-awesome-icon class="icon-size icon-size--gray internal-distance-l"
+                                icon="magnifying-glass" />
+                              <span class="w-100"> {{ item }} </span>
+                            </div>
+                            <button class="icon-transparent-btn" @click="removeSearchItem(index)">
+                              <img alt="xMark" :src="xMark">
+                            </button>
+                          </div>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </transition>
+
+            <div>
+              <button class="button button--login">
+                <router-link :to='{ name: "loginPageRoute" }'> ورود</router-link>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </div>
 </template>
 
@@ -223,7 +426,7 @@ import logo from '../assets/images/logo.jpg'
 import xMark from '@/assets/images/xmark.svg'
 import headerCards from "@/components/HeaderCards.vue";
 import SearchBox from "@/components/SearchBox.vue";
-
+import mobileMenu from '../assets/images/mobile-menu.svg'
 
 export default {
   name: 'navbar',
@@ -571,6 +774,10 @@ export default {
   height: 90px;
   padding: 15px 0 15px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.99) 0px, transparent);
+
+  @media (max-width:820px) {
+    padding-top: 25px;
+  }
 }
 
 .menu-bar {
@@ -869,5 +1076,39 @@ export default {
 
 .pt-90 {
   padding-top: 90px;
+}
+
+
+
+
+
+.responsive-header-tablet {
+  display: none;
+}
+
+.responsive-header-mobile {
+  display: none;
+}
+
+.responsive-header-tablet {
+  @media (min-width:450px) and (max-width:820px) {
+    display: block;
+  }
+}
+
+.responsive-header-mobile {
+  @media (max-width:449px) {
+    display: block;
+  }
+}
+
+.responsive-header-lg {
+  display: block;
+}
+
+.responsive-header-lg {
+  @media (max-width:820px) {
+    display: none;
+  }
 }
 </style>

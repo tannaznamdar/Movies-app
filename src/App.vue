@@ -361,4 +361,22 @@ body {
   font-weight: 500;
   color: #fff;
 }
+
+/* For  desktop: */
+@media (min-width: 1200px){
+    body,html{
+      .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1320px;
+    }
+    }
+  }
+  
+  /* For tablets: */
+  @media (min-width:450px) and (max-width:820px) {
+  }
+  
+  /* For mobile: */
+  @media (max-width:449px) {
+  }
+  
 </style>
