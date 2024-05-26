@@ -110,6 +110,11 @@ export default {
   overflow: hidden;
   margin-bottom: 10px;
 
+
+  @media (min-width:450px) and (max-width:820px) {
+    height: 220px;
+  }
+
   img {
     display: block;
     width: auto;

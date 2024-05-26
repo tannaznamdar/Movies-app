@@ -1,8 +1,8 @@
 <script setup>
 import { useRoute } from 'vue-router'
-
 const location = useRoute();
 </script>
+
 <template>
 
   <div class="wrapper">
@@ -202,21 +202,21 @@ const location = useRoute();
       </div>
     </header>
 
-    <section class="container bv-example-row pt-90" v-if="checkRouteName(location)">
+    <section class="scroll container bv-example-row pt-90" v-if="checkRouteName(location)">
 
-      <div class="row">
-        <div class="col-lg-3 mb-2" v-for="card in cards">
+      <div class="row pb-15">
+        <div class="col-lg-3 col-md-6 col-3 mb-2 " v-for="card in cards">
           <headerCards v-bind="card"></headerCards>
         </div>
       </div>
 
-      <search-box v-if="location.name === 'homePageRoute'"></search-box>
+      <search-box class="responsive" v-if="location.name === 'homePageRoute'"></search-box>
 
     </section>
 
     <!-- heder/tablet -->
     <section class="header responsive-header-tablet">
-      <div class="container-md">
+      <div class="container">
         <div class="row">
           <div class="col-md-12 d-flex justify-content-between align-items-center mb-3">
 
@@ -306,7 +306,7 @@ const location = useRoute();
               </div>
             </transition>
 
-            <div class="col-md-1">
+            <div>
               <button class="button button--login">
                 <router-link :to='{ name: "loginPageRoute" }'> ورود</router-link>
               </button>
@@ -320,7 +320,7 @@ const location = useRoute();
 
     <!-- heder/mobile -->
     <section class="header responsive-header-mobile">
-      <div class="container-sm">
+      <div class="container">
         <div class="row">
           <div class="col-sm-12 d-flex justify-content-between align-items-center mb-3">
 
@@ -754,6 +754,12 @@ export default {
 
 
 <style scoped lang="scss">
+.container {
+  @media (min-width:450px) and (max-width:820px) {
+    max-width: 98%;
+  }
+}
+
 .logo-img {
   padding: 0;
   margin: 0;
@@ -774,10 +780,6 @@ export default {
   height: 90px;
   padding: 15px 0 15px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.99) 0px, transparent);
-
-  @media (max-width:820px) {
-    padding-top: 25px;
-  }
 }
 
 .menu-bar {
@@ -1080,7 +1082,11 @@ export default {
 
 
 
-
+.responsive {
+  @media (max-width:820px) {
+    display: none;
+  }
+}
 
 .responsive-header-tablet {
   display: none;
@@ -1109,6 +1115,18 @@ export default {
 .responsive-header-lg {
   @media (max-width:820px) {
     display: none;
+  }
+}
+
+.scroll {
+  @media (max-width:449px) {
+    overflow-x: scroll;
+  }
+}
+
+.pb-15 {
+  @media (max-width:820px) {
+    padding-bottom: 15px;
   }
 }
 </style>
