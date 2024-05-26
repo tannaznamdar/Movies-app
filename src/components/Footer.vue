@@ -3,12 +3,12 @@
     <div class="wrapper">
         <footer class="footer pt-5">
             <div class="container bv-example-row">
-                <div class="row align-items-center mb-5">
+                <div class="row mb-5">
 
-                    <div class="col-lg-9">
+                    <div class="col-lg-9 col-md-7 margin-b">
                         <div class="main-footer-help-section">
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-lg-4 col-md-12  margin-b">
                                     <div class="row">
 
                                         <div class="col-auto">
@@ -28,7 +28,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-4">
+                                <div class="col-lg-4 col-md-12 margin-b">
                                     <div class="row">
 
                                         <div class="col-auto">
@@ -48,7 +48,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-4">
+                                <div class="col-lg-4 col-md-12">
                                     <div class="row">
 
                                         <div class="col-auto">
@@ -71,7 +71,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 col-md-5">
 
                         <button
                             class="button button-lg mb-4 button-lg--instagram d-flex justify-content-between align-items-center">
@@ -99,13 +99,13 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-1">
+                    <div class="col-lg-1 col-md-2 col-3">
                         <figure class="logo-img">
                             <router-link to="/"> <img alt="logo" :src="logo"> </router-link>
                         </figure>
                     </div>
 
-                    <div class="col-lg-8">
+                    <div class="col-lg-8 col-md-10 col-9 margin-b">
                         <div class="footer-navbar">
                             <ul>
                                 <li v-for="genre in genres">
@@ -131,7 +131,7 @@
 
                     </div>
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 padding-30 padding-b">
                         <a class="main-footer-application d-flex justify-content-between" href="#">
                             <div>
                                 <font-awesome-icon class="gear-icon" icon="gear" />
@@ -215,11 +215,22 @@ export default {
 
 
 <style scoped lang="scss">
+.container {
+    @media (min-width:450px) and (max-width:820px) {
+        max-width: 98%;
+    }
+
+}
+
 .main-footer-help-section {
     background-color: #23232b;
     padding: 30px;
     border-radius: 5px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, .13) !important;
+
+    @media (max-width:820px) {
+        padding: 20px;
+    }
 }
 
 .badge {
@@ -342,5 +353,24 @@ export default {
     margin-top: 20px;
     padding-top: 20px;
     padding-bottom: 30px;
+}
+
+.padding-30 {
+    @media (max-width:820px) {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+}
+
+.padding-b {
+    @media (max-width:820px) {
+        padding-bottom: 15px;
+    }
+}
+
+.margin-b {
+    @media (max-width:820px) {
+        margin-bottom: 20px;
+    }
 }
 </style>
