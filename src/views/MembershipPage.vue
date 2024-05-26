@@ -92,6 +92,11 @@ export default {
     width: 430px;
     margin-right: auto;
     margin-left: auto;
+
+    @media (max-width:449px) {
+        width: 360px;
+        margin-bottom: 50px;
+    }
 }
 
 .item_form {
@@ -262,5 +267,9 @@ ul#menu-footer_menu {
 
 .pt-150 {
     padding-top: 150px;
+
+    @media (max-width:449px) {
+        padding-top: 120px;
+    }
 }
 </style>
