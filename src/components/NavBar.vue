@@ -955,12 +955,23 @@ export default {
   top: 100px;
   display: flex;
   z-index: 55;
+  @media (max-width:820px) {
+    padding-left: 40px;
+    float: right;
+    width: 100%;
+  }
 }
 
 .search-container {
   width: 830px;
   margin-right: auto;
   margin-left: auto;
+
+  @media (max-width:820px) {
+    padding: 20px;
+    float: right;
+    width: 100%;
+  }
 }
 
 .search-suggest-gradient {
