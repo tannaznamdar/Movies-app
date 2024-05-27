@@ -155,6 +155,8 @@ export default {
     margin-right: 8px;
     line-height: 2;
     color: #bbc1c6;
+    text-align: justify;
+    align-items: right;
   }
 }
 
@@ -196,6 +198,10 @@ export default {
   width: 100%;
   line-height: 1.3;
   max-width: 60%;
+
+  @media (max-width:449px) {
+    max-width: 100%;
+  }
 }
 
 input[type=radio] {
@@ -261,7 +267,7 @@ input[type=radio] {
   margin-right: 40px;
 }
 
-.pt-100{
+.pt-100 {
   padding-top: 100px;
 }
 </style>

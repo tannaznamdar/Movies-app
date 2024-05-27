@@ -149,6 +149,10 @@ export default {
   width: 100%;
   line-height: 1.3;
   max-width: 60%;
+
+  @media (max-width:449px) {
+    max-width: 100%;
+  }
 }
 
 input[type=radio] {
