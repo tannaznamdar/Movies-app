@@ -1,7 +1,7 @@
 <template>
 
     <div class="wrapper">
-        <footer class="footer pt-5">
+        <footer class="footer pt-30">
             <div class="container bv-example-row">
                 <div class="row mb-5">
 
@@ -372,5 +372,9 @@ export default {
     @media (max-width:820px) {
         margin-bottom: 20px;
     }
+}
+
+.pt-30 {
+    padding-top: 30px;
 }
 </style>

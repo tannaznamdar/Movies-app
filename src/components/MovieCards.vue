@@ -130,8 +130,12 @@ export default {
     border-radius: 8px;
   }
 
-  @media (max-width:820px) {
+  @media (min-width:450px) and (max-width:820px) {
     height: 170px;
+  }
+
+  @media (max-width:449px) {
+    height: 200px;
   }
 }
 
@@ -162,6 +166,10 @@ export default {
     transform: translate(-10%, -65%);
     top: 86%;
   }
+
+  @media (max-width:449px) {
+    transform: translate(-15%, -65%);
+  }
 }
 
 .card-container:hover .card-info-overlay {
@@ -185,11 +193,21 @@ export default {
   &--title {
     font-size: 13px;
     font-weight: 400;
+
+    @media (max-width:820px) {
+      font-size: 11px;
+      margin-bottom: 10px;
+    }
   }
 
   &--subtitle {
     font-size: 11px;
     font-weight: 400;
+
+    @media (max-width:820px) {
+      font-size: 10px;
+      font-weight: 200;
+    }
   }
 
   &--info {
@@ -199,6 +217,11 @@ export default {
     margin-bottom: 5px;
     font-weight: 700;
     font-size: 12px;
+
+    @media (max-width:820px) {
+      font-weight: 400;
+      font-size: 10px;
+    }
 
     &-num {
       font-weight: 400;
@@ -225,6 +248,10 @@ export default {
 
   @media (min-width:450px) and (max-width:820px) {
     left: 10px;
+  }
+
+  @media (max-width:449px) {
+    left: 12px;
   }
 }
 

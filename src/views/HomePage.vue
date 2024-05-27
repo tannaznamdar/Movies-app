@@ -28,7 +28,7 @@ import Pagination from '@/components/Pagination.vue'
           arrows: false, pagination: false, direction: 'rtl', type: 'slide', perPage: 6, trimSpace: false, perMove: 1,
           breakpoints: {
             1200: { perPage: 6 },
-            449: { perPage: 3 },
+            449: { perPage: 2.5 },
           }
         }" aria-label="My Favorite Images">
           <SplideSlide v-for="freeIranianMovie in freeIranianMovies">
@@ -54,7 +54,7 @@ import Pagination from '@/components/Pagination.vue'
           arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1,
           breakpoints: {
             1200: { perPage: 6 },
-            449: { perPage: 3 },
+            449: { perPage: 2.5 },
           }
         }" aria-label="My Favorite Images">
           <SplideSlide v-for="newMovie in newMovies">
@@ -82,7 +82,7 @@ import Pagination from '@/components/Pagination.vue'
           arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1,
           breakpoints: {
             1200: { perPage: 6 },
-            449: { perPage: 3 },
+            449: { perPage: 2.5 },
           }
         }" aria-label="My Favorite Images">
           <SplideSlide v-for="internationalSerial in internationalSeries">
@@ -109,7 +109,7 @@ import Pagination from '@/components/Pagination.vue'
           arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1,
           breakpoints: {
             1200: { perPage: 6 },
-            449: { perPage: 3 },
+            449: { perPage: 2.5 },
           }
         }" aria-label="My Favorite Images">
           <SplideSlide v-for="newPersianSerial in newPersianSeries">
@@ -136,7 +136,7 @@ import Pagination from '@/components/Pagination.vue'
           arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1,
           breakpoints: {
             1200: { perPage: 6 },
-            449: { perPage: 3 },
+            449: { perPage: 2.5 },
           }
         }" aria-label="My Favorite Images">
           <SplideSlide v-for="newPersianDubbingMovie in newPersianDubbingMovies">
@@ -147,7 +147,7 @@ import Pagination from '@/components/Pagination.vue'
       </div>
     </section>
 
-    <section class="movie-card mb-4">
+    <section class="movie-card ">
       <div class="container bv-example-row">
         <div class="row">
           <div class=" mt-5 mb-3 d-flex align-items-center justify-content-between">
@@ -162,7 +162,7 @@ import Pagination from '@/components/Pagination.vue'
           arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1,
           breakpoints: {
             1200: { perPage: 6 },
-            449: { perPage: 3 },
+            449: { perPage: 2.5 },
           }
         }" aria-label="My Favorite Images">
           <SplideSlide v-for="animation in animations">
@@ -173,11 +173,14 @@ import Pagination from '@/components/Pagination.vue'
       </div>
     </section>
 
-    <section class="large-movie-card">
+    <section class="large-movie-card mt-5">
       <div class="container bv-example-row">
-        <div class="row">
+        <div class=" mt-5 mb-4 respansive-display-d">
+          <h4 class="title"> جدیدترین فیلم و سریال ها </h4>
+        </div>
 
-          <div class="col-lg-9 col-md-12 mb-40">
+        <div class="row">
+          <div class="col-lg-9 col-md-12 pb-30">
             <div v-for="largeMovieCard in largeMovieCards">
               <LargeMovieCards v-bind="largeMovieCard"></LargeMovieCards>
             </div>
@@ -1650,7 +1653,7 @@ export default {
 <style scoped lang="scss">
 .container {
   @media (min-width:450px) and (max-width:820px) {
-    max-width: 98%;
+    max-width: 99%;
   }
 }
 
@@ -1731,6 +1734,10 @@ export default {
   margin-bottom: 40px;
 }
 
+.pb-30 {
+  padding-bottom: 30px;
+}
+
 .flex-direction {
   @media (min-width:450px) and (max-width:820px) {
     display: flex;
@@ -1741,6 +1748,12 @@ export default {
 
 .respansive-display {
   @media (max-width:820px) {
+    display: none;
+  }
+}
+
+.respansive-display-d {
+  @media (min-width: 1320px) {
     display: none;
   }
 }
