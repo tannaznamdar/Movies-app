@@ -307,6 +307,11 @@ body {
         color: #6898f8;
       }
     }
+
+    @media (max-width:449px) {
+      padding: 10px 15px;
+      font-size: 12px;
+    }
   }
 
   &-lg {
