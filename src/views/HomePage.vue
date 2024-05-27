@@ -24,9 +24,13 @@ import Pagination from '@/components/Pagination.vue'
           </div>
         </div>
 
-        <Splide class="row"
-          :options="{ arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1 }"
-          aria-label="My Favorite Images">
+        <Splide class="row" :options="{
+          arrows: false, pagination: false, direction: 'rtl', type: 'slide', perPage: 6, trimSpace: false, perMove: 1,
+          breakpoints: {
+            1200: { perPage: 6 },
+            449: { perPage: 3 },
+          }
+        }" aria-label="My Favorite Images">
           <SplideSlide v-for="freeIranianMovie in freeIranianMovies">
             <MovieCards v-bind="freeIranianMovie"></MovieCards>
           </SplideSlide>
@@ -46,9 +50,13 @@ import Pagination from '@/components/Pagination.vue'
           </div>
         </div>
 
-        <Splide class="row"
-          :options="{ arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1 }"
-          aria-label="My Favorite Images">
+        <Splide class="row" :options="{
+          arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1,
+          breakpoints: {
+            1200: { perPage: 6 },
+            449: { perPage: 3 },
+          }
+        }" aria-label="My Favorite Images">
           <SplideSlide v-for="newMovie in newMovies">
             <MovieCards v-bind="newMovie"></MovieCards>
           </SplideSlide>
@@ -70,9 +78,13 @@ import Pagination from '@/components/Pagination.vue'
           </div>
         </div>
 
-        <Splide class="row"
-          :options="{ arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1 }"
-          aria-label="My Favorite Images">
+        <Splide class="row" :options="{
+          arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1,
+          breakpoints: {
+            1200: { perPage: 6 },
+            449: { perPage: 3 },
+          }
+        }" aria-label="My Favorite Images">
           <SplideSlide v-for="internationalSerial in internationalSeries">
             <MovieCards v-bind="internationalSerial"></MovieCards>
           </SplideSlide>
@@ -93,9 +105,13 @@ import Pagination from '@/components/Pagination.vue'
           </div>
         </div>
 
-        <Splide class="row"
-          :options="{ arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1 }"
-          aria-label="My Favorite Images">
+        <Splide class="row" :options="{
+          arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1,
+          breakpoints: {
+            1200: { perPage: 6 },
+            449: { perPage: 3 },
+          }
+        }" aria-label="My Favorite Images">
           <SplideSlide v-for="newPersianSerial in newPersianSeries">
             <MovieCards v-bind="newPersianSerial"></MovieCards>
           </SplideSlide>
@@ -116,9 +132,13 @@ import Pagination from '@/components/Pagination.vue'
           </div>
         </div>
 
-        <Splide class="row"
-          :options="{ arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1 }"
-          aria-label="My Favorite Images">
+        <Splide class="row" :options="{
+          arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1,
+          breakpoints: {
+            1200: { perPage: 6 },
+            449: { perPage: 3 },
+          }
+        }" aria-label="My Favorite Images">
           <SplideSlide v-for="newPersianDubbingMovie in newPersianDubbingMovies">
             <MovieCards v-bind="newPersianDubbingMovie"></MovieCards>
           </SplideSlide>
@@ -138,9 +158,13 @@ import Pagination from '@/components/Pagination.vue'
           </div>
         </div>
 
-        <Splide class="row"
-          :options="{ arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1 }"
-          aria-label="My Favorite Images">
+        <Splide class="row" :options="{
+          arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1,
+          breakpoints: {
+            1200: { perPage: 6 },
+            449: { perPage: 3 },
+          }
+        }" aria-label="My Favorite Images">
           <SplideSlide v-for="animation in animations">
             <MovieCards v-bind="animation"></MovieCards>
           </SplideSlide>

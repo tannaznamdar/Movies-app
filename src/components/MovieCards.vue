@@ -1,4 +1,5 @@
 <template>
+
   <article class=" movieCard mb-3">
     <router-link :to='{ name: "titlePageRoute", params: { slug } }'>
       <div class="card-container">
@@ -22,8 +23,8 @@
       <p class="card-text card-text--title"> {{ title }} </p>
       <small class="card-text card-text--subtitle" v-if="hasSubtitle">{{ subtitle }}</small>
     </router-link>
-
   </article>
+
 </template>
 
 
@@ -128,6 +129,10 @@ export default {
     transform: translate(-50%, -50%);
     border-radius: 8px;
   }
+
+  @media (max-width:820px) {
+    height: 170px;
+  }
 }
 
 .card-info-overlay {
@@ -152,6 +157,11 @@ export default {
   -ms-transform: translate(-20%, -50%);
   transform: translate(-20%, -50%);
   box-shadow: 0 5px 25px rgba(0, 0, 0, .13) !important;
+
+  @media (min-width:450px) and (max-width:820px) {
+    transform: translate(-10%, -65%);
+    top: 86%;
+  }
 }
 
 .card-container:hover .card-info-overlay {
@@ -212,6 +222,10 @@ export default {
   z-index: 3;
   border-radius: 5px;
   padding: 2px;
+
+  @media (min-width:450px) and (max-width:820px) {
+    left: 10px;
+  }
 }
 
 .imdb-info {
