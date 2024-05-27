@@ -15,41 +15,43 @@ import Pagination from '@/components/Pagination.vue'
         </div>
 
         <div class="row">
-          <div class="col-lg-9">
+          <div class="col-lg-9  col-md-12 pb-30">
             <div v-for="largeMovieCard in largeMovieCards">
               <LargeMovieCards v-bind="largeMovieCard"></LargeMovieCards>
             </div>
             <Pagination></Pagination>
           </div>
 
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-md-12">
 
-            <div class="sidebar-tabs mb-5">
+            <div class="sidebar-tabs respansive-display mb-40">
               <div class="sidebar-tabs-btn">
                 <a href="#" class="sidebar-btn-wrap"> به روز شده ها </a>
               </div>
             </div>
 
-            <section class="update-series mb-5">
+            <section class="update-series mb-40">
               <div class="mb-4 d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center">
                   <img alt="calendar" :src="movieIcon">
-                  <h5 class="sidebar sidebar--title internal-distance-r">آپدیت سریال ها</h5>
+                  <h5 class="sidebar sidebar--title internal-distance-r">آپدیت سریال‌ها</h5>
                 </div>
                 <button class="button button--transparent button--transparent-gray">
                   <router-link class="active" :to='{ name: "updateSeriesPageRoute" }'> مشاهده همه </router-link>
                 </button>
               </div>
 
-              <div v-for="smallMovieCard in smallMovieCards">
-                <SmallMovieCards v-bind="smallMovieCard"></SmallMovieCards>
+              <div class="row flex-direction">
+                <div class="col-lg-12 col-md-6" v-for="smallMovieCard in smallMovieCards">
+                  <SmallMovieCards v-bind="smallMovieCard"></SmallMovieCards>
+                </div>
               </div>
             </section>
 
-            <section class="persian-dubbing mb-5">
+            <section class="persian-dubbing mb-40">
               <div class="main-sidebar-wrap">
                 <div class="row  d-flex align-items-center mb-2">
-                  <div class="col-lg-4">
+                  <div class="col-lg-4 col-md-2 col-4">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90"
                       height="90" viewBox="0 0 90 90">
                       <defs>
@@ -95,22 +97,25 @@ import Pagination from '@/components/Pagination.vue'
                     </svg>
                   </div>
 
-                  <div class="col-lg-8">
+                  <div class="col-lg-8 col-md-10 col-8">
                     <span class="sidebar sidebar--subtitle">فقط در آپ تیوی</span>
                     <h5 class="sidebar sidebar--title">دوبله‌های فارسی</h5>
                   </div>
                 </div>
 
-                <button class="button button-lg button-lg--sidebar mb-3">
-                  <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: "animation" } }'>
-                    انیمیشن دوبله فارسی
-                  </router-link>
-                </button>
-                <button class="button button-lg button-lg--sidebar">
-                  <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: "movies" } }'>فیلم
-                    های دوبله فارسی
-                  </router-link>
-                </button>
+                <div class="flex-direction">
+                  <button class="button button-lg button-lg--sidebar mb-15">
+                    <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: "animation" } }'>
+                      انیمیشن دوبله فارسی
+                    </router-link>
+                  </button>
+                  <button class="button button-lg button-lg--sidebar">
+                    <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: "movies" } }'>فیلم
+                      های دوبله فارسی
+                    </router-link>
+                  </button>
+                </div>
+
               </div>
             </section>
 
@@ -127,9 +132,12 @@ import Pagination from '@/components/Pagination.vue'
                 </button>
               </div>
 
-              <div v-for="comingSoonMovieSmallCard in comingSoonMovieSmallCards">
-                <SmallMovieCards v-bind="comingSoonMovieSmallCard"></SmallMovieCards>
+              <div class="row flex-direction">
+                <div class="col-lg-12 col-md-6" v-for="comingSoonMovieSmallCard in comingSoonMovieSmallCards">
+                  <SmallMovieCards v-bind="comingSoonMovieSmallCard"></SmallMovieCards>
+                </div>
               </div>
+
             </section>
 
           </div>
@@ -540,6 +548,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.container {
+  @media (min-width:450px) and (max-width:820px) {
+    max-width: 99%;
+  }
+}
+
 .sidebar-tabs {
   background-color: #23232b;
   border-radius: 4px;
@@ -599,5 +613,41 @@ export default {
   background-color: #23232b;
   padding: 10px 20px 20px;
   border-radius: 4px;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
+
+  @media (min-width:450px) and (max-width:820px) {
+    margin-bottom: 0;
+  }
+}
+
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+.pb-30 {
+  padding-bottom: 30px;
+}
+
+.flex-direction {
+  @media (min-width:450px) and (max-width:820px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.respansive-display {
+  @media (max-width:820px) {
+    display: none;
+  }
+}
+
+.respansive-display-d {
+  @media (min-width: 1320px) {
+    display: none;
+  }
 }
 </style>
