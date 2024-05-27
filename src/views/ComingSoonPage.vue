@@ -14,41 +14,42 @@ import movieIcon from '@/assets/images/movie.svg'
         </div>
 
         <div class="row">
-          <div class="col-lg-9">
+          <div class="col-lg-9 col-md-12 pb-30">
             <div v-for="largeComingSoonCard in largeComingSoonCards">
               <LargeMovieCards v-bind="largeComingSoonCard"></LargeMovieCards>
             </div>
           </div>
 
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-md-12">
 
-            <div class="sidebar-tabs mb-5">
+            <div class="sidebar-tabs respansive-display mb-40">
               <div class="sidebar-tabs-btn">
                 <a href="#" class="sidebar-btn-wrap"> به روز شده ها </a>
               </div>
             </div>
 
-            <section class="update-series mb-5">
+            <section class="update-series mb-40">
               <div class="mb-4 d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center">
                   <img alt="calendar" :src="movieIcon">
-                  <h5 class="sidebar sidebar--title internal-distance-r">آپدیت سریال ها</h5>
+                  <h5 class="sidebar sidebar--title internal-distance-r">آپدیت سریال‌ها</h5>
                 </div>
                 <button class="button button--transparent button--transparent-gray">
-                  <router-link class="active" :to='{ name: "updateSeriesPageRoute" }'> مشاهده همه
-                  </router-link>
+                  <router-link class="active" :to='{ name: "updateSeriesPageRoute" }'> مشاهده همه </router-link>
                 </button>
               </div>
 
-              <div v-for="smallDubleCard in smallDubleCards">
-                <SmallMovieCards v-bind="smallDubleCard"></SmallMovieCards>
+              <div class="row flex-direction">
+                <div class="col-lg-12 col-md-6" v-for="smallDubleCard in smallDubleCards">
+                  <SmallMovieCards v-bind="smallDubleCard"></SmallMovieCards>
+                </div>
               </div>
             </section>
 
-            <section class="persian-dubbing mb-5">
+            <section class="persian-dubbing mb-40">
               <div class="main-sidebar-wrap">
                 <div class="row  d-flex align-items-center mb-2">
-                  <div class="col-lg-4">
+                  <div class="col-lg-4 col-md-2 col-4">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90"
                       height="90" viewBox="0 0 90 90">
                       <defs>
@@ -79,8 +80,7 @@ import movieIcon from '@/assets/images/movie.svg'
                             <g transform="translate(0)">
                               <path
                                 d="M92.785,210.2a.8.8,0,1,0-1.594,0,5.631,5.631,0,0,1-11.261,0,.8.8,0,1,0-1.594,0,7.223,7.223,0,0,0,6.427,7.2v2.125h-2.9a.8.8,0,1,0,0,1.594h7.384a.8.8,0,1,0,0-1.594h-2.9V217.4A7.223,7.223,0,0,0,92.785,210.2Z"
-                                transform="translate(-78.336 -209.408)" fill="url(#d)">
-                              </path>
+                                transform="translate(-78.336 -209.408)" fill="url(#d)"></path>
                             </g>
                           </g>
                           <g transform="translate(2.789)">
@@ -95,22 +95,25 @@ import movieIcon from '@/assets/images/movie.svg'
                     </svg>
                   </div>
 
-                  <div class="col-lg-8">
+                  <div class="col-lg-8 col-md-10 col-8">
                     <span class="sidebar sidebar--subtitle">فقط در آپ تیوی</span>
                     <h5 class="sidebar sidebar--title">دوبله‌های فارسی</h5>
                   </div>
                 </div>
 
-                <button class="button button-lg button-lg--sidebar mb-3">
-                  <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: "animation" } }'>
-                    انیمیشن دوبله فارسی
-                  </router-link>
-                </button>
-                <button class="button button-lg button-lg--sidebar">
-                  <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: "movies" } }'>فیلم
-                    های دوبله فارسی
-                  </router-link>
-                </button>
+                <div class="flex-direction">
+                  <button class="button button-lg button-lg--sidebar mb-15">
+                    <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: "animation" } }'>
+                      انیمیشن دوبله فارسی
+                    </router-link>
+                  </button>
+                  <button class="button button-lg button-lg--sidebar">
+                    <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: "movies" } }'>فیلم
+                      های دوبله فارسی
+                    </router-link>
+                  </button>
+                </div>
+
               </div>
             </section>
 
@@ -127,9 +130,12 @@ import movieIcon from '@/assets/images/movie.svg'
                 </button>
               </div>
 
-              <div v-for="comingSoonDubleSmallCard in comingSoonDubleSmallCards">
-                <SmallMovieCards v-bind="comingSoonDubleSmallCard"></SmallMovieCards>
+              <div class="row flex-direction">
+                <div class="col-lg-12 col-md-6" v-for="comingSoonDubleSmallCard in comingSoonDubleSmallCards">
+                  <SmallMovieCards v-bind="comingSoonDubleSmallCard"></SmallMovieCards>
+                </div>
               </div>
+
             </section>
 
           </div>
@@ -518,6 +524,12 @@ export default {
 
 
 <style scoped lang="scss">
+.container {
+  @media (min-width:450px) and (max-width:820px) {
+    max-width: 99%;
+  }
+}
+
 .sidebar-tabs {
   background-color: #23232b;
   border-radius: 4px;
@@ -581,5 +593,41 @@ export default {
 
 .pt-70 {
   padding-top: 70px;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
+
+  @media (min-width:450px) and (max-width:820px) {
+    margin-bottom: 0;
+  }
+}
+
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+.pb-30 {
+  padding-bottom: 30px;
+}
+
+.flex-direction {
+  @media (min-width:450px) and (max-width:820px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.respansive-display {
+  @media (max-width:820px) {
+    display: none;
+  }
+}
+
+.respansive-display-d {
+  @media (min-width: 1320px) {
+    display: none;
+  }
 }
 </style>

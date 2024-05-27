@@ -9,7 +9,7 @@ import collectioncards from "@/components/CollectionCards.vue";
       <div class="container bv-example-row">
         <h4 class="archive-title mt-5 mb-4">آرشیو کالکشن ها</h4>
         <div class="row">
-          <div class=" col-lg-3" v-for="collectionMovie in collectionMovies">
+          <div class=" col-lg-3 col-md-6" v-for="collectionMovie in collectionMovies">
             <collectioncards v-bind="collectionMovie"></collectioncards>
           </div>
         </div>
@@ -163,6 +163,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.container {
+  @media (min-width:450px) and (max-width:820px) {
+    max-width: 99%;
+  }
+}
+
 .archive-title {
   font-size: 17px;
   line-height: 1.3;
