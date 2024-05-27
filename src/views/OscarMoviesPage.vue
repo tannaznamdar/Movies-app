@@ -1,10 +1,11 @@
 <script setup>
+import MediumMovieCards from "@/components/MediumMovieCards.vue";
 import MovieCards from "@/components/MovieCards.vue";
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 </script>
 
 <template>
-    <div class="container-fluid gx-0">
+    <div class="container-fluid background-dark gx-0">
         <section class="cover">
             <img :src="thumbnail" alt="#">
             <div class="cover-bg-1"></div>
@@ -17,7 +18,7 @@ import { Splide, SplideSlide } from '@splidejs/vue-splide';
             </div>
         </section>
 
-        <section class="mb-5">
+        <section class="mb-5 respansive-display">
             <div class="top-movies-slider">
                 <Splide class="row"
                     :options="{ arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 8, perMove: 1 }"
@@ -32,8 +33,8 @@ import { Splide, SplideSlide } from '@splidejs/vue-splide';
         <section class="pb-1">
             <div class="container bv-example-row">
                 <div class="row mb-4">
-                    <div class="col-lg-2" v-for="oscarMovieCard in oscarMovieCards">
-                        <MovieCards v-bind="oscarMovieCard"></MovieCards>
+                    <div class="col-lg-2 col-md-4 col-4" v-for="oscarMovieCard in oscarMovieCards">
+                        <MediumMovieCards v-bind="oscarMovieCard"></MediumMovieCards>
                     </div>
                 </div>
             </div>
@@ -366,6 +367,20 @@ export default {
 
 
 <style scoped lang="scss">
+.container {
+    @media (min-width:450px) and (max-width:820px) {
+        max-width: 80%;
+    }
+
+    @media (max-width:449px) {
+        max-width: 98%;
+    }
+}
+
+.background-dark {
+    background-color: #101014;
+}
+
 .cover {
     position: relative;
     height: 590px;
@@ -380,6 +395,15 @@ export default {
         left: 50%;
         transform: translate(-50%, -50%);
     }
+
+    @media (min-width:450px) and (max-width:820px) {
+        height: 480px;
+    }
+
+    @media (max-width:449px) {
+        height: 330px;
+        margin-bottom: 30px;
+    }
 }
 
 .cover-info {
@@ -388,6 +412,18 @@ export default {
     margin-top: 80px;
     z-index: 2;
     position: absolute;
+
+    @media (max-width:449px) {
+        width: 100%;
+        text-align: right;
+        padding: 100px 30px 200px;
+    }
+
+    @media (min-width:450px) and (max-width:820px) {
+        width: 100%;
+        text-align: center;
+        padding: 170px 30px 200px;
+    }
 }
 
 .cover-bg-1 {
@@ -407,6 +443,10 @@ export default {
     width: 100%;
     height: 60%;
     z-index: 1;
+
+    @media (min-width:450px) and (max-width:820px) {
+        height: 100%;
+    }
 }
 
 .cover-fa-title {
@@ -414,6 +454,14 @@ export default {
     line-height: 1.3;
     color: #fff;
     font-weight: 500;
+
+    @media (min-width:450px) and (max-width:820px) {
+        font-size: 35px;
+    }
+
+    @media (max-width:449px) {
+        font-size: 20px;
+    }
 }
 
 .cover-en-title {
@@ -421,6 +469,10 @@ export default {
     color: rgb(138, 141, 143);
     margin-bottom: 20px;
     font-weight: 400;
+
+    @media (max-width:820px) {
+        font-size: 18px;
+    }
 }
 
 .cover-subtitle {
@@ -428,6 +480,11 @@ export default {
     color: #fffffff1;
     margin-top: 16px;
     font-weight: 500;
+    display: contents;
+
+    @media (max-width:449px) {
+        font-size: 10px;
+    }
 }
 
 .top-movies-slider {
@@ -445,5 +502,11 @@ export default {
 
 .internal-distance {
     margin-right: 5px;
+}
+
+.respansive-display {
+    @media (max-width:820px) {
+        display: none;
+    }
 }
 </style>

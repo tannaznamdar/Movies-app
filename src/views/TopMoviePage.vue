@@ -22,10 +22,6 @@ import { Splide, SplideSlide } from '@splidejs/vue-splide';
             <div class="top-movies-slider">
                 <Splide class="row" :options="{
                     arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 8, perMove: 1,
-                    breakpoints: {
-                        1200: { perPage: 5 },
-                        449: { perPage: 1.75 },
-                    }
                 }" aria-label="My Favorite Images">
                     <SplideSlide v-for="topMovie in topMovies">
                         <MovieCards v-bind="topMovie"></MovieCards>
@@ -490,6 +486,7 @@ export default {
     color: #fffffff1;
     margin-top: 16px;
     font-weight: 500;
+    display: contents;
 
     @media (max-width:449px) {
         font-size: 10px;
