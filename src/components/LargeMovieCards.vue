@@ -3,7 +3,7 @@
     <article class=" movieCard">
         <div class="row">
 
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-3">
                 <router-link :to='{ name: "titlePageRoute", params: { slug } }'>
                     <figure class="card-img">
                         <img alt="#" :src="thumbnail">
@@ -11,7 +11,7 @@
                 </router-link>
             </div>
 
-            <div class="col-lg-9">
+            <div class="col-lg-9 col-md-9">
                 <div>
                     <router-link class="card-text card-text--title" :to='{ name: "titlePageRoute", params: { slug } }'>
                         {{ title }} </router-link>
@@ -38,12 +38,19 @@
                         <span class="card-text card-text--info-num internal-distance-l">{{ like }}%</span>
                         <span class="card-text card-text--info">رضایت</span>
                     </div>
+
+                    <div class="respansive-display-d">
+                        <img class="internal-distance-l" alt="Imdb" :src="Imdb">
+                        <span class="card-text card-text--subtitle internal-distance-l"> امتیاز:</span>
+                        <span class="card-text card-text--subtitle">{{ imdb }}</span>
+                    </div>
+
                 </div>
 
                 <div>
                     <div class="d-flex d-grid gap-4 align-items-center">
-                        <span class="card-text card-text--subtitle">بازیگران:</span>
-                        <span class="card-text card-text--subtitle" v-for="actor in actors">
+                        <span class="card-text card-text--subtitle  respansive-display-t">بازیگران:</span>
+                        <span class="card-text card-text--subtitle  respansive-display-t" v-for="actor in actors">
                             <router-link class="active"
                                 :to='{ name: "actorsPageRoute", params: { actor: actor.slug } }'>
                                 {{ actor.title }}
@@ -51,8 +58,8 @@
                         </span>
                     </div>
                     <div class="d-flex d-grid gap-4 align-items-center" v-if="hasDirector">
-                        <span class="card-text card-text--subtitle">کارگردان:</span>
-                        <span class="card-text card-text--subtitle" v-for="director in directors">
+                        <span class="card-text card-text--subtitle  respansive-display-t">کارگردان:</span>
+                        <span class="card-text card-text--subtitle respansive-display-t" v-for="director in directors">
                             <router-link class="active"
                                 :to='{ name: "directorPageRoute", params: { director: director.slug } }'>
                                 {{ director.title }}
@@ -61,37 +68,34 @@
                     </div>
                 </div>
 
-                <div class="alert">
+                <div class="alert  respansive-display-t">
                     <p class="card-text card-text--description">{{ synopsis }}</p>
                 </div>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex align-items-center justify-content-between pt-20">
                     <div class="d-flex d-grid gap-4">
-                        <div>
-
+                        <div class=" respansive-display-m">
                             <img class="internal-distance-l" alt="calendar" :src="calendar">
                             <span class="card-text card-text--subtitle internal-distance-l">سال انتشار:</span>
                             <span class="card-text card-text--subtitle">{{ year }}</span>
                         </div>
 
-                        <div>
+                        <div class=" respansive-display-m">
                             <img class="internal-distance-l" alt="planetEarth" :src="planetEarth">
                             <span class="card-text card-text--subtitle internal-distance-l"> کشور:</span>
                             <span class="card-text card-text--subtitle">{{ Country }}</span>
                         </div>
 
-                        <div>
+                        <div class=" respansive-display-m">
                             <img class="internal-distance-l" alt="Imdb" :src="Imdb">
                             <span class="card-text card-text--subtitle internal-distance-l"> امتیاز:</span>
                             <span class="card-text card-text--subtitle">{{ imdb }}</span>
                         </div>
                     </div>
 
-                    <button class="button button--outline-blue">
-
+                    <button class="button button--outline-blue respansive-display-m">
                         <router-link :to='{ name: "titlePageRoute", params: { slug } }'>
                             <font-awesome-icon class="internal-distance-l" icon="download" style="color: #164ea2;" />
                             {{ btnTitle }} </router-link>
-
                     </button>
                 </div>
 
@@ -204,6 +208,10 @@ export default {
     box-shadow: 0 5px 25px rgba(0, 0, 0, .13) !important;
     border-radius: 4px;
     margin-bottom: 20px;
+
+    @media (max-width:449px) {
+        text-align: center;
+    }
 }
 
 .card-img {
@@ -213,7 +221,6 @@ export default {
     height: 290px;
     position: relative;
     overflow: hidden;
-    margin-bottom: 20px;
 
     img {
         display: block;
@@ -224,6 +231,11 @@ export default {
         left: 50%;
         transform: translate(-50%, -50%);
         border-radius: 4px;
+    }
+
+    @media (min-width:450px) and (max-width:820px) {
+        height: 230px;
+        margin: 0;
     }
 }
 
@@ -322,6 +334,10 @@ export default {
 .card-info {
     padding-bottom: 15px;
     border-bottom: 1px solid #1b1c1e;
+
+    @media (max-width:449px) {
+        border: none;
+    }
 }
 
 .icon {
@@ -338,5 +354,34 @@ export default {
     padding: 12px;
     border: 0 solid transparent;
     border-radius: 3px;
+}
+
+.respansive-display-d {
+    @media (min-width:450px) and (max-width: 1320px) {
+        display: none;
+    }
+
+    @media (min-width: 1320px) {
+        display: none;
+    }
+
+}
+
+.respansive-display-t {
+    @media (max-width:820px) {
+        display: none;
+    }
+}
+
+.respansive-display-m {
+    @media (max-width:449px) {
+        display: none;
+    }
+}
+
+.pt-20 {
+    @media (min-width:450px) and (max-width:820px) {
+        padding-top: 20px;
+    }
 }
 </style>

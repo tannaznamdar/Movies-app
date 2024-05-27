@@ -1301,7 +1301,7 @@ export default {
           synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
           year: 1403,
           Country: 'ایران',
-          hasBadge: false,
+          hasBadge: true,
           btnTitle: 'دانلود سریال'
         },
         {
