@@ -338,6 +338,10 @@ body {
       background-color: #1c1c22;
       border-color: #1c1c22;
 
+      @media (min-width:450px) and (max-width:820px) {
+        width: 48%;
+      }
+
       a {
         color: #8e949a;
         font-size: 14px;
@@ -363,20 +367,24 @@ body {
 }
 
 /* For  desktop: */
-@media (min-width: 1200px){
-    body,html{
-      .container, .container-lg, .container-md, .container-sm, .container-xl {
-        max-width: 1320px;
+@media (min-width: 1200px) {
+
+  body,
+  html {
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+      max-width: 1320px;
     }
-    }
   }
-  
-  /* For tablets: */
-  @media (min-width:450px) and (max-width:820px) {
-  }
-  
-  /* For mobile: */
-  @media (max-width:449px) {
-  }
-  
+}
+
+/* For tablets: */
+@media (min-width:450px) and (max-width:820px) {}
+
+/* For mobile: */
+@media (max-width:449px) {}
 </style>

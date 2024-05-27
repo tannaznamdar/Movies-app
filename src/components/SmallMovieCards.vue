@@ -63,6 +63,7 @@ export default {
 <style scoped lang="scss">
 .small-card {
     position: relative;
+    width: 100%;
 }
 
 .card-info {
@@ -93,6 +94,10 @@ export default {
         left: 50%;
         transform: translate(-50%, -50%);
         border-radius: 4px;
+    }
+
+    @media (max-width:820px) {
+        height: 107px;
     }
 }
 
