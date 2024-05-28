@@ -10,7 +10,7 @@ import ImdbYellow from '@/assets/images/imdb-yellow.svg'
 import chat from '@/assets/images/chat.svg'
 import xmarkwhite from '@/assets/images/xmarkwhite.svg'
 import Tag from "@/components/Tag.vue";
-import {getActivePinia} from "pinia";
+import { getActivePinia } from "pinia";
 
 </script>
 
@@ -32,7 +32,7 @@ import {getActivePinia} from "pinia";
       <div class="container-sm bv-example-row mb-5 pt-5">
         <div class="row">
           <div class="d-flex flex-row">
-            <div>
+            <div class="display-none">
               <a href="#">
                 <figure class="movie-img">
                   <img alt="#" :src="thumbnail">
@@ -43,9 +43,10 @@ import {getActivePinia} from "pinia";
             <div class="movie-info">
               <div>
                 <h1 class="font-text font-text--title">{{ title }}</h1>
-                <span class="font-text font-text--subtitle font-text--subtitle-yellow" v-if="hasSubtitle">{{
-                  subtitle
-                }}</span>
+                <span class="font-text font-text--subtitle font-text--subtitle-yellow display-none"
+                  v-if="hasSubtitle">{{
+                    subtitle
+                  }}</span>
                 <div class="post-single-meta">
                   <div class="row">
                     <div class="col-lg">
@@ -70,21 +71,21 @@ import {getActivePinia} from "pinia";
                       <span class="text-white-25 internal-distance">|</span>
                       <span class="font-text font-text--subtitle"> {{ time }}</span>
                     </div>
-                    <div class="col-lg-auto">
+                    <div class="col-lg-auto display-none">
                       <tag v-if="hasTag" v-bind="tag"></tag>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="row">
+              <div class="display-flex">
                 <div class="col-lg-12">
                   <div class="row mt-3 mb-3 align-items-center">
 
                     <div class="col-md-auto col-auto xs-p-0 ml-lg-30 ml-md-15">
                       <img class="internal-distance" alt="Imdb" :src="ImdbYellow">
                       <span class="font-text font-text--subtitle"> {{ imdb }}</span>
-                      <span class="font-text font-text--sm-12 internal-distance">از 10 </span>
-                      <span class="font-text font-text--sm-11">از {{ votes }}
+                      <span class="font-text font-text--sm-12 internal-distance display-none">از 10 </span>
+                      <span class="font-text font-text--sm-11 display-none">از {{ votes }}
                         رای</span>
                     </div>
                     <div class="col-md-auto col-auto  ml-lg-20">
@@ -97,7 +98,7 @@ import {getActivePinia} from "pinia";
                 </div>
                 <div class="col-lg-12">
                   <div class="post-single-artist  py-20">
-                    <div class="mb-half">
+                    <div class="mb-half display-none">
                       <span class="font-text font-text--subtitle font-text--subtitle-gray"> بازیگران :
                       </span>
                       <span class="font-text font-text--subtitle internal-distance" v-if="hasDirector"
@@ -107,7 +108,7 @@ import {getActivePinia} from "pinia";
                         </router-link>
                       </span>
                     </div>
-                    <div>
+                    <div class="display-none">
                       <span class="font-text font-text--subtitle font-text--subtitle-gray" v-if="hasDirector"> کارگردان
                         :
                       </span>
@@ -182,8 +183,8 @@ import {getActivePinia} from "pinia";
         <div class="download-box">
           <div class="post-content-download" v-for="downloadMovieItem in downloadMovieItems">
             <div class="row align-items-lg-center gutter-6">
-              <div class="d-flex justify-content-between">
-                <div class="d-flex align-items-center">
+              <div class="d-flex justify-content-between responsive-display">
+                <div class="d-flex align-items-center pb-20 responsive-display responsive-display-t">
                   <span class="font-text font-text--subtitle font-text--subtitle-gray">
                     {{ downloadMovieItem.title }}
                   </span>
@@ -193,19 +194,28 @@ import {getActivePinia} from "pinia";
                   }}</span>
                 </div>
 
-                <div class="d-flex">
-                  <button class="button button--medium button--medium-green internal-distance-l" v-if="hasDl1080">
-                    <a href="#"> دانلود 1080p </a>
-                  </button>
-                  <button class="button button--medium button--medium-green internal-distance-l" v-if="hasDl720">
-                    <a href="#"> دانلود 720p </a>
-                  </button>
-                  <button class="button button--medium button--medium-green internal-distance-l" v-if="hasDl480">
-                    <a href="#"> دانلود 480p </a>
-                  </button>
-                  <button class="button button--medium button--medium-yellow" v-if="hasWatchOnline">
-                    <a href="#"> تماشای آنلاین </a>
-                  </button>
+                <div class="d-flex responsive-display-m gap-10">
+                  <div class="d-flex pb-10">
+                    <button class=" col-6 button button--medium button--medium-green internal-distance-l"
+                      v-if="downloadMovieItem.hasDl1080">
+                      <a href="#"> دانلود 1080p </a>
+                    </button>
+                    <button class="col-6 button button--medium button--medium-green" v-if="downloadMovieItem.hasDl720">
+                      <a href="#"> دانلود 720p </a>
+                    </button>
+                  </div>
+
+                  <div class="d-flex ">
+                    <button class="col-6 button button--medium button--medium-green internal-distance-l"
+                      v-if="downloadMovieItem.hasDl480">
+                      <a href="#"> دانلود 480p </a>
+                    </button>
+                    <button class="col-6 button button--medium button--medium-yellow"
+                      v-if="downloadMovieItem.hasWatchOnline">
+                      <a href="#"> تماشای آنلاین </a>
+                    </button>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -216,39 +226,50 @@ import {getActivePinia} from "pinia";
 
       <section class="pb-5">
         <div class="download-box download-box-series">
-          <div class="tab-holder">
-            <button v-for="downloadSeriesItem in downloadSeriesItems"
-                    class="table-tab-btn" :class="{'active':downloadSeriesItem.id === activeSeriesTab}" @click="activeSeriesTab = downloadSeriesItem.id"> {{downloadSeriesItem.title}} </button>
+          <div class="tab-holder d-flex">
+            <button v-for="downloadSeriesItem in downloadSeriesItems" class="table-tab-btn"
+              :class="{ 'active': downloadSeriesItem.id === activeSeriesTab }"
+              @click="activeSeriesTab = downloadSeriesItem.id"> {{ downloadSeriesItem.title }} </button>
           </div>
 
           <div class="tab-background">
-            <div class="Serial-content-download" v-for="episode  in downloadSeriesItems.find(x=>{return x.id === activeSeriesTab}).episodes">
+            <div class="Serial-content-download"
+              v-for="episode in downloadSeriesItems.find(x => { return x.id === activeSeriesTab }).episodes">
               <div class="row align-items-lg-center gutter-6">
-                <div class="d-flex justify-content-between">
-                  <div class="d-flex align-items-center">
+                <div class="d-flex justify-content-between responsive-display">
+                  <div class="d-flex align-items-center pb-20 responsive-display-t">
                     <span class="font-text font-text--subtitle font-text--subtitle-gray internal-distance bold-text">{{
-                        episode.title }} - </span>
+                      episode.title }} - </span>
                     <span class="font-text font-text--subtitle font-text--subtitle-gray internal-distance"> {{
-                        episode.description }}
+                      episode.description }}
                     </span>
                     <span class="badge badge--red internal-distance" v-if="episode.hasBadge"> {{
-                        episode.badgeTitle
+                      episode.badgeTitle
                     }}</span>
                   </div>
 
-                  <div class="d-flex">
-                    <button class="button button--medium button--medium-green internal-distance-l" v-if="hasDl1080">
-                      <a href="#"> دانلود 1080p </a>
-                    </button>
-                    <button class="button button--medium button--medium-green internal-distance-l" v-if="hasDl720">
-                      <a href="#"> دانلود 720p </a>
-                    </button>
-                    <button class="button button--medium button--medium-green internal-distance-l" v-if="hasDl480">
-                      <a href="#"> دانلود 480p </a>
-                    </button>
-                    <button class="button button--medium button--medium-yellow" v-if="hasWatchOnline">
-                      <a href="#"> تماشای آنلاین </a>
-                    </button>
+                  <div class="d-flex responsive-display-m gap-10">
+                    <div class="d-flex pb-10">
+                      <button class="col-6 button button--medium button--medium-green internal-distance-l"
+                        v-if="episode.hasDl1080">
+                        <a href="#"> دانلود 1080p </a>
+                      </button>
+                      <button class="col-6 button button--medium button--medium-green internal-distance-l"
+                        v-if="episode.hasDl720">
+                        <a href="#"> دانلود 720p </a>
+                      </button>
+                    </div>
+
+                    <div class="d-flex ">
+                      <button class="col-6 button button--medium button--medium-green internal-distance-l"
+                        v-if="episode.hasDl480">
+                        <a href="#"> دانلود 480p </a>
+                      </button>
+                      <button class="col-6 button button--medium button--medium-yellow" v-if="episode.hasWatchOnline">
+                        <a href="#"> تماشای آنلاین </a>
+                      </button>
+                    </div>
+
                   </div>
                 </div>
               </div>
@@ -259,18 +280,24 @@ import {getActivePinia} from "pinia";
       </section>
 
       <section class="related-post pb-5">
-        <h4 class="font-text font-text--medium-title pb-4">
-          <img alt="calendar" :src="movieIcon">
-          {{ relatedPostTitle }}
-        </h4>
+        <div class="container bv-example-row">
+          <h4 class="font-text font-text--medium-title pb-4">
+            <img alt="calendar" :src="movieIcon">
+            {{ relatedPostTitle }}
+          </h4>
 
-        <Splide class="row"
-          :options="{ arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1 }"
-          aria-label="My Favorite Images">
-          <SplideSlide v-for="relatedPost in relatedPosts">
-            <SinglePageCards v-bind="relatedPost"></SinglePageCards>
-          </SplideSlide>
-        </Splide>
+          <Splide class="row" :options="{
+            arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1, breakpoints: {
+              1200: { perPage: 6 },
+              820: { perPage: 4 },
+              449: { perPage: 2 },
+            }
+          }" aria-label="My Favorite Images">
+            <SplideSlide v-for="relatedPost in relatedPosts">
+              <SinglePageCards v-bind="relatedPost"></SinglePageCards>
+            </SplideSlide>
+          </Splide>
+        </div>
       </section>
 
       <section>
@@ -365,7 +392,7 @@ export default {
   name: 'singlePage',
   data() {
     return {
-      activeSeriesTab:1,
+      activeSeriesTab: 1,
       showOverlay: true,
       videoSrc: 'https://www.youtube.com/embed/ngElkyQ6Rhs',
       hasMovieTrailer: true,
@@ -430,20 +457,18 @@ export default {
       NumberOfViews: 115,
       addCommentBox: false,
 
-      hasDescription: true,
-      hasBadge: true,
-      hasDl480: true,
-      hasDl720: true,
-      hasDl1080: true,
-      hasWatchOnline: true,
-
       downloadMovieItems: [
         {
           title: '  کیفیت: 1080p حجم: 1.88 گیگابایت | کیفیت: 720p حجم: 1.04 گیگابایت',
           hasDescription: false,
           description: '',
           hasBadge: true,
-          badgeTitle: 'دوبله فارسی اول'
+          badgeTitle: 'دوبله فارسی اول',
+          hasBadge: true,
+          hasDl480: true,
+          hasDl720: true,
+          hasDl1080: true,
+          hasWatchOnline: true,
 
         },
         {
@@ -451,29 +476,41 @@ export default {
           hasDescription: false,
           description: '',
           hasBadge: true,
-          badgeTitle: 'دوبله فارسی دوم'
+          badgeTitle: 'دوبله فارسی دوم',
+          hasBadge: true,
+          hasDl480: true,
+          hasDl720: true,
+          hasDl1080: true,
+          hasWatchOnline: true,
         },
         {
           title: '  کیفیت: 1080p حجم: 1.88 گیگابایت | کیفیت: 720p حجم: 1.04 گیگابایت',
           hasDescription: false,
           description: '',
           hasBadge: true,
-          badgeTitle: 'زیرنویس چسبیده '
+          badgeTitle: 'زیرنویس چسبیده ',
+          hasBadge: true,
+          hasDl480: true,
+          hasDl720: true,
+          hasDl1080: true,
+          hasWatchOnline: true,
         }
       ],
 
-
-
       downloadSeriesItems: [
         {
-          id:1,
+          id: 1,
           title: 'فصل یک',
-          episodes:[
+          episodes: [
             {
               title: ' قسمت 21 ',
               hasDescription: false,
               description: 'زیرنویس فارسی',
               hasBadge: false,
+              hasDl480: true,
+              hasDl720: true,
+              hasDl1080: true,
+              hasWatchOnline: true,
 
             },
             {
@@ -481,6 +518,10 @@ export default {
               hasDescription: true,
               description: 'زیرنویس فارسی',
               hasBadge: false,
+              hasDl480: true,
+              hasDl720: true,
+              hasDl1080: true,
+              hasWatchOnline: true,
 
             },
             {
@@ -488,26 +529,38 @@ export default {
               hasDescription: true,
               description: 'زیرنویس فارسی',
               hasBadge: true,
-              badgeTitle: '10 روز پیش'
+              badgeTitle: '10 روز پیش',
+              hasDl480: true,
+              hasDl720: true,
+              hasDl1080: true,
+              hasWatchOnline: true,
             },
             {
               title: ' قسمت 23 ',
               hasDescription: true,
               description: 'زیرنویس فارسی',
               hasBadge: true,
-              badgeTitle: ' 1 روز پیش'
+              badgeTitle: ' 1 روز پیش',
+              hasDl480: true,
+              hasDl720: true,
+              hasDl1080: true,
+              hasWatchOnline: true,
             }
           ]
         },
         {
-          id:2,
+          id: 2,
           title: 'فصل دو',
-          episodes:[
+          episodes: [
             {
               title: ' قسمت 01 ',
               hasDescription: false,
               description: 'زیرنویس فارسی',
               hasBadge: false,
+              hasDl480: true,
+              hasDl720: true,
+              hasDl1080: true,
+              hasWatchOnline: true,
 
             },
             {
@@ -515,6 +568,10 @@ export default {
               hasDescription: true,
               description: 'زیرنویس فارسی',
               hasBadge: false,
+              hasDl480: true,
+              hasDl720: true,
+              hasDl1080: true,
+              hasWatchOnline: true,
 
             },
             {
@@ -522,14 +579,22 @@ export default {
               hasDescription: true,
               description: 'زیرنویس فارسی',
               hasBadge: true,
-              badgeTitle: '10 روز پیش'
+              badgeTitle: '10 روز پیش',
+              hasDl480: true,
+              hasDl720: true,
+              hasDl1080: true,
+              hasWatchOnline: true,
             },
             {
               title: ' قسمت 04 ',
               hasDescription: true,
               description: 'زیرنویس فارسی',
               hasBadge: true,
-              badgeTitle: ' 1 روز پیش'
+              badgeTitle: ' 1 روز پیش',
+              hasDl480: true,
+              hasDl720: true,
+              hasDl1080: true,
+              hasWatchOnline: true,
             }
           ]
         }
@@ -845,6 +910,15 @@ export default {
   background-position: center -30px;
   background-repeat: no-repeat;
   filter: blur(5px);
+
+  @media (min-width:450px) and (max-width:820px) {
+    transform: scale(2);
+  }
+
+  @media (max-width:449px) {
+    transform: scale(1);
+    filter: blur(1px);
+  }
 }
 
 .post-header-grad-info-background {
@@ -898,6 +972,11 @@ export default {
   padding-left: 10px;
   padding-right: 10px;
   width: 100%;
+
+  @media (max-width:449px) {
+    position: absolute;
+    top: 340px;
+  }
 }
 
 .font-text {
@@ -908,6 +987,10 @@ export default {
     font-size: 20px;
     font-weight: 700;
     line-height: 1.3;
+
+    @media (max-width:449px) {
+      font-size: 16px;
+    }
   }
 
   &--subtitle {
@@ -1002,6 +1085,10 @@ export default {
   border-bottom: 1px solid rgba(255, 255, 255, .1);
   padding-top: 10px;
   padding-bottom: 20px;
+
+  @media (max-width:449px) {
+    border-bottom: none;
+  }
 }
 
 .video-box {
@@ -1214,5 +1301,56 @@ textarea:focus {
 
 .container-sm {
   max-width: 1140px;
+}
+
+.responsive-display {
+  @media (max-width:820px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.responsive-display-t {
+  @media (min-width:450px) and (max-width:820px) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.responsive-display-m {
+  @media (max-width:449px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.display-flex {
+  @media (max-width:449px) {
+    display: flex;
+  }
+}
+
+.pb-20 {
+  @media (max-width:820px) {
+    padding-bottom: 20px;
+  }
+}
+
+.pb-10 {
+  @media (max-width:449px) {
+    padding-bottom: 10px;
+  }
+}
+
+.gap-10 {
+  gap: 10px;
+  margin-left: 10px
+}
+
+.display-none {
+  @media (max-width:449px) {
+    display: none;
+  }
 }
 </style>
