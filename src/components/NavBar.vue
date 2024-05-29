@@ -436,7 +436,7 @@ const location = useRoute();
             <li class="d-flex display"> ژانر
               <font-awesome-icon icon="plus" size="xs" />
             </li>
-
+            
             <div class="mobile-fixed-nav-child">
               <ul>
                 <li v-for="genre in genres">
@@ -788,6 +788,14 @@ export default {
   },
   watch: {
     searchBox(val) {
+      if (val) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+    },
+
+    showMenu(val) {
       if (val) {
         document.body.style.overflow = 'hidden';
       } else {
@@ -1348,13 +1356,13 @@ export default {
   justify-content: space-between;
 }
 
-.padding-10 {
+.padding-10{
   padding-right: 10px;
   padding-left: 30px;
 
   @media (max-width:449px) {
     padding-right: 5px;
-    padding-left: 15px;
+  padding-left: 15px;
   }
 }
 </style>
