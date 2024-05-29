@@ -433,11 +433,16 @@ const location = useRoute();
 
         <nav class="mobile-menu">
           <ul>
-            <li class="d-flex display"> ژانر
+            <li class="d-flex display align-items-center" v-if="!showGenreSubmenu" @click="showGenreSubmenu = true">
+              ژانر
               <font-awesome-icon icon="plus" size="xs" />
             </li>
-            
-            <div class="mobile-fixed-nav-child">
+
+            <li class="d-flex display align-items-center" v-else @click="showGenreSubmenu = false"> ژانر
+              <font-awesome-icon icon="minus" size="xs" />
+            </li>
+
+            <div class="mobile-fixed-nav-child" v-show="showGenreSubmenu">
               <ul>
                 <li v-for="genre in genres">
                   <router-link class="active" :to='{ name: "moviesGenrePageRoute", params: { genre: genre.slug } }'>
@@ -447,10 +452,15 @@ const location = useRoute();
               </ul>
             </div>
 
-            <li class="d-flex display"> فیلم
+            <li class="d-flex display" v-if="!showMovieSubmenu" @click="showMovieSubmenu = true"> فیلم
               <font-awesome-icon icon="plus" size="xs" />
             </li>
-            <div class="mobile-fixed-nav-child">
+
+            <li class="d-flex display" v-else @click="showMovieSubmenu = false"> فیلم
+              <font-awesome-icon icon="minus" size="xs" />
+            </li>
+
+            <div class="mobile-fixed-nav-child" v-show="showMovieSubmenu">
               <ul>
                 <li v-for="country in countries">
                   <router-link class="active"
@@ -461,10 +471,15 @@ const location = useRoute();
               </ul>
             </div>
 
-            <li class="d-flex display"> سریال
+            <li class="d-flex display" v-if="!showSeriesSubmenu" @click="showSeriesSubmenu = true"> سریال
               <font-awesome-icon icon="plus" size="xs" />
             </li>
-            <div class="mobile-fixed-nav-child">
+
+            <li class="d-flex display" v-else @click="showSeriesSubmenu = false"> سریال
+              <font-awesome-icon icon="minus" size="xs" />
+            </li>
+
+            <div class="mobile-fixed-nav-child" v-show="showSeriesSubmenu">
               <ul>
                 <li v-for="country in countries">
                   <router-link class="active"
@@ -479,10 +494,15 @@ const location = useRoute();
               <router-link class="active" :to='{ name: "animationPageRoute" }'> انیمیشن</router-link>
             </li>
 
-            <li class="d-flex display"> دوبله فارسی
+            <li class="d-flex display" v-if="!shownDoubleSubmenu" @click="shownDoubleSubmenu = true"> دوبله فارسی
               <font-awesome-icon icon="plus" size="xs" />
             </li>
-            <div class="mobile-fixed-nav-child">
+
+            <li class="d-flex display" v-else @click="shownDoubleSubmenu = false"> دوبله فارسی
+              <font-awesome-icon icon="minus" size="xs" />
+            </li>
+
+            <div class="mobile-fixed-nav-child" v-show="shownDoubleSubmenu">
               <ul>
                 <li v-for="double in dubs">
                   <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: double.slug } }'>
@@ -492,10 +512,15 @@ const location = useRoute();
               </ul>
             </div>
 
-            <li class="d-flex display"> سایر
+            <li class="d-flex display" v-if="!showOtherSubmenu" @click="showOtherSubmenu = true"> سایر
               <font-awesome-icon icon="plus" size="xs" />
             </li>
-            <div class="mobile-fixed-nav-child">
+
+            <li class="d-flex display" v-else @click="showOtherSubmenu = false"> سایر
+              <font-awesome-icon icon="plus" size="xs" />
+            </li>
+
+            <div class="mobile-fixed-nav-child" v-show="showOtherSubmenu">
               <ul>
                 <li>
                   <router-link class="active" :to='{ name: "collectionPageRoute" }'> کالکشن</router-link>
@@ -546,6 +571,11 @@ export default {
       showCards: true,
       searchBox: false,
       showMenu: false,
+      showGenreSubmenu: false,
+      showMovieSubmenu: false,
+      showSeriesSubmenu: false,
+      shownDoubleSubmenu: false,
+      showOtherSubmenu: false,
 
       logo,
 
@@ -801,7 +831,48 @@ export default {
       } else {
         document.body.style.overflow = 'auto';
       }
-    }
+    },
+
+    showGenreSubmenu: function () {
+      if (this.showGenreSubmenu == true) {
+        this.showMovieSubmenu = false;
+        this.showSeriesSubmenu = false;
+        this.shownDoubleSubmenu = false;
+        this.showOtherSubmenu = false;
+      }
+    },
+    showMovieSubmenu: function () {
+      if (this.showMovieSubmenu == true) {
+        this.showGenreSubmenu = false;
+        this.showSeriesSubmenu = false;
+        this.shownDoubleSubmenu = false;
+        this.showOtherSubmenu = false;
+      }
+    },
+    showSeriesSubmenu: function () {
+      if (this.showSeriesSubmenu == true) {
+        this.showMovieSubmenu = false;
+        this.showGenreSubmenu = false;
+        this.shownDoubleSubmenu = false;
+        this.showOtherSubmenu = false;
+      }
+    },
+    shownDoubleSubmenu: function () {
+      if (this.shownDoubleSubmenu == true) {
+        this.showSeriesSubmenu = false;
+        this.showMovieSubmenu = false;
+        this.showGenreSubmenu = false;
+        this.showOtherSubmenu = false;
+      }
+    },
+    showOtherSubmenu: function () {
+      if (this.showOtherSubmenu == true) {
+        this.showSeriesSubmenu = false;
+        this.showMovieSubmenu = false;
+        this.showGenreSubmenu = false;
+        this.shownDoubleSubmenu = false;
+      }
+    },
   },
 
   methods: {
@@ -1356,13 +1427,23 @@ export default {
   justify-content: space-between;
 }
 
-.padding-10{
+.padding-10 {
   padding-right: 10px;
   padding-left: 30px;
 
   @media (max-width:449px) {
     padding-right: 5px;
-  padding-left: 15px;
+    padding-left: 15px;
   }
+}
+
+
+
+
+
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
 }
 </style>
