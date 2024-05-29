@@ -423,13 +423,12 @@ const location = useRoute();
         <div class="d-flex align-items-center justify-content-between padding-10">
           <div class="menu-logo">
             <figure class="logo-img">
-              <router-link to="/"><img alt="logo" :src="logo"></router-link>
+              <router-link to="/"><img alt="logo" :src="logo" @click="showMenu = false"></router-link>
             </figure>
           </div>
 
           <div class="close-button" @click="showMenu = false">بستن</div>
         </div>
-
 
         <nav class="mobile-menu">
           <ul>
@@ -445,7 +444,8 @@ const location = useRoute();
             <div class="mobile-fixed-nav-child" v-show="showGenreSubmenu">
               <ul>
                 <li v-for="genre in genres">
-                  <router-link class="active" :to='{ name: "moviesGenrePageRoute", params: { genre: genre.slug } }'>
+                  <router-link class="active" :to='{ name: "moviesGenrePageRoute", params: { genre: genre.slug } }'
+                    @click="showMenu = false">
                     {{ genre.title }}
                   </router-link>
                 </li>
@@ -463,8 +463,8 @@ const location = useRoute();
             <div class="mobile-fixed-nav-child" v-show="showMovieSubmenu">
               <ul>
                 <li v-for="country in countries">
-                  <router-link class="active"
-                    :to='{ name: "countryMoviePageRoute", params: { country: country.slug } }'>
+                  <router-link class="active" :to='{ name: "countryMoviePageRoute", params: { country: country.slug } }'
+                    @click="showMenu = false">
                     {{ country.title }}
                   </router-link>
                 </li>
@@ -483,7 +483,8 @@ const location = useRoute();
               <ul>
                 <li v-for="country in countries">
                   <router-link class="active"
-                    :to='{ name: "countrySeriesPageRoute", params: { country: country.slug } }'>
+                    :to='{ name: "countrySeriesPageRoute", params: { country: country.slug } }'
+                    @click="showMenu = false">
                     {{ country.title }}
                   </router-link>
                 </li>
@@ -491,7 +492,8 @@ const location = useRoute();
             </div>
 
             <li>
-              <router-link class="active" :to='{ name: "animationPageRoute" }'> انیمیشن</router-link>
+              <router-link class="active" :to='{ name: "animationPageRoute" }' @click="showMenu = false">
+                انیمیشن</router-link>
             </li>
 
             <li class="d-flex display" v-if="!shownDoubleSubmenu" @click="shownDoubleSubmenu = true"> دوبله فارسی
@@ -505,7 +507,8 @@ const location = useRoute();
             <div class="mobile-fixed-nav-child" v-show="shownDoubleSubmenu">
               <ul>
                 <li v-for="double in dubs">
-                  <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: double.slug } }'>
+                  <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: double.slug } }'
+                    @click="showMenu = false">
                     {{ double.title }}
                   </router-link>
                 </li>
@@ -523,26 +526,32 @@ const location = useRoute();
             <div class="mobile-fixed-nav-child" v-show="showOtherSubmenu">
               <ul>
                 <li>
-                  <router-link class="active" :to='{ name: "collectionPageRoute" }'> کالکشن</router-link>
+                  <router-link class="active" :to='{ name: "collectionPageRoute" }' @click="showMenu = false">
+                    کالکشن</router-link>
                 </li>
                 <li>
-                  <router-link class="active" :to='{ name: "comingSoonPageRoute" }'> به زودی</router-link>
+                  <router-link class="active" :to='{ name: "comingSoonPageRoute" }' @click="showMenu = false"> به
+                    زودی</router-link>
                 </li>
                 <li>
-                  <router-link class="active" :to='{ name: "topMoviePageRoute" }'> 250 فیلم برتر</router-link>
+                  <router-link class="active" :to='{ name: "topMoviePageRoute" }' @click="showMenu = false"> 250 فیلم
+                    برتر</router-link>
                 </li>
                 <li>
-                  <router-link class="active" :to='{ name: "oscarMoviesPageRoute" }'> اسکار ۲۰۲۳</router-link>
+                  <router-link class="active" :to='{ name: "oscarMoviesPageRoute" }' @click="showMenu = false"> اسکار
+                    ۲۰۲۳</router-link>
                 </li>
               </ul>
             </div>
 
             <li>
-              <router-link class="active" :to='{ name: "jobPageRoute" }'> استخدام</router-link>
+              <router-link class="active" :to='{ name: "jobPageRoute" }' @click="showMenu = false">
+                استخدام</router-link>
             </li>
 
             <li>
-              <router-link class="active" :to='{ name: "contactUsPageRoute" }'> ارتباط با ما</router-link>
+              <router-link class="active" :to='{ name: "contactUsPageRoute" }' @click="showMenu = false"> ارتباط با
+                ما</router-link>
             </li>
 
           </ul>
