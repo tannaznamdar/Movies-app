@@ -416,6 +416,131 @@ const location = useRoute();
       </div>
     </section>
 
+
+    <section>
+      <div class="mask" style="display: block;"></div>
+      <div class="mobile-menu-container">
+
+        <div class="menu-logo">
+          <figure class="logo-img">
+            <router-link to="/"><img alt="logo" :src="logo"></router-link>
+          </figure>
+        </div>
+
+        <nav class="mobile-menu">
+          <ul>
+            <li class="d-flex display"> ژانر
+              <font-awesome-icon icon="plus" size="xs" />
+            </li>
+            <div class="mobile-fixed-nav-child">
+              <ul>
+                <li v-for="genre in genres">
+                  <router-link class="active" :to='{ name: "moviesGenrePageRoute", params: { genre: genre.slug } }'>
+                    {{ genre.title }}
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+
+
+            <li class="d-flex display"> فیلم
+              <font-awesome-icon icon="plus" size="xs" />
+            </li>
+            <div class="mobile-fixed-nav-child">
+              <ul>
+                <li v-for="country in countries">
+                  <router-link class="active"
+                    :to='{ name: "countryMoviePageRoute", params: { country: country.slug } }'>
+                    {{ country.title }}
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+
+
+
+            <li class="d-flex display"> سریال
+              <font-awesome-icon icon="plus" size="xs" />
+            </li>
+            <div class="mobile-fixed-nav-child">
+              <ul>
+                <li v-for="country in countries">
+                  <router-link class="active"
+                    :to='{ name: "countrySeriesPageRoute", params: { country: country.slug } }'>
+                    {{ country.title }}
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+
+
+            <li>
+              <router-link class="active" :to='{ name: "animationPageRoute" }'> انیمیشن</router-link>
+            </li>
+
+            <li class="d-flex display"> دوبله فارسی
+              <font-awesome-icon icon="plus" size="xs" />
+            </li>
+            <div class="mobile-fixed-nav-child">
+              <ul>
+                <li v-for="double in dubs">
+                  <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: double.slug } }'>
+                    {{ double.title }}
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+
+
+            <li class="d-flex display"> سایر
+              <font-awesome-icon icon="plus" size="xs" />
+            </li>
+            <div class="mobile-fixed-nav-child">
+              <ul>
+                <li>
+                  <router-link class="active" :to='{ name: "collectionPageRoute" }'> کالکشن</router-link>
+                </li>
+                <li>
+                  <router-link class="active" :to='{ name: "comingSoonPageRoute" }'> به زودی</router-link>
+                </li>
+                <li>
+                  <router-link class="active" :to='{ name: "topMoviePageRoute" }'> 250 فیلم برتر</router-link>
+                </li>
+                <li>
+                  <router-link class="active" :to='{ name: "oscarMoviesPageRoute" }'> اسکار ۲۰۲۳</router-link>
+                </li>
+              </ul>
+            </div>
+
+
+            <li>
+              <router-link class="active" :to='{ name: "jobPageRoute" }'> استخدام</router-link>
+            </li>
+
+            <li>
+              <router-link class="active" :to='{ name: "contactUsPageRoute" }'> ارتباط با ما</router-link>
+            </li>
+
+          </ul>
+        </nav>
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </section>
+
+
+
+
+
   </div>
 </template>
 
@@ -955,6 +1080,7 @@ export default {
   top: 100px;
   display: flex;
   z-index: 55;
+
   @media (max-width:820px) {
     padding-left: 40px;
     float: right;
@@ -1091,7 +1217,7 @@ export default {
   padding-top: 90px;
 }
 
-
+//responsive
 
 .responsive {
   @media (max-width:820px) {
@@ -1139,5 +1265,95 @@ export default {
   @media (max-width:820px) {
     padding-bottom: 15px;
   }
+}
+
+//mobile-menu
+.mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 20;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgb(0 0 0 / 75%);
+  backdrop-filter: blur(5px);
+}
+
+.menu-logo {
+  text-align: center;
+  padding: 20px;
+}
+
+.mobile-menu-container {
+  position: fixed;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, .13);
+  transition: all 500ms;
+  top: 0;
+  right: 0;
+  width: 80%;
+  height: 100%;
+  z-index: 9999;
+  background-color: #23232b;
+  overflow: scroll;
+}
+
+.mobile-menu {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+
+    li {
+      position: relative;
+      border-bottom: 1px solid #1b1c1e;
+      color: #c6c9cc;
+      display: block;
+      font-size: 15px;
+      font-weight: 400;
+      padding: 10px;
+
+      a {
+        text-decoration: none;
+        color: #c6c9cc;
+        display: block;
+      }
+    }
+  }
+}
+
+.mobile-fixed-nav-child {
+
+  background-color: #15151a;
+  width: 100%;
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+
+    li {
+      padding-right: 10px;
+      position: relative;
+      color: #c6c9cc;
+      display: block;
+      font-size: 14px;
+      font-weight: 400;
+      border: none;
+    }
+  }
+}
+
+.display {
+  display: flex;
+  justify-content: space-between;
 }
 </style>
