@@ -4,8 +4,8 @@ const location = useRoute();
 </script>
 
 <template>
-
   <div class="wrapper">
+
     <header class="header responsive-header-lg">
       <div class="container bv-example-row">
         <div class="row align-items-center">
@@ -117,7 +117,6 @@ const location = useRoute();
             </nav>
           </div>
 
-
           <div class="col-3">
             <div>
               <form>
@@ -220,8 +219,8 @@ const location = useRoute();
         <div class="row">
           <div class="col-md-12 d-flex justify-content-between align-items-center mb-3">
 
-            <div class="dropdown-button">
-              <a href="#" class="button-transparent ">
+            <div class="dropdown-button" @click="showMenu = true">
+              <a href="#" class="button-transparent">
                 <img alt="menu" :src="mobileMenu">
               </a>
             </div>
@@ -318,14 +317,14 @@ const location = useRoute();
       </div>
     </section>
 
-    <!-- heder/mobile -->
+    <!-- header/mobile -->
     <section class="header responsive-header-mobile">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 d-flex justify-content-between align-items-center mb-3">
 
             <div class="dropdown-button">
-              <a href="#" class="button-transparent ">
+              <a href="#" class="button-transparent" @click="showMenu = true">
                 <img alt="menu" :src="mobileMenu">
               </a>
             </div>
@@ -416,22 +415,28 @@ const location = useRoute();
       </div>
     </section>
 
-
-    <section>
+    <!-- mobileMenu -->
+    <section class="mobile-menu" v-show="showMenu">
       <div class="mask" style="display: block;"></div>
       <div class="mobile-menu-container">
 
-        <div class="menu-logo">
-          <figure class="logo-img">
-            <router-link to="/"><img alt="logo" :src="logo"></router-link>
-          </figure>
+        <div class="d-flex align-items-center justify-content-between padding-10">
+          <div class="menu-logo">
+            <figure class="logo-img">
+              <router-link to="/"><img alt="logo" :src="logo"></router-link>
+            </figure>
+          </div>
+
+          <div class="close-button" @click="showMenu = false">بستن</div>
         </div>
+
 
         <nav class="mobile-menu">
           <ul>
             <li class="d-flex display"> ژانر
               <font-awesome-icon icon="plus" size="xs" />
             </li>
+
             <div class="mobile-fixed-nav-child">
               <ul>
                 <li v-for="genre in genres">
@@ -441,7 +446,6 @@ const location = useRoute();
                 </li>
               </ul>
             </div>
-
 
             <li class="d-flex display"> فیلم
               <font-awesome-icon icon="plus" size="xs" />
@@ -457,8 +461,6 @@ const location = useRoute();
               </ul>
             </div>
 
-
-
             <li class="d-flex display"> سریال
               <font-awesome-icon icon="plus" size="xs" />
             </li>
@@ -472,7 +474,6 @@ const location = useRoute();
                 </li>
               </ul>
             </div>
-
 
             <li>
               <router-link class="active" :to='{ name: "animationPageRoute" }'> انیمیشن</router-link>
@@ -490,7 +491,6 @@ const location = useRoute();
                 </li>
               </ul>
             </div>
-
 
             <li class="d-flex display"> سایر
               <font-awesome-icon icon="plus" size="xs" />
@@ -512,7 +512,6 @@ const location = useRoute();
               </ul>
             </div>
 
-
             <li>
               <router-link class="active" :to='{ name: "jobPageRoute" }'> استخدام</router-link>
             </li>
@@ -523,23 +522,8 @@ const location = useRoute();
 
           </ul>
         </nav>
-
-
-
-
-
-
-
-
-
-
-
       </div>
     </section>
-
-
-
-
 
   </div>
 </template>
@@ -561,6 +545,7 @@ export default {
     return {
       showCards: true,
       searchBox: false,
+      showMenu: false,
 
       logo,
 
@@ -810,6 +795,7 @@ export default {
       }
     }
   },
+
   methods: {
     checkRouteName(location) {
       if (location.name === 'titlePageRoute') {
@@ -1268,6 +1254,11 @@ export default {
 }
 
 //mobile-menu
+
+.mobile-menu {
+  display: block;
+}
+
 .mask {
   position: fixed;
   top: 0;
@@ -1355,5 +1346,15 @@ export default {
 .display {
   display: flex;
   justify-content: space-between;
+}
+
+.padding-10 {
+  padding-right: 10px;
+  padding-left: 30px;
+
+  @media (max-width:449px) {
+    padding-right: 5px;
+    padding-left: 15px;
+  }
 }
 </style>
