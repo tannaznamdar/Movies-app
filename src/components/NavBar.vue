@@ -417,7 +417,7 @@ const location = useRoute();
 
     <!-- mobileMenu -->
     <section class="mobile-menu" v-show="showMenu">
-      <div class="mask" style="display: block;"></div>
+      <div class="mask" style="display: block;" @click="showMenu = false"></div>
       <div class="mobile-menu-container">
 
         <div class="d-flex align-items-center justify-content-between padding-10">
@@ -426,8 +426,6 @@ const location = useRoute();
               <router-link to="/"><img alt="logo" :src="logo" @click="showMenu = false"></router-link>
             </figure>
           </div>
-
-          <div class="close-button" @click="showMenu = false">بستن</div>
         </div>
 
         <nav class="mobile-menu">
