@@ -203,8 +203,8 @@ const location = useRoute();
 
     <section class="scroll container bv-example-row pt-90" v-if="checkRouteName(location)">
 
-      <div class="row pb-15">
-        <div class="col-lg-3 col-md-6 col-3 mb-2 " v-for="card in cards">
+      <div class="row pb-15 header-cards-respansiv">
+        <div class="col-lg-3 col-md-6 col-4 mb-2 " v-for="card in cards">
           <headerCards v-bind="card"></headerCards>
         </div>
       </div>
@@ -1372,7 +1372,7 @@ export default {
   height: 100%;
   z-index: 9999;
   background-color: #23232b;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .mobile-menu {
@@ -1444,10 +1444,11 @@ export default {
   }
 }
 
-
-
-
-
+.header-cards-respansiv {
+  @media (max-width:449px) {
+    min-width: 950px;
+  }
+}
 
 .hidden {
   visibility: hidden;
