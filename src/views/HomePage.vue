@@ -28,6 +28,7 @@ import Pagination from '@/components/Pagination.vue'
           arrows: false, pagination: false, direction: 'rtl', type: 'slide', perPage: 6, trimSpace: false, perMove: 1,
           breakpoints: {
             1200: { perPage: 6 },
+            820: { perPage: 4 },
             449: { perPage: 2.5 },
           }
         }" aria-label="My Favorite Images">
@@ -54,6 +55,7 @@ import Pagination from '@/components/Pagination.vue'
           arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1,
           breakpoints: {
             1200: { perPage: 6 },
+            820: { perPage: 4 },
             449: { perPage: 2.5 },
           }
         }" aria-label="My Favorite Images">
@@ -82,6 +84,7 @@ import Pagination from '@/components/Pagination.vue'
           arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1,
           breakpoints: {
             1200: { perPage: 6 },
+            820: { perPage: 4 },
             449: { perPage: 2.5 },
           }
         }" aria-label="My Favorite Images">
@@ -109,6 +112,7 @@ import Pagination from '@/components/Pagination.vue'
           arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1,
           breakpoints: {
             1200: { perPage: 6 },
+            820: { perPage: 4 },
             449: { perPage: 2.5 },
           }
         }" aria-label="My Favorite Images">
@@ -136,6 +140,7 @@ import Pagination from '@/components/Pagination.vue'
           arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1,
           breakpoints: {
             1200: { perPage: 6 },
+            820: { perPage: 4 },
             449: { perPage: 2.5 },
           }
         }" aria-label="My Favorite Images">
@@ -162,6 +167,7 @@ import Pagination from '@/components/Pagination.vue'
           arrows: false, pagination: false, direction: 'rtl', type: 'slide', trimSpace: false, perPage: 6, perMove: 1,
           breakpoints: {
             1200: { perPage: 6 },
+            820: { perPage: 4 },
             449: { perPage: 2.5 },
           }
         }" aria-label="My Favorite Images">

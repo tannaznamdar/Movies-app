@@ -131,7 +131,7 @@ export default {
   }
 
   @media (min-width:450px) and (max-width:820px) {
-    height: 170px;
+    height: 250px;
   }
 
   @media (max-width:449px) {
