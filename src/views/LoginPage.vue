@@ -35,9 +35,9 @@ import lock from "@/assets/images/lock.svg";
       </div>
 
       <button type="submit" id="dologin" class="blue_btn">
-        <a href="#">
+        <router-link class="bottom_link" :to='{ name: "dashboardPageRoute" }'>
           ورود به پنل کاربری
-        </a>
+        </router-link>
       </button>
 
       <div>

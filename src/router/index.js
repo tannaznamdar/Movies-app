@@ -18,6 +18,7 @@ import ContactUs from "@/views/ContactUsPage.vue";
 import Home from "@/views/HomePage.vue";
 import TitlePage from "@/views/TitlePage.vue";
 import Login from "@/views/LoginPage.vue";
+import Dashboard from "@/views/dashboard/Dashboard.vue";
 import ForgotPassword from "@/views/ForgotPasswordPage.vue";
 import Membership from "@/views/MembershipPage.vue";
 import Director from "@/views/DirectorPage.vue";
@@ -46,6 +47,7 @@ const router = createRouter({
     { path: "/job", name: "jobPageRoute", component: Job },
     { path: "/contact-us", name: "contactUsPageRoute", component: ContactUs },
     { path: "/login", name: "loginPageRoute", component: Login },
+    { path: "/dashboard", name: "dashboardPageRoute", component: Dashboard },
     { path: "/forgot-password", name: "forgotPasswordPageRoute", component: ForgotPassword },
     { path: "/membership", name: "membershipPageRoute", component: Membership },
     { path: "/director/:director?", name: "directorPageRoute", component: Director },
