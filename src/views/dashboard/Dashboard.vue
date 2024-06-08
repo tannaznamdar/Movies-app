@@ -1,3 +1,15 @@
+<script setup>
+import house from '@/assets/images/house.svg'
+import subscription from '@/assets/images/subscription.svg'
+import wallet from '@/assets/images/wallet.svg'
+import headphones from '@/assets/images/headphones.svg'
+import list from '@/assets/images/list.svg'
+import shopping from '@/assets/images/shopping.svg'
+import arrowLeft from '@/assets/images/arrow-left.svg'
+import comments from '@/assets/images/comments.svg'
+
+</script>
+
 <template>
     <div class="pt-150 container bv-example-row">
         <div class="row">
@@ -14,10 +26,128 @@
                             </router-link>
                         </div>
                     </div>
+
+                    <div class="dashboard_menu_nav">
+                        <ul>
+                            <li>
+                                <router-link class="active" :to='{ name: "" }'>
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <span class="right_icon">
+                                                <img alt="#" :src="house">
+                                            </span>
+                                            <span class="text_link">پیـــشخوان</span>
+                                        </div>
+
+                                        <span class="arrow_icon">
+                                            <img alt="#" :src="arrowLeft">
+                                        </span>
+                                    </div>
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link class="active" :to='{ name: "" }'>
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <span class="right_icon">
+                                                <img alt="#" :src="subscription">
+                                            </span>
+                                            <span class="text_link"> خرید اشتراک </span>
+                                        </div>
+
+                                        <span class="arrow_icon">
+                                            <img alt="#" :src="arrowLeft">
+                                        </span>
+                                    </div>
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link class="active" :to='{ name: "" }'>
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <span class="right_icon">
+                                                <img alt="#" :src="wallet">
+                                            </span>
+                                            <span class="text_link"> کیف پول </span>
+                                        </div>
+
+                                        <span class="arrow_icon">
+                                            <img alt="#" :src="arrowLeft">
+                                        </span>
+                                    </div>
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link class="active" :to='{ name: "" }'>
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <span class="right_icon">
+                                                <img alt="#" :src="headphones">
+                                            </span>
+                                            <span class="text_link"> تیکت ها </span>
+                                        </div>
+
+                                        <span class="arrow_icon">
+                                            <img alt="#" :src="arrowLeft">
+                                        </span>
+                                    </div>
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link class="active" :to='{ name: "" }'>
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <span class="right_icon">
+                                                <img alt="#" :src="list">
+                                            </span>
+                                            <span class="text_link"> لیست ها </span>
+                                        </div>
+
+                                        <span class="arrow_icon">
+                                            <img alt="#" :src="arrowLeft">
+                                        </span>
+                                    </div>
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link class="active" :to='{ name: "" }'>
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <span class="right_icon">
+                                                <img alt="#" :src="shopping">
+                                            </span>
+                                            <span class="text_link"> پرداخت ها </span>
+                                        </div>
+
+                                        <span class="arrow_icon">
+                                            <img alt="#" :src="arrowLeft">
+                                        </span>
+                                    </div>
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link class="active" :to='{ name: "" }'>
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <span class="right_icon">
+                                                <img alt="#" :src="comments">
+                                            </span>
+                                            <span class="text_link"> دیـدگاه ها </span>
+                                        </div>
+
+                                        <span class="arrow_icon">
+                                            <img alt="#" :src="arrowLeft">
+                                        </span>
+                                    </div>
+                                </router-link>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
             <div class="col-lg-9">
+
             </div>
         </div>
     </div>
@@ -66,6 +196,7 @@ export default {
     text-align: center;
     width: 100%;
     height: 126px;
+    
 }
 
 .avatar_user_panel {
@@ -96,7 +227,7 @@ export default {
     font-weight: 300;
 }
 
-.sidebar_dashboard .side_head_dashboard .user_name {
+.user_name {
     font-size: 14px;
     font-weight: 500;
     display: inline-block;
@@ -117,13 +248,61 @@ export default {
 
     a {
         text-decoration: none;
-        font-size: 12px;
+        font-size: 14px;
         display: inline-block;
         padding: 10px 15px;
         background: #050505;
         box-shadow: 0 0 10px rgba(0, 0, 0, .7);
         color: #fff;
         border-radius: 35px;
+        line-height: normal;
     }
+}
+
+.dashboard_menu_nav {
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            float: right;
+            width: 100%;
+
+
+            a {
+                font-weight: 400;
+                font-size: 16px;
+                text-decoration: none;
+                display: inline-block;
+                padding: 20px;
+                color: #fff;
+                width: 100%;
+                position: relative;
+                transition: .3s;
+                border-right: solid;
+                border-width: 3px;
+                border-color: #23232b;
+
+                i {
+                    font-size: 14PX;
+                    color: #6e7072;
+                }
+
+                &:is(:hover, :focus) {
+                    background: #0a0a0a;
+                    border-color: #6898f8;
+                }
+            }
+        }
+    }
+}
+
+.right_icon {
+    float: right;
+    margin-left: 8px;
 }
 </style>
