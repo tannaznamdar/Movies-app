@@ -191,12 +191,27 @@ const location = useRoute();
             </div>
           </transition>
 
-
           <div class="col-1">
-            <button class="button button--login">
-              <router-link :to='{ name: "loginPageRoute" }'> ورود</router-link>
-            </button>
+            <div class="dropdown-login">
+              <button class="dropbtn button button--login">
+                <router-link class="login-btn" :to='{ name: "loginPageRoute" }'> ورود</router-link>
+              </button>
+
+              <div class="dropdown-content">
+                <div class="mb-2">
+                  <router-link class="mb-3" :to='{ name: "loginPageRoute" }'> ورود به پنل کاربری </router-link>
+                </div>
+                <div class="mb-2">
+                  هنور ثبت نام نکرده اید؟
+                  <router-link :to='{ name: "membershipPageRoute" }'> ثبت نام </router-link>
+                </div>
+                <div class="mb-2">
+                  <router-link :to='{ name: "" }'> تعرفه های عضویت ویژه </router-link>
+                </div>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </header>
@@ -1453,5 +1468,46 @@ export default {
 .hidden {
   visibility: hidden;
   opacity: 0;
+}
+
+.dropdown-login {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 250px;
+  left: 0;
+  top: 100%;
+  z-index: 2;
+  background-color: #101014de;
+  text-align: right;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, .075);
+  border-radius: 4px;
+  backdrop-filter: blur(10px);
+  transform-origin: top center;
+  transition: transform .3s, opacity .3s;
+  color: #c6c9cc;
+  font-weight: 300;
+  font-size: 13px;
+  padding: 12px 16px;
+
+  a {
+    color: #c6c9cc;
+    font-weight: 400;
+    font-size: 14px;
+    text-decoration: none;
+    margin-right: 5px;
+
+    &:is(:hover, :focus) {
+      color: #fff;
+    }
+  }
+}
+
+.dropdown-login:hover .dropdown-content {
+  display: block;
 }
 </style>
