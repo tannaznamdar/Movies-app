@@ -11,7 +11,7 @@ import comments from '@/assets/images/comments.svg'
 </script>
 
 <template>
-    <div class="pt-150 container bv-example-row">
+    <div class="pt-150 pb-5 container bv-example-row">
         <div class="row">
             <div class="col-lg-3">
                 <div class="sidebar_dashboard">
@@ -147,7 +147,67 @@ import comments from '@/assets/images/comments.svg'
             </div>
 
             <div class="col-lg-9">
+                <div class="main_dashboard">
+                    <div class="before_msg mb-4" v-if="hasBeforeMsgAlert">
+                        <div class="item_dashboard danger d-flex justify-content-between">
+                            <span class="alert"> کاربر گرامی برای بهره‌مندی از همه
+                                امکانات سایت لطفاً آدرس ایمیل خود را تایید کنید.
+                            </span>
+                            <span class="alert-btn">
+                                <router-link class="active" :to='{ name: "" }'> ارسال تائیدیه </router-link>
+                            </span>
+                        </div>
+                    </div>
 
+                    <div class="no_subscription mb-4" v-if="hasNoSubscriptionAlert">
+                        <div class="item_dashboard danger danger d-flex justify-content-between">
+                            <span class="alert">شما اشتراک فعال ندارید</span>
+                            <span class="alert-btn">
+                                <router-link class="active" :to='{ name: "" }'> خرید اشتراک </router-link>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="inner_main mb-4">
+                        <div class="item_dashboard mb-4">
+                            <div class="d-flex justify-content-between">
+                                <span class="text-14"> آخرین فعالیت شما : </span>
+                                <span class="text-14"> {{ lastActivity }} </span>
+                            </div>
+                            <div class="border_bottom_1"></div>
+                            <div class="d-flex justify-content-between">
+                                <span class="text-14"> تاریخ عضویت : </span>
+                                <span class="text-14"> {{ registeryDate }} </span>
+                            </div>
+                        </div>
+
+                        <div class="item_dashboard mb-4">
+                            <div class="d-flex justify-content-between">
+                                <span class="text-14">آی پی شما</span>
+                                <span class="text-14"> {{ ip }} </span>
+                            </div>
+                            <div class="border_bottom_1"></div>
+                            <div class="d-flex justify-content-between">
+                                <span class="text-14">ایمیل</span>
+                                <span class="text-14"> {{ email }}</span>
+                            </div>
+                            <div class="border_bottom_1 "></div>
+                            <div class="d-flex justify-content-between">
+                                <span class="text-14">نام نمایشی</span>
+                                <span class="text-14">{{ userName }} </span>
+                            </div>
+                        </div>
+
+                        <div class="item_dashboard commentslist d-flex justify-content-between">
+                            <div class="text-14"> تعداد نظرات شما :
+                                <span> {{ numberOfComments }} </span>
+                            </div>
+                            <span class="alert-btn">
+                                <router-link class="active" :to='{ name: "" }'> مشاهده دیـدگاه ها </router-link>
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -160,7 +220,14 @@ export default {
     data() {
         return {
             userName: 'tannaz71',
-            avatar: 'T'
+            avatar: 'T',
+            hasNoSubscriptionAlert: true,
+            hasBeforeMsgAlert: true,
+            lastActivity: ' 19 خرداد 1403 | 14:24 ',
+            registeryDate: ' 18 خرداد 1403 | 09:12 ',
+            ip: '98.98.49.226',
+            email: 'tannaznamdar@gmail.com',
+            numberOfComments: 0,
         }
     }
 
@@ -179,10 +246,10 @@ export default {
 }
 
 .sidebar_dashboard {
+    min-height: 820px;
     width: 100%;
     border-radius: 14px;
     background: #23232b;
-    margin-top: 30px;
     overflow: hidden;
 }
 
@@ -196,7 +263,7 @@ export default {
     text-align: center;
     width: 100%;
     height: 126px;
-    
+
 }
 
 .avatar_user_panel {
@@ -304,5 +371,61 @@ export default {
 .right_icon {
     float: right;
     margin-left: 8px;
+}
+
+.main_dashboard {
+    border-radius: 14px;
+    background-color: #23232b;
+    color: #fff;
+    min-height: 820px;
+    padding: 20px;
+}
+
+.item_dashboard {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #1c1c22;
+    box-shadow: 0 4px 0 0 rgba(0, 0, 0, .4);
+    padding: 20px;
+    border-radius: 5px;
+    border-right: 5px;
+}
+
+.danger {
+    background: #910909;
+    box-shadow: 0 4px 0 0 #91090900;
+}
+
+.alert {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.alert-btn a {
+    text-decoration: none;
+    border-radius: 35px;
+    background: #6898f8;
+    color: #fff;
+    font-size: 90%;
+    padding: 7px 20px;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.text-14 {
+    font-size: 14px;
+    font-weight: 200;
+    line-height: normal;
+}
+
+.border_bottom_1 {
+    width: 100%;
+    display: inline-block;
+    margin: 20px 0;
+    border-bottom: 1px solid rgba(190, 190, 190, .1);
 }
 </style>
