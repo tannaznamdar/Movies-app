@@ -228,7 +228,7 @@ import comments from '@/assets/images/comments.svg'
                                 <input id="policy_url_check" type="checkbox" value="1" required="required">
                                 <span class="text-14">
                                     من
-                                    <router-link class="active text-14 text-14--yellow" :to='{ name: "" }'>قوانین
+                                    <router-link class="active text-14 text-14--yellow" :to='{ name: "tosPageRoute" }'>قوانین
                                     </router-link>
                                     دیجی موویز را می‌پذیرم
                                 </span>
@@ -254,7 +254,7 @@ import comments from '@/assets/images/comments.svg'
 
                     <div class="recent_payments">
                         <div class="title">
-                            <h3 class="text-14 border-b"> سابقه پرداخت</h3>
+                            <h3 class="text-14"> سابقه پرداخت</h3>
                         </div>
                         <div class="item_discount ">
                             <div class="text-center d-flex flex-row justify-content-around">
