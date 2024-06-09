@@ -929,6 +929,9 @@ export default {
       if (location.name === 'dashboardPageRoute') {
         return false
       }
+      if (location.name === 'subscriptionPageRoute') {
+        return false
+      }
       if (location.name === 'forgotPasswordPageRoute') {
         return false
       }
