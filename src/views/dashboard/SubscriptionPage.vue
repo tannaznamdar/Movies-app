@@ -209,7 +209,8 @@ import comments from '@/assets/images/comments.svg'
                                 <label class="mb-2">
                                     <input type="radio" name="gateway" value="my_wallet">
                                     <span class="text-14 text-14--300">پرداخت با کیف پول (موجودی: تومان -
-                                        <router-link class="active text-14 text-14--yellow" :to='{ name: "walletPageRoute" }'> شارژ کیف
+                                        <router-link class="active text-14 text-14--yellow"
+                                            :to='{ name: "walletPageRoute" }'> شارژ کیف
                                             پول </router-link> )
                                     </span>
                                 </label class="mb-2">
@@ -228,7 +229,8 @@ import comments from '@/assets/images/comments.svg'
                                 <input id="policy_url_check" type="checkbox" value="1" required="required">
                                 <span class="text-14">
                                     من
-                                    <router-link class="active text-14 text-14--yellow" :to='{ name: "tosPageRoute" }'>قوانین
+                                    <router-link class="active text-14 text-14--yellow"
+                                        :to='{ name: "tosPageRoute" }'>قوانین
                                     </router-link>
                                     دیجی موویز را می‌پذیرم
                                 </span>
@@ -258,30 +260,22 @@ import comments from '@/assets/images/comments.svg'
                         </div>
                         <div class="item_discount ">
                             <div class="text-center d-flex flex-row justify-content-around">
-                                <ul>
-                                    <li class="d-flex flex-row gap">
-                                        <div class="text-center">
-                                            <span class="text-14 text-14--blue">اشتراک :</span>
-                                            <p class="text-14 text-14--300">اشتراک یک ماهه</p>
-                                        </div>
-                                        <div class="text-center">
-                                            <span class="text-14 text-14--blue">سطح :</span>
-                                            <p class="text-14 text-14--300">نقره ای</p>
-                                        </div>
-                                        <div class="text-center">
-                                            <span class="text-14 text-14--blue">مبلغ :</span>
-                                            <p class="text-14 text-14--300">39,000<small>تومان</small></p>
-                                        </div>
-                                        <div class="text-center">
-                                            <span class="text-14 text-14--blue">وضعیت :</span>
-                                            <p class="text-14 text-14--300">در انتظار پرداخت </p>
-                                        </div>
-                                        <div class="text-center">
-                                            <span class="text-14 text-14--blue">تاریخ :</span>
-                                            <p class="text-14 text-14--300">20 خرداد 1403</p>
-                                        </div>
-                                    </li>
-                                </ul>
+                                <table class="text-center" style="width:100%">
+                                    <tr>
+                                        <th class="text-14 text-14--blue">اشتراک: </th>
+                                        <th class="text-14 text-14--blue">سطح: </th>
+                                        <th class="text-14 text-14--blue">مبلغ: </th>
+                                        <th class="text-14 text-14--blue">وضعیت: </th>
+                                        <th class="text-14 text-14--blue">تاریخ: </th>
+                                    </tr>
+                                    <tr v-for="tableItem in tableItems">
+                                        <td class="text-14 text-14--300">{{ tableItem.subscribe }}</td>
+                                        <td class="text-14 text-14--300">{{ tableItem.level }}</td>
+                                        <td class="text-14 text-14--300">{{ tableItem.price }} تومان</td>
+                                        <td class="text-14 text-14--300">{{ tableItem.condition }}</td>
+                                        <td class="text-14 text-14--300">{{ tableItem.time }}</td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -333,7 +327,25 @@ export default {
                     info: ' 365 روز - 399,000',
                     description: 'دسترسی به تمامی لینک های دانلود و پخش آنلاین فیلم و سریال ، پشتیبانی از طریق تیکت ، امکان دانلود برای کاربران خارج از کشور',
                 }
-            ]
+            ],
+
+            tableItems: [
+                {
+                    subscribe: 'اشتراک یک ماهه',
+                    level: 'نقره ای',
+                    price: '39,000',
+                    condition: ' در انتظار پرداخت ',
+                    time: '25خرداد 1403',
+                },
+                {
+                    subscribe: 'اشتراک دو ماهه',
+                    level: 'طلایی',
+                    price: '50,000',
+                    condition: ' در انتظار پرداخت ',
+                    time: '29خرداد 1403',
+                },
+
+            ],
         }
     }
 }
@@ -667,5 +679,18 @@ input {
 
 .gap {
     gap: 100px;
+}
+
+tr {
+    border-bottom: 1px solid rgb(48, 47, 47);
+}
+
+tr:last-child {
+    border: none;
+}
+
+td,
+th {
+    padding: 10px 0;
 }
 </style>
