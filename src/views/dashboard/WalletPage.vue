@@ -7,7 +7,6 @@ import list from '@/assets/images/list.svg'
 import shopping from '@/assets/images/shopping.svg'
 import arrowLeft from '@/assets/images/arrow-left.svg'
 import comments from '@/assets/images/comments.svg'
-
 </script>
 
 <template>
@@ -148,7 +147,7 @@ import comments from '@/assets/images/comments.svg'
 
             <div class="col-lg-9">
                 <div class="main_dashboard">
-                    <div class="before_msg mb-5" v-if="hasBeforeMsgAlert">
+                    <div class="before_msg mb-3" v-if="hasBeforeMsgAlert">
                         <div class="item_dashboard danger d-flex justify-content-between">
                             <span class="alert"> کاربر گرامی برای بهره‌مندی از همه
                                 امکانات سایت لطفاً آدرس ایمیل خود را تایید کنید.
@@ -159,129 +158,70 @@ import comments from '@/assets/images/comments.svg'
                         </div>
                     </div>
 
-                    <div class="mb-2">
+                    <div class="item_dashboard mb-4">
+                        <div class="d-flex justify-content-between">
+                            <span class="text-14"> موجودی کیف پول شما: </span>
+                            <span class="text-14"> {{ walletBalance }} تومان </span>
+                        </div>
+                    </div>
+
+                    <div class="mb-1">
                         <div class="message_top_info text-14"> <strong>نکته مهم خرید :</strong>
-                            <p class="text-14"> - کاربر گرامی پس از پرداخت هزینه صبر کنید تا دوباره از درگاه به همین
-                                صفحه بصورت اتومات
-                                بازگردانده شوید.</p>
-                            <p class="text-14"> - در صورت عدم بازگشت به سایت یا بروز خطا در برگشت به سایت نهایت تا 72
-                                ساعت مبلغ عودت
-                                داده خواهد شد</p>
-                            <p class="text-14"> - برای خرید حتما بدون vpn یا فیلترشکن و از آدرس بدون فیلتر اقدام
-                                نمایید.در صورت خرید از
-                                آدرس دائمی با فیلترشکن تمام مراحل خرید را انجام دهید..</p>
-                            <p class="text-14"> - در صورت وجود اختلال بر روی درگاه پرداخت مستقیم از طریق کیف پول اقدام
-                                به پرداخت نمایید.
+                            <p class="text-14">- برای شارژ کیف پول با استفاده از ووچر پرفکت مانی از فرم زیر استفاده
+                                کنید..
                             </p>
-                            <p class="text-14"> - برای خرید اشتراک با کیف پول، ابتدا کیف پول خود را
-                                <router-link class="active" :to='{ name: "" }'> شارژ کنید </router-link>.
+                            <p class="text-14"> - به ازای هر دلار پرفکت مانی کیف پول شما 59,500 تومان شارژ خواهد شد.
+                            </p>
+                            <p class="text-14"> - برای شارژ کیف پول با ووچر پرفکت مانی پیشنهاد می‌شود به سایت لایسنس 98
+                                و یا کافه ارز مراجعه کنید ، در این سایت‌ها نیازی به احراز هویت نمی‌باشد ، همچنین
+                                می‌توانید از سایت‌های دلخواه دیگری نیز ووچر پرفکت مانی را برای شارژ کیف پول خود تهیه
+                                نمایید.
                             </p>
                         </div>
                     </div>
 
-                    <form name="main" method="post" action="" class="subscriptions_list mb-4">
-                        <label for="subscriptionID9" data-price="39000" data-price_formated="39,000"
-                            data-usd_price="0.65" class="item_subscription active" data-subscriptionid="9"
-                            v-for="subscription in subscriptions">
-                            <div class="d-flex justify-content-between">
-                                <h3 class="text-14"> {{ subscription.time }}</h3>
-                                <span class="text-14"> {{ subscription.info }}<small>تومان</small>
-                                </span>
+                    <div class="payments mb-4">
+                        <div class="title mb-4">
+                            <h3 class="text-14">شارژ با ووچر پرفکت مانی + 10 درصد شارژ هدیه </h3>
+                        </div>
+
+                        <form action="" method="post" class="text-center w-100 ">
+                            <div class="d-flex justify-content-center">
+                                <div class="form_item">
+                                    <label for="pmv-ev">سریال ووچر</label>
+                                    <input placeholder="10 رقمی" id="pmv-ev" autocomplete="off" maxlength="10"
+                                        name="pmv-ev" type="text" required="">
+                                </div>
+                                <div class="form_item mr-20">
+                                    <label for="pmv-aev">کد فعال‌سازی</label>
+                                    <input placeholder="16 رقمی" class="pmv-recharge-input" id="pmv-aev"
+                                        autocomplete="off" maxlength="16" name="pm-aev" type="text" required="">
+                                </div>
                             </div>
-                            <h4 class="text-14 text-14--300">{{ subscription.description }}</h4>
-                            <input type="radio" name="subscriptionID" id="subscriptionID9" value="9"
-                                data-usd_price="0.65" checked="checked">
-                        </label>
-
-                        <div class="item_discount mb-4">
-                            <input placeholder="کد تخفیف" type="text" name="discount_code" id="discount_code">
-                            <button type="button" name="check_discount" id="check_discount" class="check_discount">اعمال
-                                تخفیف</button>
-                        </div>
-
-                        <div class="chosse_gateway mb-4">
-                            <div class="item_gateway">
-                                <label class="mb-2">
-                                    <input type="radio" name="gateway" value="6" checked="">
-                                    <span class="text-14 text-14--300">درگاه پرداخت مستقیم 1 (شامل اندکی کارمزد)</span>
-                                </label>
-                                <br>
-                                <label class="mb-2">
-                                    <input type="radio" name="gateway" value="my_wallet">
-                                    <span class="text-14 text-14--300">پرداخت با کیف پول (موجودی: تومان -
-                                        <router-link class="active text-14 text-14--yellow" :to='{ name: "walletPageRoute" }'> شارژ کیف
-                                            پول </router-link> )
-                                    </span>
-                                </label class="mb-2">
-                                <br>
-                                <label>
-                                    <input type="radio" name="gateway" value="4">
-                                    <span class="text-14 text-14--300"> درگاه ارزی پرفکت مانی(نیاز به حساب پرفکت
-                                        مانی)</span>
-                                </label>
-                                <br>
-                            </div>
-                        </div>
-
-                        <div class="mb-2">
-                            <label for="policy_url_check">
-                                <input id="policy_url_check" type="checkbox" value="1" required="required">
-                                <span class="text-14">
-                                    من
-                                    <router-link class="active text-14 text-14--yellow" :to='{ name: "tosPageRoute" }'>قوانین
-                                    </router-link>
-                                    دیجی موویز را می‌پذیرم
-                                </span>
-                            </label>
-                        </div>
-                        <div>
-                            <label for="mb-2">
-                                <input id="global_user" name="global_user" type="checkbox" value="1">
-                                <span class="text-14"> خارج از ایران هستم </span>
-                            </label>
-                        </div>
-                        <br>
-                        <div class="text-center">
-                            <button type="submit" name="buy_subscription" id="buy_subscription"
-                                class="buy_subscription">
-                                <img alt="#" :src="shopping">
-                                خرید اشتراک
-                                <br>
-                                <small> <span class="amount">39,000</span> تومان </small>
-                            </button>
-                        </div>
-                    </form>
+                            <button type="submit" class="form-btn">ثبت و دریافت شارژ</button>
+                        </form>
+                    </div>
 
                     <div class="recent_payments">
-                        <div class="title">
-                            <h3 class="text-14"> سابقه پرداخت</h3>
+                        <div class="title title--border-none">
+                            <h4 class="text-14 border-b"> سوابق شارژ</h4>
                         </div>
-                        <div class="item_discount ">
+                        <div class="item_box ">
                             <div class="text-center d-flex flex-row justify-content-around">
-                                <ul>
-                                    <li class="d-flex flex-row gap">
-                                        <div class="text-center">
-                                            <span class="text-14 text-14--blue">اشتراک :</span>
-                                            <p class="text-14 text-14--300">اشتراک یک ماهه</p>
-                                        </div>
-                                        <div class="text-center">
-                                            <span class="text-14 text-14--blue">سطح :</span>
-                                            <p class="text-14 text-14--300">نقره ای</p>
-                                        </div>
-                                        <div class="text-center">
-                                            <span class="text-14 text-14--blue">مبلغ :</span>
-                                            <p class="text-14 text-14--300">39,000<small>تومان</small></p>
-                                        </div>
-                                        <div class="text-center">
-                                            <span class="text-14 text-14--blue">وضعیت :</span>
-                                            <p class="text-14 text-14--300">در انتظار پرداخت </p>
-                                        </div>
-                                        <div class="text-center">
-                                            <span class="text-14 text-14--blue">تاریخ :</span>
-                                            <p class="text-14 text-14--300">20 خرداد 1403</p>
-                                        </div>
-                                    </li>
-                                </ul>
+                                <table class="text-center" style="width:100%">
+                                    <tr>
+                                        <th class="text-14 text-14--blue">شناسه </th>
+                                        <th class="text-14 text-14--blue">مبلغ </th>
+                                        <th class="text-14 text-14--blue">جزئیات </th>
+                                        <th class="text-14 text-14--blue">تاریخ </th>
+                                    </tr>
+                                    <tr v-for="tableItem in tableItems">
+                                        <td class="text-14 text-14--300">{{ tableItem.id }}</td>
+                                        <td class="text-14 text-14--300">{{ tableItem.price }}</td>
+                                        <td class="text-14 text-14--300">{{ tableItem.details }}</td>
+                                        <td class="text-14 text-14--300">{{ tableItem.time }}</td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -294,45 +234,34 @@ import comments from '@/assets/images/comments.svg'
 
 <script>
 export default {
-    name: 'Subscription',
+    name: 'Wallet',
 
     data() {
         return {
             userName: 'tannaz71',
             avatar: 'T',
             hasBeforeMsgAlert: true,
-            lastActivity: ' 19 خرداد 1403 | 14:24 ',
-            registeryDate: ' 18 خرداد 1403 | 09:12 ',
-            ip: '98.98.49.226',
-            email: 'tannaznamdar@gmail.com',
-            numberOfComments: 0,
+            walletBalance: '10.000',
 
-            subscriptions: [
+            tableItems: [
                 {
-                    time: ' اشتراک یک ماهه ',
-                    info: ' 31 روز - 39,000',
-                    description: 'دسترسی به تمامی لینک های دانلود و پخش آنلاین فیلم و سریال ، پشتیبانی از طریق تیکت ، امکان دانلود برای کاربران خارج از کشور',
+                    id: '1',
+                    price: '25.000',
+                    details: 'اشتراک یک ماهه',
+                    time: '25خرداد 1403',
                 },
                 {
-                    time: ' اشتراک دو ماهه ',
-                    info: ' 62 روز - 77,000',
-                    description: 'دسترسی به تمامی لینک های دانلود و پخش آنلاین فیلم و سریال ، پشتیبانی از طریق تیکت ، امکان دانلود برای کاربران خارج از کشور',
+                    id: '2',
+                    price: '25.000',
+                    details: 'اشتراک دو ماهه',
+                    time: '28خرداد 1403',
                 },
                 {
-                    time: ' اشتراک چهار ماهه ',
-                    info: ' 120 روز - 152,000',
-                    description: 'دسترسی به تمامی لینک های دانلود و پخش آنلاین فیلم و سریال ، پشتیبانی از طریق تیکت ، امکان دانلود برای کاربران خارج از کشور',
+                    id: '3',
+                    price: '25.000',
+                    details: 'اشتراک سه ماهه',
+                    time: '29خرداد 1403',
                 },
-                {
-                    time: ' اشتراک شش ماهه ',
-                    info: ' 180 219,000',
-                    description: 'دسترسی به تمامی لینک های دانلود و پخش آنلاین فیلم و سریال ، پشتیبانی از طریق تیکت ، امکان دانلود برای کاربران خارج از کشور',
-                },
-                {
-                    time: ' اشتراک یک ساله ',
-                    info: ' 365 روز - 399,000',
-                    description: 'دسترسی به تمامی لینک های دانلود و پخش آنلاین فیلم و سریال ، پشتیبانی از طریق تیکت ، امکان دانلود برای کاربران خارج از کشور',
-                }
             ]
         }
     }
@@ -443,7 +372,6 @@ export default {
             float: right;
             width: 100%;
 
-
             a {
                 font-weight: 400;
                 font-size: 16px;
@@ -523,8 +451,6 @@ export default {
 .text-14 {
     font-size: 14px;
     font-weight: 500;
-    margin: 0;
-    margin-right: 5px;
 
     a {
         text-decoration: none;
@@ -532,10 +458,6 @@ export default {
 
     &--300 {
         font-weight: 300;
-    }
-
-    &--yellow {
-        color: #ff0;
     }
 
     &--blue {
@@ -563,84 +485,13 @@ export default {
     }
 }
 
-.item_subscription {
+.item_box {
     display: inline-block;
     width: 100%;
     background: #1c1c22;
     color: #fff;
     padding: 15px;
     border-radius: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    text-align: right;
-    transition: .3s;
-
-    &:is(:active, :hover) {
-        background-color: #6898f8;
-    }
-}
-
-.item_subscription input[type="radio"] {
-    display: none;
-}
-
-input {
-    width: auto;
-    background: #23232b;
-    padding: 15px 10px;
-    border-radius: 35px;
-    color: #fff;
-    border: none;
-    outline: none;
-    padding: 10px;
-}
-
-.item_discount {
-    display: inline-block;
-    width: 100%;
-    background: #1c1c22;
-    color: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.check_discount {
-    display: inline-block;
-    background: #6898f8;
-    color: #fff;
-    line-height: normal;
-    padding: 10px 20px;
-    border-radius: 35px;
-    cursor: pointer;
-    margin-right: 15px;
-    border: none;
-}
-
-.chosse_gateway .item_gateway {
-    display: inline-block;
-    width: 100%;
-    font-size: 85%;
-    padding: 10px 0;
-    cursor: pointer;
-}
-
-.buy_subscription {
-    display: inline-block;
-    background: #484848;
-    color: #fff;
-    padding: .5rem 4rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: .3rem;
-    font-weight: 400;
-    text-align: center;
-    border: none;
-    transition: .3s;
-
-    &:is(:active, :hover) {
-        background-color: #6898f8;
-    }
 }
 
 .title {
@@ -649,23 +500,83 @@ input {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-bottom: 25px;
-}
-
-.title h3 {
-    padding: 7px 0;
+    padding: 15px 0;
     border-bottom: 2px solid #6898f8;
+
+    &--border-none {
+        border: none;
+    }
 }
 
-.recent_payments {
+.payments {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    margin-top: 20px;
+    background-color: #1c1c22;
+    box-shadow: 0 4px 0 0 rgba(0, 0, 0, .4);
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
 }
 
 .gap {
-    gap: 100px;
+    gap: 180px;
+}
+
+.form_item {
+    display: inline-block;
+    width: 48%;
+    margin-bottom: 20px;
+}
+
+.form_item input {
+    width: 100%;
+    background: #050505;
+    padding: 15px 10px;
+    border-radius: 35px;
+    color: #fff;
+    outline: none;
+    border: none;
+}
+
+.form_item label {
+    display: inline-block;
+    width: 100%;
+    font-size: 16;
+    font-weight: 300;
+    text-align: right;
+    padding: 10px 12px 10px 0;
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+.form-btn {
+    display: inline-block;
+    background: #6898f8;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 35px;
+    cursor: pointer;
+    border: none;
+}
+
+.border-b {
+    border-bottom: 2px solid #6898f8;
+}
+
+tr {
+    border-bottom: 1px solid rgb(48, 47, 47);
+}
+
+tr:last-child {
+    border: none;
+}
+
+td,
+th {
+    padding: 10px 0;
 }
 </style>

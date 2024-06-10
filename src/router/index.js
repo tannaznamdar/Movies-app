@@ -21,6 +21,7 @@ import Login from "@/views/LoginPage.vue";
 import Dashboard from "@/views/dashboard/Dashboard.vue";
 import Subscription from "@/views/dashboard/SubscriptionPage.vue";
 import Tos from "@/views/dashboard/TosPage.vue";
+import Wallet from "@/views/dashboard/WalletPage.vue";
 import ForgotPassword from "@/views/ForgotPasswordPage.vue";
 import Membership from "@/views/MembershipPage.vue";
 import Director from "@/views/DirectorPage.vue";
@@ -52,6 +53,7 @@ const router = createRouter({
     { path: "/dashboard", name: "dashboardPageRoute", component: Dashboard },
     { path: "/dashboard/subscription", name: "subscriptionPageRoute", component: Subscription },
     { path: "/tos", name: "tosPageRoute", component: Tos },
+    { path: "/dashboard/my-wallet", name: "walletPageRoute", component: Wallet },
     { path: "/forgot-password", name: "forgotPasswordPageRoute", component: ForgotPassword },
     { path: "/membership", name: "membershipPageRoute", component: Membership },
     { path: "/director/:director?", name: "directorPageRoute", component: Director },

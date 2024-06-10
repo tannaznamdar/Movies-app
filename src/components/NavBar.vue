@@ -935,6 +935,9 @@ export default {
       if (location.name === 'tosPageRoute') {
         return false
       }
+      if (location.name === 'walletPageRoute') {
+        return false
+      }
       if (location.name === 'forgotPasswordPageRoute') {
         return false
       }
