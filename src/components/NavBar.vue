@@ -938,6 +938,9 @@ export default {
       if (location.name === 'walletPageRoute') {
         return false
       }
+      if (location.name === 'ticketsPageRoute') {
+        return false
+      }
       if (location.name === 'forgotPasswordPageRoute') {
         return false
       }

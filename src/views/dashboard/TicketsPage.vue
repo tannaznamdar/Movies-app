@@ -7,7 +7,6 @@ import list from '@/assets/images/list.svg'
 import shopping from '@/assets/images/shopping.svg'
 import arrowLeft from '@/assets/images/arrow-left.svg'
 import comments from '@/assets/images/comments.svg'
-
 </script>
 
 <template>
@@ -78,7 +77,7 @@ import comments from '@/assets/images/comments.svg'
                                 </router-link>
                             </li>
                             <li>
-                                <router-link class="active" :to='{ name: "ticketsPageRoute" }'>
+                                <router-link class="active" :to='{ name: "" }'>
                                     <div class="d-flex justify-content-between">
                                         <div>
                                             <span class="right_icon">
@@ -159,121 +158,63 @@ import comments from '@/assets/images/comments.svg'
                         </div>
                     </div>
 
-                    <div class="mb-2">
-                        <div class="message_top_info text-14"> <strong>نکته مهم خرید :</strong>
-                            <p class="text-14"> - کاربر گرامی پس از پرداخت هزینه صبر کنید تا دوباره از درگاه به همین
-                                صفحه بصورت اتومات
-                                بازگردانده شوید.</p>
-                            <p class="text-14"> - در صورت عدم بازگشت به سایت یا بروز خطا در برگشت به سایت نهایت تا 72
-                                ساعت مبلغ عودت
-                                داده خواهد شد</p>
-                            <p class="text-14"> - برای خرید حتما بدون vpn یا فیلترشکن و از آدرس بدون فیلتر اقدام
-                                نمایید.در صورت خرید از
-                                آدرس دائمی با فیلترشکن تمام مراحل خرید را انجام دهید..</p>
-                            <p class="text-14"> - در صورت وجود اختلال بر روی درگاه پرداخت مستقیم از طریق کیف پول اقدام
-                                به پرداخت نمایید.
-                            </p>
-                            <p class="text-14"> - برای خرید اشتراک با کیف پول، ابتدا کیف پول خود را
-                                <router-link class="active" :to='{ name: "" }'> شارژ کنید </router-link>.
-                            </p>
-                        </div>
+                    <div class="title_sec">
+                        <h2>ارسال تیکت</h2>
                     </div>
 
-                    <form name="main" method="post" action="" class="subscriptions_list mb-4">
-                        <label for="subscriptionID9" data-price="39000" data-price_formated="39,000"
-                            data-usd_price="0.65" class="item_subscription active" data-subscriptionid="9"
-                            v-for="subscription in subscriptions">
-                            <div class="d-flex justify-content-between">
-                                <h3 class="text-14"> {{ subscription.time }}</h3>
-                                <span class="text-14"> {{ subscription.info }}<small>تومان</small>
-                                </span>
-                            </div>
-                            <h4 class="text-14 text-14--300">{{ subscription.description }}</h4>
-                            <input type="radio" name="subscriptionID" id="subscriptionID9" value="9"
-                                data-usd_price="0.65" checked="checked">
-                        </label>
+                    <ul class="list_dis">
+                        <li> کاربر گرامی به منظور تسریع در پاسخگویی به درخواست پشتیبانی شما عزیزان ، لطفاً ابتدا
+                            <a target="_blank" title="سوالات متداول" href="https://digimoviez.com/fag/"
+                                rel="nofollow">سوالات متداول
+                            </a>
+                            را مطالعه نموده ، در صورتی که پاسخی برای مشکل خود یافت
+                            نکردید اقدام به ارسال تیکت نمایید.
+                        </li>
+                        <li> همچنین در تیکت مشکل خود را بصورت دقیق شرح داده و در صورت وجود خطا ، از خطای موجود اسکرین
+                            شات ارسال نمایید.
+                        </li>
+                    </ul>
 
-                        <div class="item_discount mb-4">
-                            <input placeholder="کد تخفیف" type="text" name="discount_code" id="discount_code">
-                            <button type="button" name="check_discount" id="check_discount" class="check_discount">اعمال
-                                تخفیف</button>
-                        </div>
+                    <div class="form_item">
+                        <label for="title_ticket">عنوان تیکت</label>
+                        <input type="text" name="title_ticket" id="title_ticket"
+                            placeholder="عنوان تیکت را اینجا بنویسید">
+                    </div>
 
-                        <div class="chosse_gateway mb-4">
-                            <div class="item_gateway">
-                                <label class="mb-2">
-                                    <input type="radio" name="gateway" value="6" checked="">
-                                    <span class="text-14 text-14--300">درگاه پرداخت مستقیم 1 (شامل اندکی کارمزد)</span>
-                                </label>
-                                <br>
-                                <label class="mb-2">
-                                    <input type="radio" name="gateway" value="my_wallet">
-                                    <span class="text-14 text-14--300">پرداخت با کیف پول (موجودی: تومان -
-                                        <router-link class="active text-14 text-14--yellow"
-                                            :to='{ name: "walletPageRoute" }'> شارژ کیف
-                                            پول </router-link> )
-                                    </span>
-                                </label class="mb-2">
-                                <br>
-                                <label>
-                                    <input type="radio" name="gateway" value="4">
-                                    <span class="text-14 text-14--300"> درگاه ارزی پرفکت مانی(نیاز به حساب پرفکت
-                                        مانی)</span>
-                                </label>
-                                <br>
-                            </div>
-                        </div>
+                    <div class="form_item">
+                        <label for="message_ticket">پیام شما</label>
+                        <textarea name="message_ticket" id="message_ticket" placeholder="پیام شما" rows="7"></textarea>
+                    </div>
 
-                        <div class="mb-2">
-                            <label for="policy_url_check">
-                                <input id="policy_url_check" type="checkbox" value="1" required="required">
-                                <span class="text-14">
-                                    من
-                                    <router-link class="active text-14 text-14--yellow"
-                                        :to='{ name: "tosPageRoute" }'>قوانین
-                                    </router-link>
-                                    دیجی موویز را می‌پذیرم
-                                </span>
-                            </label>
-                        </div>
-                        <div>
-                            <label for="mb-2">
-                                <input id="global_user" name="global_user" type="checkbox" value="1">
-                                <span class="text-14"> خارج از ایران هستم </span>
-                            </label>
-                        </div>
-                        <br>
-                        <div class="text-center">
-                            <button type="submit" name="buy_subscription" id="buy_subscription"
-                                class="buy_subscription">
-                                <img alt="#" :src="shopping">
-                                خرید اشتراک
-                                <br>
-                                <small> <span class="amount">39,000</span> تومان </small>
-                            </button>
-                        </div>
-                    </form>
+                    <div class="form_item">
+                        <label for="attachment">پیوست فایل</label>
+                        <input type="file" name="attachment" id="attachment" accept="image/jpeg, image/png">
+                    </div>
 
-                    <div class="recent_payments">
-                        <div class="title">
-                            <h3 class="text-14"> سابقه پرداخت</h3>
-                        </div>
-                        <div class="item_discount ">
+                    <div class="form_item">
+                        <button class="btn-send-ticket" name="create_tickets" type="submit">ارسال تیکت</button>
+                    </div>
+
+                    <div class="title_sec">
+                        <h2>لیست تیکت ها</h2>
+                    </div>
+
+                    <div class="recent_payments pt-3">
+                        <div class="item_box ">
+
+                            <div class="status_message mb-3" v-if="hasNoTicketAlert">تاکنون تیکتی ثبت نکرده اید</div>
+
                             <div class="text-center d-flex flex-row justify-content-around">
                                 <table class="text-center" style="width:100%">
                                     <tr>
-                                        <th class="text-14 text-14--blue">اشتراک: </th>
-                                        <th class="text-14 text-14--blue">سطح: </th>
-                                        <th class="text-14 text-14--blue">مبلغ: </th>
-                                        <th class="text-14 text-14--blue">وضعیت: </th>
-                                        <th class="text-14 text-14--blue">تاریخ: </th>
+                                        <th class="text-14 text-14--blue">شناسه </th>
+                                        <th class="text-14 text-14--blue">تاریخ </th>
+                                        <th class="text-14 text-14--blue" style="width:70%"> عنوان </th>
                                     </tr>
                                     <tr v-for="tableItem in tableItems">
-                                        <td class="text-14 text-14--300">{{ tableItem.subscribe }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.level }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.price }} تومان</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.condition }}</td>
+                                        <td class="text-14 text-14--300">{{ tableItem.id }}</td>
                                         <td class="text-14 text-14--300">{{ tableItem.time }}</td>
+                                        <td class="text-14 text-14--300" style="width:70%">{{ tableItem.title }}</td>
                                     </tr>
                                 </table>
                             </div>
@@ -288,64 +229,27 @@ import comments from '@/assets/images/comments.svg'
 
 <script>
 export default {
-    name: 'Subscription',
+    name: 'Tickets',
 
     data() {
         return {
             userName: 'tannaz71',
             avatar: 'T',
             hasBeforeMsgAlert: true,
-            lastActivity: ' 19 خرداد 1403 | 14:24 ',
-            registeryDate: ' 18 خرداد 1403 | 09:12 ',
-            ip: '98.98.49.226',
-            email: 'tannaznamdar@gmail.com',
-            numberOfComments: 0,
-
-            subscriptions: [
-                {
-                    time: ' اشتراک یک ماهه ',
-                    info: ' 31 روز - 39,000',
-                    description: 'دسترسی به تمامی لینک های دانلود و پخش آنلاین فیلم و سریال ، پشتیبانی از طریق تیکت ، امکان دانلود برای کاربران خارج از کشور',
-                },
-                {
-                    time: ' اشتراک دو ماهه ',
-                    info: ' 62 روز - 77,000',
-                    description: 'دسترسی به تمامی لینک های دانلود و پخش آنلاین فیلم و سریال ، پشتیبانی از طریق تیکت ، امکان دانلود برای کاربران خارج از کشور',
-                },
-                {
-                    time: ' اشتراک چهار ماهه ',
-                    info: ' 120 روز - 152,000',
-                    description: 'دسترسی به تمامی لینک های دانلود و پخش آنلاین فیلم و سریال ، پشتیبانی از طریق تیکت ، امکان دانلود برای کاربران خارج از کشور',
-                },
-                {
-                    time: ' اشتراک شش ماهه ',
-                    info: ' 180 219,000',
-                    description: 'دسترسی به تمامی لینک های دانلود و پخش آنلاین فیلم و سریال ، پشتیبانی از طریق تیکت ، امکان دانلود برای کاربران خارج از کشور',
-                },
-                {
-                    time: ' اشتراک یک ساله ',
-                    info: ' 365 روز - 399,000',
-                    description: 'دسترسی به تمامی لینک های دانلود و پخش آنلاین فیلم و سریال ، پشتیبانی از طریق تیکت ، امکان دانلود برای کاربران خارج از کشور',
-                }
-            ],
+            hasNoTicketAlert: true,
 
             tableItems: [
                 {
-                    subscribe: 'اشتراک یک ماهه',
-                    level: 'نقره ای',
-                    price: '39,000',
-                    condition: ' در انتظار پرداخت ',
+                    id: '1',
                     time: '25خرداد 1403',
+                    title: 'مشکل دانلود فیلم'
                 },
                 {
-                    subscribe: 'اشتراک دو ماهه',
-                    level: 'طلایی',
-                    price: '50,000',
-                    condition: ' در انتظار پرداخت ',
-                    time: '29خرداد 1403',
+                    id: '2',
+                    time: '28خرداد 1403',
+                    title: 'مشکل دانلود فیلم'
                 },
-
-            ],
+            ]
         }
     }
 }
@@ -455,7 +359,6 @@ export default {
             float: right;
             width: 100%;
 
-
             a {
                 font-weight: 400;
                 font-size: 16px;
@@ -535,8 +438,6 @@ export default {
 .text-14 {
     font-size: 14px;
     font-weight: 500;
-    margin: 0;
-    margin-right: 5px;
 
     a {
         text-decoration: none;
@@ -546,139 +447,119 @@ export default {
         font-weight: 300;
     }
 
-    &--yellow {
-        color: #ff0;
-    }
-
     &--blue {
         color: #6898f8;
     }
 }
 
-.message_top_info {
-    display: inline-block;
-    width: 100%;
-    background: #d1ecf1;
-    color: #0c5460;
-    border: 1px solid #bee5eb;
-    padding: 10px;
-    margin-bottom: 30px;
-    border-radius: 15px;
-
-    a {
-        text-decoration: none;
-        color: #331c2d;
-
-        &:is(:hover, :focus) {
-            color: #6898f8;
-        }
-    }
-}
-
-.item_subscription {
-    display: inline-block;
-    width: 100%;
-    background: #1c1c22;
-    color: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    text-align: right;
-    transition: .3s;
-
-    &:is(:active, :hover) {
-        background-color: #6898f8;
-    }
-}
-
-.item_subscription input[type="radio"] {
-    display: none;
-}
-
-input {
-    width: auto;
-    background: #23232b;
-    padding: 15px 10px;
-    border-radius: 35px;
-    color: #fff;
-    border: none;
-    outline: none;
-    padding: 10px;
-}
-
-.item_discount {
-    display: inline-block;
-    width: 100%;
-    background: #1c1c22;
-    color: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.check_discount {
-    display: inline-block;
-    background: #6898f8;
-    color: #fff;
-    line-height: normal;
-    padding: 10px 20px;
-    border-radius: 35px;
-    cursor: pointer;
-    margin-right: 15px;
-    border: none;
-}
-
-.chosse_gateway .item_gateway {
-    display: inline-block;
-    width: 100%;
-    font-size: 85%;
-    padding: 10px 0;
-    cursor: pointer;
-}
-
-.buy_subscription {
-    display: inline-block;
-    background: #484848;
-    color: #fff;
-    padding: .5rem 4rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: .3rem;
-    font-weight: 400;
-    text-align: center;
-    border: none;
-    transition: .3s;
-
-    &:is(:active, :hover) {
-        background-color: #6898f8;
-    }
-}
-
-.title {
-    width: 100%;
+.title_sec {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-bottom: 25px;
+    width: 100%;
+    height: 10px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    position: relative;
+    margin-bottom: 20px;
 }
 
-.title h3 {
-    padding: 7px 0;
-    border-bottom: 2px solid #6898f8;
+.title_sec h2 {
+    display: inline-block;
+    background: #23232b;
+    padding: 5px 10px;
+    margin-top: -5px;
+    font-size: 18px;
+    font-weight: 400;
 }
 
-.recent_payments {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 20px;
+.list_dis {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: right;
+    padding: 25px 25px 25px 0;
+    list-style: circle;
+
+    li {
+        width: 100%;
+        line-height: 2.5;
+        font-size: 14px;
+        font-weight: 200;
+    }
+
+    a {
+        text-decoration: none;
+        color: #6898f8;
+        font-weight: 500;
+    }
 }
 
-.gap {
-    gap: 100px;
+.form_item {
+    display: inline-block;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.form_item input {
+    width: 100%;
+    background: #050505;
+    padding: 15px 10px;
+    border-radius: 35px;
+    color: #fff;
+    outline: none;
+    border: none;
+}
+
+.form_item label {
+    display: inline-block;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 300;
+    text-align: right;
+    padding: 10px 12px 10px 0;
+}
+
+.form_item textarea {
+    width: 100%;
+    background: #050505;
+    padding: 15px 10px;
+    border-radius: 35px;
+    color: #fff;
+    outline: none;
+    border: none;
+}
+
+.btn-send-ticket {
+    float: left;
+    padding: 10px 20px;
+    border-radius: 35px;
+    background: #6898f8;
+    color: #fff;
+    border: none;
+}
+
+.status_message {
+    width: 100%;
+    padding: 7px 10px;
+    margin: 10px 0 0;
+    background: #fffbe7;
+    color: #6898f8;
+    border: 1px solid #ffebce;
+    line-height: 23px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.item_box {
+    display: inline-block;
+    width: 100%;
+    background: #1c1c22;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
 }
 
 tr {

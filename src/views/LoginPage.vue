@@ -169,6 +169,7 @@ input {
   a {
     text-decoration: none;
     color: #fff;
+    font-size: 20px;
   }
 }
 
