@@ -204,9 +204,7 @@ import comments from '@/assets/images/comments.svg'
 
                     <div class="form_item">
                         <label for="title_list"> توضیحات شما </label>
-                        <textarea name="message_ticket" id="message_ticket" placeholder="توضیحات "
-                            data-v-inspector="src/views/dashboard/TicketsPage.vue:186:25" data-v-b22b2aa5="">
-                        </textarea>
+                        <textarea name="message_ticket" id="message_ticket" placeholder="توضیحات" rows="4"></textarea>
                     </div>
 
                     <div class="checkbox_holder mb-3">
@@ -464,7 +462,8 @@ export default {
     margin-bottom: 20px;
 }
 
-.form_item input {
+.form_item input,
+textarea {
     width: 100%;
     background: #050505;
     padding: 15px 10px;

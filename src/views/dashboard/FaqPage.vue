@@ -105,10 +105,7 @@
                 پخش کننده های پیش نهادی برای سیستم عامل ios دانلود از اپ استور [VLC For IOS] [Oplayer]
             </p>
         </div>
-
     </div>
-
-
 </template>
 
 <script>

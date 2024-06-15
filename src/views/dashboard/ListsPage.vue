@@ -208,9 +208,7 @@ import comments from '@/assets/images/comments.svg'
 
                     <div class="form_item">
                         <label for="title_list"> توضیحات شما </label>
-                        <textarea name="message_ticket" id="message_ticket" placeholder="توضیحات " rows="4"
-                            data-v-inspector="src/views/dashboard/TicketsPage.vue:186:25" data-v-b22b2aa5="">
-                        </textarea>
+                        <textarea name="message_ticket" id="message_ticket" placeholder="توضیحات" rows="4"></textarea>
                     </div>
 
                     <div class="checkbox_holder mb-3">
@@ -247,7 +245,8 @@ import comments from '@/assets/images/comments.svg'
                                         <td class="text-14 text-14--300">{{ tableItem.numberOfItems }}</td>
                                         <td class="text-14 text-14--300">{{ tableItem.time }}</td>
                                         <td class="text-14 text-14--300">
-                                            <router-link class="edit_link" :to='{ name: "editListPageRoute" }'> ویرایش آیتم‌ها
+                                            <router-link class="edit_link" :to='{ name: "editListPageRoute" }'> ویرایش
+                                                آیتم‌ها
                                             </router-link>
                                             |
                                             <router-link class="remove_link" :to='{ name: "" }'>حذف </router-link>
@@ -530,7 +529,8 @@ export default {
     margin-bottom: 20px;
 }
 
-.form_item input {
+.form_item textarea,
+input {
     width: 100%;
     background: #050505;
     padding: 15px 10px;
@@ -643,10 +643,5 @@ th {
     margin: 0 5px;
     font-size: 14px;
     font-weight: 400;
-}
-
-textarea::placeholder {
-  color: #8e939b;
-  opacity: 1;
 }
 </style>
