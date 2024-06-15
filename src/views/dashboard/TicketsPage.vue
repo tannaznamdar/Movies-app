@@ -164,9 +164,8 @@ import comments from '@/assets/images/comments.svg'
 
                     <ul class="list_dis">
                         <li> کاربر گرامی به منظور تسریع در پاسخگویی به درخواست پشتیبانی شما عزیزان ، لطفاً ابتدا
-                            <a target="_blank" title="سوالات متداول" href="https://digimoviez.com/fag/"
-                                rel="nofollow">سوالات متداول
-                            </a>
+                            <router-link class="active" :to='{ name: "" }'> سوالات متداول
+                            </router-link>
                             را مطالعه نموده ، در صورتی که پاسخی برای مشکل خود یافت
                             نکردید اقدام به ارسال تیکت نمایید.
                         </li>
@@ -199,8 +198,8 @@ import comments from '@/assets/images/comments.svg'
                         <h2>لیست تیکت ها</h2>
                     </div>
 
-                    <div class="recent_payments pt-3">
-                        <div class="item_box ">
+                    <div class="pt-3">
+                        <div class="item_box">
 
                             <div class="status_message mb-3" v-if="hasNoTicketAlert">تاکنون تیکتی ثبت نکرده اید</div>
 
@@ -214,7 +213,8 @@ import comments from '@/assets/images/comments.svg'
                                     <tr v-for="tableItem in tableItems">
                                         <td class="text-14 text-14--300">{{ tableItem.id }}</td>
                                         <td class="text-14 text-14--300">{{ tableItem.time }}</td>
-                                        <td class="text-14 text-14--300" style="width:70%">{{ tableItem.title }}</td>
+                                        <td class="text-14 text-14--300" style="width:70%"> <router-link class="active"
+                                                :to='{ name: "" }'> {{ tableItem.title }} </router-link></td>
                                     </tr>
                                 </table>
                             </div>
@@ -445,6 +445,11 @@ export default {
 
     &--300 {
         font-weight: 300;
+
+        a {
+            font-size: 14px;
+            color: #fff;
+        }
     }
 
     &--blue {
