@@ -944,6 +944,9 @@ export default {
       if (location.name === 'listsPageRoute') {
         return false
       }
+      if (location.name === 'editListPageRoute') {
+        return false
+      }
       if (location.name === 'forgotPasswordPageRoute') {
         return false
       }

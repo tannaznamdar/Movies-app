@@ -176,11 +176,7 @@ import comments from '@/assets/images/comments.svg'
                     </div>
 
                     <div class="title_sec">
-                        <h2> ساخت لیست جدید </h2>
-                    </div>
-
-                    <div class="status_message mb-3 mt-5" v-if="hasTitleNameAlert"> لطفا عنوانی برای لیست خود انتخاب
-                        کنید
+                        <h2> ویرایش لیست </h2>
                     </div>
 
                     <div class="form_item">
@@ -208,7 +204,7 @@ import comments from '@/assets/images/comments.svg'
 
                     <div class="form_item">
                         <label for="title_list"> توضیحات شما </label>
-                        <textarea name="message_ticket" id="message_ticket" placeholder="توضیحات " rows="4"
+                        <textarea name="message_ticket" id="message_ticket" placeholder="توضیحات "
                             data-v-inspector="src/views/dashboard/TicketsPage.vue:186:25" data-v-b22b2aa5="">
                         </textarea>
                     </div>
@@ -221,43 +217,7 @@ import comments from '@/assets/images/comments.svg'
                     </div>
 
                     <div class="form_item">
-                        <button class="btnCreateList" name="create_lists" type="submit">ساخت لیست</button>
-                    </div>
-
-                    <div>
-                        <div class="title_sec mb-5" data-v-3df379c4="">
-                            <h2 data-v-inspector="src/views/dashboard/ListsPage.vue:171:25" data-v-3df379c4=""> لیست های
-                                شما
-                            </h2>
-                        </div>
-
-                        <div class="item_box ">
-                            <div class="text-center d-flex flex-row justify-content-around">
-                                <table class="text-center" style="width:100%">
-                                    <tr>
-                                        <th class="text-14 text-14--blue">عنوان </th>
-                                        <th class="text-14 text-14--blue">نوع </th>
-                                        <th class="text-14 text-14--blue">تعداد آیتم </th>
-                                        <th class="text-14 text-14--blue">تاریخ ایجاد </th>
-                                        <th class="text-14 text-14--blue">عملیات </th>
-                                    </tr>
-                                    <tr v-for="tableItem in tableItems">
-                                        <td class="text-14 text-14--300">{{ tableItem.title }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.type }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.numberOfItems }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.time }}</td>
-                                        <td class="text-14 text-14--300">
-                                            <router-link class="edit_link" :to='{ name: "editListPageRoute" }'> ویرایش آیتم‌ها
-                                            </router-link>
-                                            |
-                                            <router-link class="remove_link" :to='{ name: "" }'>حذف </router-link>
-                                            |
-                                            <router-link class="show_link" :to='{ name: "" }'>مشاهده</router-link>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
+                        <button class="btnEditList" name="create_lists" type="submit"> ویرایش لیست </button>
                     </div>
 
                 </div>
@@ -268,7 +228,7 @@ import comments from '@/assets/images/comments.svg'
 
 <script>
 export default {
-    name: 'Lists',
+    name: 'EditList',
 
     data() {
         return {
@@ -276,27 +236,10 @@ export default {
             avatar: 'T',
             hasBeforeMsgAlert: true,
             hasConfirmationAlert: true,
-            hasTitleNameAlert: true,
-
-            tableItems: [
-                {
-                    title: 'لیست دلخواه',
-                    type: 'سریال',
-                    numberOfItems: 1,
-                    time: '25خرداد 1403',
-                },
-                {
-                    title: 'لیست درام',
-                    type: 'فیلم',
-                    numberOfItems: 2,
-                    time: '20خرداد 1403',
-                },
-            ]
         }
     }
 }
 </script>
-
 
 
 <style scoped lang="scss">
@@ -515,15 +458,6 @@ export default {
     }
 }
 
-.item_box {
-    display: inline-block;
-    width: 100%;
-    background: #1c1c22;
-    color: #fff;
-    padding: 15px;
-    border-radius: 10px;
-}
-
 .form_item {
     display: inline-block;
     width: 100%;
@@ -549,23 +483,6 @@ export default {
     padding: 10px 12px 10px 0;
 }
 
-.mr-20 {
-    margin-right: 20px;
-}
-
-tr {
-    border-bottom: 1px solid rgb(48, 47, 47);
-}
-
-tr:last-child {
-    border: none;
-}
-
-td,
-th {
-    padding: 10px 0;
-}
-
 .title_sec {
     display: flex;
     flex-wrap: wrap;
@@ -588,20 +505,6 @@ th {
     font-weight: 400;
 }
 
-.status_message {
-    width: 100%;
-    padding: 7px 10px;
-    margin: 10px 0 0;
-    background: #fffbe7;
-    color: #4179e9;
-    border: 1px solid #ffebce;
-    line-height: 23px;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-}
-
 .item_radio {
     display: flex;
     justify-content: flex-start;
@@ -615,7 +518,7 @@ th {
     margin-right: 10px;
 }
 
-.btnCreateList {
+.btnEditList {
     float: left;
     padding: 10px 20px;
     border-radius: 35px;
@@ -643,10 +546,5 @@ th {
     margin: 0 5px;
     font-size: 14px;
     font-weight: 400;
-}
-
-textarea::placeholder {
-  color: #8e939b;
-  opacity: 1;
 }
 </style>

@@ -20,6 +20,7 @@ import TitlePage from "@/views/TitlePage.vue";
 import Login from "@/views/LoginPage.vue";
 import Dashboard from "@/views/dashboard/Dashboard.vue";
 import Lists from "@/views/dashboard/ListsPage.vue";
+import EditList from "@/views/dashboard/EditListPage.vue";
 import Subscription from "@/views/dashboard/SubscriptionPage.vue";
 import Tickets from "@/views/dashboard/TicketsPage.vue";
 import Tos from "@/views/dashboard/TosPage.vue";
@@ -58,6 +59,7 @@ const router = createRouter({
     { path: "/dashboard/my-wallet", name: "walletPageRoute", component: Wallet },
     { path: "/dashboard/tickets", name: "ticketsPageRoute", component: Tickets },
     { path: "/dashboard/lists", name: "listsPageRoute", component: Lists },
+    { path: "/dashboard/lists/edit-list", name: "editListPageRoute", component: EditList },
     { path: "/forgot-password", name: "forgotPasswordPageRoute", component: ForgotPassword },
     { path: "/membership", name: "membershipPageRoute", component: Membership },
     { path: "/director/:director?", name: "directorPageRoute", component: Director },
