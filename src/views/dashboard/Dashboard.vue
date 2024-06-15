@@ -148,7 +148,7 @@ import comments from '@/assets/images/comments.svg'
 
             <div class="col-lg-9">
                 <div class="main_dashboard">
-                    <div class="before_msg mb-4" v-if="hasBeforeMsgAlert">
+                    <div class="before_msg mb-3" v-if="hasBeforeMsgAlert">
                         <div class="item_dashboard danger d-flex justify-content-between">
                             <span class="alert"> کاربر گرامی برای بهره‌مندی از همه
                                 امکانات سایت لطفاً آدرس ایمیل خود را تایید کنید.
@@ -159,11 +159,20 @@ import comments from '@/assets/images/comments.svg'
                         </div>
                     </div>
 
+                    <div class="before_msg mb-3">
+                        <div class="item_dashboard danger" v-if="hasConfirmationAlert">
+                            <span class="alert"> لینک تائیدیه به آدرس ایمیل شما ارسال
+                                شده است. در صورت عدم دریافت لینک تائیدیه می‌توانید هر 5 دقیقه یکبار برای دریافت لینک
+                                اقدام کنید. </span>
+                        </div>
+                    </div>
+
                     <div class="no_subscription mb-4" v-if="hasNoSubscriptionAlert">
                         <div class="item_dashboard danger danger d-flex justify-content-between">
                             <span class="alert">شما اشتراک فعال ندارید</span>
                             <span class="alert-btn">
-                                <router-link class="active" :to='{ name: "" }'> خرید اشتراک </router-link>
+                                <router-link class="active" :to='{ name: "subscriptionPageRoute" }'> خرید اشتراک
+                                </router-link>
                             </span>
                         </div>
                     </div>
@@ -223,6 +232,7 @@ export default {
             avatar: 'T',
             hasNoSubscriptionAlert: true,
             hasBeforeMsgAlert: true,
+            hasConfirmationAlert: true,
             lastActivity: ' 19 خرداد 1403 | 14:24 ',
             registeryDate: ' 18 خرداد 1403 | 09:12 ',
             ip: '98.98.49.226',
@@ -230,7 +240,6 @@ export default {
             numberOfComments: 0,
         }
     }
-
 }
 </script>
 
