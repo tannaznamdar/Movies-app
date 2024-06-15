@@ -148,7 +148,7 @@ import comments from '@/assets/images/comments.svg'
 
             <div class="col-lg-9">
                 <div class="main_dashboard">
-                    <div class="before_msg mb-5" v-if="hasBeforeMsgAlert">
+                    <div class="before_msg" v-if="hasBeforeMsgAlert">
                         <div class="item_dashboard danger d-flex justify-content-between">
                             <span class="alert"> کاربر گرامی برای بهره‌مندی از همه
                                 امکانات سایت لطفاً آدرس ایمیل خود را تایید کنید.
@@ -159,7 +159,15 @@ import comments from '@/assets/images/comments.svg'
                         </div>
                     </div>
 
-                    <div class="mb-2">
+                    <div class="before_msg">
+                        <div class="item_dashboard danger" v-if="hasConfirmationAlert">
+                            <span class="alert"> لینک تائیدیه به آدرس ایمیل شما ارسال
+                                شده است. در صورت عدم دریافت لینک تائیدیه می‌توانید هر 5 دقیقه یکبار برای دریافت لینک
+                                اقدام کنید. </span>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 mb-2">
                         <div class="message_top_info text-14"> <strong>نکته مهم خرید :</strong>
                             <p class="text-14"> - کاربر گرامی پس از پرداخت هزینه صبر کنید تا دوباره از درگاه به همین
                                 صفحه بصورت اتومات
@@ -174,7 +182,7 @@ import comments from '@/assets/images/comments.svg'
                                 به پرداخت نمایید.
                             </p>
                             <p class="text-14"> - برای خرید اشتراک با کیف پول، ابتدا کیف پول خود را
-                                <router-link class="active" :to='{ name: "" }'> شارژ کنید </router-link>.
+                                <router-link class="active" :to='{ name: "walletPageRoute" }'> شارژ کنید </router-link>.
                             </p>
                         </div>
                     </div>
@@ -229,10 +237,10 @@ import comments from '@/assets/images/comments.svg'
                                 <input id="policy_url_check" type="checkbox" value="1" required="required">
                                 <span class="text-14">
                                     من
-                                    <router-link class="active text-14 text-14--yellow"
-                                        :to='{ name: "tosPageRoute" }'>قوانین
+                                    <router-link class="active text-14 text-14--yellow" :to='{ name: "tosPageRoute" }'>
+                                        قوانین
                                     </router-link>
-                                    دیجی موویز را می‌پذیرم
+                                    سایت را می‌پذیرم
                                 </span>
                             </label>
                         </div>
@@ -295,11 +303,7 @@ export default {
             userName: 'tannaz71',
             avatar: 'T',
             hasBeforeMsgAlert: true,
-            lastActivity: ' 19 خرداد 1403 | 14:24 ',
-            registeryDate: ' 18 خرداد 1403 | 09:12 ',
-            ip: '98.98.49.226',
-            email: 'tannaznamdar@gmail.com',
-            numberOfComments: 0,
+            hasConfirmationAlert: true,
 
             subscriptions: [
                 {
@@ -344,7 +348,6 @@ export default {
                     condition: ' در انتظار پرداخت ',
                     time: '29خرداد 1403',
                 },
-
             ],
         }
     }
@@ -655,18 +658,10 @@ input {
     }
 }
 
-.title {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 25px;
-}
-
 .title h3 {
     padding: 7px 0;
     border-bottom: 2px solid #6898f8;
+    margin-bottom: 25px;
 }
 
 .recent_payments {
@@ -675,10 +670,6 @@ input {
     justify-content: space-around;
     align-items: center;
     margin-top: 20px;
-}
-
-.gap {
-    gap: 100px;
 }
 
 tr {
