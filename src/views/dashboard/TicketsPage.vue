@@ -164,7 +164,7 @@ import comments from '@/assets/images/comments.svg'
 
                     <ul class="list_dis">
                         <li> کاربر گرامی به منظور تسریع در پاسخگویی به درخواست پشتیبانی شما عزیزان ، لطفاً ابتدا
-                            <router-link class="active" :to='{ name: "" }'> سوالات متداول
+                            <router-link class="active" :to='{ name: "faqPageRoute" }'> سوالات متداول
                             </router-link>
                             را مطالعه نموده ، در صورتی که پاسخی برای مشکل خود یافت
                             نکردید اقدام به ارسال تیکت نمایید.

@@ -23,6 +23,7 @@ import Lists from "@/views/dashboard/ListsPage.vue";
 import EditList from "@/views/dashboard/EditListPage.vue";
 import Subscription from "@/views/dashboard/SubscriptionPage.vue";
 import Tickets from "@/views/dashboard/TicketsPage.vue";
+import Faq from "@/views/dashboard/FaqPage.vue";
 import Tos from "@/views/dashboard/TosPage.vue";
 import Wallet from "@/views/dashboard/WalletPage.vue";
 import ForgotPassword from "@/views/ForgotPasswordPage.vue";
@@ -58,6 +59,7 @@ const router = createRouter({
     { path: "/tos", name: "tosPageRoute", component: Tos },
     { path: "/dashboard/my-wallet", name: "walletPageRoute", component: Wallet },
     { path: "/dashboard/tickets", name: "ticketsPageRoute", component: Tickets },
+    { path: "/dashboard/faq", name: "faqPageRoute", component: Faq },
     { path: "/dashboard/lists", name: "listsPageRoute", component: Lists },
     { path: "/dashboard/lists/edit-list", name: "editListPageRoute", component: EditList },
     { path: "/forgot-password", name: "forgotPasswordPageRoute", component: ForgotPassword },

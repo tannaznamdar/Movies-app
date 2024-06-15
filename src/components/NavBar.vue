@@ -941,6 +941,9 @@ export default {
       if (location.name === 'ticketsPageRoute') {
         return false
       }
+      if (location.name === 'faqPageRoute') {
+        return false
+      }
       if (location.name === 'listsPageRoute') {
         return false
       }
