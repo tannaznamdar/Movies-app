@@ -109,7 +109,7 @@ import comments from '@/assets/images/comments.svg'
                                 </router-link>
                             </li>
                             <li>
-                                <router-link class="active" :to='{ name: "" }'>
+                                <router-link class="active" :to='{ name: "PaymentsPageRoute" }'>
                                     <div class="d-flex justify-content-between">
                                         <div>
                                             <span class="right_icon">
@@ -212,7 +212,7 @@ import comments from '@/assets/images/comments.svg'
                                     </tr>
                                     <tr v-for="tableItem in tableItems">
                                         <td class="text-14 text-14--300">{{ tableItem.id }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.time }}</td>
+                                        <td class="text-14 text-14--300">{{ tableItem.data }}</td>
                                         <td class="text-14 text-14--300" style="width:70%"> <router-link class="active"
                                                 :to='{ name: "" }'> {{ tableItem.title }} </router-link></td>
                                     </tr>
@@ -241,12 +241,12 @@ export default {
             tableItems: [
                 {
                     id: '1',
-                    time: '25خرداد 1403',
+                    data: '25خرداد 1403',
                     title: 'مشکل دانلود فیلم'
                 },
                 {
                     id: '2',
-                    time: '28خرداد 1403',
+                    data: '28خرداد 1403',
                     title: 'مشکل دانلود فیلم'
                 },
             ]

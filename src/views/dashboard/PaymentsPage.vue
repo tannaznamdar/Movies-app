@@ -147,7 +147,7 @@ import comments from '@/assets/images/comments.svg'
 
             <div class="col-lg-9">
                 <div class="main_dashboard">
-                    <div class="before_msg mb-3" v-if="hasBeforeMsgAlert">
+                    <div class="before_msg mb-4" v-if="hasBeforeMsgAlert">
                         <div class="item_dashboard danger d-flex justify-content-between">
                             <span class="alert"> کاربر گرامی برای بهره‌مندی از همه
                                 امکانات سایت لطفاً آدرس ایمیل خود را تایید کنید.
@@ -158,7 +158,7 @@ import comments from '@/assets/images/comments.svg'
                         </div>
                     </div>
 
-                    <div class="before_msg mb-3">
+                    <div class="before_msg mb-4">
                         <div class="item_dashboard danger" v-if="hasConfirmationAlert">
                             <span class="alert"> لینک تائیدیه به آدرس ایمیل شما ارسال
                                 شده است. در صورت عدم دریافت لینک تائیدیه می‌توانید هر 5 دقیقه یکبار برای دریافت لینک
@@ -166,68 +166,27 @@ import comments from '@/assets/images/comments.svg'
                         </div>
                     </div>
 
-                    <div class="item_dashboard mb-4">
-                        <div class="d-flex justify-content-between">
-                            <span class="text-14"> موجودی کیف پول شما: </span>
-                            <span class="text-14"> {{ walletBalance }} تومان </span>
-                        </div>
-                    </div>
-
-                    <div class="mb-1">
-                        <div class="message_top_info text-14"> <strong>نکته مهم خرید :</strong>
-                            <p class="text-14">- برای شارژ کیف پول با استفاده از ووچر پرفکت مانی از فرم زیر استفاده
-                                کنید..
-                            </p>
-                            <p class="text-14"> - به ازای هر دلار پرفکت مانی کیف پول شما 59,500 تومان شارژ خواهد شد.
-                            </p>
-                            <p class="text-14"> - برای شارژ کیف پول با ووچر پرفکت مانی پیشنهاد می‌شود به سایت لایسنس 98
-                                و یا کافه ارز مراجعه کنید ، در این سایت‌ها نیازی به احراز هویت نمی‌باشد ، همچنین
-                                می‌توانید از سایت‌های دلخواه دیگری نیز ووچر پرفکت مانی را برای شارژ کیف پول خود تهیه
-                                نمایید.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="payments mb-4">
-                        <div class="title mb-4">
-                            <h3 class="text-14">شارژ با ووچر پرفکت مانی + 10 درصد شارژ هدیه </h3>
-                        </div>
-
-                        <form action="" method="post" class="text-center w-100 ">
-                            <div class="d-flex justify-content-center">
-                                <div class="form_item">
-                                    <label for="pmv-ev">سریال ووچر</label>
-                                    <input placeholder="10 رقمی" id="pmv-ev" autocomplete="off" maxlength="10"
-                                        name="pmv-ev" type="text" required="">
-                                </div>
-                                <div class="form_item mr-20">
-                                    <label for="pmv-aev">کد فعال‌سازی</label>
-                                    <input placeholder="16 رقمی" class="pmv-recharge-input" id="pmv-aev"
-                                        autocomplete="off" maxlength="16" name="pm-aev" type="text" required="">
-                                </div>
-                            </div>
-                            <button type="submit" class="form-btn">ثبت و دریافت شارژ</button>
-                        </form>
+                    <div class="title_sec mb-5 mt-3">
+                        <h2> لیست پرداخت ها </h2>
                     </div>
 
                     <div>
-                        <div class="title title--border-none">
-                            <h4 class="text-14 border-b"> سوابق شارژ</h4>
-                        </div>
                         <div class="item_box ">
                             <div class="text-center d-flex flex-row justify-content-around">
                                 <table class="text-center" style="width:100%">
                                     <tr>
-                                        <th class="text-14 text-14--blue">شناسه </th>
-                                        <th class="text-14 text-14--blue">مبلغ </th>
-                                        <th class="text-14 text-14--blue">جزئیات </th>
-                                        <th class="text-14 text-14--blue">تاریخ </th>
+                                        <th class="text-14 text-14--blue"> کد تراکنش </th>
+                                        <th class="text-14 text-14--blue"> اشتراک </th>
+                                        <th class="text-14 text-14--blue"> مبلغ </th>
+                                        <th class="text-14 text-14--blue"> وضعیت </th>
+                                        <th class="text-14 text-14--blue"> تاریخ </th>
                                     </tr>
                                     <tr v-for="tableItem in tableItems">
-                                        <td class="text-14 text-14--300">{{ tableItem.id }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.price }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.details }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.data }}</td>
+                                        <td class="text-14 text-14--300">{{ tableItem.transactionCode }}</td>
+                                        <td class="text-14 text-14--300">{{ tableItem.Subscription }}</td>
+                                        <td class="text-14 text-14--300">{{ tableItem.price }} تومان</td>
+                                        <td class="text-14 text-14--300"> {{ tableItem.condition }} </td>
+                                        <td class="text-14 text-14--300"> {{ tableItem.data }} </td>
                                     </tr>
                                 </table>
                             </div>
@@ -242,7 +201,7 @@ import comments from '@/assets/images/comments.svg'
 
 <script>
 export default {
-    name: 'Wallet',
+    name: 'Payments',
 
     data() {
         return {
@@ -250,26 +209,21 @@ export default {
             avatar: 'T',
             hasBeforeMsgAlert: true,
             hasConfirmationAlert: true,
-            walletBalance: '10.000',
 
             tableItems: [
                 {
-                    id: '1',
+                    transactionCode: 2919232,
+                    Subscription: 'اشتراک یک ماهه',
                     price: '25.000',
-                    details: 'اشتراک یک ماهه',
+                    condition: 'در انتظار پرداخت',
                     data: '25خرداد 1403',
                 },
                 {
-                    id: '2',
-                    price: '25.000',
-                    details: 'اشتراک دو ماهه',
-                    data: '28خرداد 1403',
-                },
-                {
-                    id: '3',
-                    price: '25.000',
-                    details: 'اشتراک سه ماهه',
-                    data: '29خرداد 1403',
+                    transactionCode: 2919232,
+                    Subscription: 'اشتراک دو ماهه',
+                    price: '80.000',
+                    condition: ' پرداخت',
+                    data: '02خرداد 1403',
                 },
             ]
         }
@@ -460,6 +414,7 @@ export default {
 .text-14 {
     font-size: 14px;
     font-weight: 500;
+    margin: 0;
 
     a {
         text-decoration: none;
@@ -474,26 +429,6 @@ export default {
     }
 }
 
-.message_top_info {
-    display: inline-block;
-    width: 100%;
-    background: #d1ecf1;
-    color: #0c5460;
-    border: 1px solid #bee5eb;
-    padding: 10px;
-    margin-bottom: 30px;
-    border-radius: 15px;
-
-    a {
-        text-decoration: none;
-        color: #331c2d;
-
-        &:is(:hover, :focus) {
-            color: #6898f8;
-        }
-    }
-}
-
 .item_box {
     display: inline-block;
     width: 100%;
@@ -501,75 +436,6 @@ export default {
     color: #fff;
     padding: 15px;
     border-radius: 10px;
-}
-
-.title {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 2px solid #6898f8;
-
-    &--border-none {
-        border: none;
-    }
-}
-
-.payments {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #1c1c22;
-    box-shadow: 0 4px 0 0 rgba(0, 0, 0, .4);
-    padding: 20px;
-    border-radius: 5px;
-    width: 100%;
-}
-
-.form_item {
-    display: inline-block;
-    width: 48%;
-    margin-bottom: 20px;
-}
-
-.form_item input {
-    width: 100%;
-    background: #050505;
-    padding: 15px 10px;
-    border-radius: 35px;
-    color: #fff;
-    outline: none;
-    border: none;
-}
-
-.form_item label {
-    display: inline-block;
-    width: 100%;
-    font-size: 16;
-    font-weight: 300;
-    text-align: right;
-    padding: 10px 12px 10px 0;
-}
-
-.mr-20 {
-    margin-right: 20px;
-}
-
-.form-btn {
-    display: inline-block;
-    background: #6898f8;
-    color: #fff;
-    padding: 8px 20px;
-    border-radius: 35px;
-    cursor: pointer;
-    border: none;
-}
-
-.border-b {
-    border-bottom: 2px solid #6898f8;
 }
 
 tr {
@@ -583,5 +449,27 @@ tr:last-child {
 td,
 th {
     padding: 10px 0;
+}
+
+.title_sec {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.title_sec h2 {
+    display: inline-block;
+    background: #23232b;
+    padding: 5px 10px;
+    margin-top: -5px;
+    font-size: 18px;
+    font-weight: 400;
 }
 </style>

@@ -109,7 +109,7 @@ import comments from '@/assets/images/comments.svg'
                                 </router-link>
                             </li>
                             <li>
-                                <router-link class="active" :to='{ name: "" }'>
+                                <router-link class="active" :to='{ name: "PaymentsPageRoute" }'>
                                     <div class="d-flex justify-content-between">
                                         <div>
                                             <span class="right_icon">
@@ -243,7 +243,7 @@ import comments from '@/assets/images/comments.svg'
                                         <td class="text-14 text-14--300">{{ tableItem.title }}</td>
                                         <td class="text-14 text-14--300">{{ tableItem.type }}</td>
                                         <td class="text-14 text-14--300">{{ tableItem.numberOfItems }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.time }}</td>
+                                        <td class="text-14 text-14--300">{{ tableItem.data }}</td>
                                         <td class="text-14 text-14--300">
                                             <router-link class="edit_link" :to='{ name: "editListPageRoute" }'> ویرایش آیتم‌ها
                                             </router-link>
@@ -281,13 +281,13 @@ export default {
                     title: 'لیست دلخواه',
                     type: 'سریال',
                     numberOfItems: 1,
-                    time: '25خرداد 1403',
+                    data: '25خرداد 1403',
                 },
                 {
                     title: 'لیست درام',
                     type: 'فیلم',
                     numberOfItems: 2,
-                    time: '20خرداد 1403',
+                    data: '20خرداد 1403',
                 },
             ]
         }

@@ -109,7 +109,7 @@ import comments from '@/assets/images/comments.svg'
                                 </router-link>
                             </li>
                             <li>
-                                <router-link class="active" :to='{ name: "" }'>
+                                <router-link class="active" :to='{ name: "PaymentsPageRoute" }'>
                                     <div class="d-flex justify-content-between">
                                         <div>
                                             <span class="right_icon">

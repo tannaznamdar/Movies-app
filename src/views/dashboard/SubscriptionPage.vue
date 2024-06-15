@@ -110,7 +110,7 @@ import comments from '@/assets/images/comments.svg'
                                 </router-link>
                             </li>
                             <li>
-                                <router-link class="active" :to='{ name: "" }'>
+                                <router-link class="active" :to='{ name: "PaymentsPageRoute" }'>
                                     <div class="d-flex justify-content-between">
                                         <div>
                                             <span class="right_icon">
@@ -281,7 +281,7 @@ import comments from '@/assets/images/comments.svg'
                                         <td class="text-14 text-14--300">{{ tableItem.level }}</td>
                                         <td class="text-14 text-14--300">{{ tableItem.price }} تومان</td>
                                         <td class="text-14 text-14--300">{{ tableItem.condition }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.time }}</td>
+                                        <td class="text-14 text-14--300">{{ tableItem.data }}</td>
                                     </tr>
                                 </table>
                             </div>
@@ -339,14 +339,14 @@ export default {
                     level: 'نقره ای',
                     price: '39,000',
                     condition: ' در انتظار پرداخت ',
-                    time: '25خرداد 1403',
+                    data: '25خرداد 1403',
                 },
                 {
                     subscribe: 'اشتراک دو ماهه',
                     level: 'طلایی',
                     price: '50,000',
                     condition: ' در انتظار پرداخت ',
-                    time: '29خرداد 1403',
+                    data: '29خرداد 1403',
                 },
             ],
         }
