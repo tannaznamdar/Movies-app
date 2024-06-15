@@ -158,6 +158,14 @@ import comments from '@/assets/images/comments.svg'
                         </div>
                     </div>
 
+                    <div class="before_msg mb-3">
+                        <div class="item_dashboard danger" v-if="hasConfirmationAlert">
+                            <span class="alert"> لینک تائیدیه به آدرس ایمیل شما ارسال
+                                شده است. در صورت عدم دریافت لینک تائیدیه می‌توانید هر 5 دقیقه یکبار برای دریافت لینک
+                                اقدام کنید. </span>
+                        </div>
+                    </div>
+
                     <div class="item_dashboard mb-4">
                         <div class="d-flex justify-content-between">
                             <span class="text-14"> موجودی کیف پول شما: </span>
@@ -202,7 +210,7 @@ import comments from '@/assets/images/comments.svg'
                         </form>
                     </div>
 
-                    <div class="recent_payments">
+                    <div>
                         <div class="title title--border-none">
                             <h4 class="text-14 border-b"> سوابق شارژ</h4>
                         </div>
@@ -241,6 +249,7 @@ export default {
             userName: 'tannaz71',
             avatar: 'T',
             hasBeforeMsgAlert: true,
+            hasConfirmationAlert: true,
             walletBalance: '10.000',
 
             tableItems: [
@@ -518,10 +527,6 @@ export default {
     padding: 20px;
     border-radius: 5px;
     width: 100%;
-}
-
-.gap {
-    gap: 180px;
 }
 
 .form_item {

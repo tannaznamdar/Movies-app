@@ -245,8 +245,7 @@ import comments from '@/assets/images/comments.svg'
                                         <td class="text-14 text-14--300">{{ tableItem.numberOfItems }}</td>
                                         <td class="text-14 text-14--300">{{ tableItem.time }}</td>
                                         <td class="text-14 text-14--300">
-                                            <router-link class="edit_link" :to='{ name: "editListPageRoute" }'> ویرایش
-                                                آیتم‌ها
+                                            <router-link class="edit_link" :to='{ name: "editListPageRoute" }'> ویرایش آیتم‌ها
                                             </router-link>
                                             |
                                             <router-link class="remove_link" :to='{ name: "" }'>حذف </router-link>
@@ -529,8 +528,7 @@ export default {
     margin-bottom: 20px;
 }
 
-.form_item textarea,
-input {
+.form_item input, textarea  {
     width: 100%;
     background: #050505;
     padding: 15px 10px;
