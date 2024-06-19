@@ -147,7 +147,7 @@ import comments from '@/assets/images/comments.svg'
 
             <div class="col-lg-9">
                 <div class="main_dashboard">
-                    <div class="before_msg mb-5" v-if="hasBeforeMsgAlert">
+                    <div class="before_msg mb-4" v-if="hasBeforeMsgAlert">
                         <div class="item_dashboard danger d-flex justify-content-between">
                             <span class="alert"> کاربر گرامی برای بهره‌مندی از همه
                                 امکانات سایت لطفاً آدرس ایمیل خود را تایید کنید.
@@ -158,65 +158,60 @@ import comments from '@/assets/images/comments.svg'
                         </div>
                     </div>
 
-                    <div class="title_sec">
-                        <h2>ارسال تیکت</h2>
+                    <div class="before_msg mb-4">
+                        <div class="item_dashboard danger" v-if="hasConfirmationAlert">
+                            <span class="alert"> لینک تائیدیه به آدرس ایمیل شما ارسال
+                                شده است. در صورت عدم دریافت لینک تائیدیه می‌توانید هر 5 دقیقه یکبار برای دریافت لینک
+                                اقدام کنید. </span>
+                        </div>
                     </div>
 
-                    <ul class="list_dis">
-                        <li> کاربر گرامی به منظور تسریع در پاسخگویی به درخواست پشتیبانی شما عزیزان ، لطفاً ابتدا
-                            <router-link class="active" :to='{ name: "faqPageRoute" }'> سوالات متداول
-                            </router-link>
-                            را مطالعه نموده ، در صورتی که پاسخی برای مشکل خود یافت
-                            نکردید اقدام به ارسال تیکت نمایید.
-                        </li>
-                        <li> همچنین در تیکت مشکل خود را بصورت دقیق شرح داده و در صورت وجود خطا ، از خطای موجود اسکرین
-                            شات ارسال نمایید.
-                        </li>
-                    </ul>
-
-                    <div class="form_item">
-                        <label for="title_ticket">عنوان تیکت</label>
-                        <input type="text" name="title_ticket" id="title_ticket"
-                            placeholder="عنوان تیکت را اینجا بنویسید">
+                    <div class="title_sec mb-5 mt-3">
+                        <h2> لیست دیدگاه ها </h2>
                     </div>
 
-                    <div class="form_item">
-                        <label for="message_ticket">پیام شما</label>
-                        <textarea name="message_ticket" id="message_ticket" placeholder="پیام شما" rows="7"></textarea>
-                    </div>
+                    <div>
+                        <div class="status_message mb-3" v-if="hasNoCommentAlert">تاکنون دیدگاهی ثبت نکرده اید</div>
 
-                    <div class="form_item">
-                        <label for="attachment">پیوست فایل</label>
-                        <input type="file" name="attachment" id="attachment" accept="image/jpeg, image/png">
-                    </div>
+                        <div class="inner_comment_item" v-for=" yourComment in yourComments">
+                            <div class="row align-items-center">
+                                <div class="col-lg-2">
+                                    <div class="d-flex align-items-center  justify-content-between">
+                                        <div class="like_holder d-flex">
+                                            <a href="#" class=" like_dislike-wrapper d-flex flex-column text-center"
+                                                title="لایک">
+                                                <font-awesome-icon class="internal-distance-l like" icon="thumbs-up" />
+                                                <span class="like">{{ yourComment.numberOfLikes }}</span>
+                                            </a>
+                                            <a href="#" class=" like_dislike-wrapper d-flex flex-column text-center"
+                                                title="دیسلایک">
+                                                <font-awesome-icon class="internal-distance-l dislike"
+                                                    icon="thumbs-down" />
+                                                <span class="dislike">{{ yourComment.numberOfDislike }}</span>
+                                            </a>
+                                        </div>
+                                        <div class="avatar">
+                                            <font-awesome-icon class="user-icon ernalint-distance avatar_comments"
+                                                icon="user" />
+                                        </div>
+                                    </div>
+                                </div>
 
-                    <div class="form_item">
-                        <button class="btn-send-ticket" name="create_tickets" type="submit">ارسال تیکت</button>
-                    </div>
-
-                    <div class="title_sec">
-                        <h2>لیست تیکت ها</h2>
-                    </div>
-
-                    <div class="pt-3">
-                        <div class="item_box">
-
-                            <div class="status_message mb-3" v-if="hasNoTicketAlert">تاکنون تیکتی ثبت نکرده اید</div>
-
-                            <div class="text-center d-flex flex-row justify-content-around">
-                                <table class="text-center" style="width:100%">
-                                    <tr>
-                                        <th class="text-14 text-14--blue">شناسه </th>
-                                        <th class="text-14 text-14--blue">تاریخ </th>
-                                        <th class="text-14 text-14--blue" style="width:70%"> عنوان </th>
-                                    </tr>
-                                    <tr v-for="tableItem in tableItems">
-                                        <td class="text-14 text-14--300">{{ tableItem.id }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.data }}</td>
-                                        <td class="text-14 text-14--300" style="width:70%"> <router-link class="active"
-                                                :to='{ name: "" }'> {{ tableItem.title }} </router-link></td>
-                                    </tr>
-                                </table>
+                                <div class="col-lg-10">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <a href="" class="cm_author"> {{ yourComment.moviesName }} </a>
+                                        <div class="date_comment"> {{ yourComment.messageTime }} - {{
+                                            yourComment.messageCondition }} </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="comment_text_cm">
+                                            <p> {{ yourComment.message }} </p>
+                                        </div>
+                                        <div>
+                                            <button class="delet-btn">حذف دیدگاه</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -229,27 +224,35 @@ import comments from '@/assets/images/comments.svg'
 
 <script>
 export default {
-    name: 'Tickets',
+    name: 'Comments',
 
     data() {
         return {
             userName: 'tannaz71',
             avatar: 'T',
             hasBeforeMsgAlert: true,
-            hasNoTicketAlert: true,
+            hasConfirmationAlert: true,
+            hasNoCommentAlert: true,
 
-            tableItems: [
+            yourComments: [
                 {
-                    id: '1',
-                    data: '25خرداد 1403',
-                    title: 'مشکل دانلود فیلم'
+                    numberOfLikes: 2,
+                    numberOfDislike: 1,
+                    message: 'جالب نبود',
+                    moviesName: 'دانلود فیلم Late Bloomers 2023',
+                    messageCondition: '(تایید شده)',
+                    messageTime: '(50 دقیقه قبل) ',
                 },
                 {
-                    id: '2',
-                    data: '28خرداد 1403',
-                    title: 'مشکل دانلود فیلم'
+                    numberOfLikes: 10,
+                    numberOfDislike: 3,
+                    message: 'عالی بود',
+                    moviesName: 'دانلود فیلم Late of us ',
+                    messageCondition: '(در انتظار)',
+                    messageTime: '(35 ثانیه قبل) ',
                 },
-            ]
+
+            ],
         }
     }
 }
@@ -438,6 +441,7 @@ export default {
 .text-14 {
     font-size: 14px;
     font-weight: 500;
+    margin: 0;
 
     a {
         text-decoration: none;
@@ -445,11 +449,6 @@ export default {
 
     &--300 {
         font-weight: 300;
-
-        a {
-            font-size: 14px;
-            color: #fff;
-        }
     }
 
     &--blue {
@@ -479,71 +478,6 @@ export default {
     font-weight: 400;
 }
 
-.list_dis {
-    width: 100%;
-    margin-bottom: 20px;
-    text-align: right;
-    padding: 25px 25px 25px 0;
-    list-style: circle;
-
-    li {
-        width: 100%;
-        line-height: 2.5;
-        font-size: 14px;
-        font-weight: 200;
-    }
-
-    a {
-        text-decoration: none;
-        color: #6898f8;
-        font-weight: 500;
-    }
-}
-
-.form_item {
-    display: inline-block;
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-.form_item input {
-    width: 100%;
-    background: #050505;
-    padding: 15px 10px;
-    border-radius: 35px;
-    color: #fff;
-    outline: none;
-    border: none;
-}
-
-.form_item label {
-    display: inline-block;
-    width: 100%;
-    font-size: 16px;
-    font-weight: 300;
-    text-align: right;
-    padding: 10px 12px 10px 0;
-}
-
-.form_item textarea {
-    width: 100%;
-    background: #050505;
-    padding: 15px 10px;
-    border-radius: 35px;
-    color: #fff;
-    outline: none;
-    border: none;
-}
-
-.btn-send-ticket {
-    float: left;
-    padding: 10px 20px;
-    border-radius: 35px;
-    background: #6898f8;
-    color: #fff;
-    border: none;
-}
-
 .status_message {
     width: 100%;
     padding: 7px 10px;
@@ -558,25 +492,78 @@ export default {
     font-weight: 400;
 }
 
-.item_box {
-    display: inline-block;
+.inner_comment_item {
+    border-radius: 10px;
     width: 100%;
     background: #1c1c22;
-    color: #fff;
-    padding: 15px;
+    padding: 15px 20px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.like_holder {
+    a {
+        text-decoration: none;
+        color: #FFF;
+    }
+}
+
+.like_dislike-wrapper {
     border-radius: 10px;
+    width: 43px;
+    height: 59px;
+    background: #23232b;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
 }
 
-tr {
-    border-bottom: 1px solid rgb(48, 47, 47);
+.like {
+    color: #e91e63;
+    width: 19px;
+    height: 19px;
 }
 
-tr:last-child {
+.dislike {
+    color: #8bc34a;
+    width: 19px;
+    height: 19px;
+}
+
+.avatar_comments {
+    color: #6e7072;
+    width: 20px;
+    height: 20px;
+}
+
+.cm_author {
+    text-decoration: none;
+    color: #6898f8;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.comment_text_cm {
+    line-height: 23px;
+    margin: 5px 0;
+
+    p {
+        font-weight: 200;
+        font-size: 14px;
+    }
+}
+
+.delet-btn {
+    text-decoration: none;
+    border-radius: 10px;
+    background: #6898f8;
+    color: #fff;
+    font-size: 14px;
+    padding: 7px 20px;
+    font-size: 13px;
+    font-weight: 300;
     border: none;
-}
-
-td,
-th {
-    padding: 10px 0;
 }
 </style>
