@@ -121,8 +121,8 @@ export default {
 
     img {
         display: block;
-        width: auto;
-        height: 100%;
+        width: 100%;
+        height: auto;
         position: absolute;
         top: 50%;
         left: 50%;
