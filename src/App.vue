@@ -552,6 +552,20 @@ body {
   font-weight: 300;
 }
 
+.status_message {
+    width: 100%;
+    padding: 7px 10px;
+    margin: 10px 0 0;
+    background: #fffbe7;
+    color: #8c6d39;
+    border: 1px solid #ffebce;
+    line-height: 23px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+}
+
 /* For  desktop: */
 @media (min-width: 1200px) {
 

@@ -383,7 +383,7 @@ export default {
 
 .form_item input {
     width: 100%;
-    background: #050505;
+    background: #23232b;
     padding: 15px 10px;
     border-radius: 35px;
     color: #fff;

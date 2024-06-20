@@ -123,10 +123,16 @@ export default {
 
 
 <style scoped lang="scss">
+.container {
+    @media (max-width:820px) {
+        max-width: 99%;
+    }
+}
+
 .pt-150 {
     padding-top: 150px;
 
-    @media (max-width:449px) {
+    @media (max-width:820px) {
         padding-top: 120px;
     }
 }
@@ -167,5 +173,10 @@ export default {
     color: #fff;
     border-right: 4px solid #6898f8;
     border-left: 4px solid #6898f8;
+
+    @media (max-width:820px) {
+        border-right: 2px solid #6898f8;
+        border-left: 2px solid #6898f8;
+    }
 }
 </style>
