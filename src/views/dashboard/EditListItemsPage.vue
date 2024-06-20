@@ -7,6 +7,7 @@ import list from '@/assets/images/list.svg'
 import shopping from '@/assets/images/shopping.svg'
 import arrowLeft from '@/assets/images/arrow-left.svg'
 import comments from '@/assets/images/comments.svg'
+import MovieCards from "@/components/MovieCards.vue"
 </script>
 
 <template>
@@ -166,100 +167,35 @@ import comments from '@/assets/images/comments.svg'
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <div class="message_top_info text-14">
-                            <p class="text-14"> شما در این بخش، می‌توانید لیست‌های شخصی خود را بسازید؛ لیست‌هایی که در
-                                آن می‌توان، مجموعه‌ای از فیلم‌ها، سریال‌ها و یا هنرمندان را بر اساس شاخص‌های شخصی اضافه
-                                نمود.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="title_sec">
-                        <h2> ساخت لیست جدید </h2>
-                    </div>
-
-                    <div class="status_message mb-3 mt-5" v-if="hasTitleNameAlert"> لطفا عنوانی برای لیست خود انتخاب
-                        کنید
-                    </div>
-
-                    <div class="form_item">
-                        <label for="title_list">عنوان لیست</label>
-                        <input type="text" name="title_list" id="title_list" placeholder="عنوان لیست را اینجا بنویسید">
-                    </div>
-
-                    <div class="form_item">
-                        <label for="title_list">نوع لیست</label>
-                        <div class="radio_holder">
-                            <div class="item_radio">
-                                <input type="radio" name="type" id="movie" value="movie" checked="checked">
-                                <label for="movie">فیلم</label>
+                    <div class="item_box mb-3">
+                        <div class="form_item">
+                            <div class="row align-items-center justify-content-around mb-4">
+                                <div class="col-lg-10 d-flex gx-0">
+                                    <label for="str_search">نام سریال : </label>
+                                    <input type="text" name="str_search" id="search_ajax" data-typesearch="series">
+                                </div>
+                                <div class="col-lg-2 text-center">
+                                    <button class="btnSearch">جستجو</button>
+                                </div>
                             </div>
-                            <div class="item_radio">
-                                <input type="radio" name="type" id="series" value="series">
-                                <label for="series">سریال</label>
-                            </div>
-                            <div class="item_radio">
-                                <input type="radio" name="type" id="people" value="people">
-                                <label for="people">افراد</label>
+                            <div v-if="hasSearching">
+                                <span class="text-14 text-14--blue">در حال جستجو ...</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form_item">
-                        <label for="title_list"> توضیحات شما </label>
-                        <textarea name="message_ticket" id="message_ticket" placeholder="توضیحات" rows="4"></textarea>
+                    <div class="text-end mb-5">
+                        <button class="btnSaveList">ذخیره تغییرات</button>
                     </div>
 
-                    <div class="checkbox_holder mb-3">
-                        <label class="text-14 text-14--300" for="private_list">
-                            <input type="checkbox" name="private" id="private_list" value="on">لیست را بطور خصوصی فقط
-                            برای خودم ایجاد میکنم
-                        </label>
-                    </div>
-
-                    <div class="form_item">
-                        <button class="btnCreateList" name="create_lists" type="submit">ساخت لیست</button>
-                    </div>
-
-                    <div>
-                        <div class="title_sec mb-5" data-v-3df379c4="">
-                            <h2 data-v-inspector="src/views/dashboard/ListsPage.vue:171:25" data-v-3df379c4=""> لیست های
-                                شما
-                            </h2>
-                        </div>
-
-                        <div class="item_box ">
-                            <div class="text-center d-flex flex-row justify-content-around">
-                                <table class="text-center" style="width:100%">
-                                    <tr>
-                                        <th class="text-14 text-14--blue">عنوان </th>
-                                        <th class="text-14 text-14--blue">نوع </th>
-                                        <th class="text-14 text-14--blue">تعداد آیتم </th>
-                                        <th class="text-14 text-14--blue">تاریخ ایجاد </th>
-                                        <th class="text-14 text-14--blue">عملیات </th>
-                                    </tr>
-                                    <tr v-for="tableItem in tableItems">
-                                        <td class="text-14 text-14--300">{{ tableItem.title }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.type }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.numberOfItems }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.data }}</td>
-                                        <td class="text-14 text-14--300">
-                                            <router-link class="edit_link" :to='{ name: "editListItemsPageRoute" }'> ویرایش آیتم‌ها
-                                            </router-link>
-                                            |
-                                            <router-link class="edit_link" :to='{ name: "editListPageRoute" }'> ویرایش اطلاعات
-                                            </router-link>
-                                            |
-                                            <router-link class="remove_link" :to='{ name: "" }'>حذف </router-link>
-                                            |
-                                            <router-link class="show_link" :to='{ name: "" }'>مشاهده</router-link>
-                                        </td>
-                                    </tr>
-                                </table>
+                    <div class="list-items">
+                        <div class="row">
+                            <div class="col-lg-3 mb-3" v-for="searchMovie in searchMovies">
+                                <MovieCards v-bind="searchMovie"></MovieCards>
                             </div>
                         </div>
                     </div>
+
 
                 </div>
             </div>
@@ -269,7 +205,7 @@ import comments from '@/assets/images/comments.svg'
 
 <script>
 export default {
-    name: 'Lists',
+    name: 'EditListItems',
 
     data() {
         return {
@@ -277,27 +213,104 @@ export default {
             avatar: 'T',
             hasBeforeMsgAlert: true,
             hasConfirmationAlert: true,
-            hasTitleNameAlert: true,
+            hasSearching: true,
 
-            tableItems: [
+            searchMovies: [
                 {
-                    title: 'لیست دلخواه',
-                    type: 'سریال',
-                    numberOfItems: 1,
-                    data: '25خرداد 1403',
+                    slug: 'شهرزاد',
+                    thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+                    link: 'thumbnail',
+                    genre: ' درام,تاریخی,رمانتیک',
+                    imdb: '6.3',
+                    title: 'شهرزاد',
+                    subtitle: '',
+                    hasSubtitle: false,
+                    hasTag: true,
+                    tag: {
+                        title: ' رایگان ',
+                        small: true,
+                    }
                 },
                 {
-                    title: 'لیست درام',
-                    type: 'فیلم',
-                    numberOfItems: 2,
-                    data: '20خرداد 1403',
+                    slug: 'دل',
+                    thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2020/09/del-40-207x290.jpg',
+                    link: 'thumbnail',
+                    genre: ' درام,رمانتیک',
+                    imdb: '7.2',
+                    title: 'سریال دل ',
+                    subtitle: '',
+                    hasSubtitle: false,
+                    hasTag: true,
+                    tag: {
+                        title: ' رایگان ',
+                        small: true,
+                    }
                 },
-            ]
+                {
+                    slug: 'متری-شیش-و-نیم',
+                    thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2019/03/Metri6.5-207x290.jpg',
+                    link: 'thumbnail',
+                    genre: 'اکشن,جنایی,درام',
+                    imdb: '8.1',
+                    title: 'متری شیش و نیم',
+                    subtitle: '',
+                    hasSubtitle: false,
+                    hasTag: true,
+                    tag: {
+                        title: ' رایگان ',
+                        small: true,
+                    }
+                },
+                {
+                    slug: 'گناه-فرشته',
+                    thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/GonahFereshteh-18-207x290.jpg',
+                    link: 'thumbnail',
+                    genre: ' درام, خانوادگی',
+                    imdb: '7.3',
+                    title: 'گناه فرشته  ',
+                    subtitle: '',
+                    hasSubtitle: false,
+                    hasTag: true,
+                    tag: {
+                        title: ' رایگان ',
+                        small: true,
+                    }
+                },
+                {
+                    slug: 'افعی-تهران',
+                    thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Viper-of-Tehran-8-207x290.jpg',
+                    link: 'thumbnail',
+                    genre: ' درام,رمانتیک',
+                    imdb: '8.3',
+                    title: 'افعی تهران',
+                    subtitle: '',
+                    hasSubtitle: false,
+                    hasTag: true,
+                    tag: {
+                        title: ' رایگان ',
+                        small: true,
+                    }
+                },
+                {
+                    slug: 'جنگل-آسفالت',
+                    thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2024/04/Jangal-Asphalt-5-207x290.jpg',
+                    link: 'thumbnail',
+                    genre: ' درام,تاریخی,رمانتیک',
+                    imdb: '6.3',
+                    title: 'جنگل آسفالت  ',
+                    subtitle: '',
+                    hasSubtitle: false,
+                    hasTag: true,
+                    tag: {
+                        title: ' رایگان ',
+                        small: true,
+                    }
+                },
+            ],
         }
     }
 }
 </script>
-
 
 
 <style scoped lang="scss">
@@ -487,55 +500,22 @@ export default {
         text-decoration: none;
     }
 
-    &--300 {
-        font-weight: 300;
-    }
-
     &--blue {
         color: #6898f8;
     }
 }
 
-.message_top_info {
-    display: inline-block;
-    width: 100%;
-    background: #d1ecf1;
-    color: #0c5460;
-    border: 1px solid #bee5eb;
-    padding: 10px;
-    margin-bottom: 30px;
-    border-radius: 15px;
-
-    a {
-        text-decoration: none;
-        color: #331c2d;
-
-        &:is(:hover, :focus) {
-            color: #6898f8;
-        }
-    }
-}
-
-.item_box {
-    display: inline-block;
-    width: 100%;
-    background: #1c1c22;
-    color: #fff;
-    padding: 15px;
-    border-radius: 10px;
-}
-
 .form_item {
     display: inline-block;
     width: 100%;
-    margin-bottom: 20px;
 }
 
-.form_item input, textarea  {
+.form_item input,
+textarea {
     width: 100%;
-    background: #050505;
+    background: #23232b;
     padding: 15px 10px;
-    border-radius: 35px;
+    border-radius: 8px;
     color: #fff;
     outline: none;
     border: none;
@@ -543,106 +523,40 @@ export default {
 
 .form_item label {
     display: inline-block;
-    width: 100%;
+    width: 15%;
     font-size: 16px;
     font-weight: 200;
     text-align: right;
     padding: 10px 12px 10px 0;
 }
 
-.mr-20 {
-    margin-right: 20px;
-}
-
-tr {
-    border-bottom: 1px solid rgb(48, 47, 47);
-}
-
-tr:last-child {
-    border: none;
-}
-
-td,
-th {
-    padding: 10px 0;
-}
-
-.title_sec {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 10px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, .1);
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.title_sec h2 {
+.item_box {
     display: inline-block;
-    background: #23232b;
-    padding: 5px 10px;
-    margin-top: -5px;
-    font-size: 18px;
-    font-weight: 400;
-}
-
-.status_message {
     width: 100%;
-    padding: 7px 10px;
-    margin: 10px 0 0;
-    background: #fffbe7;
-    color: #4179e9;
-    border: 1px solid #ffebce;
-    line-height: 23px;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.item_radio {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    width: fit-content;
-    line-height: 1;
-}
-
-.radio_holder {
-    margin-right: 10px;
-}
-
-.btnCreateList {
-    float: left;
-    padding: 10px 20px;
-    border-radius: 35px;
-    background: #6898f8;
+    background: #1c1c22;
     color: #fff;
+    padding: 20px 15px;
+    border-radius: 10px;
+}
+
+.btnSearch {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background: #0a0a0a;
+    color: #fff;
+    cursor: pointer;
     border: none;
 }
 
-.edit_link {
-    color: #2b9fdc;
-    margin: 0 5px;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-.remove_link {
-    color: #e00000;
-    margin: 0 5px;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-.show_link {
-    color: #1cc09f;
-    margin: 0 5px;
-    font-size: 14px;
-    font-weight: 400;
+.btnSaveList {
+    display: inline-block;
+    background: #6898f8;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
 }
 </style>
