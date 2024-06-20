@@ -566,7 +566,7 @@ body {
   font-weight: 700;
 
   @media (max-width:820px) {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
