@@ -179,6 +179,9 @@ import comments from '@/assets/images/comments.svg'
                         <h2> ویرایش لیست </h2>
                     </div>
 
+                    <div class="status_message mb-3 mt-5" v-if="hasSuccessfulAlert"> با موفقیت ویرایش شد
+                    </div>
+
                     <div class="form_item">
                         <label for="title_list">عنوان لیست</label>
                         <input type="text" name="title_list" id="title_list" placeholder="عنوان لیست را اینجا بنویسید">
@@ -234,6 +237,7 @@ export default {
             avatar: 'T',
             hasBeforeMsgAlert: true,
             hasConfirmationAlert: true,
+            hasSuccessfulAlert: true,
         }
     }
 }
@@ -545,5 +549,19 @@ textarea {
     margin: 0 5px;
     font-size: 14px;
     font-weight: 400;
+}
+
+.status_message {
+    width: 100%;
+    padding: 7px 10px;
+    margin: 10px 0 0;
+    background: #fffbe7;
+    color: #8c6d39;
+    border: 1px solid #ffebce;
+    line-height: 23px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
 }
 </style>

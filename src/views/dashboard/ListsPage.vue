@@ -245,7 +245,10 @@ import comments from '@/assets/images/comments.svg'
                                         <td class="text-14 text-14--300">{{ tableItem.numberOfItems }}</td>
                                         <td class="text-14 text-14--300">{{ tableItem.data }}</td>
                                         <td class="text-14 text-14--300">
-                                            <router-link class="edit_link" :to='{ name: "editListPageRoute" }'> ویرایش آیتم‌ها
+                                            <router-link class="edit_link" :to='{ name: "" }'> ویرایش آیتم‌ها
+                                            </router-link>
+                                            |
+                                            <router-link class="edit_link" :to='{ name: "editListPageRoute" }'> ویرایش اطلاعات
                                             </router-link>
                                             |
                                             <router-link class="remove_link" :to='{ name: "" }'>حذف </router-link>
