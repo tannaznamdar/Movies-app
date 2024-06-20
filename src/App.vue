@@ -420,6 +420,10 @@ body {
   margin-top: 55px;
   font-size: 16px;
   font-weight: 300;
+
+  @media (max-width:820px) {
+    font-size: 14px;
+  }
 }
 
 .user_name {
