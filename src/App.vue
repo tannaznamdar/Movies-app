@@ -537,8 +537,8 @@ body {
   padding: 0;
 
   @media (max-width:820px) {
-          font-size: 13px;
-        }
+    font-size: 13px;
+  }
 }
 
 .alert-btn a {
@@ -553,17 +553,21 @@ body {
 }
 
 .status_message {
-    width: 100%;
-    padding: 7px 10px;
-    margin: 10px 0 0;
-    background: #fffbe7;
-    color: #8c6d39;
-    border: 1px solid #ffebce;
-    line-height: 23px;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 700;
+  width: 100%;
+  padding: 7px 10px;
+  margin: 10px 0 0;
+  background: #fffbe7;
+  color: #8c6d39;
+  border: 1px solid #ffebce;
+  line-height: 23px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+
+  @media (max-width:820px) {
+    font-size: 12px;
+  }
 }
 
 /* For  desktop: */
