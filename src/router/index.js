@@ -22,6 +22,7 @@ import Dashboard from "@/views/dashboard/Dashboard.vue";
 import Lists from "@/views/dashboard/ListsPage.vue";
 import EditList from "@/views/dashboard/EditListPage.vue";
 import EditListItems from "@/views/dashboard/EditListItemsPage.vue";
+import ViewListItems from "@/views/dashboard/ViewListItemsPage.vue";
 import Subscription from "@/views/dashboard/SubscriptionPage.vue";
 import Tickets from "@/views/dashboard/TicketsPage.vue";
 import Comments from "@/views/dashboard/CommentsPage.vue";
@@ -67,7 +68,8 @@ const router = createRouter({
     { path: "/dashboard/faq", name: "faqPageRoute", component: Faq },
     { path: "/dashboard/lists", name: "listsPageRoute", component: Lists },
     { path: "/dashboard/lists/edit-list", name: "editListPageRoute", component: EditList },
-    { path: "/dashboard/lists/list", name: "editListItemsPageRoute", component: EditListItems },
+    { path: "/dashboard/lists/list-items", name: "editListItemsPageRoute", component: EditListItems },
+    { path: "/dashboard/lists/view-list", name: "viewListItemsPageRoute", component: ViewListItems },
     { path: "/forgot-password", name: "forgotPasswordPageRoute", component: ForgotPassword },
     { path: "/membership", name: "membershipPageRoute", component: Membership },
     { path: "/director/:director?", name: "directorPageRoute", component: Director },

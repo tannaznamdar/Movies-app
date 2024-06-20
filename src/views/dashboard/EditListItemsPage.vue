@@ -171,7 +171,7 @@ import MovieCards from "@/components/MovieCards.vue"
                         <div class="form_item">
                             <div class="row align-items-center justify-content-around mb-4">
                                 <div class="col-lg-10 d-flex gx-0">
-                                    <label for="str_search">نام سریال : </label>
+                                    <label for="str_search"> {{ title }} </label> 
                                     <input type="text" name="str_search" id="search_ajax" data-typesearch="series">
                                 </div>
                                 <div class="col-lg-2 text-center">
@@ -214,6 +214,7 @@ export default {
             hasBeforeMsgAlert: true,
             hasConfirmationAlert: true,
             hasSearching: true,
+            title:'نام سریال:',
 
             searchMovies: [
                 {

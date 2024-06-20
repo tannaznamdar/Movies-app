@@ -7,6 +7,7 @@ import list from '@/assets/images/list.svg'
 import shopping from '@/assets/images/shopping.svg'
 import arrowLeft from '@/assets/images/arrow-left.svg'
 import comments from '@/assets/images/comments.svg'
+import LargeMovieCards from "@/components/LargeMovieCards.vue";
 </script>
 
 <template>
@@ -146,7 +147,7 @@ import comments from '@/assets/images/comments.svg'
             </div>
 
             <div class="col-lg-9">
-                <div class="main_dashboard">
+                <div class="main_dashboard mb-4">
                     <div class="before_msg mb-3" v-if="hasBeforeMsgAlert">
                         <div class="item_dashboard danger d-flex justify-content-between">
                             <span class="alert"> کاربر گرامی برای بهره‌مندی از همه
@@ -166,101 +167,17 @@ import comments from '@/assets/images/comments.svg'
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <div class="message_top_info text-14">
-                            <p class="text-14"> شما در این بخش، می‌توانید لیست‌های شخصی خود را بسازید؛ لیست‌هایی که در
-                                آن می‌توان، مجموعه‌ای از فیلم‌ها، سریال‌ها و یا هنرمندان را بر اساس شاخص‌های شخصی اضافه
-                                نمود.
-                            </p>
+                    <div class="title_sec mt-4">
+                        <h2>{{ listTitle }}</h2>
+                    </div>
+                </div>
+
+                <div class="list-items">
+                    <div class="row">
+                        <div v-for="largeMovieCard in largeMovieCards">
+                            <LargeMovieCards v-bind="largeMovieCard"></LargeMovieCards>
                         </div>
                     </div>
-
-                    <div class="title_sec">
-                        <h2> ساخت لیست جدید </h2>
-                    </div>
-
-                    <div class="status_message mb-3 mt-5" v-if="hasTitleNameAlert"> لطفا عنوانی برای لیست خود انتخاب
-                        کنید
-                    </div>
-
-                    <div class="form_item">
-                        <label for="title_list">عنوان لیست</label>
-                        <input type="text" name="title_list" id="title_list" placeholder="عنوان لیست را اینجا بنویسید">
-                    </div>
-
-                    <div class="form_item">
-                        <label for="title_list">نوع لیست</label>
-                        <div class="radio_holder">
-                            <div class="item_radio">
-                                <input type="radio" name="type" id="movie" value="movie" checked="checked">
-                                <label for="movie">فیلم</label>
-                            </div>
-                            <div class="item_radio">
-                                <input type="radio" name="type" id="series" value="series">
-                                <label for="series">سریال</label>
-                            </div>
-                            <div class="item_radio">
-                                <input type="radio" name="type" id="people" value="people">
-                                <label for="people">افراد</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form_item">
-                        <label for="title_list"> توضیحات شما </label>
-                        <textarea name="message_ticket" id="message_ticket" placeholder="توضیحات" rows="4"></textarea>
-                    </div>
-
-                    <div class="checkbox_holder mb-3">
-                        <label class="text-14 text-14--300" for="private_list">
-                            <input type="checkbox" name="private" id="private_list" value="on">لیست را بطور خصوصی فقط
-                            برای خودم ایجاد میکنم
-                        </label>
-                    </div>
-
-                    <div class="form_item">
-                        <button class="btnCreateList" name="create_lists" type="submit">ساخت لیست</button>
-                    </div>
-
-                    <div>
-                        <div class="title_sec mb-5" data-v-3df379c4="">
-                            <h2 data-v-inspector="src/views/dashboard/ListsPage.vue:171:25" data-v-3df379c4=""> لیست های
-                                شما
-                            </h2>
-                        </div>
-
-                        <div class="item_box ">
-                            <div class="text-center d-flex flex-row justify-content-around">
-                                <table class="text-center" style="width:100%">
-                                    <tr>
-                                        <th class="text-14 text-14--blue">عنوان </th>
-                                        <th class="text-14 text-14--blue">نوع </th>
-                                        <th class="text-14 text-14--blue">تعداد آیتم </th>
-                                        <th class="text-14 text-14--blue">تاریخ ایجاد </th>
-                                        <th class="text-14 text-14--blue">عملیات </th>
-                                    </tr>
-                                    <tr v-for="tableItem in tableItems">
-                                        <td class="text-14 text-14--300">{{ tableItem.title }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.type }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.numberOfItems }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.data }}</td>
-                                        <td class="text-14 text-14--300">
-                                            <router-link class="edit_link" :to='{ name: "editListItemsPageRoute" }'> ویرایش آیتم‌ها
-                                            </router-link>
-                                            |
-                                            <router-link class="edit_link" :to='{ name: "editListPageRoute" }'> ویرایش اطلاعات
-                                            </router-link>
-                                            |
-                                            <router-link class="remove_link" :to='{ name: "" }'>حذف </router-link>
-                                            |
-                                            <router-link class="show_link" :to='{ name: "viewListItemsPageRoute" }'>مشاهده</router-link>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -269,35 +186,68 @@ import comments from '@/assets/images/comments.svg'
 
 <script>
 export default {
-    name: 'Lists',
+    name: 'ViewListItems',
 
     data() {
         return {
             userName: 'tannaz71',
             avatar: 'T',
-            hasBeforeMsgAlert: true,
-            hasConfirmationAlert: true,
-            hasTitleNameAlert: true,
+            hasBeforeMsgAlert: false,
+            hasConfirmationAlert: false,
+            listTitle: 'لیست دلخواه',
 
-            tableItems: [
+            largeMovieCards: [
                 {
-                    title: 'لیست دلخواه',
-                    type: 'سریال',
-                    numberOfItems: 1,
-                    data: '25خرداد 1403',
+                    slug: 'شهرزاد',
+                    thumbnail: 'https://www.uptvs.com/wp-contents/uploads/2018/06/shahrzad-s3-final-min-214x300.jpg',
+                    link: 'thumbnail',
+                    genres: [
+                        {
+                            title: 'درام',
+                            slug: 'drama'
+                        },
+                        {
+                            title: 'عاشقانه',
+                            slug: 'romance'
+                        }
+                    ],
+                    imdb: '6.3',
+                    title: 'شهرزاد',
+                    subtitle: 'فصل اول قسمت هفتم',
+                    hasSubtitle: 'true',
+                    actors: [
+                        {
+                            title: 'امیر جعفری',
+                            slug: 'امیر-جعفری'
+                        },
+                        {
+                            title: 'آزاده صمدی',
+                            slug: 'آزاده-صمدی'
+                        },
+                        {
+                            title: 'دیبا زاهد',
+                            slug: 'دیبا-زاهد'
+                        }
+                    ],
+                    like: 86,
+                    hasDirector: true,
+                    directors: [
+                        {
+                            title: 'پژمان تیمورتاش',
+                            slug: 'پژمان-تیمورتاش'
+                        }
+                    ],
+                    synopsis: 'هنگامه برای نجات جان برادرش نیاز به پول دارد. او برای آماده کردن این پول دست به...',
+                    year: 1403,
+                    Country: 'ایران',
+                    hasBadge: true,
+                    btnTitle: 'دانلود سریال'
                 },
-                {
-                    title: 'لیست درام',
-                    type: 'فیلم',
-                    numberOfItems: 2,
-                    data: '20خرداد 1403',
-                },
-            ]
+            ],
         }
     }
 }
 </script>
-
 
 
 <style scoped lang="scss">
@@ -439,7 +389,6 @@ export default {
     border-radius: 14px;
     background-color: #23232b;
     color: #fff;
-    min-height: 820px;
     padding: 20px;
 }
 
@@ -478,95 +427,6 @@ export default {
     font-weight: 300;
 }
 
-.text-14 {
-    font-size: 14px;
-    font-weight: 500;
-    margin: 0;
-
-    a {
-        text-decoration: none;
-    }
-
-    &--300 {
-        font-weight: 300;
-    }
-
-    &--blue {
-        color: #6898f8;
-    }
-}
-
-.message_top_info {
-    display: inline-block;
-    width: 100%;
-    background: #d1ecf1;
-    color: #0c5460;
-    border: 1px solid #bee5eb;
-    padding: 10px;
-    margin-bottom: 30px;
-    border-radius: 15px;
-
-    a {
-        text-decoration: none;
-        color: #331c2d;
-
-        &:is(:hover, :focus) {
-            color: #6898f8;
-        }
-    }
-}
-
-.item_box {
-    display: inline-block;
-    width: 100%;
-    background: #1c1c22;
-    color: #fff;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-.form_item {
-    display: inline-block;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.form_item input, textarea  {
-    width: 100%;
-    background: #050505;
-    padding: 15px 10px;
-    border-radius: 35px;
-    color: #fff;
-    outline: none;
-    border: none;
-}
-
-.form_item label {
-    display: inline-block;
-    width: 100%;
-    font-size: 16px;
-    font-weight: 200;
-    text-align: right;
-    padding: 10px 12px 10px 0;
-}
-
-.mr-20 {
-    margin-right: 20px;
-}
-
-tr {
-    border-bottom: 1px solid rgb(48, 47, 47);
-}
-
-tr:last-child {
-    border: none;
-}
-
-td,
-th {
-    padding: 10px 0;
-}
-
 .title_sec {
     display: flex;
     flex-wrap: wrap;
@@ -586,63 +446,6 @@ th {
     padding: 5px 10px;
     margin-top: -5px;
     font-size: 18px;
-    font-weight: 400;
-}
-
-.status_message {
-    width: 100%;
-    padding: 7px 10px;
-    margin: 10px 0 0;
-    background: #fffbe7;
-    color: #4179e9;
-    border: 1px solid #ffebce;
-    line-height: 23px;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.item_radio {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    width: fit-content;
-    line-height: 1;
-}
-
-.radio_holder {
-    margin-right: 10px;
-}
-
-.btnCreateList {
-    float: left;
-    padding: 10px 20px;
-    border-radius: 35px;
-    background: #6898f8;
-    color: #fff;
-    border: none;
-}
-
-.edit_link {
-    color: #2b9fdc;
-    margin: 0 5px;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-.remove_link {
-    color: #e00000;
-    margin: 0 5px;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-.show_link {
-    color: #1cc09f;
-    margin: 0 5px;
-    font-size: 14px;
     font-weight: 400;
 }
 </style>
