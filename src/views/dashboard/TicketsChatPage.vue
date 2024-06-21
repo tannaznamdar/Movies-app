@@ -22,7 +22,7 @@ import userImg from '@/assets/images/user-img.jpg'
                         <span class="wellcome_message">کاربر گرامی ، <strong>خوش آمدید</strong></span>
                         <span class="user_name"> {{ userName }} </span>
                         <div class="btn_show_profile">
-                            <router-link class="active" :to='{ name: "" }'> نمایش پروفایل
+                            <router-link class="active" :to='{ name: "editProfilePageRoute" }'> نمایش پروفایل
                             </router-link>
                         </div>
                     </div>

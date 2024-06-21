@@ -7,6 +7,7 @@ import list from '@/assets/images/list.svg'
 import shopping from '@/assets/images/shopping.svg'
 import arrowLeft from '@/assets/images/arrow-left.svg'
 import comments from '@/assets/images/comments.svg'
+
 </script>
 
 <template>
@@ -149,7 +150,7 @@ import comments from '@/assets/images/comments.svg'
                 <div class="main_dashboard">
                     <div class="before_msg mb-3" v-if="hasBeforeMsgAlert">
                         <div class="item_dashboard danger d-flex justify-content-between direction-column">
-                            <span class="alert mb-15"> کاربر گرامی برای بهره‌مندی از همه
+                            <span class="alert  mb-15"> کاربر گرامی برای بهره‌مندی از همه
                                 امکانات سایت لطفاً آدرس ایمیل خود را تایید کنید.
                             </span>
                             <span class="alert-btn">
@@ -166,104 +167,117 @@ import comments from '@/assets/images/comments.svg'
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <div class="message_top_info text-14">
-                            <p class="text-14"> شما در این بخش، می‌توانید لیست‌های شخصی خود را بسازید؛ لیست‌هایی که در
-                                آن می‌توان، مجموعه‌ای از فیلم‌ها، سریال‌ها و یا هنرمندان را بر اساس شاخص‌های شخصی اضافه
-                                نمود.
-                            </p>
+                    <div class="no_subscription mb-3" v-if="hasNoSubscriptionAlert">
+                        <div class="item_dashboard danger danger d-flex justify-content-between">
+                            <span class="alert">شما اشتراک فعال ندارید</span>
+                            <span class="alert-btn">
+                                <router-link class="active" :to='{ name: "subscriptionPageRoute" }'> خرید اشتراک
+                                </router-link>
+                            </span>
                         </div>
                     </div>
 
-                    <div class="title_sec">
-                        <h2> ساخت لیست جدید </h2>
-                    </div>
-
-                    <div class="status_message mb-3 mt-5" v-if="hasTitleNameAlert"> لطفا عنوانی برای لیست خود انتخاب
-                        کنید
-                    </div>
-
-                    <div class="form_item">
-                        <label for="title_list">عنوان لیست</label>
-                        <input type="text" name="title_list" id="title_list" placeholder="عنوان لیست را اینجا بنویسید">
-                    </div>
-
-                    <div class="form_item">
-                        <label for="title_list">نوع لیست</label>
-                        <div class="radio_holder">
-                            <div class="item_radio">
-                                <input type="radio" name="type" id="movie" value="movie" checked="checked">
-                                <label for="movie">فیلم</label>
+                    <div class="inner_main mb-4">
+                        <form class="item_box" method="post" action="">
+                            <div class="d-flex direction-column gap-3">
+                                <div class="form_item">
+                                    <label for="userlogin">نام کاربری</label>
+                                    <div class="put_item_from">
+                                        <div class="icon_holder">
+                                            <font-awesome-icon icon="user" />
+                                        </div>
+                                        <input type="text" name="userlogin" id="userlogin" value="">
+                                    </div>
+                                </div>
+                                <div class="form_item">
+                                    <label for="useremail">پست الکترونیک</label>
+                                    <div class="put_item_from">
+                                        <div class="icon_holder">
+                                            <font-awesome-icon icon="envelope" />
+                                        </div>
+                                        <input type="email" name="useremail" id="useremail" value="" readonly="">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="item_radio">
-                                <input type="radio" name="type" id="series" value="series">
-                                <label for="series">سریال</label>
+
+                            <div class="d-flex direction-column gap-3">
+                                <div class="form_item">
+                                    <label for="userchangepass">رمز عبور</label>
+                                    <div class="put_item_from">
+                                        <div class="icon_holder">
+                                            <font-awesome-icon icon="lock" />
+                                        </div>
+                                        <input type="password" name="userchangepass" id="userchangepass"
+                                            autocomplete="new-password">
+                                    </div>
+                                </div>
+
+                                <div class="form_item">
+                                    <label for="reuserchangepass">تکرار رمز عبور</label>
+                                    <div class="put_item_from">
+                                        <div class="icon_holder">
+                                            <font-awesome-icon icon="lock" />
+                                        </div>
+                                        <input type="password" name="reuserchangepass" id="reuserchangepass"
+                                            autocomplete="new-password">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="item_radio">
-                                <input type="radio" name="type" id="people" value="people">
-                                <label for="people">افراد</label>
+                            <div class="help_message">
+                                <span> اگه میخوای رمزتو عوض کنی رمز جدیدتو اینجا بنویس.در
+                                    غیر
+                                    اینصورت خالی رهاش کن.
+                                </span>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="form_item">
-                        <label for="title_list"> توضیحات شما </label>
-                        <textarea name="message_ticket" id="message_ticket" placeholder="توضیحات" rows="4"></textarea>
-                    </div>
-
-                    <div class="checkbox_holder mb-3">
-                        <label class="text-14 text-14--300" for="private_list">
-                            <input type="checkbox" name="private" id="private_list" value="on">لیست را بطور خصوصی فقط
-                            برای خودم ایجاد میکنم
-                        </label>
-                    </div>
-
-                    <div class="form_item">
-                        <button class="btnCreateList" name="create_lists" type="submit">ساخت لیست</button>
-                    </div>
-
-                    <div>
-                        <div class="title_sec mb-5" data-v-3df379c4="">
-                            <h2 data-v-inspector="src/views/dashboard/ListsPage.vue:171:25" data-v-3df379c4=""> لیست های
-                                شما
-                            </h2>
-                        </div>
-
-                        <div class="item_box ">
-                            <div class="text-center d-flex flex-row justify-content-around">
-                                <table class="text-center" style="width:100%">
-                                    <tr>
-                                        <th class="text-14 text-14--blue">عنوان </th>
-                                        <th class="text-14 text-14--blue">نوع </th>
-                                        <th class="text-14 text-14--blue">تعداد آیتم </th>
-                                        <th class="text-14 text-14--blue">تاریخ ایجاد </th>
-                                        <th class="text-14 text-14--blue">عملیات </th>
-                                    </tr>
-                                    <tr v-for="tableItem in tableItems">
-                                        <td class="text-14 text-14--300">{{ tableItem.title }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.type }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.numberOfItems }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.data }}</td>
-                                        <td class="text-14 text-14--300">
-                                            <router-link class="edit_link" :to='{ name: "editListPageRoute" }'> ویرایش
-                                                اطلاعات
-                                            </router-link>
-                                            |
-                                            <router-link class="edit_link" :to='{ name: "editListItemsPageRoute" }'>
-                                                ویرایش آیتم‌ها
-                                            </router-link>
-                                            |
-                                            <router-link class="remove_link" >حذف </router-link>
-                                            |
-                                            <router-link class="show_link"
-                                                :to='{ name: "viewListItemsPageRoute" }'>مشاهده</router-link>
-                                        </td>
-                                    </tr>
-                                </table>
+                            <div class="d-flex direction-column gap-3">
+                                <div class="form_item">
+                                    <label for="name">نام</label>
+                                    <div class="put_item_from">
+                                        <div class="icon_holder">
+                                            <font-awesome-icon icon="user" />
+                                        </div>
+                                        <input type="text" name="name" id="name" value="">
+                                    </div>
+                                </div>
+                                <div class="form_item">
+                                    <label for="lastname">نام خانوادگی</label>
+                                    <div class="put_item_from">
+                                        <div class="icon_holder">
+                                            <font-awesome-icon icon="user" />
+                                        </div>
+                                        <input type="text" name="lastname" id="lastname" value="">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
+                            <div class="d-flex direction-column gap-3">
+                                <div class="form_item">
+                                    <label for="display_name">نام نمایشی</label>
+                                    <div class="put_item_from">
+                                        <div class="icon_holder">
+                                            <font-awesome-icon icon="user" />
+                                        </div>
+                                        <input type="text" name="display_name" id="display_name" value="">
+                                    </div>
+                                </div>
+                                <div class="form_item">
+                                    <label for="mobile">شماره موبایل</label>
+                                    <div class="put_item_from">
+                                        <div class="icon_holder">
+                                            <font-awesome-icon icon="phone" />
+                                        </div>
+                                        <input type="number" name="mobile" id="mobile" value="" readonly="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn-edit-info" type="submit">ذخیره تنظیمات</button>
+                            </div>
+                        </form>
+
+                        <div class="status_message mt-4" v-if="hasSuccessAlert"> تغییرات شما با موفقیت ثبت گردید </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -271,31 +285,18 @@ import comments from '@/assets/images/comments.svg'
 </template>
 
 <script>
+
 export default {
-    name: 'Lists',
+    name: 'EditProfile',
 
     data() {
         return {
             userName: 'tannaz71',
             avatar: 'T',
+            hasNoSubscriptionAlert: true,
             hasBeforeMsgAlert: true,
             hasConfirmationAlert: true,
-            hasTitleNameAlert: true,
-
-            tableItems: [
-                {
-                    title: 'لیست دلخواه',
-                    type: 'سریال',
-                    numberOfItems: 1,
-                    data: '25خرداد 1403',
-                },
-                {
-                    title: 'لیست درام',
-                    type: 'فیلم',
-                    numberOfItems: 2,
-                    data: '20خرداد 1403',
-                },
-            ]
+            hasSuccessAlert: true,
         }
     }
 }
@@ -318,46 +319,16 @@ export default {
     }
 }
 
-.text-14 {
-    font-size: 14px;
-    font-weight: 500;
-    margin: 0;
-
+.direction-column {
     @media (max-width:820px) {
-        font-size: 12px;
-        line-height: 2;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    &--300 {
-        font-weight: 300;
-    }
-
-    &--blue {
-        color: #6898f8;
+        display: flex;
+        flex-direction: column;
     }
 }
 
-.message_top_info {
-    display: inline-block;
-    width: 100%;
-    background: #d1ecf1;
-    color: #0c5460;
-    border: 1px solid #bee5eb;
-    padding: 10px;
-    margin-bottom: 30px;
-    border-radius: 15px;
-
-    a {
-        text-decoration: none;
-        color: #331c2d;
-
-        &:is(:hover, :focus) {
-            color: #6898f8;
-        }
+.mb-15 {
+    @media (max-width:820px) {
+        margin-bottom: 15px;
     }
 }
 
@@ -372,88 +343,35 @@ export default {
 
 .form_item {
     display: inline-block;
-    width: 100%;
     margin-bottom: 20px;
+    width: 100%;
 }
 
-.form_item input,
-textarea {
+.form_item input {
     width: 100%;
-    background: #050505;
+    background: #23232b;
     padding: 15px 10px;
-    border-radius: 35px;
+    border-radius: 10px;
     color: #fff;
     outline: none;
     border: none;
+    margin-right: 70px;
 }
 
 .form_item label {
     display: inline-block;
     width: 100%;
     font-size: 16px;
-    font-weight: 200;
+    font-weight: 300;
     text-align: right;
     padding: 10px 12px 10px 0;
 
     @media (max-width:820px) {
-        font-size: 13px;
+        font-size: 14px;
     }
-
 }
 
-.mr-20 {
-    margin-right: 20px;
-}
-
-tr {
-    border-bottom: 1px solid rgb(48, 47, 47);
-}
-
-tr:last-child {
-    border: none;
-}
-
-td,
-th {
-    padding: 10px 0;
-}
-
-.title_sec {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 10px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, .1);
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.title_sec h2 {
-    display: inline-block;
-    background: #23232b;
-    padding: 5px 10px;
-    margin-top: -5px;
-    font-size: 18px;
-    font-weight: 400;
-}
-
-.item_radio {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    width: fit-content;
-    line-height: 1;
-}
-
-.radio_holder {
-    margin-right: 10px;
-}
-
-.btnCreateList {
+.btn-edit-info {
     float: left;
     padding: 10px 20px;
     border-radius: 35px;
@@ -462,49 +380,25 @@ th {
     border: none;
 }
 
-.edit_link {
-    color: #2b9fdc;
-    margin: 0 5px;
-    font-size: 14px;
-    font-weight: 400;
-
-    @media (max-width:820px) {
-        font-size: 12px;
-    }
+.put_item_from {
+    background: #23232b;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
 }
 
-.remove_link {
-    color: #e00000;
-    margin: 0 5px;
-    font-size: 14px;
-    font-weight: 400;
-
-    @media (max-width:820px) {
-        font-size: 12px;
-    }
-}
-
-.show_link {
-    color: #1cc09f;
-    margin: 0 5px;
-    font-size: 14px;
-    font-weight: 400;
-
-    @media (max-width:820px) {
-        font-size: 12px;
-    }
-}
-
-.direction-column {
-    @media (max-width:820px) {
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-.mb-15 {
-    @media (max-width:820px) {
-        margin-bottom: 15px;
-    }
+.icon_holder {
+    align-content: center;
+    align-items: center;
+    background: #23232b;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 62px;
 }
 </style>

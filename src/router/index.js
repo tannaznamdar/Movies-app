@@ -19,6 +19,7 @@ import Home from "@/views/HomePage.vue";
 import TitlePage from "@/views/TitlePage.vue";
 import Login from "@/views/LoginPage.vue";
 import Dashboard from "@/views/dashboard/Dashboard.vue";
+import EditProfile from "@/views/dashboard/EditProfilePage.vue";
 import Lists from "@/views/dashboard/ListsPage.vue";
 import EditList from "@/views/dashboard/EditListPage.vue";
 import EditListItems from "@/views/dashboard/EditListItemsPage.vue";
@@ -60,6 +61,7 @@ const router = createRouter({
     { path: "/contact-us", name: "contactUsPageRoute", component: ContactUs },
     { path: "/login", name: "loginPageRoute", component: Login },
     { path: "/dashboard", name: "dashboardPageRoute", component: Dashboard },
+    { path: "/dashboard/edit-profile", name: "editProfilePageRoute", component: EditProfile },
     { path: "/dashboard/subscription", name: "subscriptionPageRoute", component: Subscription },
     { path: "/tos", name: "tosPageRoute", component: Tos },
     { path: "/dashboard/my-wallet", name: "walletPageRoute", component: Wallet },

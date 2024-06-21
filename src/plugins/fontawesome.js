@@ -2,7 +2,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import {
     faMagnifyingGlass, faAngleDown, faAngleLeft, faGear, faVolumeHigh, faFilm, faArrowLeft,
     faHeart, faCircleCheck, faBars, faDownload, faPlus, faUser, faArrowDown, faEye, faEyeSlash, faMinus,
-    faThumbsUp, faThumbsDown, faTrash, faFile
+    faThumbsUp, faThumbsDown, faTrash, faFile, faEnvelope, faLock, faPhone
 } from '@fortawesome/free-solid-svg-icons'
 
 
@@ -27,5 +27,8 @@ library.add(faThumbsDown)
 library.add(faMinus)
 library.add(faTrash)
 library.add(faFile)
+library.add(faEnvelope)
+library.add(faLock)
+library.add(faPhone)
 
 export default library;
