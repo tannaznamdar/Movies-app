@@ -213,7 +213,7 @@ import userImg from '@/assets/images/user-img.jpg'
                     <hr>
                     <div class="form_item">
                         <label for="message_ticket">پیام شما</label>
-                        <textarea name="message_ticket" id="message_ticket" placeholder="پیام شما" rows="5"></textarea>
+                        <textarea name="message_ticket" id="message_ticket" placeholder="پیام شما" rows="4"></textarea>
                     </div>
 
                     <div class="d-flex justify-content-between flex-row-reverse align-items-center">
@@ -318,6 +318,10 @@ export default {
     position: relative;
     margin-bottom: 20px;
     max-width: 86%;
+
+    @media (max-width:820px) {
+        padding: 10px 15px
+    }
 }
 
 .left-float {
@@ -374,10 +378,14 @@ export default {
 .btn-send-ticket {
     float: left;
     padding: 10px 20px;
-    border-radius: 35px;
+    border-radius: 8px;
     background: #6898f8;
     color: #fff;
     border: none;
+
+    @media (max-width:449px) {
+        padding: 10px 7px
+    }
 }
 
 .direction-column {
