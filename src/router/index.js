@@ -25,6 +25,7 @@ import EditListItems from "@/views/dashboard/EditListItemsPage.vue";
 import ViewListItems from "@/views/dashboard/ViewListItemsPage.vue";
 import Subscription from "@/views/dashboard/SubscriptionPage.vue";
 import Tickets from "@/views/dashboard/TicketsPage.vue";
+import TicketsChat from "@/views/dashboard/TicketsChatPage.vue";
 import Comments from "@/views/dashboard/CommentsPage.vue";
 import Payments from "@/views/dashboard/PaymentsPage.vue";
 import Faq from "@/views/dashboard/FaqPage.vue";
@@ -63,6 +64,7 @@ const router = createRouter({
     { path: "/tos", name: "tosPageRoute", component: Tos },
     { path: "/dashboard/my-wallet", name: "walletPageRoute", component: Wallet },
     { path: "/dashboard/tickets", name: "ticketsPageRoute", component: Tickets },
+    { path: "/dashboard/tickets/chat", name: "ticketsChatPageRoute", component: TicketsChat },
     { path: "/dashboard/comments", name: "commentsPageRoute", component: Comments },
     { path: "/dashboard/payments", name: "PaymentsPageRoute", component: Payments },
     { path: "/dashboard/faq", name: "faqPageRoute", component: Faq },

@@ -7,6 +7,7 @@ import list from '@/assets/images/list.svg'
 import shopping from '@/assets/images/shopping.svg'
 import arrowLeft from '@/assets/images/arrow-left.svg'
 import comments from '@/assets/images/comments.svg'
+import userImg from '@/assets/images/user-img.jpg'
 </script>
 
 <template>
@@ -166,68 +167,61 @@ import comments from '@/assets/images/comments.svg'
                         </div>
                     </div>
 
-                    <div class="title_sec">
-                        <h2>ارسال تیکت</h2>
+                    <div class="chat d-flex flex-column" v-for="tichet in tichets">
+                        <div class="d-flex gap-3">
+                            <div class="author-info">
+                                <div class="author-img">
+                                    <img alt="user" :src="userImg">
+                                </div>
+                                <span class="text-14 text-14--300">{{ tichet.userName }} </span>
+                            </div>
+                            <div class="inner_ticket_item">
+                                <div class="author-text">
+                                    <p class="text-14 text-14--300"> {{ tichet.userMessage }} </p>
+                                    <span class="time-ago"> {{ tichet.userMessageTime }} </span>
+                                    <div>
+                                        <hr v-if="tichet.hasUserAttachments">
+                                        <div class="ticket-attachments" v-if="tichet.hasUserAttachments">
+                                            <font-awesome-icon icon="file" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row-reverse left-float gap-3" v-if="tichet.hasAnswer">
+                            <div class="author-info">
+                                <div class="author-img">
+                                    <img alt="user" :src="userImg">
+                                </div>
+                                <span class="text-14 text-14--300"> {{ tichet.managerName }} </span>
+                            </div>
+                            <div class="inner_ticket_item">
+                                <div class="author-text">
+                                    <p class="text-14 text-14--300"> {{ tichet.managerMessage }} </p>
+                                    <span class="time-ago"> {{ tichet.managerMessageTime }}</span>
+                                    <div>
+                                        <hr v-if="tichet.hasManagerAttachments">
+                                        <div class="ticket-attachments" v-if="tichet.hasManagerAttachments">
+                                            <font-awesome-icon icon="file" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <ul class="list_dis">
-                        <li> کاربر گرامی به منظور تسریع در پاسخگویی به درخواست پشتیبانی شما عزیزان ، لطفاً ابتدا
-                            <router-link class="active" :to='{ name: "faqPageRoute" }'> سوالات متداول
-                            </router-link>
-                            را مطالعه نموده ، در صورتی که پاسخی برای مشکل خود یافت
-                            نکردید اقدام به ارسال تیکت نمایید.
-                        </li>
-                        <li> همچنین در تیکت مشکل خود را بصورت دقیق شرح داده و در صورت وجود خطا ، از خطای موجود اسکرین
-                            شات ارسال نمایید.
-                        </li>
-                    </ul>
-
-                    <div class="form_item">
-                        <label for="title_ticket">عنوان تیکت</label>
-                        <input type="text" name="title_ticket" id="title_ticket"
-                            placeholder="عنوان تیکت را اینجا بنویسید">
-                    </div>
-
+                    <hr>
                     <div class="form_item">
                         <label for="message_ticket">پیام شما</label>
-                        <textarea name="message_ticket" id="message_ticket" placeholder="پیام شما" rows="7"></textarea>
+                        <textarea name="message_ticket" id="message_ticket" placeholder="پیام شما" rows="5"></textarea>
                     </div>
 
-                    <div class="form_item">
-                        <label for="attachment">پیوست فایل</label>
-                        <input type="file" name="attachment" id="attachment" accept="image/jpeg, image/png">
-                    </div>
-
-                    <div class="form_item">
-                        <button class="btn-send-ticket" name="create_tickets" type="submit">ارسال تیکت</button>
-                    </div>
-
-                    <div class="title_sec">
-                        <h2>لیست تیکت ها</h2>
-                    </div>
-
-                    <div class="pt-3">
-                        <div class="item_box">
-
-                            <div class="status_message mb-3" v-if="hasNoTicketAlert">تاکنون تیکتی ثبت نکرده اید</div>
-
-                            <div class="text-center d-flex flex-row justify-content-around">
-                                <table class="text-center" style="width:100%">
-                                    <tr>
-                                        <th class="text-14 text-14--blue">شناسه </th>
-                                        <th class="text-14 text-14--blue">تاریخ </th>
-                                        <th class="text-14 text-14--blue" style="width:70%"> عنوان </th>
-                                    </tr>
-                                    <tr v-for="tableItem in tableItems">
-                                        <td class="text-14 text-14--300">{{ tableItem.id }}</td>
-                                        <td class="text-14 text-14--300">{{ tableItem.data }}</td>
-                                        <td class="text-14 text-14--300" style="width:70%">
-                                            <router-link class="active" :to='{ name: "ticketsChatPageRoute" }'> {{ tableItem.title }}
-                                            </router-link>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
+                    <div class="d-flex justify-content-between flex-row-reverse align-items-center">
+                        <div class="form_item">
+                            <button class="btn-send-ticket" name="create_tickets" type="submit">ارسال تیکت</button>
+                        </div>
+                        <div>
+                            <input type="file" name="attachment" id="attachment" accept="image/jpeg, image/png">
                         </div>
                     </div>
 
@@ -239,27 +233,38 @@ import comments from '@/assets/images/comments.svg'
 
 <script>
 export default {
-    name: 'Tickets',
+    name: 'TicketsChat',
 
     data() {
         return {
             userName: 'tannaz71',
             avatar: 'T',
             hasBeforeMsgAlert: true,
-            hasNoTicketAlert: true,
             hasConfirmationAlert: true,
 
-            tableItems: [
+            tichets: [
                 {
-                    id: '1',
-                    data: '25خرداد 1403',
-                    title: 'مشکل دانلود فیلم'
+                    userName: 'tannaz',
+                    userMessage: ' با سلام در دانلود فیلم به مشکل خوردم لطفا راهنمایی کنید',
+                    userMessageTime: '14 ساعت قبل',
+                    hasUserAttachments: true,
+                    hasAnswer: true,
+                    managerName: 'مدیریت',
+                    managerMessage: 'برای دانلود از سایت میبایست از اپلیکیشن های مدیریت دانلود استفاده کنید و بدون فیلترشکن وارد سایت شوید ، به همین منظور کافیست بدون فیلترشکن وارد سایت شوید لینک دانلود فیلم مورد نظر خود را از سایت کپی نمایید و در دانلود منیجر های معرفی شده وارد نمایید . سپس بر روی گزینه start کلیک کنید تا دانلود شما شروع شود',
+                    managerMessageTime: '13 ساعت قبل',
+                    hasManagerAttachments: true,
                 },
                 {
-                    id: '2',
-                    data: '28خرداد 1403',
-                    title: 'مشکل دانلود فیلم'
-                },
+                    userName: 'tannaz',
+                    userMessage: 'ممنونم',
+                    userMessageTime: '10 ساعت قبل',
+                    hasUserAttachments: false,
+                    hasAnswer: true,
+                    managerName: 'مدیریت',
+                    managerMessage: 'خواهش میکنم',
+                    managerMessageTime: '9 ساعت قبل',
+                    hasManagerAttachments: false,
+                }
             ]
         }
     }
@@ -292,81 +297,59 @@ export default {
         line-height: 2;
     }
 
-    a {
-        text-decoration: none;
-    }
-
     &--300 {
         font-weight: 300;
-
-        a {
-            font-size: 14px;
-            color: #fff;
-        }
-    }
-
-    &--blue {
-        color: #6898f8;
+        font-size: 14px;
     }
 }
 
-.title_sec {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 10px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, .1);
+.time-ago {
+    font-size: 12px;
+    font-weight: 200;
+    color: #acb3bf;
+}
+
+.inner_ticket_item {
+    position: relative;
+    border-radius: 10px;
+    width: auto;
+    background: #1c1c22;
+    padding: 15px 20px;
     position: relative;
     margin-bottom: 20px;
+    max-width: 86%;
 }
 
-.title_sec h2 {
-    display: inline-block;
-    background: #23232b;
-    padding: 5px 10px;
-    margin-top: -5px;
-    font-size: 18px;
-    font-weight: 400;
+.left-float {
+    float: left;
 }
 
-.list_dis {
-    width: 100%;
-    margin-bottom: 20px;
-    text-align: right;
-    padding: 25px 25px 25px 0;
-    list-style: circle;
-
-    li {
-        width: 100%;
-        line-height: 2.5;
-        font-size: 14px;
-        font-weight: 200;
-    }
-
-    a {
-        text-decoration: none;
-        color: #6898f8;
-        font-weight: 500;
-    }
+.right-float {
+    float: right;
 }
 
-.form_item {
-    display: inline-block;
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-.form_item input {
-    width: 100%;
-    background: #1c1c22;
-    padding: 15px 10px;
-    border-radius: 35px;
+.author-img {
     color: #fff;
-    outline: none;
-    border: none;
+    display: block;
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    margin-bottom: 5px;
+    border-radius: 10px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 10px;
+    }
+}
+
+.ticket-attachments {
+    font-size: 14px;
+    color: #acb3bf;
 }
 
 .form_item label {
@@ -395,28 +378,6 @@ export default {
     background: #6898f8;
     color: #fff;
     border: none;
-}
-
-.item_box {
-    display: inline-block;
-    width: 100%;
-    background: #1c1c22;
-    color: #fff;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-tr {
-    border-bottom: 1px solid rgb(48, 47, 47);
-}
-
-tr:last-child {
-    border: none;
-}
-
-td,
-th {
-    padding: 10px 0;
 }
 
 .direction-column {
