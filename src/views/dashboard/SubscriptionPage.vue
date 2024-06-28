@@ -188,14 +188,14 @@ import comments from '@/assets/images/comments.svg'
                     </div>
 
                     <form name="main" method="post" action="" class="subscriptions_list mb-4">
-                        <label for="" class="item_subscription active" v-for="subscription in subscriptions">
+                        <label for="" class="item_subscription" :class="{ activeList: index === activeItem }"
+                            v-for="(subscription, index) in subscriptions" @click="clickHandler(index)">
                             <div class="d-flex justify-content-between">
                                 <h3 class="text-14"> {{ subscription.time }}</h3>
                                 <span class="text-14"> {{ subscription.info }}<small>تومان</small>
                                 </span>
                             </div>
                             <h4 class="text-14 text-14--300">{{ subscription.description }}</h4>
-                            <input type="radio" name="subscriptionID" id="" value="" checked="checked">
                         </label>
 
                         <div class="item_discount mb-4">
@@ -301,6 +301,7 @@ export default {
             avatar: 'T',
             hasBeforeMsgAlert: true,
             hasConfirmationAlert: true,
+            activeItem: -1,
 
             subscriptions: [
                 {
@@ -346,6 +347,12 @@ export default {
                     data: '29خرداد 1403',
                 },
             ],
+        }
+    },
+
+    methods: {
+        clickHandler(idx) {
+            this.activeItem = idx
         }
     }
 }
@@ -428,10 +435,6 @@ export default {
     cursor: pointer;
     text-align: right;
     transition: .3s;
-
-    &:is(:active, :hover) {
-        background-color: #6898f8;
-    }
 }
 
 .item_subscription input[type="radio"] {
@@ -543,5 +546,9 @@ th {
     @media (max-width:820px) {
         margin-bottom: 15px;
     }
+}
+
+.activeList {
+    background-color: #6898f8;
 }
 </style>

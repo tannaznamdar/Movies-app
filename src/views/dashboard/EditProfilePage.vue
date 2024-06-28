@@ -195,7 +195,7 @@ import comments from '@/assets/images/comments.svg'
                                         <div class="icon_holder">
                                             <font-awesome-icon icon="envelope" />
                                         </div>
-                                        <input type="email" name="useremail" id="useremail" value="" readonly="">
+                                        <input type="email" name="useremail" id="useremail" value="" >
                                     </div>
                                 </div>
                             </div>
@@ -267,7 +267,7 @@ import comments from '@/assets/images/comments.svg'
                                         <div class="icon_holder">
                                             <font-awesome-icon icon="phone" />
                                         </div>
-                                        <input type="number" name="mobile" id="mobile" value="" readonly="">
+                                        <input type="number" name="mobile" id="mobile" value="">
                                     </div>
                                 </div>
                             </div>
