@@ -431,146 +431,149 @@ const location = useRoute();
     </section>
 
     <!-- mobileMenu -->
-    <section class="mobile-menu" v-show="showMenu">
-      <div class="mask" style="display: block;" @click="showMenu = false"></div>
-      <div class="mobile-menu-container">
+    <transition name="slide-mobile-menu">
+      <section class="mobile-menu mobile-menu-container" v-if="showMenu">
+        <div class="mask" style="display: block;" @click="showMenu = false"></div>
+        <div class="mobile-menu-container">
 
-        <div class="d-flex align-items-center justify-content-between padding-10">
-          <div class="menu-logo">
-            <figure class="logo-img">
-              <router-link to="/"><img alt="logo" :src="logo" @click="showMenu = false"></router-link>
-            </figure>
+          <div class="d-flex align-items-center justify-content-between padding-10">
+            <div class="menu-logo">
+              <figure class="logo-img">
+                <router-link to="/"><img alt="logo" :src="logo" @click="showMenu = false"></router-link>
+              </figure>
+            </div>
           </div>
+
+          <nav class="mobile-menu">
+            <ul>
+              <li class="d-flex display align-items-center" v-if="!showGenreSubmenu" @click="showGenreSubmenu = true">
+                ژانر
+                <font-awesome-icon icon="plus" size="xs" />
+              </li>
+
+              <li class="d-flex display align-items-center" v-else @click="showGenreSubmenu = false"> ژانر
+                <font-awesome-icon icon="minus" size="xs" />
+              </li>
+
+              <div class="mobile-fixed-nav-child" v-show="showGenreSubmenu">
+                <ul>
+                  <li v-for="genre in genres">
+                    <router-link class="active" :to='{ name: "moviesGenrePageRoute", params: { genre: genre.slug } }'
+                      @click="showMenu = false">
+                      {{ genre.title }}
+                    </router-link>
+                  </li>
+                </ul>
+              </div>
+
+              <li class="d-flex display" v-if="!showMovieSubmenu" @click="showMovieSubmenu = true"> فیلم
+                <font-awesome-icon icon="plus" size="xs" />
+              </li>
+
+              <li class="d-flex display" v-else @click="showMovieSubmenu = false"> فیلم
+                <font-awesome-icon icon="minus" size="xs" />
+              </li>
+
+              <div class="mobile-fixed-nav-child" v-show="showMovieSubmenu">
+                <ul>
+                  <li v-for="country in countries">
+                    <router-link class="active"
+                      :to='{ name: "countryMoviePageRoute", params: { country: country.slug } }'
+                      @click="showMenu = false">
+                      {{ country.title }}
+                    </router-link>
+                  </li>
+                </ul>
+              </div>
+
+              <li class="d-flex display" v-if="!showSeriesSubmenu" @click="showSeriesSubmenu = true"> سریال
+                <font-awesome-icon icon="plus" size="xs" />
+              </li>
+
+              <li class="d-flex display" v-else @click="showSeriesSubmenu = false"> سریال
+                <font-awesome-icon icon="minus" size="xs" />
+              </li>
+
+              <div class="mobile-fixed-nav-child" v-show="showSeriesSubmenu">
+                <ul>
+                  <li v-for="country in countries">
+                    <router-link class="active"
+                      :to='{ name: "countrySeriesPageRoute", params: { country: country.slug } }'
+                      @click="showMenu = false">
+                      {{ country.title }}
+                    </router-link>
+                  </li>
+                </ul>
+              </div>
+
+              <li>
+                <router-link class="active" :to='{ name: "animationPageRoute" }' @click="showMenu = false">
+                  انیمیشن</router-link>
+              </li>
+
+              <li class="d-flex display" v-if="!shownDoubleSubmenu" @click="shownDoubleSubmenu = true"> دوبله فارسی
+                <font-awesome-icon icon="plus" size="xs" />
+              </li>
+
+              <li class="d-flex display" v-else @click="shownDoubleSubmenu = false"> دوبله فارسی
+                <font-awesome-icon icon="minus" size="xs" />
+              </li>
+
+              <div class="mobile-fixed-nav-child" v-show="shownDoubleSubmenu">
+                <ul>
+                  <li v-for="double in dubs">
+                    <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: double.slug } }'
+                      @click="showMenu = false">
+                      {{ double.title }}
+                    </router-link>
+                  </li>
+                </ul>
+              </div>
+
+              <li class="d-flex display" v-if="!showOtherSubmenu" @click="showOtherSubmenu = true"> سایر
+                <font-awesome-icon icon="plus" size="xs" />
+              </li>
+
+              <li class="d-flex display" v-else @click="showOtherSubmenu = false"> سایر
+                <font-awesome-icon icon="plus" size="xs" />
+              </li>
+
+              <div class="mobile-fixed-nav-child" v-show="showOtherSubmenu">
+                <ul>
+                  <li>
+                    <router-link class="active" :to='{ name: "collectionPageRoute" }' @click="showMenu = false">
+                      کالکشن</router-link>
+                  </li>
+                  <li>
+                    <router-link class="active" :to='{ name: "comingSoonPageRoute" }' @click="showMenu = false"> به
+                      زودی</router-link>
+                  </li>
+                  <li>
+                    <router-link class="active" :to='{ name: "topMoviePageRoute" }' @click="showMenu = false"> 250 فیلم
+                      برتر</router-link>
+                  </li>
+                  <li>
+                    <router-link class="active" :to='{ name: "oscarMoviesPageRoute" }' @click="showMenu = false"> اسکار
+                      ۲۰۲۳</router-link>
+                  </li>
+                </ul>
+              </div>
+
+              <li>
+                <router-link class="active" :to='{ name: "jobPageRoute" }' @click="showMenu = false">
+                  استخدام</router-link>
+              </li>
+
+              <li>
+                <router-link class="active" :to='{ name: "contactUsPageRoute" }' @click="showMenu = false"> ارتباط با
+                  ما</router-link>
+              </li>
+
+            </ul>
+          </nav>
         </div>
-
-        <nav class="mobile-menu">
-          <ul>
-            <li class="d-flex display align-items-center" v-if="!showGenreSubmenu" @click="showGenreSubmenu = true">
-              ژانر
-              <font-awesome-icon icon="plus" size="xs" />
-            </li>
-
-            <li class="d-flex display align-items-center" v-else @click="showGenreSubmenu = false"> ژانر
-              <font-awesome-icon icon="minus" size="xs" />
-            </li>
-
-            <div class="mobile-fixed-nav-child" v-show="showGenreSubmenu">
-              <ul>
-                <li v-for="genre in genres">
-                  <router-link class="active" :to='{ name: "moviesGenrePageRoute", params: { genre: genre.slug } }'
-                    @click="showMenu = false">
-                    {{ genre.title }}
-                  </router-link>
-                </li>
-              </ul>
-            </div>
-
-            <li class="d-flex display" v-if="!showMovieSubmenu" @click="showMovieSubmenu = true"> فیلم
-              <font-awesome-icon icon="plus" size="xs" />
-            </li>
-
-            <li class="d-flex display" v-else @click="showMovieSubmenu = false"> فیلم
-              <font-awesome-icon icon="minus" size="xs" />
-            </li>
-
-            <div class="mobile-fixed-nav-child" v-show="showMovieSubmenu">
-              <ul>
-                <li v-for="country in countries">
-                  <router-link class="active" :to='{ name: "countryMoviePageRoute", params: { country: country.slug } }'
-                    @click="showMenu = false">
-                    {{ country.title }}
-                  </router-link>
-                </li>
-              </ul>
-            </div>
-
-            <li class="d-flex display" v-if="!showSeriesSubmenu" @click="showSeriesSubmenu = true"> سریال
-              <font-awesome-icon icon="plus" size="xs" />
-            </li>
-
-            <li class="d-flex display" v-else @click="showSeriesSubmenu = false"> سریال
-              <font-awesome-icon icon="minus" size="xs" />
-            </li>
-
-            <div class="mobile-fixed-nav-child" v-show="showSeriesSubmenu">
-              <ul>
-                <li v-for="country in countries">
-                  <router-link class="active"
-                    :to='{ name: "countrySeriesPageRoute", params: { country: country.slug } }'
-                    @click="showMenu = false">
-                    {{ country.title }}
-                  </router-link>
-                </li>
-              </ul>
-            </div>
-
-            <li>
-              <router-link class="active" :to='{ name: "animationPageRoute" }' @click="showMenu = false">
-                انیمیشن</router-link>
-            </li>
-
-            <li class="d-flex display" v-if="!shownDoubleSubmenu" @click="shownDoubleSubmenu = true"> دوبله فارسی
-              <font-awesome-icon icon="plus" size="xs" />
-            </li>
-
-            <li class="d-flex display" v-else @click="shownDoubleSubmenu = false"> دوبله فارسی
-              <font-awesome-icon icon="minus" size="xs" />
-            </li>
-
-            <div class="mobile-fixed-nav-child" v-show="shownDoubleSubmenu">
-              <ul>
-                <li v-for="double in dubs">
-                  <router-link class="active" :to='{ name: "persianDubPageRoute", params: { slug: double.slug } }'
-                    @click="showMenu = false">
-                    {{ double.title }}
-                  </router-link>
-                </li>
-              </ul>
-            </div>
-
-            <li class="d-flex display" v-if="!showOtherSubmenu" @click="showOtherSubmenu = true"> سایر
-              <font-awesome-icon icon="plus" size="xs" />
-            </li>
-
-            <li class="d-flex display" v-else @click="showOtherSubmenu = false"> سایر
-              <font-awesome-icon icon="plus" size="xs" />
-            </li>
-
-            <div class="mobile-fixed-nav-child" v-show="showOtherSubmenu">
-              <ul>
-                <li>
-                  <router-link class="active" :to='{ name: "collectionPageRoute" }' @click="showMenu = false">
-                    کالکشن</router-link>
-                </li>
-                <li>
-                  <router-link class="active" :to='{ name: "comingSoonPageRoute" }' @click="showMenu = false"> به
-                    زودی</router-link>
-                </li>
-                <li>
-                  <router-link class="active" :to='{ name: "topMoviePageRoute" }' @click="showMenu = false"> 250 فیلم
-                    برتر</router-link>
-                </li>
-                <li>
-                  <router-link class="active" :to='{ name: "oscarMoviesPageRoute" }' @click="showMenu = false"> اسکار
-                    ۲۰۲۳</router-link>
-                </li>
-              </ul>
-            </div>
-
-            <li>
-              <router-link class="active" :to='{ name: "jobPageRoute" }' @click="showMenu = false">
-                استخدام</router-link>
-            </li>
-
-            <li>
-              <router-link class="active" :to='{ name: "contactUsPageRoute" }' @click="showMenu = false"> ارتباط با
-                ما</router-link>
-            </li>
-
-          </ul>
-        </nav>
-      </div>
-    </section>
+      </section>
+    </transition>
 
   </div>
 </template>
@@ -1420,12 +1423,12 @@ export default {
 }
 
 .mobile-menu-container {
-  position: fixed;
+  position: absolute;
   box-shadow: 0 5px 25px rgba(0, 0, 0, .13);
-  transition: all 500ms;
+  transition: 0.5s;
   top: 0;
   right: 0;
-  width: 80%;
+  width: 350px;
   height: 100%;
   z-index: 9999;
   background-color: #23232b;
@@ -1551,5 +1554,21 @@ export default {
 
 .dropdown-login:hover .dropdown-content {
   display: block;
+}
+
+.slide-mobile-menu-enter {
+  transform: translateX(350px);
+}
+
+.slide-mobile-menu-enter-active {
+  transition: all .5s ease-in;
+}
+
+.slide-mobile-menu-leave-active {
+  transition: all .5s ease-in;
+}
+
+.slide-mobile-menu-leave-to {
+  transform: translateX(350px);
 }
 </style>
